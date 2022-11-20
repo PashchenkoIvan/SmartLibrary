@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 
-import { } from './components/atoms';
-import { } from './components/molecules';
-import { } from './components/organisms';
-import { Catalog } from './components/templates';
+import { } from './Components/atoms';
+import { } from './Components/molecules';
+import { } from './Components/organisms';
+import { Catalog } from './Components/templates';
 
 function App() {
   return (
