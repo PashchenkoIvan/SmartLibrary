@@ -19,8 +19,8 @@ const PanelType = () => {
 
 	let btnMapAdd = btnMap.map(b => (
 		<NavLink
-			path={'admin/' + b.path}
-			className={navData => (navData.isActive ? s.active : s.item)}
+			to={'/admin/' + b.path}
+			className={navData => (navData.isActive ? s.isActive : s.notActive)}
 		>
 			{b.title}
 		</NavLink>

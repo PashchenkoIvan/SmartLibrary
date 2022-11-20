@@ -4,24 +4,30 @@
 	display: flex;
 	justify-content: center;
 }
-.item {
+.notActive {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 10px;
-	height: 40px;
-	color: #fff;
-}
-
-.active {
-	width: 108px;
-	height: 100%;
-	border: none;
-	background-color: #36bbcb;
-	color: #5c6167;
 	font-weight: 800;
 	font-size: 12px;
-	border-right: 1px solid #c1c1c1;
-	border-radius: 3px;
+	padding: 0 20px;
 	cursor: pointer;
+	height: 60px;
+	background-color: #fff;
+	color: #5c6167;
+	text-decoration: none;
+}
+
+.isActive {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 800;
+	font-size: 12px;
+	padding: 0 20px;
+	cursor: pointer;
+	height: 60px;
+	background-color: #36bbcb;
+	color: #fff;
+	text-decoration: none;
 }
