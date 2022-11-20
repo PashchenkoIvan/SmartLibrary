@@ -1,15 +1,16 @@
-// import logo from './logo.svg';
+import { Routes, Route } from 'react-router-dom';
 import s from './App.css';
-import Calendar from './Components/Calendar/Calendar';
+
 import AdminPage from './Pages/AdminMainPage/AdminPage';
 
 function App() {
-  return (
-    <div className={s.wrapper}>
-      {/* <Calendar/> */}
-      <AdminPage/>
-    </div>
-  );
+	return (
+		<div className={s.wrapper}>
+			<Routes>
+				<Route path='/admin/*' element={<AdminPage />} />
+			</Routes>
+		</div>
+	);
 }
 
 export default App;
