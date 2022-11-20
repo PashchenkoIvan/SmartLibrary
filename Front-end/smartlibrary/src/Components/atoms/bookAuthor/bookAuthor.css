@@ -1,0 +1,10 @@
+.bookAuthor {
+    height: 20px;
+
+    color: var(--color-subtitle);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.17px;
+    
+    overflow: hidden;
+}

@@ -1,0 +1,20 @@
+.bookInside {
+    position: relative;
+    top: 2%;
+    
+    width: calc(100% - 2px);
+    height: 96%;
+    
+    border: 1px solid grey;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 10px 0px 40px -10px #00000073, 
+                     inset -2px 0 0 grey,  
+                     inset -3px 0 0 #dbdbdb, 
+                     inset -4px 0 0 white, 
+                     inset -5px 0 0 #dbdbdb, 
+                     inset -6px 0 0 white, 
+                     inset -7px 0 0 #dbdbdb, 
+                     inset -8px 0 0 white, 
+                     inset -9px 0 0 #dbdbdb;
+}

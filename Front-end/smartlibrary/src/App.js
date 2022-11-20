@@ -1,13 +1,15 @@
-// import logo from './logo.svg';
-import s from './App.css';
-import Calendar from './Components/Calendar/Calendar';
-import AdminPage from './Pages/AdminMainPage/AdminPage';
+import React from 'react';
+import './App.css';
+
+import { } from './components/atoms';
+import { } from './components/molecules';
+import { } from './components/organisms';
+import { Catalog } from './components/templates';
 
 function App() {
   return (
-    <div className={s.wrapper}>
-      {/* <Calendar/> */}
-      <AdminPage/>
+    <div className="App">
+      <Catalog />
     </div>
   );
 }
