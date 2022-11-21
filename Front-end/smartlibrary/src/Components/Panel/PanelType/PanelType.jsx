@@ -26,7 +26,11 @@ const PanelType = () => {
 		</NavLink>
 	));
 
-	return <div className={s.container}>{btnMapAdd}</div>;
+	return (
+		<div className={s.container}>
+			<div className={s.inner}>{btnMapAdd}</div>
+		</div>
+	);
 };
 
 export default PanelType;

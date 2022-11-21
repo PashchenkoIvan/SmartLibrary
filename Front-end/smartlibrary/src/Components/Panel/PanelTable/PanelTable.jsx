@@ -19,7 +19,10 @@ const PanelTable = props => {
 		<div className={s.container}>
 			<div className={s.table}>
 				<Routes>
-					<Route path='readers' element={<Readers />} />
+					<Route
+						path='readers'
+						element={<Readers readers={props.tables.readers} />}
+					/>
 					<Route path='books' element={<Books />} />
 					<Route path='applications' element={<Applications />} />
 					<Route path='activities' element={<Activities />} />
