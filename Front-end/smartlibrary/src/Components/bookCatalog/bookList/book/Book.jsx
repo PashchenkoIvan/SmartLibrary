@@ -1,13 +1,15 @@
 import React from 'react';
-import { BookGanre, BookAuthor, BookName } from './';
+import { BookGanre, BookAuthor, BookName } from '.';
 
 import s from './book.module.css';
 
 const Book = props => {
+  const imgUrl = props.bookImg;
+
   return (
     <div className={s.book}>  
       <a href={props.linkToBook}>
-      <div className={s.bookCover}>  
+      <div className={s.bookCover} style={{ backgroundImage: 'url(' + imgUrl + ')' }}>  
         <BookGanre ganreImg={props.ganreImg} ganreText={props.ganreText} />
         <div className={s.bookEffect}></div>
         <div className={s.bookLight}></div>
