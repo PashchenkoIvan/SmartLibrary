@@ -1,8 +1,8 @@
-import s from './Header.module.css';
+import s from './TransHeader.module.css';
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-const Header = () => {
+const TransHeader = () => {
   return (
     <div className={s.container}>
         <div className={s.logo}></div>
@@ -18,4 +18,5 @@ const Header = () => {
     </div>
   )
 }
-export default Header;
+
+export default TransHeader;

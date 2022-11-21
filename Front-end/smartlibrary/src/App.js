@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './Components/Header/Header';
-import { BookCatalog } from './Components/index';
+import { BookCatalog } from './Components';
 import s from './App.css';
+import MainPage from './Pages/MainPage/MainPage';
 
 import AdminPage from './Pages/AdminMainPage/AdminPage';
 import Footer from './Components/Footer/Footer';
