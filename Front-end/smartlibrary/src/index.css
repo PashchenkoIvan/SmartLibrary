@@ -16,3 +16,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --font-family: "Avenir Next", sans-serif;
+
+  --bg: #fff;
+
+  --color-bg: #333;
+  --color-subtitle: #36bbcb;
+  --color-title: #242a31;
+}
