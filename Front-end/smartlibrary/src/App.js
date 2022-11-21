@@ -10,8 +10,8 @@ function App() {
 	return (
 		<div className={s.wrapper}>
 			<Header/>
-			<BookCatalog />
 			<Routes>
+				<Route path='/catalog' element={<BookCatalog />}/>
 				<Route path='/admin/*' element={<AdminPage />} />
 			</Routes>
 			<Footer/>

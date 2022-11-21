@@ -8,7 +8,7 @@ const Header = () => {
         <div className={s.logo}></div>
         <div className={s.navlinksBlock}>
             <NavLink className={s.link}>Головна</NavLink>
-            <NavLink className={s.link}>Каталог книг</NavLink>
+            <NavLink to='/catalog' className={s.link}>Каталог книг</NavLink>
             <NavLink className={s.link}>Контакти</NavLink>
             <NavLink className={s.link}>Як це працює</NavLink>
             <NavLink className={s.link}>Бібліотекар</NavLink>
