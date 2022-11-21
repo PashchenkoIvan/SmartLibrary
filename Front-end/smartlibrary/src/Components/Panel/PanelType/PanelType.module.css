@@ -1,21 +1,28 @@
 .container {
 	width: 100%;
-	padding: 0 50px;
 	display: flex;
 	justify-content: center;
 }
+
+.inner {
+	width: 1300px;
+	display: flex;
+	justify-content: space-between;
+}
+
 .notActive {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-weight: 800;
 	font-size: 12px;
-	padding: 0 20px;
+	width: 100%;
 	cursor: pointer;
 	height: 60px;
 	background-color: #fff;
 	color: #5c6167;
 	text-decoration: none;
+	text-align: center;
 }
 
 .isActive {
@@ -24,10 +31,11 @@
 	align-items: center;
 	font-weight: 800;
 	font-size: 12px;
-	padding: 0 20px;
+	width: 100%;
 	cursor: pointer;
 	height: 60px;
 	background-color: #36bbcb;
 	color: #fff;
 	text-decoration: none;
+	text-align: center;
 }
