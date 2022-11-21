@@ -4,6 +4,7 @@ import { BookCatalog } from './Components';
 import s from './App.css';
 
 import AdminPage from './Pages/AdminMainPage/AdminPage';
+import Footer from './Components/Footer/Footer';
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 			<Routes>
 				<Route path='/admin/*' element={<AdminPage />} />
 			</Routes>
+			<Footer/>
 		</div>
 	);
 }
