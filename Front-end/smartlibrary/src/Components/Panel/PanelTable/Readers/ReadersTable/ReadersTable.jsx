@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import s from './ReadersTable.module.css';
 import QRCode from 'react-qr-code';
+import qrcode from './img/qricon.png';
 
 const ReadersTable = props => {
 	const [readers, setReaders] = useState(props.readers);
@@ -11,7 +12,7 @@ const ReadersTable = props => {
 				<p>{r.name}</p>
 				<p>{r.email}</p>
 				<p>{r.phone}</p>
-				<p></p>
+				<p>{qrcode}</p>
 				<p>{r.status}</p>
 			</div>
 		);
