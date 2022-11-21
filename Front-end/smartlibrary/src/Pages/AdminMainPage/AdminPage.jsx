@@ -6,7 +6,6 @@ import s from './AdminPage.module.css';
 const AdminPage = props => {
 	return (
 		<div className={s.container}>
-			<Header />
 			<Calendar />
 			<Panel tables={props.admin.tables} />
 		</div>

@@ -8,12 +8,14 @@ const ReadersTable = props => {
 
 	let readersElements = readers.map(r => {
 		return (
-			<div className={s.header}>
-				<p>{r.name}</p>
-				<p>{r.email}</p>
-				<p>{r.phone}</p>
-				<p>{qrcode}</p>
-				<p>{r.status}</p>
+			<div className={s.row}>
+				<div>{r.name}</div>
+				<div>{r.email}</div>
+				<div>{r.phone}</div>
+				<div>
+					<img src={qrcode} alt='qrcode' />
+				</div>
+				<div>{r.status}</div>
 			</div>
 		);
 	});
