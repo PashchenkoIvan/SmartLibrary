@@ -6,6 +6,7 @@ import MainPage from './Pages/MainPage/MainPage';
 
 import AdminPage from './Pages/AdminMainPage/AdminPage';
 import Footer from './Components/Footer/Footer';
+// import Form from './Components/Form/Form';
 
 function App(props) {
 	return (
@@ -17,6 +18,7 @@ function App(props) {
 					path='/admin/*'
 					element={<AdminPage admin={props.state.admin} />}
 				/>
+				{/* <Route path='/form' element={<Form/>}/> */}
 			</Routes>
 			<Footer />
 		</div>

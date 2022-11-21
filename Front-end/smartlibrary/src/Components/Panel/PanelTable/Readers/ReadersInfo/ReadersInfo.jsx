@@ -1,9 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
+import  Form  from '../../../../Form/Form';
 import s from './ReadersInfo.module.css';
 
 const ReadersInfo = () => {
+	const [formActive, setFormActive] = useState(false);
 	return (
 		<div className={s.container}>
+			<Form active={formActive} setActive={setFormActive}/>
 			<div className={s.search}>
 				<div className={s.input}>
 					<input type='text' placeholder='Введіть ПІБ або проскануйте QR-код' />
@@ -22,7 +26,7 @@ const ReadersInfo = () => {
 						</svg>
 					</button>
 				</div>
-				<button className={s.addBtn}>+ Додати читача</button>
+				<button className={s.addBtn} onClick={() => setFormActive(true)}>+ Додати читача</button>
 			</div>
 		</div>
 	);
