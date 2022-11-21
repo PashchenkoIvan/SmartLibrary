@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Header from './Components/Header/Header';
-import { BookCatalog } from './Components';
+import { BookCatalog } from './Components/';
 import s from './App.css';
 import MainPage from './Pages/MainPage/MainPage';
 
