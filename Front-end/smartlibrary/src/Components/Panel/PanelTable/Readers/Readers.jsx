@@ -6,7 +6,7 @@ const Readers = props => {
 	return (
 		<div className={s.container}>
 			<ReadersInfo />
-			<ReadersTable />
+			<ReadersTable readers={props.readers} />
 		</div>
 	);
 };

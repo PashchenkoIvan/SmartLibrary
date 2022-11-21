@@ -1,5 +1,5 @@
 const state = {
-	librarian: {
+	admin: {
 		tables: {
 			readers: [
 				{
