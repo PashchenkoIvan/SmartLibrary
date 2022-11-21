@@ -1,0 +1,202 @@
+const state = {
+	admin: {
+		tables: {
+			readers: [
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: false,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: true,
+				},
+			],
+		},
+	},
+};
+
+export default state;
