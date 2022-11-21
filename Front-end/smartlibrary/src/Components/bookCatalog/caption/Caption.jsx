@@ -1,5 +1,5 @@
 import React from 'react';
-import { SubTitle, Title } from './';
+import { SubTitle, Title } from '.';
 
 import s from './caption.module.css';
 

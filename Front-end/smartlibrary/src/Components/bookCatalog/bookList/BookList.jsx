@@ -7,6 +7,7 @@ let bookMap = [
     bookAuthor: "#Сергій Жадан, Любко Дереш, Юрій Андрухович",
     linkToBook: "#",
     bookName: "Трициліндровий двигун любові",
+    bookImg: "/smartlibrary/src/assets/img/book/covers/berkut-ihor__brat-2.jpeg",
     ganreImg: "http://1.smart-library.in.ua/img/icon.png",
     ganreText: "Художня література",
   },
@@ -90,7 +91,7 @@ let bookMap = [
 ]
 
 const BookList = () => {
-  let bookMapAdd = bookMap.map(b => <Book bookAuthor={b.bookAuthor} linkToBook={b.linkToBook} bookName={b.bookName} ganreImg={b.ganreImg} ganreText={b.ganreText} />)
+  let bookMapAdd = bookMap.map(b => <Book bookAuthor={b.bookAuthor} linkToBook={b.linkToBook} bookName={b.bookName} bookImg={b.bookImg} ganreImg={b.ganreImg} ganreText={b.ganreText} />)
 
   return (
     <div className={s.bookList}>
