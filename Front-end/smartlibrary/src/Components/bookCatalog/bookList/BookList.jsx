@@ -1,5 +1,5 @@
 import React from 'react';
-import Book from './book/Book';
+import Book from './Book/Book';
 import s from './bookList.module.css';
 
 let bookMap = [
@@ -41,7 +41,7 @@ let bookMap = [
     bookName: "Армагедон на Майдані",
     bookImg: "https://drive.google.com/uc?export=view&id=1G7En-T1SN9exxirncl1GwvlX1U7IbHEs",
     ganreImg: "http://1.smart-library.in.ua/img/icon.png",
-    ganreText: "Художня література",
+    ganreText: "Краєзнавча література",
   },
   {
     bookAuthor: "#Ярослав Яріш, Ярослава Бакалець",
@@ -89,7 +89,7 @@ let bookMap = [
     bookName: "Переможців не судять",
     bookImg: "https://drive.google.com/uc?export=view&id=1qzjaXYKeUvHsDFOp5MdP4h6flXttWFui",
     ganreImg: "http://1.smart-library.in.ua/img/icon.png",
-    ganreText: "Художня література",
+    ganreText: "Краєзнавча література",
   },
   {
     bookAuthor: "#Галина Вдовиченко",
