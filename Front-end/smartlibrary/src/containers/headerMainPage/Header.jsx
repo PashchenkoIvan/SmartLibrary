@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './header.module.css'
-import { Logo, VideoBg } from '../../assets'
+import { Logo, VideoBg } from '../../assets/imgMainPage'
 import { Menu, Navbar, Search } from '../../containers'
 const Header = () => {
 	const VeiwMenu = () => {
