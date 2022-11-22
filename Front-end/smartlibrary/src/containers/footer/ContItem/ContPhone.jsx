@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './ContItem.module.css'
-import { Phone } from '../../../assets'
+import { Phone } from '../../../assets/imgMainPage'
 
 function ContPhone() {
 	return (
