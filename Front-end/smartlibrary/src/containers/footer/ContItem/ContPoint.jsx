@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './ContItem.module.css'
-import { Point } from '../../../assets'
+import { Point } from '../../../assets/imgMainPage'
 
 function ContPoint() {
 	return (
