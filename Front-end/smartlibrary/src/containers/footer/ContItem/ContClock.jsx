@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './ContItem.module.css'
-import { Clock } from '../../../assets'
+import { Clock } from '../../../assets/imgMainPage'
 
 const ContClock = () => {
 	return (
