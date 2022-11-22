@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import s from './Menu.module.css'
-import { Play } from '../../../assets'
+import { Play } from '../../../assets/imgMainPage'
 
 const Menu = () => {
 	return (
