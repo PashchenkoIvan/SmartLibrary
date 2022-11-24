@@ -4,6 +4,7 @@ import Clock from './image/clock.png';
 import Phone from './image/phone.png';
 import Point from './image/point.png';
 import Logo from '../Header/images/logo.png';
+import { NavLink } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -23,7 +24,7 @@ const Footer = () => {
                 <img src={Phone} alt="Phone" />
             </div>
             <div className={s.text}>
-                <p>+38 093 22 26 111</p>
+                <a>+38 093 22 26 111</a>
             </div>
         </div>
         <div className={s.item}>
@@ -31,8 +32,8 @@ const Footer = () => {
                 <img src={Point} alt="Clock" />
             </div>
             <div className={s.text}>
-                <p>c. Дослідне</p>
-                <p>вул. Наукова 20</p>
+                <a>c. Дослідне</a>
+                <a>вул. Наукова 20</a>
             </div>
         </div>
         <div className={s.itemLast}>

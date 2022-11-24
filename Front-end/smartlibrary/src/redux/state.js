@@ -1,4 +1,6 @@
-const state = {
+const ADD_READER = 'ADD-READER';
+
+let state = {
 	admin: {
 		tables: {
 			readers: [
@@ -13,5 +15,9 @@ const state = {
 		},
 	},
 };
-
+export const addReaderActionCreator = () => {
+	return{
+		type: ADD_READER,
+	}
+}
 export default state;

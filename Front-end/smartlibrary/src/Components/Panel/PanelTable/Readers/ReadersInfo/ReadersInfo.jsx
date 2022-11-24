@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import  Form  from '../../../../Form/Form';
+import Form from '../ReadersForm/Form';
 import s from './ReadersInfo.module.css';
 
 const ReadersInfo = () => {
