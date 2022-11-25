@@ -13,7 +13,7 @@ const Header = () => {
             <NavLink className={s.link}>Як це працює</NavLink>
             <NavLink to='/admin/readers' className={s.link}>Бібліотекар</NavLink>
             <NavLink className={s.link}>Вийти</NavLink>
-            <NavLink className={s. blueLink}>Особистий кабінет</NavLink>
+            <NavLink to='/personPage' className={s. blueLink}>Особистий кабінет</NavLink>
         </div>
     </div>
   )
