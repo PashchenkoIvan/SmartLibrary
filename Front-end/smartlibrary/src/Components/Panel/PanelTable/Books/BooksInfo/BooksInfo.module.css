@@ -1,0 +1,68 @@
+.container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.search {
+	display: flex;
+}
+
+.search button {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border: 1px solid #c7d2e6;
+	border-left: none;
+	border-radius: 3px 0px 0px 3px;
+}
+
+.search svg {
+	width: 23px;
+	height: 23px;
+	stroke: #5c6167;
+}
+
+.search input {
+	width: 950px;
+	height: 50px;
+	outline: none;
+	border: 1px solid #c7d2e6;
+	border-right: none;
+	padding-left: 20px;
+}
+
+.buttons {
+	display: flex;
+}
+
+.addBook {
+	height: 50px;
+	width: 140px;
+	border-radius: 3px;
+	background-color: #36bbcb;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.categories {
+	margin-left: 10px;
+	height: 50px;
+	width: 120px;
+	border-radius: 3px;
+	background-color: #f5a623;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-weight: 700;
+	text-decoration: none;
+}

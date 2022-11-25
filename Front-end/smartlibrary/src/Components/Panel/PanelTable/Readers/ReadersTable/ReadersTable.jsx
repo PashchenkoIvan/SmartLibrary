@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import s from './ReadersTable.module.css';
 // import QRCode from 'react-qr-code';
-import qrcode from './img/qricon.png';
+import qrcode from '../../../img/qricon.png';
 
 const ReadersTable = props => {
 	const [readers, setReaders] = useState(props.readers);
