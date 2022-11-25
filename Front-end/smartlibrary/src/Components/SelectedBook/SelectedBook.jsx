@@ -12,10 +12,10 @@ const SelectedBook = props => {
 
     return (
         <div className={s.container}>
-            <Link to='/catalog' element={BookCatalog}>
+            <Link to='/catalog' element={BookCatalog} onClick={() => {window.scrollTo(0, 0)}}>
                 <Btn />
             </Link>
-            <Row currentBook={books[bookId]} books={books} />
+            <Row currentBook={books.reduce((res, obj) => obj.id == bookId ? obj : res, {})} books={books} />
         </div>
     )
 }

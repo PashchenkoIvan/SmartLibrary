@@ -6,14 +6,14 @@ import { SideSignIn, RecBook } from '.';
 const SideBar = props => {
   const [recBooks, setBooks] = useState(props.currentBook.recBooks);
   const recBooksAdd = recBooks.map(
-    (id, index) => 
+    id => 
       <div className={s.recBookContainer}>
         <Link to={`/catalog/${id}`} className={s.link} onClick={() => {this.forceUpdate()}}>
-          <RecBook linkToBook={props.books[id].linkToBook}
-                   bookName={props.books[id].bookName}
-                   bookImg={props.books[id].bookImg} />
+          <RecBook linkToBook={props.books.reduce((res, obj) => obj.id == id ? obj : res, {}).linkToBook}
+                   bookName={props.books.reduce((res, obj) => obj.id == id ? obj : res, {}).bookName}
+                   bookImg={props.books.reduce((res, obj) => obj.id == id ? obj : res, {}).bookImg} />
         </Link>
-        <span className={s.recBookGanre}>{props.books[id].ganreText}</span>
+        <span className={s.recBookGanre}>{props.books.reduce((res, obj) => obj.id == id ? obj : res, {}).ganreText}</span>
       </div>
     )
   

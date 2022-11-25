@@ -7,7 +7,7 @@ import s from './bookList.module.css';
 const BookList = props => {
   const [books, setBooks] = useState(props.books);
   const bookMapAdd = books.map(
-    (b, index) => <Link to={`/catalog/${index}`} onClick={() => {window.scrollTo(0, 0)}}>
+    b => <Link to={`/catalog/${b.id}`} onClick={() => {window.scrollTo(0, 0)}}>
           <Book bookAuthor={`#${b.bookAuthor}`}
                 linkToBook={b.linkToBook}
                 bookName={b.bookName}
