@@ -8,7 +8,7 @@ const SideBar = props => {
   const recBooksAdd = recBooks.map(
     (id, index) => 
       <div className={s.recBookContainer}>
-        <Link to={`/catalog/${id}`} onClick={() => {this.forceUpdate()}}>
+        <Link to={`/catalog/${id}`} className={s.link} onClick={() => {this.forceUpdate()}}>
           <RecBook linkToBook={props.books[id].linkToBook}
                    bookName={props.books[id].bookName}
                    bookImg={props.books[id].bookImg} />
