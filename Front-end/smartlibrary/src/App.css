@@ -23,6 +23,10 @@ button {
   background: transparent;
 }
 
+a {
+  text-decoration: none;
+}
+
 @font-face {
   font-family: 'Avenir Next Ultra';
   src: url('../src/assets/fonts/AvenirNext-UltraLight.woff2') format('woff2'), url('../src/assets/fonts/AvenirNext-UltraLight.woff') format('woff');

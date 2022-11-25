@@ -1,0 +1,9 @@
+.content {
+    width: 75%;
+    min-height: 600px;
+}
+
+.bookFullInfo {
+    display: flex;
+    gap: 65px;
+}

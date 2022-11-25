@@ -3,13 +3,13 @@ import { BookList, Caption, Btn } from '.';
 
 import s from './bookCatalog.module.css';
 
-const BookCatalog = () => {
+const BookCatalog = props => {
     return (
         <div className={s.bookCatalog}>
             <div className={s.bookContainer}>
                 <Caption />
-                <BookList />
-                <Btn btnText="Переглянути всі книжки" />
+                <BookList books={props.data.books} />
+                <Btn />
             </div>
         </div>
     )

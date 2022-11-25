@@ -1,0 +1,18 @@
+.sideSignIn {
+    padding: 20px;
+
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.7;
+    
+    border: 1px solid #efefef;
+    
+    -webkit-box-shadow: 0 3px 5px 0 rgb(0 0 0 / 3%);
+    box-shadow: 0 3px 5px 0 rgb(0 0 0 / 3%);
+}
+
+.link {
+    color: #36bbcb;
+    font-weight: 500;
+}

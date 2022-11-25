@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import s from './bookName.module.css';
 
 const BookName = props => {
   return (
     <p className={s.bookName}>
-      <a className={s.bookNameLink} href={props.linkToBook}>{props.bookName}</a>
+      <Link to={`/catalog/${props.linkToBook}`} className={s.bookNameLink}>{props.bookName}</Link>
     </p>
   )
 }

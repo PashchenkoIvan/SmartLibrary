@@ -8,13 +8,11 @@ const Book = props => {
 
   return (
     <div className={s.book}>  
-      <a href={props.linkToBook}>
       <div className={s.bookCover} style={{ backgroundImage: 'url(' + imgUrl + ')' }}>  
         <BookGanre ganreImg={props.ganreImg} ganreText={props.ganreText} />
         <div className={s.bookEffect}></div>
         <div className={s.bookLight}></div>
       </div>
-      </a>
       <div className={s.bookInside}></div>
       <div className={s.bookInfo}>  
         <BookAuthor bookAuthor={props.bookAuthor} />

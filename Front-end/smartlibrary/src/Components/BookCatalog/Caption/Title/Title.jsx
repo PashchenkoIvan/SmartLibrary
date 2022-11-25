@@ -1,9 +1,9 @@
 import React from 'react';
 import s from './title.module.css';
 
-const Title = props => {
+const Title = () => {
   return (
-    <p className={s.title}>{props.pText}</p>
+    <p className={s.title}>Популярні книжки</p>
   )
 }
 
