@@ -41,7 +41,13 @@ const BooksTable = props => {
 					<div className={s.filtersNotReturned}></div>
 				</div>
 			</div>
-			<div className={s.tableHeader}></div>
+			<div className={s.tableHeader}>
+				<p>Назва книги</p>
+				<p>Автор</p>
+				<p>Інвертарний номер</p>
+				<p>Статус</p>
+				<p>QR-код</p>
+			</div>
 			<div className={s.tableMain}>{booksElements}</div>
 		</div>
 	);
