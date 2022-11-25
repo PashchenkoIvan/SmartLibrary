@@ -1,9 +1,15 @@
+import { useState } from 'react';
 import s from './Books.module.css';
+import BooksInfo from './BooksInfo/BooksInfo';
+import BooksTable from './BooksTable/BooksTable';
 
-const Books = () => {
+const Books = props => {
+	const [books, setBooks] = useState(props.books);
+
 	return (
-		<div>
-			<h1>Books</h1>
+		<div className={s.container}>
+			<BooksInfo />
+			<BooksTable books={books} />
 		</div>
 	);
 };
