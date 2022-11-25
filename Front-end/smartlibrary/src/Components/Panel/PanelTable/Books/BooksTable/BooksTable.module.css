@@ -1,0 +1,115 @@
+.filter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 3px;
+	width: 100%;
+	height: 40px;
+	margin-top: 10px;
+	background-color: #fff;
+}
+
+.filter p {
+	color: #242a31;
+	font-size: 14px;
+	font-weight: 600;
+	padding-left: 15px;
+}
+
+.filters {
+	display: flex;
+}
+
+.tableHeader {
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	height: 40px;
+	border-radius: 3px;
+	background-color: #dae3ef;
+}
+
+.tableHeader p {
+	color: #242a31;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.tableHeader p:nth-child(1) {
+	padding-left: 15px;
+	width: 40%;
+}
+
+.tableHeader p:nth-child(2) {
+	width: 25%;
+}
+
+.tableHeader p:nth-child(3) {
+	width: 10%;
+}
+
+.tableHeader p:nth-child(4) {
+	width: 10%;
+}
+
+.tableHeader p:nth-child(5) {
+	width: 5%;
+}
+
+.tableMain {
+	margin-bottom: 15px;
+	height: 800px;
+	overflow-y: scroll;
+}
+
+.row {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-top: 10px;
+	height: 40px;
+	border-radius: 3px;
+	background-color: #fff;
+}
+
+.row p:nth-child(1) {
+	padding-left: 15px;
+	width: 40%;
+}
+
+.row p:nth-child(2) {
+	width: 25%;
+}
+
+.row p:nth-child(3) {
+	width: 10%;
+}
+
+.row p:nth-child(4) {
+	width: 10%;
+}
+
+.row div {
+	width: 5%;
+	padding-left: 15px;
+}
+
+.row a {
+	justify-self: flex-end;
+	width: 100px;
+	height: 30px;
+	border-radius: 2px;
+	background-color: #36bbcb;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+}
+
+.filtersAll input {
+	width: 20px;
+	height: 20px;
+}

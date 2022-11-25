@@ -10,15 +10,30 @@
 	justify-content: space-between;
 }
 
-.notActive {
+.item {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	font-weight: 800;
 	font-size: 12px;
 	width: 100%;
+	padding: 0 10px;
 	cursor: pointer;
 	height: 60px;
+	text-decoration: none;
+	outline: none;
+}
+
+.item:first-child {
+	border-radius: 10px 0px 0px 10px;
+}
+
+.item:last-child {
+	border-radius: 0px 10px 10px 0px;
+}
+
+.notActive {
 	background-color: #fff;
 	color: #5c6167;
 	text-decoration: none;
@@ -26,14 +41,6 @@
 }
 
 .isActive {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-weight: 800;
-	font-size: 12px;
-	width: 100%;
-	cursor: pointer;
-	height: 60px;
 	background-color: #36bbcb;
 	color: #fff;
 	text-decoration: none;
