@@ -12,6 +12,7 @@ const ReadersTable = props => {
 				<div>{r.name}</div>
 				<div>{r.email}</div>
 				<div>{r.phone}</div>
+				<div>{r.needs == true ? 'так' : 'немає'}</div>
 				<div>
 					<img src={qrcode} alt='qrcode' />
 				</div>
@@ -26,6 +27,7 @@ const ReadersTable = props => {
 				<p>ПІБ</p>
 				<p>Email</p>
 				<p>Телефон</p>
+				<p>Особливі потреби</p>
 				<p>QR-код</p>
 				<p>Статус</p>
 			</div>

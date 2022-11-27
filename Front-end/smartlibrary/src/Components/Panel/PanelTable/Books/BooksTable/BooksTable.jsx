@@ -41,14 +41,14 @@ const BooksTable = props => {
 					<div className={s.filtersNotReturned}></div>
 				</div>
 			</div>
-			<div className={s.tableHeader}>
+			<div className={s.header}>
 				<p>Назва книги</p>
 				<p>Автор</p>
 				<p>Інвертарний номер</p>
 				<p>Статус</p>
 				<p>QR-код</p>
 			</div>
-			<div className={s.tableMain}>{booksElements}</div>
+			<div className={s.main}>{booksElements}</div>
 		</div>
 	);
 };
