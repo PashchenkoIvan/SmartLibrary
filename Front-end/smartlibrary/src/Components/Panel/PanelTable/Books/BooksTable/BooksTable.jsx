@@ -8,10 +8,10 @@ const BooksTable = props => {
 		let path = `/Books/Edit/${b.id}`;
 		return (
 			<div className={s.row}>
-				<p>{b.name}</p>
-				<p>{b.author}</p>
-				<p>{b.number}</p>
-				<p>{b.status}</p>
+				<div>{b.name}</div>
+				<div>{b.author}</div>
+				<div>{b.number}</div>
+				<div>{b.status}</div>
 				<div>
 					<img src={qrCode} alt='' />
 				</div>
