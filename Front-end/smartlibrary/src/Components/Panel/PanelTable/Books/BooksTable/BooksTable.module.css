@@ -71,6 +71,7 @@
 	margin-top: 10px;
 	height: 40px;
 	border-radius: 3px;
+	box-shadow: 0 1px 4px rgb(30 37 82 / 24%);
 	background-color: #fff;
 	height: 55px;
 }

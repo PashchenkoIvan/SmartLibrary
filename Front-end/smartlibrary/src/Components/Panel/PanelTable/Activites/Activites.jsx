@@ -1,9 +1,12 @@
 import React from 'react';
+import ActivitiesSearch from './ActivitiesSearch/ActivitiesSearch';
+import ActivitiesTable from './ActivitiesTable/ActivitiesTable';
 
-const Activites = () => {
+const Activites = props => {
 	return (
 		<div>
-			<h1>Activites</h1>
+			<ActivitiesSearch />
+			<ActivitiesTable activities={props.activities} />
 		</div>
 	);
 };

@@ -28,15 +28,47 @@ const PanelTable = props => {
 						path='applications'
 						element={<Applications applications={props.tables.applications} />}
 					/>
-					<Route path='activities' element={<Activities />} />
-					<Route path='event-reporting' element={<EventReporting />} />
-					<Route path='annual-reporting' element={<AnnualReporting />} />
-					<Route path='invertory' element={<Invertory />} />
-					<Route path='librarians' element={<Librarians />} />
-					<Route path='affiliates' element={<Affiliates />} />
-					<Route path='news' element={<News />} />
-					<Route path='reports-to-the-news' element={<ReportsToTheNews />} />
-					<Route path='visitors' element={<Visitors />} />
+					<Route
+						path='activities'
+						element={<Activities activities={props.tables.activities} />}
+					/>
+					<Route
+						path='event-reporting'
+						element={
+							<EventReporting eventReporting={props.tables.eventReporting} />
+						}
+					/>
+					<Route
+						path='annual-reporting'
+						element={
+							<AnnualReporting annualReporting={props.tables.annualReporting} />
+						}
+					/>
+					<Route
+						path='invertory'
+						element={<Invertory invertory={props.tables.invertory} />}
+					/>
+					<Route
+						path='librarians'
+						element={<Librarians librarians={props.tables.librarians} />}
+					/>
+					<Route
+						path='affiliates'
+						element={<Affiliates affiliates={props.tables.affiliates} />}
+					/>
+					<Route path='news' element={<News news={props.tables.news} />} />
+					<Route
+						path='reports-to-the-news'
+						element={
+							<ReportsToTheNews
+								reportsToTheNews={props.tables.reportsToTheNews}
+							/>
+						}
+					/>
+					<Route
+						path='visitors'
+						element={<Visitors visitors={props.tables.visitors} />}
+					/>
 				</Routes>
 			</div>
 		</div>
