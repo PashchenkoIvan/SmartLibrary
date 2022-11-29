@@ -1,6 +1,9 @@
 import s from './Cabinet.module.css';
 import React from 'react'
 import Qr from '../image/qrcode.png';
+import Calendar from 'react-calendar';
+// import 'react-calendar/dist/Calendar.css';
+import './CalendarStyle.css';
 
 const Cabinet = () => {
   return (
@@ -16,12 +19,15 @@ const Cabinet = () => {
             <div className={s.editBlock}>
                 <p>Pashchenko Ivan</p>
                 <div className={s.buttonBlock}>
-                    <button>Редагувати профіль</button>
+                    <button>Редагувати пароль</button>
                     <button>Мої підписки</button>
                     <button>Вийти з системи</button>
                 </div>
             </div>
             <div className={s.calendarBlock}>
+                <div className={s.calendar}>
+                    <Calendar/>
+                </div>
                 <div className={s.infoBlock}></div>
             </div>
         </div>

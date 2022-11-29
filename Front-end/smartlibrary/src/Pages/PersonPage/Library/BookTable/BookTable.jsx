@@ -1,15 +1,21 @@
 import s from './BookTable.module.css';
 import React from 'react'
 
-export const BookTable = (props) => {
-    let InfoMap = [
-        {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-        {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-        {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-        {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-        {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-    ];
-    // let InfoMapAdd = InfoMap.map(i => (<BookTable bookName={name}/>));
+// const BookTable = () => {
+//     let InfoMap = [
+//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
+//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
+//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
+//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
+//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
+//     ];
+//     let InfoMapAdd = InfoMap.map(i => (<BookTableBlock bookName={i.name} startDate={i.startData} endDate={i.endData} status={i.status}/>));
+//     return (
+//         {InfoMapAdd}
+//     );
+// }
+
+export const BookTableBlock = (props) => {
   return (
     <div className={s.container}>
         <h2>ПЕРЕЛІК КНИГ</h2>
@@ -30,3 +36,4 @@ export const BookTable = (props) => {
     </div>
   )
 }
+export default BookTableBlock;
