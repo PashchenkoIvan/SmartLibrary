@@ -60,6 +60,7 @@ let state = {
 				bookImg: "https://drive.google.com/uc?export=view&id=1I6e9S0yWLcKpDrDwCFQW3Ki9a5AxR_uT",
 				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
 				ganreText: "Художня література",
+				isPopularBook: true,
 				lang: "Українська",
 				pageAmount: "219",
 				bookType: "Паперова",
@@ -82,6 +83,7 @@ let state = {
 				bookImg: "https://drive.google.com/uc?export=view&id=1-Qz85aAQHVPvc5qhGELvKY6Jb0NXeUgy",
 				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
 				ganreText: "Художня література",
+				isPopularBook: true,
 				lang: "Українська",
 				pageAmount: "288",
 				bookType: "Паперова",
@@ -104,6 +106,7 @@ let state = {
 				bookImg: "https://drive.google.com/uc?export=view&id=1K4IOE_g3_09T7O8HX5zleCRuUGxiBe8O",
 				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
 				ganreText: "Художня література",
+				isPopularBook: true,
 				lang: "Російська",
 				pageAmount: "320",
 				bookType: "Паперова",
@@ -126,6 +129,7 @@ let state = {
 				bookImg: "https://drive.google.com/uc?export=view&id=10KtRm7iX2eEvmbkVFLKFeuo1dYBJDm7y",
 				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
 				ganreText: "Художня література",
+				isPopularBook: true,
 				lang: "Українська",
 				pageAmount: "94",
 				bookType: "Паперова",
@@ -148,6 +152,7 @@ let state = {
 				bookImg: "https://drive.google.com/uc?export=view&id=1G7En-T1SN9exxirncl1GwvlX1U7IbHEs",
 				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
 				ganreText: "Краєзнавча література",
+				isPopularBook: true,
 				lang: "Українська",
 				pageAmount: "160",
 				bookType: "Паперова",
@@ -313,6 +318,72 @@ let state = {
 				ISBN: "978-617-679-660-2",
 				dateOfPublication: "2019",
 				bookDesc: "«Пів'яблука. Інші пів'яблука» — історія жіночої дружби, що дозволить читачеві поглянути на звичні речі по-новому, оповідь про долі чотирьох подруг — таких різних, але однаково близьких. Одного разу вони знаходять незвичайний сувенір. Те, що спершу здавалося просто цікавою іграшкою, починає у дивовижний спосіб змінювати життя жінок, виконуючи найпотаємніші бажання кожної з них... Знахідка стане початком нових пригод, вона покаже, чого насправді бажають подруги. Хто зміг створити цей шедевр? І чому майстер Пінзель, найзагадковіший галицький скульптор XVIII століття, що далі помітніше впливає на тих, хто живе у XXI столітті? Дізнайтесь усі таємниці, прочитавши цю чудову книжку.Романи «Пів'яблука» та «Інші пів'яблука», з якими свого часу дебютувала Галина Вдовиченко, — вперше під однією обкладинкою, у новій авторській редакції.",
+				recBooks: [
+					"peremozhtsiv-ne-sudyat",
+					"pekhota",
+					"12-obruchiv"
+				],
+				bookCategories: [
+					"detektyvy"
+				],
+			},
+			{
+				bookAuthor: "Автор",
+				id: "book-1",
+				bookName: "Назва книги",
+				bookImg: "",
+				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
+				ganreText: "Художня література",
+				lang: "Українська",
+				pageAmount: "13",
+				bookType: "Паперова",
+				ISBN: "978-617-679-660-2",
+				dateOfPublication: "2022",
+				bookDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+				recBooks: [
+					"peremozhtsiv-ne-sudyat",
+					"pekhota",
+					"12-obruchiv"
+				],
+				bookCategories: [
+					"detektyvy"
+				],
+			},
+			{
+				bookAuthor: "Автор",
+				id: "book-2",
+				bookName: "Назва книги",
+				bookImg: "",
+				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
+				ganreText: "Художня література",
+				lang: "Українська",
+				pageAmount: "13",
+				bookType: "Паперова",
+				ISBN: "978-617-679-660-2",
+				dateOfPublication: "2022",
+				bookDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+				recBooks: [
+					"peremozhtsiv-ne-sudyat",
+					"pekhota",
+					"12-obruchiv"
+				],
+				bookCategories: [
+					"detektyvy"
+				],
+			},
+			{
+				bookAuthor: "Автор",
+				id: "book-3",
+				bookName: "Назва книги",
+				bookImg: "",
+				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
+				ganreText: "Художня література",
+				lang: "Українська",
+				pageAmount: "13",
+				bookType: "Паперова",
+				ISBN: "978-617-679-660-2",
+				dateOfPublication: "2022",
+				bookDesc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 				recBooks: [
 					"peremozhtsiv-ne-sudyat",
 					"pekhota",

@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './contentBlock.module.css';
-import BookList from './BookList/BookList'
+import BookList from '../../BookList/BookList'
 
 const ContentBlock = props => {
   return (

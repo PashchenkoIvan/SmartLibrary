@@ -1,5 +1,6 @@
 import React from 'react';
-import { BookList, Caption, Btn } from '.';
+import { Caption, Btn } from '.';
+import BookList from '../BookList/BookList';
 
 import s from './popularBooks.module.css';
 
