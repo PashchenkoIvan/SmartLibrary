@@ -9,6 +9,14 @@ let state = {
 					email: 'sergey.zorya@gmail.com',
 					phone: '+380935096324',
 					status: 'Немає боргів',
+					needs: true,
+				},
+				{
+					name: 'Sergey Zorya',
+					email: 'sergey.zorya@gmail.com',
+					phone: '+380935096324',
+					status: 'Немає боргів',
+					needs: false,
 				},
 			],
 			books: [
@@ -25,6 +33,20 @@ let state = {
 					number: '14977',
 					status: 'У наявності',
 					id: 24,
+				},
+			],
+			applications: [
+				{
+					name: 'Пащенко Іван Анатолійович',
+					book: 'Як опанувати сувору типізацію',
+					date: '20.11.2022',
+					number: '8345535',
+				},
+				{
+					name: 'Пащенко Іван Анатолійович',
+					book: 'Як опанувати сувору типізацію',
+					date: '20.11.2022',
+					number: '8345535',
 				},
 			],
 		},
@@ -300,12 +322,12 @@ let state = {
 					"detektyvy"
 				],
 			},
-		]
-	}
+		],
+	},
 };
 export const addReaderActionCreator = () => {
-	return{
+	return {
 		type: ADD_READER,
-	}
-}
+	};
+};
 export default state;

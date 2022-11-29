@@ -8,10 +8,10 @@ const BooksTable = props => {
 		let path = `/Books/Edit/${b.id}`;
 		return (
 			<div className={s.row}>
-				<p>{b.name}</p>
-				<p>{b.author}</p>
-				<p>{b.number}</p>
-				<p>{b.status}</p>
+				<div>{b.name}</div>
+				<div>{b.author}</div>
+				<div>{b.number}</div>
+				<div>{b.status}</div>
 				<div>
 					<img src={qrCode} alt='' />
 				</div>
@@ -41,14 +41,14 @@ const BooksTable = props => {
 					<div className={s.filtersNotReturned}></div>
 				</div>
 			</div>
-			<div className={s.tableHeader}>
+			<div className={s.header}>
 				<p>Назва книги</p>
 				<p>Автор</p>
 				<p>Інвертарний номер</p>
 				<p>Статус</p>
 				<p>QR-код</p>
 			</div>
-			<div className={s.tableMain}>{booksElements}</div>
+			<div className={s.main}>{booksElements}</div>
 		</div>
 	);
 };

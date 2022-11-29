@@ -1,9 +1,10 @@
 import React from 'react';
+import ApplicationsTable from './ApplicationsTable/ApplicationsTable';
 
-const Applications = () => {
+const Applications = props => {
 	return (
 		<div>
-			<h1>Applications</h1>
+			<ApplicationsTable applications={props.applications} />
 		</div>
 	);
 };
