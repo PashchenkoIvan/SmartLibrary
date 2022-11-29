@@ -49,6 +49,9 @@ let state = {
 					"brat-2",
 					"pokhoron-bohiv"
 				],
+				bookCategories: [
+					"detektyvy"
+				],
 			},
 			{
 				bookAuthor: "Юрій Андрухович",
@@ -67,6 +70,9 @@ let state = {
 					"trytsylindrovyy-dvyhun-lyubovi",
 					"zahovoreno-na-lyubov",
 					"yzbrannye-sny"
+				],
+				bookCategories: [
+					"detektyvy"
 				],
 			},
 			{
@@ -87,6 +93,9 @@ let state = {
 					"armahedon-na-maydani",
 					"iz-soho-dna"
 				],
+				bookCategories: [
+					"detektyvy"
+				],
 			},
 			{
 				bookAuthor: "Катерина Бабкіна",
@@ -105,6 +114,9 @@ let state = {
 					"pekhota",
 					"pokhoron-bohiv",
 					"12-obruchiv"
+				],
+				bookCategories: [
+					"detektyvy"
 				],
 			},
 			{
@@ -125,6 +137,9 @@ let state = {
 					"iz-soho-dna",
 					"pokhoron-bohiv"
 				],
+				bookCategories: [
+					"detektyvy"
+				],
 			},
 			{
 				bookAuthor: "Ярослав Яріш, Ярослава Бакалець",
@@ -143,6 +158,9 @@ let state = {
 					"pivyabluka-inshi-pivyabluka",
 					"svitlonosets-mech-voli",
 					"peremozhtsiv-ne-sudyat"
+				],
+				bookCategories: [
+					"detektyvy"
 				],
 			},
 			{
@@ -163,6 +181,10 @@ let state = {
 					"zahovoreno-na-lyubov",
 					"yzbrannye-sny"
 				],
+				bookCategories: [
+					"detektyvy",
+					"dovidkovi-vydannya"
+				],
 			},
 			{
 				bookAuthor: "Іван Білик",
@@ -181,6 +203,10 @@ let state = {
 					"svitlonosets-mech-voli",
 					"brat-2",
 					"peremozhtsiv-ne-sudyat"
+				],
+				bookCategories: [
+					"detektyvy",
+					"dovidkovi-vydannya"
 				],
 			},
 			{
@@ -201,6 +227,10 @@ let state = {
 					"yzbrannye-sny",
 					"12-obruchiv"
 				],
+				bookCategories: [
+					"detektyvy",
+					"dovidkovi-vydannya"
+				],
 			},
 			{
 				bookAuthor: "Мартін Брест",
@@ -219,6 +249,10 @@ let state = {
 					"pokhoron-bohiv",
 					"armahedon-na-maydani",
 					"pivyabluka-inshi-pivyabluka"
+				],
+				bookCategories: [
+					"detektyvy",
+					"dovidkovi-vydannya"
 				],
 			},
 			{
@@ -239,6 +273,10 @@ let state = {
 					"brat-2",
 					"pekhota"
 				],
+				bookCategories: [
+					"detektyvy",
+					"dovidkovi-vydannya"
+				],
 			},
 			{
 				bookAuthor: "Галина Вдовиченко",
@@ -257,6 +295,9 @@ let state = {
 					"peremozhtsiv-ne-sudyat",
 					"pekhota",
 					"12-obruchiv"
+				],
+				bookCategories: [
+					"detektyvy"
 				],
 			},
 		]

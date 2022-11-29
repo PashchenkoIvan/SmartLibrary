@@ -1,9 +1,9 @@
 import React from 'react';
 import { BookList, Caption, Btn } from '.';
 
-import s from './bookCatalog.module.css';
+import s from './popularBooks.module.css';
 
-const BookCatalog = props => {
+const PopularBooks = props => {
     return (
         <div className={s.bookCatalog}>
             <div className={s.bookContainer}>
@@ -15,4 +15,4 @@ const BookCatalog = props => {
     )
 }
 
-export default BookCatalog;
+export default PopularBooks;

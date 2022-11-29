@@ -2,7 +2,7 @@ import { React, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Btn, Row } from '.';
 
-import BookCatalog from '../BookCatalog/BookCatalog';
+import BookCatalog from '../PopularBooks/PopularBooks';
 
 import s from './selectedBook.module.css';
 
