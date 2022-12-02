@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './BooksTable.module.css';
 import qrCode from '../../../img/qricon.png';
 import { NavLink } from 'react-router-dom';
 
 const BooksTable = props => {
+	const [filter, setFilter] = useState('');
+
 	let booksElements = props.books.map(b => {
 		let path = `/Books/Edit/${b.id}`;
 		return (
@@ -25,20 +27,44 @@ const BooksTable = props => {
 			<div className={s.filter}>
 				<p>Загальна кількість книг</p>
 				<div className={s.filters}>
-					<div className={s.filtersAll}>
-						<input type='checkbox' id='all' />
-						<label htmlFor='all'>Всі</label>
-					</div>
-					<div className={s.filtersAll}>
-						<input type='checkbox' id='all' />
-						<label htmlFor='all'>Читається</label>
-					</div>
-					<div className={s.filtersAll}>
-						<input type='checkbox' id='all' />
-						<label htmlFor='all'>Неповернена</label>
-					</div>
-					<div className={s.filtersReading}></div>
-					<div className={s.filtersNotReturned}></div>
+					<label className={s.filterItem} htmlFor='all'>
+						<input
+							type='radio'
+							id='all'
+							name='filter'
+							value='all'
+							checked={filter === 'all'}
+							onChange={e => setFilter(e.target.value)}
+						/>
+						<span className={s.checkmark}></span>
+						<p>Всі</p>
+					</label>
+
+					<label className={s.filterItem} htmlFor='reading'>
+						<input
+							type='radio'
+							id='reading'
+							name='filter'
+							value='reading'
+							checked={filter === 'reading'}
+							onChange={e => setFilter(e.target.value)}
+						/>
+						<span className={s.checkmark}></span>
+						<p>Читається</p>
+					</label>
+
+					<label className={s.filterItem} htmlFor='notReturned'>
+						<input
+							type='radio'
+							id='notReturned'
+							name='filter'
+							value='notReturned'
+							checked={filter === 'notReturned'}
+							onChange={e => setFilter(e.target.value)}
+						/>
+						<span className={s.checkmark}></span>
+						<p>Неповернена</p>
+					</label>
 				</div>
 			</div>
 			<div className={s.header}>

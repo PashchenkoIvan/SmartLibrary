@@ -21,6 +21,12 @@
 	display: flex;
 }
 
+.filterItem {
+	display: flex;
+	align-items: center;
+	margin-right: 15px;
+}
+
 .header {
 	display: flex;
 	align-items: center;
