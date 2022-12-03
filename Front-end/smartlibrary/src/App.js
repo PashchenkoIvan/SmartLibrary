@@ -13,22 +13,25 @@ function App(props) {
 		<div className={s.wrapper}>
 			<Header />
 			<Routes>
-				<Route exact path='/catalog' element={<BooksCatalog data={props.state.data} />} />
-				<Route exact path="/catalog/:booksCategoryId" element={<BooksCatalog data={props.state.data} />} />
-				<Route exact path="/:bookId" element={<SelectedBook data={props.state.data} />} />
 				<Route
-					path='/main'
-					element={<MainPage data={props.state.data} />}
+					exact
+					path='/catalog'
+					element={<BooksCatalog data={props.state.data} />}
 				/>
 				<Route
-					path='/admin/*'
-					element={<AdminPage admin={props.state.admin} />}
+					exact
+					path='/catalog/:booksCategoryId'
+					element={<BooksCatalog data={props.state.data} />}
 				/>
+				<Route
+					exact
+					path='/:bookId'
+					element={<SelectedBook data={props.state.data} />}
+				/>
+				<Route path='/main' element={<MainPage data={props.state.data} />} />
+				<Route path='/admin/*' element={<AdminPage state={props.state} />} />
 				{/* <Route path='/form' element={<Form/>}/> */}
-				<Route
-					path='/personPage'
-					element={<PersonPage/>}
-				/>
+				<Route path='/personPage' element={<PersonPage />} />
 			</Routes>
 			<Footer />
 		</div>
