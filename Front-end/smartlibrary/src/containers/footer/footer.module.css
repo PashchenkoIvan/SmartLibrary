@@ -1,0 +1,28 @@
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #474b5d;
+	padding: 20px 0;
+	width: 100%;
+	z-index: 2;
+}
+.footerContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 1300px;
+}
+
+@media (max-width: 1024px) {
+	.footerContainer {
+		width: 100%;
+		padding: 0 4px;
+	}
+}
+@media (max-width: 768px) {
+	.footerContainer {
+		flex-direction: column;
+		padding: 0;
+	}
+}
