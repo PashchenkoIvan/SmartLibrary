@@ -1,0 +1,59 @@
+.container {
+    width: 1300px;
+    /* height: 100%; */
+    padding-top: 20px;
+}
+.container button {
+    width: 160px;
+    height: 50px;
+    background-color: #36bbcb;
+    color: white;
+}
+.table {
+    width: 1300px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    overflow-y: scroll;
+}
+.titleBlock {
+    width: 100%;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #dae3ef;
+    padding-right: 200px;
+    padding-left: 20px;
+}
+.titleBlock p {
+    font-weight: 600;
+    font-size: 14px;
+    width: 100px;
+    white-space: nowrap;
+    
+}
+.infoBlock {
+    width: 100%;
+    min-height: 60px;
+    margin-top: 5px;
+    background-color: white;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 4px rgb(30 37 82 / 24%);
+}
+.infoBlock p {
+    width: 200px;
+    white-space: nowrap;
+}
+.infoBlock button {
+    width: 90px;
+    height: 40px;
+    background-color: #36bbcb;
+    color: white;
+}
