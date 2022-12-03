@@ -1,6 +1,6 @@
 import s from './TransHeader.module.css'
 import React from 'react'
-import { Logo } from '../../assets'
+import { Logo } from '../../../assets/imgMainPage'
 import { Navbar, Menu } from '../../containers'
 
 const TransHeader = () => {

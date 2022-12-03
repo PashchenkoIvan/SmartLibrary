@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './ContItem.module.css'
-import { Logo } from '../../../assets'
+import { Logo } from '../../../assets/imgMainPage'
 function ContLogo() {
 	return (
 		<div className={s.containerItem}>

@@ -4,6 +4,23 @@
 	align-items: center;
 	width: 100%;
 }
+.headerVideoBg {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	overflow: hidden;
+	z-index: 0;
+	height: 558px;
+}
+.videoBg {
+	width: 100%;
+}
+.headerBg {
+	height: 558px;
+	z-index: 1;
+	position: relative;
+	background-color: #1d596090;
+}
 .headerTitle {
 	font-size: 42px;
 	font-weight: 500;
@@ -53,7 +70,24 @@
 .searchButton:hover {
 	background-color: #2ea8b7;
 }
+@media (max-width: 1024px) {
+	.headerVideoBg {
+		height: 541px;
+	}
+	.headerBg {
+		height: 541px;
+	}
+}
 @media (max-width: 768px) {
+	.headerVideoBg {
+		height: 490px;
+	}
+	.videoBg {
+		width: 300%;
+	}
+	.headerBg {
+		height: 490px;
+	}
 	.search {
 		flex-direction: column;
 		width: 100%;
