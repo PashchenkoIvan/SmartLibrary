@@ -20,14 +20,7 @@
 	font-size: 14px;
 	color: #555;
 	width: 100%;
-}
-
-.filters input:nth-child(1):before {
-	content: 'Відфільтрувати з';
-}
-
-.filters input:nth-child(2):before {
-	content: 'Відфільтрувати по';
+	content: attr(placeholder);
 }
 
 .addActivity {

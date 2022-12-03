@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import s from './BooksTable.module.css';
 import qrCode from '../../../img/qricon.png';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const BooksTable = props => {
 	const [filter, setFilter] = useState('');
 
 	let booksElements = props.books.map(b => {
-		let path = `/Books/Edit/${b.id}`;
+		let pathMain = `/${b.id}`;
+		let pathEdit = `/Books/Edit/${b.id}`;
 		return (
 			<div className={s.row}>
-				<div>{b.name}</div>
-				<div>{b.author}</div>
-				<div>{b.number}</div>
-				<div>{b.status}</div>
+				<Link to={pathMain}>{b.bookName}</Link>
+				<div>{b.bookAuthor}</div>
+				<div>{b.ISBN}</div>
+				<div>{b.isPopularBook ? 'У наявності' : 'Відсутня'}</div>
 				<div>
 					<img src={qrCode} alt='' />
 				</div>
-				<NavLink to={path}>Редагувати</NavLink>
+				<Link to={pathEdit}>Редагувати</Link>
 			</div>
 		);
 	});
