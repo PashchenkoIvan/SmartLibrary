@@ -4,7 +4,7 @@ import qrCode from '../../../img/qricon.png';
 import { Link } from 'react-router-dom';
 
 const BooksTable = props => {
-	const [filter, setFilter] = useState('');
+	const [filter, setFilter] = useState('all');
 
 	let booksElements = props.books.map(b => {
 		let pathMain = `/${b.id}`;
