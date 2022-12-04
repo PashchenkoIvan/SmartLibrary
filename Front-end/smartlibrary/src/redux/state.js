@@ -101,6 +101,41 @@ let state = {
 					id: 2,
 				},
 			],
+			librarians: [
+				{
+					name: 'Андрюх Людмила',
+					email: 'bibliotekar@i.ua',
+					phone: '+380 764 54 24',
+					title: 'c. Дослідне, вул. Наукова 20',
+				},
+				{
+					name: 'Иванов И.И',
+					email: 'ivanov@invanov.ua',
+					phone: '+380 643 62 73',
+					title: 'Библиотека 2',
+				},
+			],
+			affiliates: [
+				{
+					name: 'Библиотека 2',
+					address: 'c. Дослідне, вул. Наукова 20',
+					url: 'http://demo.smart-library.in.ua/',
+				},
+			],
+			news: [
+				{
+					name: 'оновлена новина',
+					description: 'вже скоро буде',
+					date: '7/29/2021 12:00:00 AM',
+					id: 1,
+				},
+				{
+					name: 'test news',
+					description: 'test desc',
+					date: '7/21/2021 12:00:00 AM',
+					id: 2,
+				},
+			],
 		},
 	},
 	data: {

@@ -1,9 +1,10 @@
 import React from 'react';
+import LibrariansTable from './LibrariansTable/LibrariansTable';
 
-const Librarians = () => {
+const Librarians = props => {
 	return (
 		<div>
-			<h1>Librarians</h1>
+			<LibrariansTable librarians={props.librarians} />
 		</div>
 	);
 };

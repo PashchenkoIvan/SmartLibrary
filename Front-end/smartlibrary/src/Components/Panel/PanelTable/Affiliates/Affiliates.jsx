@@ -1,9 +1,10 @@
 import React from 'react';
+import AffiliatesTable from './AffiliatesTable/AffiliatesTable';
 
-const Affiliates = () => {
+const Affiliates = props => {
 	return (
 		<div>
-			<h1>Affiliates</h1>
+			<AffiliatesTable affiliates={props.affiliates} />
 		</div>
 	);
 };

@@ -24,15 +24,11 @@
 }
 
 .header p:nth-child(3) {
-	width: 15%;
+	width: 20%;
 }
 
 .header p:nth-child(4) {
-	width: 15%;
-}
-
-.header p:nth-child(5) {
-	width: 10%;
+	width: 20%;
 }
 
 .main {
@@ -53,15 +49,9 @@
 	height: 55px;
 }
 
-.row a:nth-child(1) {
+.row div:nth-child(1) {
 	padding-left: 15px;
 	width: 40%;
-	transition: 0.3s all ease;
-}
-
-.row a:nth-child(1):hover {
-	color: #337ab7;
-	transition: 0.3s all ease;
 }
 
 .row div:nth-child(2) {
@@ -69,28 +59,9 @@
 }
 
 .row div:nth-child(3) {
-	width: 15%;
+	width: 20%;
 }
 
 .row div:nth-child(4) {
-	width: 15%;
-}
-
-.row p {
-	width: 155px;
-	height: 40px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #e8eef6;
-	color: #353b42;
-	border-radius: 3px;
-}
-
-.row button:nth-child(5) {
-	width: 110px;
-	height: 40px;
-	background-color: #f5a623;
-	border-radius: 3px;
-	color: #fff;
+	width: 20%;
 }
