@@ -5,17 +5,21 @@ import { NavLink } from 'react-router-dom';
 
 const BooksTable = props => {
 	let booksElements = props.books.map(b => {
-		let path = `/Books/Edit/${b.id}`;
+		let path = `/admin/books/edit/${b.id}`;
 		return (
 			<div className={s.row}>
-				<div>{b.name}</div>
+				<div>
+					<NavLink to={`/book-single/${b.id}`}>
+						{b.name}
+					</NavLink>
+				</div>
 				<div>{b.author}</div>
 				<div>{b.number}</div>
 				<div>{b.status}</div>
 				<div>
 					<img src={qrCode} alt='' />
 				</div>
-				<NavLink to={path}>Редагувати</NavLink>
+				<NavLink to={path} className={s.btnEdit}>Редагувати</NavLink>
 			</div>
 		);
 	});

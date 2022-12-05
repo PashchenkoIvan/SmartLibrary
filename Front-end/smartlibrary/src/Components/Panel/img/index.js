@@ -1,0 +1,1 @@
+export { default as QrIcon } from './qr.png';

@@ -1,4 +1,3 @@
-import { Header } from '../../Components';
 import Calendar from '../../Components/Calendar/Calendar';
 import Panel from '../../Components/Panel/Panel';
 import s from './AdminPage.module.css';
