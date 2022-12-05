@@ -224,15 +224,15 @@ export const Visitors = () => {
 	return (
 		<div className={s.container}>
 			<button>+ Додати</button>
-			<div className={s.table}>
-				<div className={s.titleBlock}>
+			<div className={s.titleBlock}>
 					<p>ПІБ</p>
 					<p>Місце проживання</p>
 					<p>Дата народження</p>
 					<p>Коментар</p>
 					<p>Книги</p>
 					<p>Дата</p>
-				</div>
+			</div>
+			<div className={s.table}>
 				{ArrayAdd}
 			</div>
 		</div>
