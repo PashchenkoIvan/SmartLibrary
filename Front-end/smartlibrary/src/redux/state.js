@@ -141,13 +141,13 @@ let state = {
 	data: {
 		books: [
 			{
-				bookAuthor: 'Сергій Жадан, Любко Дереш, Юрій Андрухович',
-				id: 'trytsylindrovyy-dvyhun-lyubovi',
-				bookName: 'Трициліндровий двигун любові',
-				bookImg:
-					'https://drive.google.com/uc?export=view&id=1I6e9S0yWLcKpDrDwCFQW3Ki9a5AxR_uT',
-				ganreImg: 'http://1.smart-library.in.ua/img/icon.png',
-				ganreText: 'Художня література',
+				bookAuthor: "Сергій Жадан, Любко Дереш, Юрій Андрухович",
+				id: "trytsylindrovyy-dvyhun-lyubovi",
+				bookStatus: "У бібліотеці",
+				bookName: "Трициліндровий двигун любові",
+				bookImg: "https://drive.google.com/uc?export=view&id=1I6e9S0yWLcKpDrDwCFQW3Ki9a5AxR_uT",
+				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
+				ganreText: "Художня література",
 				isPopularBook: true,
 				lang: 'Українська',
 				pageAmount: '219',

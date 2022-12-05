@@ -7,8 +7,9 @@ const BooksTable = props => {
 	const [filter, setFilter] = useState('all');
 
 	let booksElements = props.books.map(b => {
-		let pathMain = `/${b.id}`;
-		let pathEdit = `/Books/Edit/${b.id}`;
+		let pathMain = `/book-single/${b.id}`;
+		let pathEdit = `/book-single/edit/${b.id}`;
+
 		return (
 			<div className={s.row}>
 				<Link to={pathMain}>{b.bookName}</Link>

@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './Components/Header/Header';
-import { BooksCatalog, PopularBooks, SelectedBook } from './Components/';
+import { BooksCatalog, Header, SelectedBook } from './Components/';
 import s from './App.css';
 import MainPage from './Pages/MainPage/MainPage';
 import PersonPage from './Pages/PersonPage/PersonPage';
 import AdminPage from './Pages/AdminMainPage/AdminPage';
+import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBook/SingleBook'
 import Footer from './Components/Footer/Footer';
 // import Form from './Components/Form/Form';
 
@@ -22,6 +22,10 @@ function App(props) {
 					exact
 					path='/catalog/:booksCategoryId'
 					element={<BooksCatalog data={props.state.data} />}
+				/>
+				<Route
+					path='/book-single/:currentBookId'
+					element={<SingleBook admin={props.state.admin} data={props.state.data} />}
 				/>
 				<Route
 					exact
