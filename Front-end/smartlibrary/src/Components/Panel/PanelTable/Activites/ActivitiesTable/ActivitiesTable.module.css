@@ -70,7 +70,17 @@
 }
 
 .row a {
-	width: 10%;
+	width: 9%;
+	height: 40px;
+	border-radius: 2px;
+	background-color: #36bbcb;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
 }
 
 .row div:nth-child(4) button {

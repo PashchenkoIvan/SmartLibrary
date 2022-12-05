@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import s from './ActivitiesTable.module.css';
 
 const ActivitiesTable = props => {
@@ -16,7 +16,7 @@ const ActivitiesTable = props => {
 				<div>
 					<button>Видалити</button>
 				</div>
-				<NavLink>Створити звіт</NavLink>
+				<Link>Створити звіт</Link>
 			</div>
 		);
 	});
