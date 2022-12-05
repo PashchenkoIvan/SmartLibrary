@@ -16,7 +16,7 @@
 
 .header p:nth-child(1) {
 	padding-left: 10px;
-	width: 40%;
+	width: 35%;
 }
 
 .header p:nth-child(2) {
@@ -24,7 +24,7 @@
 }
 
 .header p:nth-child(3) {
-	width: 20%;
+	width: 17%;
 }
 
 .main {
@@ -47,7 +47,7 @@
 
 .row div:nth-child(1) {
 	padding-left: 10px;
-	width: 40%;
+	width: 35%;
 }
 
 .row div:nth-child(2) {
@@ -55,11 +55,11 @@
 }
 
 .row div:nth-child(3) {
-	width: 15%;
+	width: 17%;
 }
 
 .row div:nth-child(4) {
-	width: 7.5%;
+	width: 9%;
 }
 
 .row div:nth-child(4) button {
@@ -74,7 +74,7 @@
 }
 
 .row div:nth-child(5) {
-	width: 7.5%;
+	width: 9%;
 }
 
 .row div:nth-child(5) button {
