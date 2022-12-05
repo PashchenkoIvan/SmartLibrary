@@ -28,7 +28,7 @@
 	padding-left: 20px;
 }
 .titleBlock p {
-	font-weight: 600;
+	/* font-weight: 600; */
 	font-size: 14px;
 	width: 100px;
 	white-space: nowrap;
