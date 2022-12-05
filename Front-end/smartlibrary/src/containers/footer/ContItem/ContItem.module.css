@@ -1,0 +1,80 @@
+.containerItem {
+	display: flex;
+	align-items: center;
+}
+.itemImg {
+	width: 45px;
+	height: 45px;
+	padding: 12px;
+	background-color: #545868;
+	margin-right: 11px;
+}
+.containerTexts {
+	display: flex;
+	flex-direction: column;
+}
+.itemImgLogo {
+	width: 130px;
+	margin-right: 11px;
+}
+.itemImgPoint {
+	width: 45px;
+	height: 45px;
+	padding: 12px 14px;
+	background-color: #545868;
+	margin-right: 11px;
+}
+.itemText {
+	font-size: 14px;
+	font-weight: 500;
+	color: #fff;
+}
+.itemText span {
+	color: #36bbcb;
+	text-decoration: underline;
+}
+@media (max-width: 1024px) {
+	.itemImg {
+		width: 35px;
+		height: 35px;
+		padding: 8px;
+		margin-right: 7px;
+	}
+	.itemImgPoint {
+		width: 35px;
+		height: 35px;
+		padding: 8px 14px;
+	}
+	.itemImgLogo {
+		width: 120px;
+	}
+	.itemText {
+		font-size: 13px;
+	}
+}
+@media (max-width: 768px) {
+	.containerItem {
+		flex-direction: column;
+	}
+	.containerItem + .containerItem {
+		margin-top: 20px;
+	}
+	.itemImg {
+		display: none;
+	}
+	.itemImgPoint {
+		display: none;
+	}
+	.itemImgLogo {
+		margin-bottom: 10px;
+	}
+	.containerTexts {
+		align-items: center;
+	}
+	.itemText {
+		text-align: center;
+	}
+	.itemText + .itemText {
+		margin-top: 5px;
+	}
+}

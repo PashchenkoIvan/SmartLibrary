@@ -24,60 +24,59 @@ const bibliographicDescriptionPopUp = (b) => {
 
 const SingleBook = props => {
   const { currentBookId } = useParams();
-  const [books, setBooks] = useState(props.admin.tables.books);
-  const [bookData, setDataBook] = useState(props.data.books[0]);
+  const [bookData, setDataBook] = useState(props.data.books);
 
-  const singleBookMap = books.map(b =>
+  const singleBookMap = bookData.map(b =>
 	b.id == currentBookId ?
 	  <div className={s.contentBlock}>
 	    <div className={s.sideBar}>
 		  <div className={s.qr}>
-			<img className={s.qrImg} src={QrIcon} alt={b.name} />
+			<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
 		    <Link to='' className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>Роздрукувати QR-код</Link>
 		  </div>
 		  <div className={s.links}>
 		    <Link to={`/single-book/edit/${b.id}`} className={`${s.sideBarLink} + ' ' + ${s.bg_a9e2e9}`}>Редагувати книгу</Link>
-		    <Link to={`/${b.id}`} className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>Переглянути на сайті</Link>
+		    <Link to={`/${b.id}`} className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`} onClick={() => {window.scrollTo(0, 0)}}>Переглянути на сайті</Link>
 			<Popup trigger={<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>Бібліографічний опис</button>} position="center center">
-	    	  {bibliographicDescriptionPopUp(bookData)}
+	    	  {bibliographicDescriptionPopUp(b)}
 	  		</Popup>
 		  </div>
 		</div>
 		<div className={s.bookProfile}>
-		  <img src={bookData.bookImg} alt={bookData.bookName} className={s.bookImg} />
+		  <div className={s.bookImg} style={{ backgroundImage: 'url(' + b.bookImg + ')' }}></div>
 		  <div className={s.bookInfo}>
 			<div className={s.bookInfoTop}>
-			  <div className={s.bookStatus}>{bookData.bookStatus}</div>
-			  <h3 className={s.bookName}>{bookData.bookName}</h3>
+			  <div className={s.bookStatus}>{b.bookStatus}</div>
+			  <h3 className={s.bookName}>{b.bookName}</h3>
 			</div>
 			<ul className={s.extendedBookInfo}>
 			  <li className={s.singleBookParameter}>
 				<div className={s.value}>Автор</div>
-				<div className={s.key}>{bookData.bookAuthor}</div>
+				<div className={s.key}>{b.bookAuthor}</div>
 			  </li>
 			  <li className={s.singleBookParameter}>
 				<div className={s.value}>Категорія</div>
-				<div className={s.key}>{bookData.ganreText}</div>
+				<div className={s.key}>{b.ganreText}</div>
 			  </li>
 			  <li className={s.singleBookParameter}>
 				<div className={s.value}>Мова</div>
-				<div className={s.key}>{bookData.lang}</div>
+				<div className={s.key}>{b.lang}</div>
 			  </li>
 			  <li className={s.singleBookParameter}>
 				<div className={s.value}>Рік</div>
-				<div className={s.key}>{bookData.dateOfPublication}</div>
+				<div className={s.key}>{b.dateOfPublication}</div>
 			  </li>
 			  <li className={s.singleBookParameter}>
 				<div className={s.value}>Сторінок</div>
-				<div className={s.key}>{bookData.pageAmount}</div>
+				<div className={s.key}>{b.pageAmount}</div>
 			  </li>
 			  <li className={s.singleBookParameter}>
 				<div className={s.value}>Тип</div>
-				<div className={s.key}>{bookData.bookType}</div>
+				<div className={s.key}>{b.bookType}</div>
 			  </li>
 			  <li className={s.singleBookParameter}>
 				<div className={s.value}>ISBN</div>
-				<div className={s.key}>{bookData.ISBN}</div>
+				<div className={s.key}>{b.ISBN}</div>
 			  </li>
 			</ul>
 		  </div>

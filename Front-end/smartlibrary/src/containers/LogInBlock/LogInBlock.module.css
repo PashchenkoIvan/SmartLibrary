@@ -1,0 +1,28 @@
+.LogInBlock {
+	display: flex;
+	flex-direction: column;
+}
+.inputTitle {
+	font-size: 15px;
+	font-weight: 700;
+}
+.inputPole {
+	width: 463px;
+	height: 55px;
+	padding: 6px 12px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #555;
+	border: 1px solid #ccc;
+	margin: 5px 0 10px;
+}
+.logInBotton {
+	align-self: center;
+	font-size: 16px;
+	font-weight: 500;
+	color: #fff;
+	margin-top: 30px;
+	background-color: #36bbcb;
+	padding: 15px 100px;
+	border-radius: 4px;
+}

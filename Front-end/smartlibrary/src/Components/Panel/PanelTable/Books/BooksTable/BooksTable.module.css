@@ -21,6 +21,12 @@
 	display: flex;
 }
 
+.filterItem {
+	display: flex;
+	align-items: center;
+	margin-right: 15px;
+}
+
 .header {
 	display: flex;
 	align-items: center;
@@ -71,13 +77,20 @@
 	margin-top: 10px;
 	height: 40px;
 	border-radius: 3px;
+	box-shadow: 0 1px 4px rgb(30 37 82 / 24%);
 	background-color: #fff;
 	height: 55px;
 }
 
-.row div:nth-child(1) {
+.row a:nth-child(1) {
 	padding-left: 15px;
 	width: 30%;
+	transition: all 0.2s;
+}
+
+.row a:nth-child(1):hover {
+	color: #36bbcb;
+	transition: all 0.2s;
 }
 
 .row div:nth-child(2) {
@@ -99,7 +112,7 @@
 	padding-left: 15px;
 }
 
-.btnEdit {
+.row a:nth-child(6) {
 	justify-self: flex-end;
 	width: 100px;
 	height: 30px;

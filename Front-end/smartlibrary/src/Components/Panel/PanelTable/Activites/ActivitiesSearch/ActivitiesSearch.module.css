@@ -1,0 +1,35 @@
+.container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.filters input {
+	width: 205px;
+	height: 40px;
+	border-radius: 3px;
+	margin-right: 10px;
+	padding: 6px 12px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	outline: none;
+}
+
+.filters input:before {
+	font-family: 'Avenir Next', sans-serif;
+	font-size: 14px;
+	color: #555;
+	width: 100%;
+	content: attr(placeholder);
+}
+
+.addActivity {
+	width: 160px;
+	height: 40px;
+	border-radius: 3px;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	line-height: 18px;
+	background-color: #fdbc4b;
+}

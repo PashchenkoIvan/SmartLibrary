@@ -6,7 +6,7 @@ const Panel = props => {
 	return (
 		<div className={s.container}>
 			<PanelType />
-			<PanelTable tables={props.tables} />
+			<PanelTable state={props.state} />
 		</div>
 	);
 };

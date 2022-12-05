@@ -21,22 +21,76 @@ const PanelTable = props => {
 				<Routes>
 					<Route
 						path='readers'
-						element={<Readers readers={props.tables.readers} />}
+						element={<Readers readers={props.state.admin.tables.readers} />}
 					/>
-					<Route path='books' element={<Books books={props.tables.books} />} />
+					<Route
+						path='books'
+						element={<Books books={props.state.data.books} />}
+					/>
 					<Route
 						path='applications'
-						element={<Applications applications={props.tables.applications} />}
+						element={
+							<Applications
+								applications={props.state.admin.tables.applications}
+							/>
+						}
 					/>
-					<Route path='activities' element={<Activities />} />
-					<Route path='event-reporting' element={<EventReporting />} />
-					<Route path='annual-reporting' element={<AnnualReporting />} />
-					<Route path='invertory' element={<Invertory />} />
-					<Route path='librarians' element={<Librarians />} />
-					<Route path='affiliates' element={<Affiliates />} />
-					<Route path='news' element={<News />} />
-					<Route path='reports-to-the-news' element={<ReportsToTheNews />} />
-					<Route path='visitors' element={<Visitors />} />
+					<Route
+						path='activities'
+						element={
+							<Activities activities={props.state.admin.tables.activities} />
+						}
+					/>
+					<Route
+						path='event-reporting'
+						element={
+							<EventReporting
+								eventReporting={props.state.admin.tables.eventReporting}
+							/>
+						}
+					/>
+					<Route
+						path='annual-reporting'
+						element={
+							<AnnualReporting
+								annualReporting={props.state.admin.tables.annualReporting}
+							/>
+						}
+					/>
+					<Route
+						path='invertory'
+						element={
+							<Invertory invertory={props.state.admin.tables.invertory} />
+						}
+					/>
+					<Route
+						path='librarians'
+						element={
+							<Librarians librarians={props.state.admin.tables.librarians} />
+						}
+					/>
+					<Route
+						path='affiliates'
+						element={
+							<Affiliates affiliates={props.state.admin.tables.affiliates} />
+						}
+					/>
+					<Route
+						path='news'
+						element={<News news={props.state.admin.tables.news} />}
+					/>
+					<Route
+						path='reports-to-the-news'
+						element={
+							<ReportsToTheNews
+								reportsToTheNews={props.state.admin.tables.reportsToTheNews}
+							/>
+						}
+					/>
+					<Route
+						path='visitors'
+						element={<Visitors visitors={props.state.admin.tables.visitors} />}
+					/>
 				</Routes>
 			</div>
 		</div>

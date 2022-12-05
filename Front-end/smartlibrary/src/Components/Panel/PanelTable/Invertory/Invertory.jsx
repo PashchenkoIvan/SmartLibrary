@@ -1,9 +1,12 @@
 import React from 'react';
+import InvertorySearch from './InvertorySearch/InvertorySearch';
+import InvertoryTable from './InvertoryTable/InvertoryTable';
 
-const Invertory = () => {
+const Invertory = props => {
 	return (
 		<div>
-			<h1>Invertory</h1>
+			<InvertorySearch />
+			<InvertoryTable invertory={props.invertory} />
 		</div>
 	);
 };

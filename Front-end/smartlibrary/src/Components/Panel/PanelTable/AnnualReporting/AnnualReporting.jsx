@@ -1,9 +1,10 @@
 import React from 'react';
+import AnnualReportingTable from './AnnualReportingTable/AnnualReportingTable';
 
-const AnnualReporting = () => {
+const AnnualReporting = props => {
 	return (
 		<div>
-			<h1>AnnualReporting</h1>
+			<AnnualReportingTable annualReporting={props.annualReporting} />
 		</div>
 	);
 };

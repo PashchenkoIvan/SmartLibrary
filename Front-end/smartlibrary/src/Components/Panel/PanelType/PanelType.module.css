@@ -7,7 +7,7 @@
 .inner {
 	width: 1300px;
 	display: flex;
-	justify-content: space-between;
+	@apply justify-between;
 }
 
 .item {

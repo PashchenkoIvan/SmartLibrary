@@ -1,9 +1,10 @@
 import React from 'react';
+import EventReportsTable from './EventReportsTable/EventReportsTable';
 
-const EventReports = () => {
+const EventReports = props => {
 	return (
 		<div>
-			<h1>EventReports</h1>
+			<EventReportsTable eventReporting={props.eventReporting} />
 		</div>
 	);
 };

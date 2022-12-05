@@ -6,7 +6,7 @@ const AdminPage = props => {
 	return (
 		<div className={s.container}>
 			<Calendar />
-			<Panel tables={props.admin.tables} />
+			<Panel state={props.state} />
 		</div>
 	);
 };
