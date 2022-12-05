@@ -19,10 +19,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: space-between;
     border-radius: 12px;
     background-color: white;
     -webkit-box-shadow: 0 1px 7px rgb(30 37 82 / 24%);
     -moz-box-shadow: 0 1px 7px rgb(30 37 82 / 24%);
     box-shadow: 0 1px 7px rgb(30 37 82 / 24%);
+}
+.input {
+    display: flex;
+    flex-direction: column;
 }
