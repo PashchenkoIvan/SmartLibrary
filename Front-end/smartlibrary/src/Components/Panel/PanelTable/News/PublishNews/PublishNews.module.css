@@ -1,0 +1,46 @@
+.container {
+	max-width: 1340px;
+	margin: 0 auto;
+	padding: 20px;
+	font-weight: 500;
+	font-size: 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.header a {
+	padding: 0 20px;
+	height: 40px;
+	border-radius: 3px;
+	color: #fff;
+	background-color: #36bbcb;
+	display: flex;
+	align-items: center;
+}
+
+.dateInput:before {
+	font-family: 'Avenir Next', sans-serif;
+	width: 100%;
+	content: attr(placeholder);
+}
+
+.container button {
+	margin-top: 20px;
+	margin-bottom: 280px;
+	padding: 0 20px;
+	height: 40px;
+	border-radius: 3px;
+	color: #fff;
+	background-color: #36bbcb;
+}

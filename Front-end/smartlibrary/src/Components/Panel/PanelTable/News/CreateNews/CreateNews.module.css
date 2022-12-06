@@ -1,0 +1,45 @@
+.container {
+	max-width: 1340px;
+	margin: 0 auto;
+	padding: 20px;
+	font-weight: 500;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.header {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+.header a {
+	padding: 0 20px;
+	height: 40px;
+	border-radius: 3px;
+	color: #fff;
+	background-color: #36bbcb;
+	display: flex;
+	align-items: center;
+}
+
+.dateInput:before {
+	width: 100%;
+	content: attr(value);
+}
+
+.container button {
+	margin: 0 auto;
+	padding: 0 30px;
+	height: 40px;
+	color: #fff;
+	background-color: #36bbcb;
+	border-radius: 3px;
+	margin-top: 20px;
+	margin-bottom: 280px;
+}

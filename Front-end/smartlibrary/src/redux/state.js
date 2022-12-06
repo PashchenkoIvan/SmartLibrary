@@ -52,13 +52,19 @@ let state = {
 			activities: [
 				{
 					name: 'День научной фантастики',
+					smallDescription: 'Малый опис до дня фантастики',
+					bigDescription: 'Великий опис до дня фантастики',
 					category: 'Новини ОТГ',
 					dateTime: '10/21/2020 12:00:00 AM',
+					id: 1,
 				},
 				{
 					name: 'Международный день «спасибо»',
+					smallDescription: 'Малый опис до международный дня «спасибо»',
+					bigDescription: 'Великий опис до международный дня «спасибо»',
 					category: 'Новини бібліотеки',
 					dateTime: '10/22/2020 12:00:00 AM',
+					id: 2,
 				},
 			],
 			eventReporting: [
@@ -141,13 +147,14 @@ let state = {
 	data: {
 		books: [
 			{
-				bookAuthor: "Сергій Жадан, Любко Дереш, Юрій Андрухович",
-				id: "trytsylindrovyy-dvyhun-lyubovi",
-				bookStatus: "У бібліотеці",
-				bookName: "Трициліндровий двигун любові",
-				bookImg: "https://drive.google.com/uc?export=view&id=1I6e9S0yWLcKpDrDwCFQW3Ki9a5AxR_uT",
-				ganreImg: "http://1.smart-library.in.ua/img/icon.png",
-				ganreText: "Художня література",
+				bookAuthor: 'Сергій Жадан, Любко Дереш, Юрій Андрухович',
+				id: 'trytsylindrovyy-dvyhun-lyubovi',
+				bookStatus: 'У бібліотеці',
+				bookName: 'Трициліндровий двигун любові',
+				bookImg:
+					'https://drive.google.com/uc?export=view&id=1I6e9S0yWLcKpDrDwCFQW3Ki9a5AxR_uT',
+				ganreImg: 'http://1.smart-library.in.ua/img/icon.png',
+				ganreText: 'Художня література',
 				isPopularBook: true,
 				lang: 'Українська',
 				pageAmount: '219',

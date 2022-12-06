@@ -1,6 +1,3 @@
-.container {
-}
-
 .header {
 	display: flex;
 	align-items: center;
@@ -19,7 +16,7 @@
 
 .header p:nth-child(1) {
 	padding-left: 10px;
-	width: 40%;
+	width: 35%;
 }
 
 .header p:nth-child(2) {
@@ -27,7 +24,7 @@
 }
 
 .header p:nth-child(3) {
-	width: 20%;
+	width: 17%;
 }
 
 .main {
@@ -50,7 +47,7 @@
 
 .row div:nth-child(1) {
 	padding-left: 10px;
-	width: 40%;
+	width: 35%;
 }
 
 .row div:nth-child(2) {
@@ -58,35 +55,49 @@
 }
 
 .row div:nth-child(3) {
-	width: 15%;
+	width: 17%;
 }
 
 .row div:nth-child(4) {
-	width: 7.5%;
-}
-
-.row div:nth-child(5) {
-	width: 7.5%;
-}
-
-.row a {
-	width: 10%;
+	width: 9%;
 }
 
 .row div:nth-child(4) button {
-	height: 100%;
+	width: 90px;
+	height: 40px;
 	margin-right: 10px;
+	background-color: #36bbcb;
+	border-radius: 2px;
 	color: #fff;
 	font-size: 14px;
 	font-weight: 500;
-	width: 7.5%;
+}
+
+.row div:nth-child(5) {
+	width: 9%;
 }
 
 .row div:nth-child(5) button {
-	height: 100%;
+	width: 90px;
+	height: 40px;
 	margin-right: 10px;
+	background-color: #f54b23;
+	border-radius: 2px;
 	color: #fff;
 	font-size: 14px;
 	font-weight: 500;
-	width: 7.5%;
+}
+
+.row a:nth-child(6) {
+	width: 9%;
+	height: 40px;
+	border-radius: 2px;
+	background-color: #7ed321;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
 }

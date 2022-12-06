@@ -12,10 +12,10 @@ const NewsTable = props => {
 				<div>{n.description}</div>
 				<div>{n.date}</div>
 				<div>
-					<Link to={'/LibraryNews/Edit/' + n.id}>Редагувати</Link>
+					<Link to={'/admin/news/edit/' + n.id}>Редагувати</Link>
 				</div>
 				<div>
-					<Link to={'/LibraryNews/Publish/' + n.id}>Публіковати</Link>
+					<Link to={'/admin/news/publish/' + n.id}>Публіковати</Link>
 				</div>
 			</div>
 		);

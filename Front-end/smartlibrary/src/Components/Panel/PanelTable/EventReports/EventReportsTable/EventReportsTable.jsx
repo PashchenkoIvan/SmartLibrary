@@ -6,12 +6,11 @@ const EventReportsTable = props => {
 	const [eventReports, seteventReporting] = useState(props.eventReporting);
 
 	let eventReportsElements = eventReports.map(e => {
-		let path = `/ReportEvents/Edit/${e.id}`;
 		return (
 			<div className={s.row}>
 				<div>{e.name}</div>
 				<div>{e.date}</div>
-				<Link to={path}>Подивитися</Link>
+				<Link to={'/admin/event-reports/edit/' + e.id}>Подивитися</Link>
 			</div>
 		);
 	});

@@ -1,35 +1,49 @@
 .popup-content {
+<<<<<<< HEAD
     position: absolute !important;
     top: 30% !important; left: 50% !important;
 
     width: fit-content !important;
     max-width: 600px !important;
     min-width: 400px !important;
+=======
+	position: absolute !important;
+	top: 20% !important;
+	left: 50% !important;
 
-    background-color: #fff;
-    background-clip: padding-box;
-    border-radius: 6px;
+	width: fit-content !important;
+	max-width: 600px !important;
+>>>>>>> 58dbc71f0eccf7a2255093a2ad4567803a22fdb6
 
-    transform: translate(-50%, -50%);
-    -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
-    box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
-    outline: 0;
+	background-color: #fff;
+	background-clip: padding-box;
+	border-radius: 6px;
+
+	transform: translate(-50%, -50%);
+	-webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+	box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+	outline: 0;
 }
 
 .popup-arrow {
+<<<<<<< HEAD
     display: none !important;
     color: rgb(255, 255, 255);
+=======
+	/* display: none; */
+	color: rgb(255, 255, 255);
+>>>>>>> 58dbc71f0eccf7a2255093a2ad4567803a22fdb6
 }
 
 [role='tooltip'].popup-content {
-    width: 200px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+	width: 200px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
 }
 
 .popup-overlay {
-    background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.5);
 }
 
 [data-popup='tooltip'].popup-overlay {
-    background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.5);
 }
