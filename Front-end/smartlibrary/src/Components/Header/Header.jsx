@@ -1,6 +1,6 @@
 import s from './Header.module.css';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 	return (
@@ -8,7 +8,7 @@ const Header = () => {
 			<div className={s.inner}>
 				<div className={s.logo}></div>
 				<div className={s.navlinksBlock}>
-					<a href='/main' className={s.link}>
+					<a href='/' className={s.link}>
 						Головна
 					</a>
 					<a href='/catalog' className={s.link}>

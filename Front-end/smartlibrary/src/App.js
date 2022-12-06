@@ -25,7 +25,7 @@ function App(props) {
 	// }, window.location.href);
 	return (
 		<div className={s.wrapper}>
-			{window.location.href == 'http://localhost:3000/main' ? (
+			{window.location.href == 'http://localhost:3000/' ? (
 				<TransHeader />
 			) : (
 				<Header />
