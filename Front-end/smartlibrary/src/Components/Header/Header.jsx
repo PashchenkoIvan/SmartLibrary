@@ -8,21 +8,21 @@ const Header = () => {
 			<div className={s.inner}>
 				<div className={s.logo}></div>
 				<div className={s.navlinksBlock}>
-					<a href='/' className={s.link}>
+					<Link to='/' className={s.link}>
 						Головна
-					</a>
-					<a href='/catalog' className={s.link}>
+					</Link>
+					<Link to='/catalog' className={s.link}>
 						Каталог книг
-					</a>
-					<a className={s.link}>Контакти</a>
-					<a className={s.link}>Як це працює</a>
-					<a href='/admin/readers' className={s.link}>
+					</Link>
+					<Link className={s.link}>Контакти</Link>
+					<Link className={s.link}>Як це працює</Link>
+					<Link to='/admin/readers' className={s.link}>
 						Бібліотекар
-					</a>
-					<a className={s.link}>Вийти</a>
-					<a href='/personPage' className={s.blueLink}>
+					</Link>
+					<Link to='' className={s.link}>Вийти</Link>
+					<Link to='/personPage' className={s.blueLink}>
 						Особистий кабінет
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>

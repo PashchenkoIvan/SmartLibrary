@@ -5,11 +5,13 @@ import BookList from '../BookList/BookList';
 import s from './popularBooks.module.css';
 
 const PopularBooks = props => {
+    const popularBooksFilter = props.data.books.filter(b => b.isPopularBook === true)
+
     return (
         <div className={s.bookCatalog}>
             <div className={s.bookContainer}>
                 <Caption />
-                <BookList books={props.data.books} />
+                <BookList books={popularBooksFilter} />
                 <Btn />
             </div>
         </div>

@@ -163,7 +163,7 @@ let state = {
 				dateOfPublication: '2008',
 				bookDesc: '',
 				recBooks: ['iz-soho-dna', 'brat-2', 'pokhoron-bohiv'],
-				bookCategories: ['detektyvy'],
+				bookCategories: ['dytyacha-yunatska'],
 			},
 			{
 				bookAuthor: 'Юрій Андрухович',

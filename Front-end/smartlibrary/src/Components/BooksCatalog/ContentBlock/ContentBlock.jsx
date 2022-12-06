@@ -1,4 +1,4 @@
-import React from 'react';
+import { React } from 'react';
 import s from './contentBlock.module.css';
 import BookList from '../../BookList/BookList'
 
