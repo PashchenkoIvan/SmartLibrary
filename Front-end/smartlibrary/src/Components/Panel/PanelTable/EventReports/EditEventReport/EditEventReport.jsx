@@ -21,7 +21,7 @@ const EditEventReport = () => {
 		<div className={s.container}>
 			<div className={s.header}>
 				<h1>Звіт до заходу</h1>
-				<Link to='/admin/activities'>Повернутися</Link>
+				<Link to='/admin/event-reporting'>Повернутися</Link>
 			</div>
 			<label>
 				<p>Мета, читацьке призначення</p>

@@ -20,6 +20,21 @@
 	width: 100%;
 }
 
+.formInput p {
+	margin: 10px 0 5px;
+}
+
+.formInput input {
+	width: 100%;
+	background: #f7fafe;
+	border: 1px solid #dedede;
+	box-sizing: border-box;
+	border-radius: 3px;
+	padding: 5px;
+	outline: none;
+	font-size: 14px;
+}
+
 .dateInput:before {
 	font-family: inherit;
 	width: 100%;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import s from './ActivitiesTable.module.css';
 import './changeEvent.css';
-import ChangeEvent from './ChangeEvent/ChangeEvent';
+import ChangeEvent from '../ChangeEvent/ChangeEvent';
 
 const ActivitiesTable = props => {
 	const [activities, setActivities] = useState(props.activities);

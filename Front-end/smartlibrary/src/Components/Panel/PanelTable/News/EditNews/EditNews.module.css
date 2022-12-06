@@ -35,6 +35,32 @@
 	content: attr(placeholder);
 }
 
+.container label {
+	width: 100%;
+}
+
+.container label p {
+	font-size: 18px;
+	margin: 10px 0 5px;
+}
+
+.container label input {
+	width: 100%;
+	padding: 10px 10px;
+	outline: none;
+	font-size: 18px;
+	background: #f7fafe;
+	border: 1px solid #dedede;
+	box-sizing: border-box;
+	border-radius: 3px;
+}
+
+.dateInput:before {
+	font-family: 'Avenir Next', sans-serif;
+	width: 100%;
+	content: attr(value);
+}
+
 .container button {
 	margin-top: 20px;
 	margin-bottom: 280px;
