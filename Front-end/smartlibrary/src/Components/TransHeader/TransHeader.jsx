@@ -1,13 +1,12 @@
 import s from './TransHeader.module.css';
-import React from 'react'
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import sample from './video/videoplayback.mp4';
 
-
 const TransHeader = () => {
-  return (
+	return (
 		<div className={s.container}>
-      {/* <video className={s.videoTag} autoPlay loop muted>
+			{/* <video className={s.videoTag} autoPlay loop muted>
           <source src={sample} type='video/mp4' />
       </video>
       <div className={s.blueFilter}>
@@ -26,7 +25,7 @@ const TransHeader = () => {
 			<div className={s.inner}>
 				<div className={s.logo}></div>
 				<div className={s.navlinksBlock}>
-					<a href='/main' className={s.link}>
+					<a href='/' className={s.link}>
 						Головна
 					</a>
 					<a href='/catalog' className={s.link}>
@@ -44,7 +43,7 @@ const TransHeader = () => {
 				</div>
 			</div>
 		</div>
-  )
-}
+	);
+};
 
 export default TransHeader;

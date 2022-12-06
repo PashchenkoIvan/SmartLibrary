@@ -25,7 +25,7 @@ function App(props) {
 	// }, window.location.href);
 	return (
 		<div className={s.wrapper}>
-			{window.location.href == 'http://localhost:3000/main' ? (
+			{window.location.href == 'http://localhost:3000/' ? (
 				<TransHeader />
 			) : (
 				<Header />
@@ -56,7 +56,7 @@ function App(props) {
 					path='/:bookId'
 					element={<SelectedBook data={props.state.data} />}
 				/>
-				<Route path='/main' element={<MainPage data={props.state.data} />} />
+				<Route path='/' element={<MainPage data={props.state.data} />} />
 				<Route path='/admin/*' element={<AdminPage state={props.state} />} />
 				<Route
 					path='/admin/event-reports/create/:id'
@@ -74,8 +74,8 @@ function App(props) {
 				<Route path='/admin/news/publish/:id' element={<PublishNews />} />
 				<Route path='/admin/news/create' element={<CreateNews />} />
 				<Route path='/personPage' element={<PersonPage />} />
-				<Route path='/reg' element={<RegisterPage/>}/>
-				<Route path='/login' element={<Login/>}/>
+				<Route path='/reg' element={<RegisterPage />} />
+				<Route path='/login' element={<Login />} />
 			</Routes>
 			<Footer />
 		</div>

@@ -1,0 +1,102 @@
+.container {
+	padding: 15px;
+	font-weight: 500;
+	outline: none;
+	font-size: 16px;
+}
+
+.container h1 {
+	text-align: center;
+	font-size: 22px;
+}
+
+.container p {
+	margin: 10px 0 5px;
+}
+
+.container input {
+	width: 100%;
+	background: #f7fafe;
+	border: 1px solid #dedede;
+	box-sizing: border-box;
+	border-radius: 3px;
+	padding: 5px;
+	outline: none;
+	font-size: 14px;
+}
+
+.container textarea {
+	width: 100%;
+	background: #f7fafe;
+	border: 1px solid #dedede;
+	box-sizing: border-box;
+	border-radius: 3px;
+	outline: none;
+	resize: none;
+	padding: 5px;
+	font-size: 14px;
+}
+
+.smallDescription {
+	height: 50px;
+}
+
+.bigDescription {
+	height: 200px;
+}
+
+.categoryAndTime {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.container select {
+	width: 200px;
+	color: #242a31;
+	padding: 0 5px;
+	border: 2px solid transparent;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	background-color: #f7fafe;
+	height: 40px;
+	outline: none;
+	border-radius: 3px;
+}
+
+.category {
+	width: 200px;
+}
+
+.dataset {
+	height: 40px;
+	width: 250px;
+}
+
+.dataset input {
+	border: 2px solid transparent;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	border-radius: 3px;
+}
+
+.dataset input:before {
+	font-family: 'Avenir Next', sans-serif;
+	font-size: 14px;
+	color: #555;
+	width: 100%;
+	content: attr(value);
+}
+
+.saveAndCansel {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.saveAndCansel button {
+	width: 200px;
+	height: 40px;
+	border-radius: 3px;
+	color: #fff;
+	background: #36bbcb;
+}

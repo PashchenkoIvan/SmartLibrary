@@ -28,18 +28,24 @@
 	align-items: center;
 }
 
-label {
+.container label {
 	width: 100%;
 }
 
-label p {
+.container label p {
 	font-size: 18px;
+	margin: 10px 0 5px;
 }
 
-label input {
+.container label input {
+	width: 100%;
 	padding: 10px 10px;
 	outline: none;
 	font-size: 18px;
+	background: #f7fafe;
+	border: 1px solid #dedede;
+	box-sizing: border-box;
+	border-radius: 3px;
 }
 
 .container button {

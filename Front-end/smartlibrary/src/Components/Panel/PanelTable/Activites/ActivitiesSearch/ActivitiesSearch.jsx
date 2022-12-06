@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Popup from 'reactjs-popup';
+import CreateEvent from '../CreateEvent/CreateEvent';
 import s from './ActivitiesSearch.module.css';
 
 const ActivitiesSearch = () => {
@@ -21,7 +23,11 @@ const ActivitiesSearch = () => {
 					onChange={e => setDates({ ...dates, to: e.target.value })}
 				/>
 			</div>
-			<button className={s.addActivity}>+ Додати захід</button>
+			<Popup
+				trigger={<button className={s.addActivity}>+ Додати захід</button>}
+			>
+				<CreateEvent />
+			</Popup>
 		</div>
 	);
 };

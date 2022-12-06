@@ -1,7 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
 import Popup from 'reactjs-popup';
-import Form from '../AddReaderForm/AddReaderForm';
+import AddReaderForm from '../AddReaderForm/AddReaderForm';
 import s from './ReadersInfo.module.css';
 import './addReader.css';
 
@@ -27,7 +26,7 @@ const ReadersInfo = () => {
 					</button>
 				</div>
 				<Popup trigger={<button className={s.addBtn}>+ Додати читача</button>}>
-					<Form />
+					<AddReaderForm />
 				</Popup>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 import s from './AddReaderForm.module.css';
 import React, { useState } from 'react';
 
-const Form = () => {
+const AddReaderForm = () => {
 	const [reader, setReader] = useState({
 		name: '',
 		email: '',
@@ -93,4 +93,4 @@ const Form = () => {
 		</div>
 	);
 };
-export default Form;
+export default AddReaderForm;
