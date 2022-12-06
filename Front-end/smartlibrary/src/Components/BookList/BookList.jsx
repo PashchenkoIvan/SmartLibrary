@@ -28,7 +28,7 @@ const BookList = props => {
   const bookMapAdd = books.map(el => { booksCounter = 0; return el; }).map(
     (b) =>
       {
-        if (window.location.href.match(/main/) && b.isPopularBook) {
+        if (window.location.href.match(/(3000\/)$/) && b.isPopularBook) {
           return(bookCreating(b, booksCounter++));
         } else if ((b.bookCategories.find(el => el === booksCategoryId)) || window.location.href.match(/(catalog)$/)) {
           return(bookCreating(b, booksCounter++));
