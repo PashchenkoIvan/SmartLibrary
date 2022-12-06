@@ -12,6 +12,8 @@ import CreateEventReport from './Components/Panel/PanelTable/EventReports/Create
 import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
 import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
 import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews';
+import RegisterPage from './Pages/regPage/regPage';
+import Login from './Pages/LoginPage/Login';
 // import Form from './Components/Form/Form';
 
 function App(props) {
@@ -59,6 +61,8 @@ function App(props) {
 				/>
 				<Route path='/admin/news/create' element={<CreateNews />} />
 				<Route path='/personPage' element={<PersonPage />} />
+				<Route path='/reg' element={<RegisterPage/>}/>
+				<Route path='/login' element={<Login/>}/>
 			</Routes>
 			<Footer />
 		</div>
