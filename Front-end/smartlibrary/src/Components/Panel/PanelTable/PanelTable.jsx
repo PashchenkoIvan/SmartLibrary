@@ -13,6 +13,7 @@ import Affiliates from './Affiliates/Affiliates';
 import News from './News/News';
 import ReportsToTheNews from './ReportsToTheNews/ReportsToTheNews';
 import Visitors from './Visitors/Visitors';
+import CreateEventReport from './EventReports/CreateEventReport/CreateEventReport';
 
 const PanelTable = props => {
 	return (

@@ -56,6 +56,7 @@ let state = {
 					bigDescription: 'Великий опис до дня фантастики',
 					category: 'Новини ОТГ',
 					dateTime: '10/21/2020 12:00:00 AM',
+					id: 1,
 				},
 				{
 					name: 'Международный день «спасибо»',
@@ -63,6 +64,7 @@ let state = {
 					bigDescription: 'Великий опис до международный дня «спасибо»',
 					category: 'Новини бібліотеки',
 					dateTime: '10/22/2020 12:00:00 AM',
+					id: 2,
 				},
 			],
 			eventReporting: [
