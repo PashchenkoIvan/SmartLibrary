@@ -6,6 +6,8 @@ import PersonPage from './Pages/PersonPage/PersonPage';
 import AdminPage from './Pages/AdminMainPage/AdminPage';
 import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBook/SingleBook';
 import Footer from './Components/Footer/Footer';
+import TransHeader from './Components/TransHeader/TransHeader';
+import { useEffect } from 'react';
 import CreateEventReport from './Components/Panel/PanelTable/EventReports/CreateEventReport/CreateEventReport';
 import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
 import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
@@ -13,9 +15,12 @@ import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews
 // import Form from './Components/Form/Form';
 
 function App(props) {
+	// useEffect(() => {
+		
+	// }, window.location.href);
 	return (
 		<div className={s.wrapper}>
-			<Header />
+			{window.location.href == 'http://localhost:3000/main' ? <TransHeader/> : <Header/>}
 			<Routes>
 				<Route
 					exact
