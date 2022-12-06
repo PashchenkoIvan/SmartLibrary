@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import s from './CreateNews.module.css';
+import { useParams, Link } from 'react-router-dom';
+import s from './EditNews.module.css';
 
-const CreateNews = () => {
+const EditNews = () => {
+	const { id } = useParams();
 	const [news, setNews] = useState({
 		name: '',
 		description: '',
@@ -11,7 +12,7 @@ const CreateNews = () => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<h1>Додавання новини</h1>
+				<h1>Редагування новини</h1>
 				<Link to='/admin/news'>Повернутись</Link>
 			</div>
 			<label>
@@ -39,9 +40,9 @@ const CreateNews = () => {
 					onChange={e => setNews({ ...news, date: e.target.value })}
 				/>
 			</label>
-			<button>Створити</button>
+			<button>Оновити</button>
 		</div>
 	);
 };
 
-export default CreateNews;
+export default EditNews;
