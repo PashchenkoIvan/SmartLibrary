@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.closeBtn {
+    color: #000;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    position: relative;
+    padding: 15px 30px 30px;
+}
+
+.btn {
+    padding: 12px 20px;
+
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    line-height: 18px;
+
+    background-color: #36bbcb;
+    border-radius: 3px;
+    border: none;
+
+    cursor: pointer;
+}

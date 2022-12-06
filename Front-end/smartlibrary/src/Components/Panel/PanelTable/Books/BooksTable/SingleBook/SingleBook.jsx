@@ -26,6 +26,21 @@ const bibliographicDescriptionPopUp = b => {
 	);
 };
 
+const qrCodePopUp = (b) => {
+	return(
+	  <>
+		<div className={sp.header}>
+		  <span>Роздрукувати QR-код</span>
+		  <button className={sp.closeBtn} data-popup="tooltip">×</button>
+		</div>
+		<div className={sp.content}>
+			<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
+			<button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
+		</div>
+	  </>
+	)
+  }
+
 const SingleBook = props => {
 	const { currentBookId } = useParams();
 	const [bookData, setDataBook] = useState(props.data.books);

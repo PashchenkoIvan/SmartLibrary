@@ -1,10 +1,10 @@
 .popup-content {
-	position: absolute !important;
-	top: 20% !important;
-	left: 50% !important;
+    position: absolute !important;
+    top: 30% !important; left: 50% !important;
 
-	width: fit-content !important;
-	max-width: 600px !important;
+    width: fit-content !important;
+    max-width: 600px !important;
+    min-width: 400px !important;
 
 	background-color: #fff;
 	background-clip: padding-box;
@@ -17,8 +17,8 @@
 }
 
 .popup-arrow {
-	/* display: none; */
-	color: rgb(255, 255, 255);
+    display: none !important;
+    color: rgb(255, 255, 255);
 }
 
 [role='tooltip'].popup-content {
