@@ -7,6 +7,9 @@ import AdminPage from './Pages/AdminMainPage/AdminPage';
 import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBook/SingleBook';
 import Footer from './Components/Footer/Footer';
 import CreateEventReport from './Components/Panel/PanelTable/EventReports/CreateEventReport/CreateEventReport';
+import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
+import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
+import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews';
 // import Form from './Components/Form/Form';
 
 function App(props) {
@@ -38,10 +41,18 @@ function App(props) {
 				<Route path='/main' element={<MainPage data={props.state.data} />} />
 				<Route path='/admin/*' element={<AdminPage state={props.state} />} />
 				<Route
-					path='/create-event-report/:id'
+					path='/admin/event-reports/create/:id'
 					element={<CreateEventReport />}
 				/>
-				{/* <Route path='/form' element={<Form/>}/> */}
+				<Route
+					path='/admin/event-reports/edit/:id'
+					element={<EditEventReport />}
+				/>
+				<Route
+					path='/admin/annual-reports/create/:id'
+					element={<CreateAnnualReport />}
+				/>
+				<Route path='/admin/news/create' element={<CreateNews />} />
 				<Route path='/personPage' element={<PersonPage />} />
 			</Routes>
 			<Footer />

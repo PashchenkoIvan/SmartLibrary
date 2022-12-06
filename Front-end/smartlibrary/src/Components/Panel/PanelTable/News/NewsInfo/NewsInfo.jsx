@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import s from './NewsInfo.module.css';
 
 const NewsInfo = () => {
 	return (
 		<div className={s.container}>
-			<button>+ Додати новину</button>
+			<Link to='/admin/news/create'>+ Додати новину</Link>
 		</div>
 	);
 };

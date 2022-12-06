@@ -21,7 +21,7 @@ const ActivitiesTable = props => {
 				<div>
 					<button>Видалити</button>
 				</div>
-				<Link to={'/create-event-report/' + a.id}>Створити звіт</Link>
+				<Link to={'/admin/event-reports/create/' + a.id}>Створити звіт</Link>
 			</div>
 		);
 	});

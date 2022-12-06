@@ -1,0 +1,37 @@
+.container {
+	width: 600px;
+	padding: 15px;
+}
+
+form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+h2 {
+	width: 100%;
+	font-size: 22px;
+	text-align: center;
+}
+
+.formInput {
+	width: 100%;
+}
+
+.dateInput:before {
+	font-family: inherit;
+	width: 100%;
+	content: attr(placeholder);
+}
+
+.addReader {
+	margin-top: 20px;
+	padding: 0 30px;
+	height: 40px;
+	background-color: #36bbcb;
+	color: #fff;
+	border-radius: 3px;
+	align-self: center;
+}

@@ -52,6 +52,10 @@ textarea {
 	justify-content: space-between;
 }
 
+.categoryAndTime label:last-child {
+	width: 220px;
+}
+
 select {
 	width: 200px;
 	color: #242a31;
@@ -66,7 +70,7 @@ select {
 
 .dataset {
 	height: 40px;
-	width: 200px;
+	width: 220px;
 	border: 2px solid transparent;
 	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
 	border-radius: 3px;

@@ -1,6 +1,5 @@
-.container button {
-	width: 170px;
-	height: 40px;
+.container a {
+	padding: 6px 20px;
 	background-color: #36bbcb;
 	color: #fff;
 	font-size: 16px;

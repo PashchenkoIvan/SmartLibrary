@@ -28,28 +28,18 @@
 	align-items: center;
 }
 
-label {
+.dateInput:before {
 	width: 100%;
-}
-
-label p {
-	font-size: 18px;
-}
-
-label input {
-	padding: 10px 10px;
-	outline: none;
-	font-size: 18px;
+	content: attr(value);
 }
 
 .container button {
-	justify-self: center;
-	color: #fff;
-	background-color: #36bbcb;
+	margin: 0 auto;
 	padding: 0 30px;
 	height: 40px;
+	color: #fff;
+	background-color: #36bbcb;
 	border-radius: 3px;
 	margin-top: 20px;
-	font-size: 22px;
-	outline: none;
+	margin-bottom: 280px;
 }

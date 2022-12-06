@@ -52,7 +52,12 @@ const ChangeEvent = props => {
 						className={s.dataset}
 						type='datetime-local'
 						value={event.dateTime}
-						onChange={e => setEvent({ ...event, dateTime: e.target.value })}
+						onChange={e =>
+							setEvent({
+								...event,
+								dateTime: e.target.value.replace('T', ' '),
+							})
+						}
 					/>
 				</label>
 			</div>
