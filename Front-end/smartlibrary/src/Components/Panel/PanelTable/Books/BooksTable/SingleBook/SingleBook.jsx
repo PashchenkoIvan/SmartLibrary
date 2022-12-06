@@ -7,39 +7,6 @@ import s from './singleBook.module.css';
 import sp from './popUps.module.css';
 import './popUps.css';
 
-const bibliographicDescriptionPopUp = b => {
-	return (
-		<>
-			<div className={sp.header}>
-				<span>Бібліографічний опис</span>
-				<button className={sp.closeBtn} data-popup='tooltip'>
-					×
-				</button>
-			</div>
-			<div className={sp.content}>
-				<span>{`«${b.bookName}.» — ${b.bookAuthor}, ${b.lang}, ${b.dateOfPublication}. - c. ${b.pageAmount}`}</span>
-				<button className={sp.btn} onClick={() => {}}>
-					Роздрукувати
-				</button>
-			</div>
-		</>
-	);
-};
-
-const qrCodePopUp = (b) => {
-	return(
-	  <>
-		<div className={sp.header}>
-		  <span>Роздрукувати QR-код</span>
-		  <button className={sp.closeBtn} data-popup="tooltip">×</button>
-		</div>
-		<div className={sp.content}>
-			<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
-			<button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
-		</div>
-	  </>
-	)
-  }
 
 const SingleBook = props => {
 	const { currentBookId } = useParams();
@@ -51,13 +18,31 @@ const SingleBook = props => {
 				<div className={s.sideBar}>
 					<div className={s.qr}>
 						<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
-						<Link to='' className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
-							Роздрукувати QR-код
-						</Link>
+						<Popup
+							trigger={
+								<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
+									Роздрукувати QR-код
+								</button>
+							}
+							modal
+						>
+							{close => (
+								<>
+									<div className={sp.header}>
+									<span>Роздрукувати QR-код</span>
+									<button className={sp.closeBtn} onClick={close}>×</button>
+									</div>
+									<div className={sp.content}>
+										<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
+										<button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
+									</div>
+								</>
+							)}
+						</Popup>
 					</div>
 					<div className={s.links}>
 						<Link
-							to={`/single-book/edit/${b.id}`}
+							to={`/book-single/edit/${b.id}`}
 							className={`${s.sideBarLink} + ' ' + ${s.bg_a9e2e9}`}
 						>
 							Редагувати книгу
@@ -77,9 +62,24 @@ const SingleBook = props => {
 									Бібліографічний опис
 								</button>
 							}
-							position='center center'
+							modal
 						>
-							{bibliographicDescriptionPopUp(b)}
+							{close => (
+								<>
+									<div className={sp.header}>
+										<span>Бібліографічний опис</span>
+										<button className={sp.closeBtn} onClick={close}>
+											×
+										</button>
+									</div>
+									<div className={sp.content}>
+										<span>{`«${b.bookName}.» — ${b.bookAuthor}, ${b.lang}, ${b.dateOfPublication}. - c. ${b.pageAmount}`}</span>
+										<button className={sp.btn} onClick={() => {}}>
+											Роздрукувати
+										</button>
+									</div>
+								</>
+							)}
 						</Popup>
 					</div>
 				</div>
