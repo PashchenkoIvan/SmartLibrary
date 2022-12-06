@@ -45,32 +45,6 @@ const SingleBook = props => {
 	const { currentBookId } = useParams();
 	const [bookData, setDataBook] = useState(props.data.books);
 
-<<<<<<< HEAD
-  const singleBookMap = bookData.map(b =>
-	b.id == currentBookId ?
-	  <div className={s.contentBlock}>
-	    <div className={s.sideBar}>
-		  <div className={s.qr}>
-			<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
-			<Popup trigger={<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>Роздрукувати QR-код</button>} position="center center">
-	    	  {qrCodePopUp(b)}
-	  		</Popup>
-		  </div>
-		  <div className={s.links}>
-		    <Link to={`/book-single/edit/${b.id}`} className={`${s.sideBarLink} + ' ' + ${s.bg_a9e2e9}`}>Редагувати книгу</Link>
-		    <Link to={`/${b.id}`} className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`} onClick={() => {window.scrollTo(0, 0)}}>Переглянути на сайті</Link>
-			<Popup trigger={<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>Бібліографічний опис</button>} position="center center">
-	    	  {bibliographicDescriptionPopUp(b)}
-	  		</Popup>
-		  </div>
-		</div>
-		<div className={s.bookProfile}>
-		  <div className={s.bookImg} style={{ backgroundImage: 'url(' + b.bookImg + ')' }}></div>
-		  <div className={s.bookInfo}>
-			<div className={s.bookInfoTop}>
-			  <div className={s.bookStatus}>{b.bookStatus}</div>
-			  <h3 className={s.bookName}>{b.bookName}</h3>
-=======
 	const singleBookMap = bookData.map(b =>
 		b.id == currentBookId ? (
 			<div className={s.contentBlock}>
@@ -151,7 +125,6 @@ const SingleBook = props => {
 						</ul>
 					</div>
 				</div>
->>>>>>> 58dbc71f0eccf7a2255093a2ad4567803a22fdb6
 			</div>
 		) : (
 			''

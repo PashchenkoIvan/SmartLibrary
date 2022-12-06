@@ -1,19 +1,10 @@
 .popup-content {
-<<<<<<< HEAD
     position: absolute !important;
     top: 30% !important; left: 50% !important;
 
     width: fit-content !important;
     max-width: 600px !important;
     min-width: 400px !important;
-=======
-	position: absolute !important;
-	top: 20% !important;
-	left: 50% !important;
-
-	width: fit-content !important;
-	max-width: 600px !important;
->>>>>>> 58dbc71f0eccf7a2255093a2ad4567803a22fdb6
 
 	background-color: #fff;
 	background-clip: padding-box;
@@ -26,13 +17,8 @@
 }
 
 .popup-arrow {
-<<<<<<< HEAD
     display: none !important;
     color: rgb(255, 255, 255);
-=======
-	/* display: none; */
-	color: rgb(255, 255, 255);
->>>>>>> 58dbc71f0eccf7a2255093a2ad4567803a22fdb6
 }
 
 [role='tooltip'].popup-content {
