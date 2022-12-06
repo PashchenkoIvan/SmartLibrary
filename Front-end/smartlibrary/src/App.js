@@ -4,7 +4,8 @@ import s from './App.css';
 import MainPage from './Pages/MainPage/MainPage';
 import PersonPage from './Pages/PersonPage/PersonPage';
 import AdminPage from './Pages/AdminMainPage/AdminPage';
-import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBook/SingleBook'
+import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBook/SingleBook';
+import BookEdit from './Components/Panel/PanelTable/Books/BooksTable/BookEdit/BookEdit';
 import Footer from './Components/Footer/Footer';
 // import Form from './Components/Form/Form';
 
@@ -26,6 +27,10 @@ function App(props) {
 				<Route
 					path='/book-single/:currentBookId'
 					element={<SingleBook admin={props.state.admin} data={props.state.data} />}
+				/>
+				<Route
+					path='/book-single/edit/:currentBookId'
+					element={<BookEdit data={props.state.data} />}
 				/>
 				<Route
 					exact

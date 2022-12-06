@@ -12,14 +12,14 @@ const BooksTable = props => {
 
 		return (
 			<div className={s.row}>
-				<Link to={pathMain}>{b.bookName}</Link>
+				<Link to={pathMain} onClick={() => window.scrollTo(0, 0)}>{b.bookName}</Link>
 				<div>{b.bookAuthor}</div>
 				<div>{b.ISBN}</div>
 				<div>{b.isPopularBook ? 'У наявності' : 'Відсутня'}</div>
 				<div>
 					<img src={qrCode} alt='' />
 				</div>
-				<Link to={pathEdit}>Редагувати</Link>
+				<Link to={pathEdit} onClick={() => window.scrollTo(0, 0)}>Редагувати</Link>
 			</div>
 		);
 	});

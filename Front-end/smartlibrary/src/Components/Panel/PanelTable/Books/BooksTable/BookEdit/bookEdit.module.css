@@ -1,0 +1,158 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    max-width: 1300px;
+
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.btn {
+    width: fit-content;
+
+    padding: 10px 20px;
+
+    border-radius: 3px;
+    background-color: #36bbcb;
+
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    line-height: 18px;
+}
+
+.contentBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    width: 100%;
+}
+
+.caption {
+    color: #242a31;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.27px;
+    text-transform: uppercase;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    width: 100%;
+}
+
+.mainFieldsList,
+.additionalFieldsList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 100%;
+
+    list-style: none;
+}
+
+.singleFieldBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+}
+
+.singleFieldBlock label {
+    font-family: "Avenir Next";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.1875px;
+}
+
+.singleFieldBlock input,
+.singleFieldBlock select,
+.singleFieldBlock textarea  {
+    width: 100%;
+
+    padding: 17px 24px;
+
+    color: #555;
+    font-size: 14px;
+    line-height: 1.42857143;
+    
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+}
+
+.singleFieldBlock select {
+    word-spacing: inherit;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.singleFieldBlock select:not([multiple]) {
+    background-repeat: no-repeat;
+    background-position: calc(100% - 24px) 50%;
+    background-size: 0.85em auto;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M70.3 13.8L40 66.3 9.7 13.8z' fill='%23000'%3E%3C/path%3E%3C/svg%3E");
+  }
+
+.singleFieldBlock select::-ms-expand {
+    display: none;
+}
+
+.singleFieldBlock textarea {
+    height: 15em;
+}
+
+.additionalFieldsBtn {
+    width: fit-content;
+
+    padding: 14px 20px;
+
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.additionalFieldsBtn:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    cursor: pointer;
+}
+
+.submitBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40%;
+
+    padding: 14px 0;
+    margin: 0 auto;
+    
+    background-color: #36bbcb;
+    border-radius: 3px;
+    border: none;
+
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    line-height: 18px;
+}
+.submitBtn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}

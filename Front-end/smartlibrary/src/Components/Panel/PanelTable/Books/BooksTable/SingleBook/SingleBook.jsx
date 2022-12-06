@@ -22,6 +22,21 @@ const bibliographicDescriptionPopUp = (b) => {
   )
 }
 
+const qrCodePopUp = (b) => {
+	return(
+	  <>
+		<div className={sp.header}>
+		  <span>Роздрукувати QR-код</span>
+		  <button className={sp.closeBtn} data-popup="tooltip">×</button>
+		</div>
+		<div className={sp.content}>
+			<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
+			<button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
+		</div>
+	  </>
+	)
+  }
+
 const SingleBook = props => {
   const { currentBookId } = useParams();
   const [bookData, setDataBook] = useState(props.data.books);
@@ -32,10 +47,12 @@ const SingleBook = props => {
 	    <div className={s.sideBar}>
 		  <div className={s.qr}>
 			<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
-		    <Link to='' className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>Роздрукувати QR-код</Link>
+			<Popup trigger={<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>Роздрукувати QR-код</button>} position="center center">
+	    	  {qrCodePopUp(b)}
+	  		</Popup>
 		  </div>
 		  <div className={s.links}>
-		    <Link to={`/single-book/edit/${b.id}`} className={`${s.sideBarLink} + ' ' + ${s.bg_a9e2e9}`}>Редагувати книгу</Link>
+		    <Link to={`/book-single/edit/${b.id}`} className={`${s.sideBarLink} + ' ' + ${s.bg_a9e2e9}`}>Редагувати книгу</Link>
 		    <Link to={`/${b.id}`} className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`} onClick={() => {window.scrollTo(0, 0)}}>Переглянути на сайті</Link>
 			<Popup trigger={<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>Бібліографічний опис</button>} position="center center">
 	    	  {bibliographicDescriptionPopUp(b)}
