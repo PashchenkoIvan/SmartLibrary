@@ -14,15 +14,21 @@ import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/Cr
 import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews';
 import RegisterPage from './Pages/regPage/regPage';
 import Login from './Pages/LoginPage/Login';
+import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews';
+import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews';
 // import Form from './Components/Form/Form';
 
 function App(props) {
 	// useEffect(() => {
-		
+
 	// }, window.location.href);
 	return (
 		<div className={s.wrapper}>
-			{window.location.href == 'http://localhost:3000/main' ? <TransHeader/> : <Header/>}
+			{window.location.href == 'http://localhost:3000/main' ? (
+				<TransHeader />
+			) : (
+				<Header />
+			)}
 			<Routes>
 				<Route
 					exact
@@ -59,6 +65,8 @@ function App(props) {
 					path='/admin/annual-reports/create/:id'
 					element={<CreateAnnualReport />}
 				/>
+				<Route path='/admin/news/edit/:id' element={<EditNews />} />
+				<Route path='/admin/news/publish/:id' element={<PublishNews />} />
 				<Route path='/admin/news/create' element={<CreateNews />} />
 				<Route path='/personPage' element={<PersonPage />} />
 				<Route path='/reg' element={<RegisterPage/>}/>
