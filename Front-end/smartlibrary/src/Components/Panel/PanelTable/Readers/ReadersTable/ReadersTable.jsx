@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import s from './ReadersTable.module.css';
-// import QRCode from 'react-qr-code';
-import qrcode from '../../../img/qricon.png';
+import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+// import QRCode from 'react-qr-code';
+
+import s from './ReadersTable.module.css';
+import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
+import qrCode from '../../../img/qricon.png';
+import { QrIcon } from '../../../img';
 
 const ReadersTable = props => {
 	const [readers, setReaders] = useState(props.readers);
@@ -10,13 +14,31 @@ const ReadersTable = props => {
 	let readersElements = readers.map(r => {
 		return (
 			<div className={s.row}>
-				<Link to='/personPage'>{r.name}</Link>
+				<Link to={`/reader/${r.id}`}>{r.name}</Link>
 				<div>{r.email}</div>
 				<div>{r.phone}</div>
 				<div>{r.needs === true ? 'так' : 'немає'}</div>
-				<div>
-					<img src={qrcode} alt='qrcode' />
-				</div>
+				<Popup
+					trigger={
+						<div>
+							<img src={qrCode} alt='' />
+						</div>
+					}
+					modal
+				>
+					{close => (
+						<>
+							<div className={sp.header}>
+							<span>{r.name}</span>
+							<button className={sp.closeBtn} onClick={close}>×</button>
+							</div>
+							<div className={sp.content}>
+								<img className={s.qrImg} src={QrIcon} alt={r.name} />
+								<button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
+							</div>
+						</>
+					)}
+				</Popup>
 				<div>{r.status}</div>
 			</div>
 		);
@@ -25,7 +47,7 @@ const ReadersTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>ПІБ</p>
+				<p>ПІБ {`(${readers.length})`}</p>
 				<p>Email</p>
 				<p>Телефон</p>
 				<p>Особливі потреби</p>

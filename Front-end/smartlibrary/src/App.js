@@ -4,6 +4,7 @@ import s from './App.css';
 import MainPage from './Pages/MainPage/MainPage';
 import PersonPage from './Pages/PersonPage/PersonPage';
 import AdminPage from './Pages/AdminMainPage/AdminPage';
+import CurrentReader from './Components/Panel/PanelTable/Readers/ReadersTable/CurrentReader/CurrentReader';
 import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBook/SingleBook';
 import BookEdit from './Components/Panel/PanelTable/Books/BooksTable/BookEdit/BookEdit';
 import BookCreate from './Components/Panel/PanelTable/Books/BooksTable/BookCreate/BookCreate';
@@ -41,6 +42,12 @@ function App(props) {
 					exact
 					path='/catalog/:booksCategoryId'
 					element={<BooksCatalog data={props.state.data} />}
+				/>
+				<Route
+					path='/reader/:currentReaderId'
+					element={
+						<CurrentReader admin={props.state.admin} data={props.state.data} />
+					}
 				/>
 				<Route
 					path='/book-single/create'

@@ -5,18 +5,58 @@ let state = {
 		tables: {
 			readers: [
 				{
+					id: "sergey-zorya-1",
 					name: 'Sergey Zorya',
 					email: 'sergey.zorya@gmail.com',
 					phone: '+380935096324',
 					status: 'Немає боргів',
 					needs: true,
+					birthday: "01.05.2000",
+					homeAddress: "Дніпро, Глінки 1",
+					workAddress: "Кривий Ріг, Перемоги 13",
+					passportInfo: "",
+					booksHistory: [
+						{
+							id: 'trytsylindrovyy-dvyhun-lyubovi',
+							dateOfIssue: '30.10.2022',
+							dateOfreturn: '07.11.2022',
+							status: 'Повернена',
+							color: '#e8eef6',
+						},
+						{
+							id: 'armahedon-na-maydani',
+							dateOfIssue: '10.11.2022',
+							dateOfreturn: '-',
+							status: 'Не повернена',
+							color: '#ff0000',
+						},
+						{
+							id: 'zahovoreno-na-lyubov',
+							dateOfIssue: '20.11.2022',
+							dateOfreturn: '-',
+							status: 'Читається',
+							color: '#ffff00',
+						},
+						{
+							id: 'iz-soho-dna',
+							dateOfIssue: '20.11.2022',
+							dateOfreturn: '-',
+							status: 'Заброньована',
+							color: '#7ed321',
+						},
+					]
 				},
 				{
+					id: "sergey-zorya-2",
 					name: 'Sergey Zorya',
 					email: 'sergey.zorya@gmail.com',
 					phone: '+380935096324',
 					status: 'Немає боргів',
 					needs: false,
+					birthday: "01.05.1990",
+					homeAddress: "Дніпро, Глінки 2",
+					workAddress: "Кривий Ріг, Перемоги 23",
+					passportInfo: "748294739",
 				},
 			],
 			books: [
