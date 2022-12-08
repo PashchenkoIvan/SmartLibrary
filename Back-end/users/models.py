@@ -1,9 +1,16 @@
 from django.db import models
 from django.urls import reverse
 
-class Reader(models.M):
+from library_app.models import Book
+
+class Visitor(models.Model):
     full_name = models.CharField(max_length=70, verbose_name="ФИО")
-    models.EmailField((""), max_length=254)
+    email = models.EmailField(max_length=254, verbose_name="Email")
+    full_address = models.CharField(max_length=100, verbose_name='Aдресса') 
+    birthday = models.DateField()
+    last_visit = models.DateTimeField()
+    comment = models.TextField()
+    books = models.ForeignKey(Book, on_delete=models.SET_NULL, blank=True, null=True)
     
     class Meta:
         verbose_name = ("Reader")
@@ -15,4 +22,6 @@ class Reader(models.M):
     def get_absolute_url(self):
         return reverse("Reader_detail", kwargs={"pk": self.pk})
 
-# Create your models here.
+
+class Librarian(models.Model):
+    pass

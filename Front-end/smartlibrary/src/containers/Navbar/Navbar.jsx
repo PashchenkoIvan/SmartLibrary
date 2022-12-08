@@ -1,7 +1,7 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import s from './Navbar.module.css'
-import { Play } from '../../../assets/imgMainPage'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import s from './Navbar.module.css';
+import { Play } from '../../../assets/imgMainPage';
 
 const Navbar = () => {
 	return (
@@ -9,11 +9,11 @@ const Navbar = () => {
 			<NavLink className={s.navLink} to='/'>
 				Каталог книг
 			</NavLink>
-			<NavLink className={s.navLink} to='/'>
+			<NavLink className={s.navLink} to='/faq/making-orders'>
 				<img className={s.navLinkPlay} src={Play} alt='Play' />
 				Як це працює?
 			</NavLink>
-			<NavLink className={s.navLink} to='/'>
+			<NavLink className={s.navLink} to='/contacts'>
 				Контакти
 			</NavLink>
 			<NavLink className={s.navLink} to='/login-lib'>
@@ -23,7 +23,7 @@ const Navbar = () => {
 				Особистий кабінет
 			</NavLink>
 		</nav>
-	)
-}
+	);
+};
 
-export default Navbar
+export default Navbar;

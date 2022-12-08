@@ -4,10 +4,13 @@
     /* padding-top: 20px; */
 }
 .container button {
-    width: 160px;
-    height: 50px;
+    width: 170px;
+    height: 40px;
     background-color: #36bbcb;
     color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 3px;
 }
 .table {
     width: 1300px;
@@ -15,7 +18,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 50px;
     overflow-y: scroll;
 }
@@ -28,6 +31,7 @@
     background-color: #dae3ef;
     /* padding-right: 200px; */
     padding-left: 20px;
+	border-radius: 3px;
 }
 .titleBlock p {
     /* font-weight: 600; */
@@ -38,13 +42,14 @@
 }
 .infoBlock {
     width: 100%;
-    min-height: 60px;
-    margin-top: 5px;
+    min-height: 55px;
+    margin-top: 10px;
     background-color: white;
     padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+	border-radius: 3px;
     box-shadow: 0 1px 4px rgb(30 37 82 / 24%);
 }
 .infoBlock p {
@@ -58,13 +63,14 @@
     width: 150px;
 }
 .infoBlock button {
-    width: 90px;
+    width: 120px;
     height: 40px;
+    border-radius: 3px;
     background-color: #36bbcb;
     color: white;
     margin-left: 70px;
 }
 .infoBlock button:last-child {
-    margin-left: 40px;
+    margin-left: 10px;
     background-color: red;
 }

@@ -21,7 +21,7 @@ const ReportsToTheNews = () => {
 	let ArrayAdd = Array.map(e => <Block name={e.threme} home={e.place} birthday={e.date}/>);
 	return(
 		<div className={s.container}>
-			<button>+ Додати</button>
+			<button>+ Додати звіт</button>
 			<div className={s.table}>
 				<div className={s.titleBlock}>
 					<p>Мета</p>

@@ -19,6 +19,8 @@ import RegisterPage from './Pages/regPage/regPage';
 import Login from './Pages/LoginPage/Login';
 import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews';
 import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews';
+import Contacts from './Pages/Contacts/Contacts';
+import FaqPage from './Pages/FaqPage/FaqPage';
 // import Form from './Components/Form/Form';
 
 function App(props) {
@@ -27,12 +29,9 @@ function App(props) {
 	// }, window.location.href);
 	return (
 		<div className={s.wrapper}>
-			{window.location.href == 'http://localhost:3000/' ? (
-				<TransHeader />
-			) : (
-				<Header />
-			)}
+			{window.location.href =='http://localhost:3000/' ? (<TransHeader />) : (<Header />)}
 			<Routes>
+				<Route path='/' element={<MainPage data={props.state.data} />} />
 				<Route
 					exact
 					path='/catalog'
@@ -57,9 +56,7 @@ function App(props) {
 				/>
 				<Route
 					path='/books/categories'
-					element={
-						<BooksCategories data={props.state.data} />
-					}
+					element={<BooksCategories data={props.state.data} />}
 				/>
 				<Route
 					path='/book-single/:currentBookId'
@@ -76,7 +73,7 @@ function App(props) {
 					path='/:bookId'
 					element={<SelectedBook data={props.state.data} />}
 				/>
-				<Route path='/' element={<MainPage data={props.state.data} />} />
+				<Route path='/faq/*' element={<FaqPage />} />
 				<Route path='/admin/*' element={<AdminPage state={props.state} />} />
 				<Route
 					path='/admin/event-reports/create/:id'
@@ -96,6 +93,7 @@ function App(props) {
 				<Route path='/personPage' element={<PersonPage />} />
 				<Route path='/reg' element={<RegisterPage />} />
 				<Route path='/login' element={<Login />} />
+				<Route path='/contacts' element={<Contacts/>}/>
 			</Routes>
 			<Footer />
 		</div>

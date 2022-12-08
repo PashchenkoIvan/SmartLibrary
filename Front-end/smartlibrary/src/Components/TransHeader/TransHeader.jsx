@@ -31,8 +31,12 @@ const TransHeader = () => {
 					<a href='/catalog' className={s.link}>
 						Каталог книг
 					</a>
-					<a className={s.link}>Контакти</a>
-					<a className={s.link}>Як це працює</a>
+					<a href='/contacts' className={s.link}>
+						Контакти
+					</a>
+					<a href='/faq/making-orders' className={s.link}>
+						Як це працює
+					</a>
 					<a href='/admin/readers' className={s.link}>
 						Бібліотекар
 					</a>
