@@ -1,25 +1,19 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './sideBar.module.css';
 
-const booksCategories = [
-  {
-    id: "detektyvy",
-    name: "Детективи",
-  },
-  {
-    id: "dytyacha-yunatska",
-    name: "Дитяча / Юнацька",
-  },
-  {
-    id: "dovidkovi-vydannya",
-    name: "Довідкові видання",
-  },
-]
-
 const SideBar = props => {
+  const [booksCategories, setBooksCategories] = useState(props.data.categories)
   const isActive = (isActive) => isActive ? 'activeCategoryLink' : '';
-  const booksCategoryCounter = (categoryId) => { return props.books.filter((el) => el.bookCategories.filter((el) => el === `${categoryId}`).length > 0).length }
+
+  const booksCategoryCounter = (categoryId) =>
+    {
+      return props.data.books.filter((el) => el.bookCategories
+                        .filter((el) => el === `${categoryId}`)
+                        .length > 0)
+                        .length
+    }
+
   const addBooksCategoriesMap = booksCategories.map((currentCategory) =>
     <li className={s.singleCategory}>
       <NavLink to={`/catalog/${currentCategory.id}`} className={navData => (navData.isActive ? s.activeCategoryLink : '') + ' ' + s.categoryLink}>

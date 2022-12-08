@@ -26,10 +26,14 @@ const BooksInfo = () => {
 				</button>
 			</div>
 			<div className={s.buttons}>
-				<NavLink className={s.addBook} to='/Books/Create'>
+				<NavLink 
+					className={s.addBook}
+					to='/book-single/create'
+					onClick={() => window.scrollTo(0, 0)}
+				>
 					+ Додати книгу
 				</NavLink>
-				<NavLink className={s.categories} to='/Categories'>
+				<NavLink className={s.categories} to='/books/categories'>
 					Категорії
 				</NavLink>
 			</div>

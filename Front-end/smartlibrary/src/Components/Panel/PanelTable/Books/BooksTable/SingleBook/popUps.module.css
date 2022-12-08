@@ -13,6 +13,9 @@
     line-height: 1;
     text-shadow: 0 1px 0 #fff;
 
+    border: none;
+    outline: none;
+
     filter: alpha(opacity=20);
     opacity: .2;
 }
