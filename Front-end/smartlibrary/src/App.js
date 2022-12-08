@@ -17,6 +17,7 @@ import RegisterPage from './Pages/regPage/regPage';
 import Login from './Pages/LoginPage/Login';
 import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews';
 import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews';
+import Contacts from './Pages/Contacts/Contacts';
 // import Form from './Components/Form/Form';
 
 function App(props) {
@@ -25,11 +26,7 @@ function App(props) {
 	// }, window.location.href);
 	return (
 		<div className={s.wrapper}>
-			{window.location.href == 'http://localhost:3000/' ? (
-				<TransHeader />
-			) : (
-				<Header />
-			)}
+			{window.location.href =='http://localhost:3000/' ? (<TransHeader />) : (<Header />)}
 			<Routes>
 				<Route
 					exact
@@ -76,6 +73,7 @@ function App(props) {
 				<Route path='/personPage' element={<PersonPage />} />
 				<Route path='/reg' element={<RegisterPage />} />
 				<Route path='/login' element={<Login />} />
+				<Route path='/contacts' element={<Contacts/>}/>
 			</Routes>
 			<Footer />
 		</div>

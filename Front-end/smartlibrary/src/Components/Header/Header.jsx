@@ -14,7 +14,7 @@ const Header = () => {
 					<Link to='/catalog' className={s.link}>
 						Каталог книг
 					</Link>
-					<Link className={s.link}>Контакти</Link>
+					<Link to='/contacts' className={s.link}>Контакти</Link>
 					<Link className={s.link}>Як це працює</Link>
 					<Link to='/admin/readers' className={s.link}>
 						Бібліотекар
