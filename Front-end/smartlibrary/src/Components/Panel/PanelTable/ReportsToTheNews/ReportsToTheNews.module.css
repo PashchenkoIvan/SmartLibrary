@@ -31,6 +31,7 @@
     background-color: #dae3ef;
     /* padding-right: 200px; */
     padding-left: 20px;
+	border-radius: 3px;
 }
 .titleBlock p {
     /* font-weight: 600; */
@@ -41,13 +42,14 @@
 }
 .infoBlock {
     width: 100%;
-    min-height: 60px;
+    min-height: 55px;
     margin-top: 10px;
     background-color: white;
     padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+	border-radius: 3px;
     box-shadow: 0 1px 4px rgb(30 37 82 / 24%);
 }
 .infoBlock p {
