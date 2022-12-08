@@ -20,7 +20,7 @@ const LibrariansTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>ПІБ</p>
+				<p>ПІБ ({librarians.length})</p>
 				<p>Email</p>
 				<p>Телефон</p>
 				<p>Назва</p>

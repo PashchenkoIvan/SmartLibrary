@@ -2,10 +2,10 @@ import React from 'react';
 import s from './ReportsToTheNews.module.css';
 
 export let Array = [
-	{threme: 'Мета', place: 'st.Darnitskaya 19', date: '03.12.2022',},
-]
+	{ threme: 'Мета', place: 'st.Darnitskaya 19', date: '03.12.2022' },
+];
 
-const Block = (props) => {
+const Block = props => {
 	return (
 		<div className={s.infoBlock}>
 			<p>{props.name}</p>
@@ -18,13 +18,15 @@ const Block = (props) => {
 };
 
 const ReportsToTheNews = () => {
-	let ArrayAdd = Array.map(e => <Block name={e.threme} home={e.place} birthday={e.date}/>);
-	return(
+	let ArrayAdd = Array.map(e => (
+		<Block name={e.threme} home={e.place} birthday={e.date} />
+	));
+	return (
 		<div className={s.container}>
 			<button>+ Додати звіт</button>
 			<div className={s.table}>
 				<div className={s.titleBlock}>
-					<p>Мета</p>
+					<p>Мета ({Array.length})</p>
 					<p>Місце</p>
 					<p>Дата</p>
 				</div>

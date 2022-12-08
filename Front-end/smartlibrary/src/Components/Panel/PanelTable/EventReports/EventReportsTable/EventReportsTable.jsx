@@ -18,7 +18,7 @@ const EventReportsTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>Назва звіту</p>
+				<p>Назва звіту ({eventReports.length})</p>
 				<p>Дата створення</p>
 			</div>
 			<div className={s.main}>{eventReportsElements}</div>

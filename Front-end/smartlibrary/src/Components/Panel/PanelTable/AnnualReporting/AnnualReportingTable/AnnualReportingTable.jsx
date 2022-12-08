@@ -20,7 +20,7 @@ const AnnualReportingTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>Назва</p>
+				<p>Назва ({annualReports.length})</p>
 			</div>
 			<div className={s.main}>{annualReportsElements}</div>
 		</div>

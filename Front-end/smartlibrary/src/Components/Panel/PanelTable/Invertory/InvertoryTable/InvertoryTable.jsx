@@ -22,7 +22,7 @@ const InvertoryTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>Назва сканованої книги</p>
+				<p>Назва сканованої книги ({invertory.length})</p>
 				<p>Автор</p>
 				<p>Інвертарний номер</p>
 				<p>Статус</p>

@@ -24,7 +24,7 @@ const NewsTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>Новина</p>
+				<p>Новина ({news.length})</p>
 				<p>Опис</p>
 				<p>Дата</p>
 			</div>

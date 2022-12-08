@@ -19,7 +19,7 @@ const AffiliatesTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>Назва</p>
+				<p>Назва ({affiliates.length})</p>
 				<p>Адреса</p>
 				<p>URL</p>
 			</div>

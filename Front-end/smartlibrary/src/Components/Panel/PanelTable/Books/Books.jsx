@@ -8,7 +8,7 @@ const Books = props => {
 
 	return (
 		<div className={s.container}>
-			<BooksInfo />
+			<BooksInfo books={props.books} setBooks={setBooks} />
 			<BooksTable books={books} />
 		</div>
 	);

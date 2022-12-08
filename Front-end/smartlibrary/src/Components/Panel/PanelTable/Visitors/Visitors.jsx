@@ -225,16 +225,14 @@ export const Visitors = () => {
 		<div className={s.container}>
 			<button>+ Додати</button>
 			<div className={s.titleBlock}>
-					<p>ПІБ</p>
-					<p>Місце проживання</p>
-					<p>Дата народження</p>
-					<p>Коментар</p>
-					<p>Книги</p>
-					<p>Дата</p>
+				<p>ПІБ ({Array.length})</p>
+				<p>Місце проживання</p>
+				<p>Дата народження</p>
+				<p>Коментар</p>
+				<p>Книги</p>
+				<p>Дата</p>
 			</div>
-			<div className={s.table}>
-				{ArrayAdd}
-			</div>
+			<div className={s.table}>{ArrayAdd}</div>
 		</div>
 	);
 };

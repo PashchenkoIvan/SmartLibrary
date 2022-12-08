@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './BooksInfo.module.css';
 
-const BooksInfo = () => {
+const BooksInfo = props => {
+	const [search, setSearch] = useState('');
+
+	useEffect(() => {
+		props.setBooks(
+			props.books.filter(b => (b.bookName.indexOf(search) == -1 ? false : true))
+		);
+	}, [search]);
+
 	return (
 		<div className={s.container}>
 			<div className={s.search}>
 				<input
 					type='text'
 					placeholder='Проскануйте QR-код або введіть назву/автора книги'
+					value={search}
+					onChange={e => setSearch(e.target.value)}
 				/>
 				<button>
 					<svg
@@ -26,7 +36,7 @@ const BooksInfo = () => {
 				</button>
 			</div>
 			<div className={s.buttons}>
-				<NavLink 
+				<NavLink
 					className={s.addBook}
 					to='/book-single/create'
 					onClick={() => window.scrollTo(0, 0)}

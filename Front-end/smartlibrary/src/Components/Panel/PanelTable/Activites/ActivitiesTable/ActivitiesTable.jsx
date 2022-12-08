@@ -28,7 +28,7 @@ const ActivitiesTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>Назва заходу</p>
+				<p>Назва заходу ({activities.length})</p>
 				<p>Категорія</p>
 				<p>Дата та час проведення</p>
 			</div>

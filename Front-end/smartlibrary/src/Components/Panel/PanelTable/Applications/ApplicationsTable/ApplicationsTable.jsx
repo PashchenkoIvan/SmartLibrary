@@ -45,7 +45,7 @@ const ApplicationsTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>ПІБ</p>
+				<p>ПІБ ({applications.length})</p>
 				<p>Книга</p>
 				<p>Дата</p>
 				<p>Інвентарний номер</p>
