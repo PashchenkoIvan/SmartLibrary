@@ -23,7 +23,7 @@
 
 .header p:nth-child(1) {
 	width: 30%;
-	padding-left: 10px;
+	padding-left: 15px;
 }
 
 .header p:nth-child(2) {
@@ -62,7 +62,7 @@
 
 .row div:nth-child(1) {
 	width: 30%;
-	padding-left: 10px;
+	padding-left: 15px;
 }
 
 .row div:nth-child(2) {

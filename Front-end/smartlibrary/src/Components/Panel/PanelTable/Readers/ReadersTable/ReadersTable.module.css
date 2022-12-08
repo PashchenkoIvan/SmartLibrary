@@ -23,7 +23,7 @@
 }
 
 .header p:nth-child(1) {
-	padding-left: 10px;
+	padding-left: 15px;
 	width: 30%;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .row a:nth-child(1) {
-	padding-left: 10px;
+	padding-left: 15px;
 	width: 30%;
 	display: flex;
 	align-items: center;

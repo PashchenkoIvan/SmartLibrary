@@ -15,7 +15,7 @@
 }
 
 .header p:nth-child(1) {
-	padding-left: 10px;
+	padding-left: 15px;
 	width: 35%;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .row div:nth-child(1) {
-	padding-left: 10px;
+	padding-left: 15px;
 	width: 35%;
 }
 

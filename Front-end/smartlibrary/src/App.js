@@ -29,7 +29,11 @@ function App(props) {
 	// }, window.location.href);
 	return (
 		<div className={s.wrapper}>
-			{window.location.href =='http://localhost:3000/' ? (<TransHeader />) : (<Header />)}
+			{window.location.href == 'http://localhost:3000/' ? (
+				<TransHeader />
+			) : (
+				<Header />
+			)}
 			<Routes>
 				<Route path='/' element={<MainPage data={props.state.data} />} />
 				<Route
@@ -48,12 +52,7 @@ function App(props) {
 						<CurrentReader admin={props.state.admin} data={props.state.data} />
 					}
 				/>
-				<Route
-					path='/book-single/create'
-					element={
-						<BookCreate />
-					}
-				/>
+				<Route path='/book-single/create' element={<BookCreate />} />
 				<Route
 					path='/books/categories'
 					element={<BooksCategories data={props.state.data} />}
@@ -81,7 +80,11 @@ function App(props) {
 				/>
 				<Route
 					path='/admin/event-reports/edit/:id'
-					element={<EditEventReport />}
+					element={
+						<EditEventReport
+							reports={props.state.admin.tables.eventReporting}
+						/>
+					}
 				/>
 				<Route
 					path='/admin/annual-reports/create/:id'
@@ -93,7 +96,7 @@ function App(props) {
 				<Route path='/personPage' element={<PersonPage />} />
 				<Route path='/reg' element={<RegisterPage />} />
 				<Route path='/login' element={<Login />} />
-				<Route path='/contacts' element={<Contacts/>}/>
+				<Route path='/contacts' element={<Contacts />} />
 			</Routes>
 			<Footer />
 		</div>

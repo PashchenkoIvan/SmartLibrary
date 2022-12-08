@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import s from './ApplicationsTable.module.css';
+import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
 import qrCode from '../../../img/qricon.png';
+import Popup from 'reactjs-popup';
+import { QrIcon } from '../../../img';
 
 const ApplicationsTable = props => {
 	const [applications, setApplications] = useState(props.applications);
@@ -11,9 +14,31 @@ const ApplicationsTable = props => {
 				<div>{a.book}</div>
 				<div>{a.date}</div>
 				<div>{a.number}</div>
-				<div>
-					<img src={qrCode} alt='qr-code' />
-				</div>
+				<Popup
+					trigger={
+						<div>
+							<img src={qrCode} alt='' />
+						</div>
+					}
+					modal
+				>
+					{close => (
+						<>
+							<div className={sp.header}>
+								<span>{a.book}</span>
+								<button className={sp.closeBtn} onClick={close}>
+									×
+								</button>
+							</div>
+							<div className={sp.content}>
+								<img className={s.qrImg} src={QrIcon} alt={a.bookName} />
+								<button className={sp.btn} onClick={() => {}}>
+									Роздрукувати
+								</button>
+							</div>
+						</>
+					)}
+				</Popup>
 			</div>
 		);
 	});

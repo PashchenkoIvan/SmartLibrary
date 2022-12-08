@@ -2,21 +2,45 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import s from './EditEventReport.module.css';
 
-const EditEventReport = () => {
+const EditEventReport = props => {
 	const { id } = useParams();
-	const [eventReport, setEventReport] = useState({
-		id: id,
-		target: '',
-		place: '',
-		attends: '',
-		techUse: '',
-		efficiency: '',
-		formOfWork: '',
-		responsibles: '',
-		conclusions: '',
-		usedBooks: '',
-		participants: '',
+	// const [eventReport, setEventReport] = useState({
+	// 	id: '',
+	// 	target: '',
+	// 	place: '',
+	// 	attends: '',
+	// 	techUse: '',
+	// 	efficiency: '',
+	// 	formOfWork: '',
+	// 	responsibles: '',
+	// 	conclusions: '',
+	// 	usedBooks: '',
+	// 	participants: '',
+	// // });
+
+	let initState = {};
+
+	props.reports.forEach(r => {
+		if (r.id == id) {
+			console.log(r.place);
+			initState = {
+				id: id,
+				target: r.target,
+				place: r.place,
+				attends: r.attends,
+				techUse: r.techUse,
+				efficiency: r.efficiency,
+				formOfWork: r.formOfWork,
+				responsibles: r.responsibles,
+				conclusions: r.conclusions,
+				usedBooks: r.usedBooks,
+				participants: r.participants,
+			};
+		}
 	});
+
+	const [eventReport, setEventReport] = useState(initState);
+
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
