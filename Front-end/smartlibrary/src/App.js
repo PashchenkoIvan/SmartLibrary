@@ -88,10 +88,20 @@ function App(props) {
 				/>
 				<Route
 					path='/admin/annual-reports/create/:id'
-					element={<CreateAnnualReport />}
+					element={
+						<CreateAnnualReport
+							annualReports={props.state.admin.tables.annualReporting}
+						/>
+					}
 				/>
-				<Route path='/admin/news/edit/:id' element={<EditNews />} />
-				<Route path='/admin/news/publish/:id' element={<PublishNews />} />
+				<Route
+					path='/admin/news/edit/:id'
+					element={<EditNews news={props.state.admin.tables.news} />}
+				/>
+				<Route
+					path='/admin/news/publish/:id'
+					element={<PublishNews news={props.state.admin.tables.news} />}
+				/>
 				<Route path='/admin/news/create' element={<CreateNews />} />
 				<Route path='/personPage' element={<PersonPage />} />
 				<Route path='/reg' element={<RegisterPage />} />

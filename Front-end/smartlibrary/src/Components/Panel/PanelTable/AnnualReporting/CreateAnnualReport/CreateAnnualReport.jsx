@@ -2,14 +2,24 @@ import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import s from './CreateAnnualReport.module.css';
 
-const CreateAnnualReport = () => {
+const CreateAnnualReport = props => {
 	const { id } = useParams();
-	const [report, setReport] = useState({
-		id: id,
-		name: '',
-		dateFrom: '',
-		dateTo: '',
+
+	let initState = {};
+
+	props.annualReports.forEach(r => {
+		if (id == r.id) {
+			initState = {
+				id: id,
+				name: r.name,
+				dateFrom: '',
+				dateTo: '',
+			};
+		}
 	});
+
+	const [report, setReport] = useState(initState);
+
 	return (
 		<div className={s.container}>
 			<div className={s.header}>

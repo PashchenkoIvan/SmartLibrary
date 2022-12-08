@@ -2,13 +2,22 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import s from './EditNews.module.css';
 
-const EditNews = () => {
+const EditNews = props => {
 	const { id } = useParams();
-	const [news, setNews] = useState({
-		name: '',
-		description: '',
-		date: '',
+
+	let initState = {};
+
+	props.news.forEach(n => {
+		if (id == n.id) {
+			initState = {
+				name: n.name,
+				description: n.description,
+				date: n.date,
+			};
+		}
 	});
+
+	const [news, setNews] = useState(initState);
 	return (
 		<div className={s.container}>
 			<div className={s.header}>

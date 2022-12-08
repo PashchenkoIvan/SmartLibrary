@@ -4,19 +4,6 @@ import s from './EditEventReport.module.css';
 
 const EditEventReport = props => {
 	const { id } = useParams();
-	// const [eventReport, setEventReport] = useState({
-	// 	id: '',
-	// 	target: '',
-	// 	place: '',
-	// 	attends: '',
-	// 	techUse: '',
-	// 	efficiency: '',
-	// 	formOfWork: '',
-	// 	responsibles: '',
-	// 	conclusions: '',
-	// 	usedBooks: '',
-	// 	participants: '',
-	// // });
 
 	let initState = {};
 

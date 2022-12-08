@@ -6,14 +6,13 @@ const InvertoryTable = props => {
 	const [invertory, setInvertory] = useState(props.invertory);
 
 	let invertoryElements = invertory.map(i => {
-		let path = `/Books/BookSingle/${i.id}`;
 		return (
 			<div className={s.row}>
-				<Link to={path}>{i.name}</Link>
-				<div>{i.author}</div>
-				<div>{i.num}</div>
+				<Link to={'/book-single/' + i.id}>{i.bookName}</Link>
+				<div>{i.bookAuthor}</div>
+				<div>{i.ISBN}</div>
 				<div>
-					<p>{i.status ? 'Вже сканована' : 'Не сканована'}</p>
+					<p>{i.isPopularBook ? 'Вже сканована' : 'Не сканована'}</p>
 				</div>
 				<button>Видалити</button>
 			</div>
