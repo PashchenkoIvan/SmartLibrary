@@ -14,15 +14,12 @@ const Header = () => {
 					<Link to='/catalog' className={s.link}>
 						Каталог книг
 					</Link>
-<<<<<<< HEAD
-					<Link to='/contacts' className={s.link}>Контакти</Link>
-					<Link className={s.link}>Як це працює</Link>
-=======
-					<Link className={s.link}>Контакти</Link>
+					<Link to='/contacts' className={s.link}>
+						Контакти
+					</Link>
 					<Link to='./faq/making-orders' className={s.link}>
 						Як це працює
 					</Link>
->>>>>>> 3822629eee7e7e67db00df346a86323b9071251d
 					<Link to='/admin/readers' className={s.link}>
 						Бібліотекар
 					</Link>
