@@ -439,6 +439,23 @@ let state = {
 				bookCategories: ['detektyvy'],
 			},
 		],
+		categories: [
+			{
+				id: "detektyvy",
+				name: "Детективи",
+				color: "#6d24f5",
+			},
+			{
+				id: "dytyacha-yunatska",
+				name: "Дитяча / Юнацька",
+				color: "#77bb40",
+			},
+			{
+				id: "dovidkovi-vydannya",
+				name: "Довідкові видання",
+				color: "#f75050",
+			},
+		],
 	},
 };
 export const addReaderActionCreator = () => {

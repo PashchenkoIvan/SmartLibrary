@@ -20,7 +20,7 @@ const BooksCatalog = props => {
   return (
     <div className={s.container}>
       <div className={s.row}>
-        <SideBar books={props.data.books} />
+        <SideBar data={props.data} />
         <ContentBlock books={books} />
       </div>
     </div>
