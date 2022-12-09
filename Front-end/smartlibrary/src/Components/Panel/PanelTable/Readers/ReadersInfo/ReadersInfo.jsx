@@ -3,14 +3,15 @@ import Popup from 'reactjs-popup';
 import AddReaderForm from '../AddReaderForm/AddReaderForm';
 import s from './ReadersInfo.module.css';
 import './addReader.css';
-import { produceWithPatches } from 'immer';
 
 const ReadersInfo = props => {
 	const [search, setSearch] = useState('');
 
 	useEffect(() => {
 		props.setReaders(
-			props.readers.filter(r => (r.name.indexOf(search) == -1 ? false : true))
+			props.readers.filter(r =>
+				r.name.toLowerCase().indexOf(search.toLowerCase()) == -1 ? false : true
+			)
 		);
 	}, [search]);
 

@@ -7,7 +7,10 @@ const InvertorySearch = props => {
 	useEffect(() => {
 		props.setInvertory(
 			props.invertory.filter(b =>
-				b.bookName.indexOf(search) == -1 ? false : true
+				b.bookName.toLowerCase().indexOf(search.toLowerCase()) == -1 &&
+				b.bookAuthor.toLowerCase().indexOf(search.toLowerCase()) == -1
+					? false
+					: true
 			)
 		);
 	}, [search]);
