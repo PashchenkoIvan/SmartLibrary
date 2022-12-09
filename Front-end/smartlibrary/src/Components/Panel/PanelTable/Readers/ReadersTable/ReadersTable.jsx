@@ -9,9 +9,7 @@ import qrCode from '../../../img/qricon.png';
 import { QrIcon } from '../../../img';
 
 const ReadersTable = props => {
-	const [readers, setReaders] = useState(props.readers);
-
-	let readersElements = readers.map(r => {
+	let readersElements = props.readers.map(r => {
 		return (
 			<div className={s.row}>
 				<Link to={`/reader/${r.id}`}>{r.name}</Link>
@@ -29,12 +27,16 @@ const ReadersTable = props => {
 					{close => (
 						<>
 							<div className={sp.header}>
-							<span>{r.name}</span>
-							<button className={sp.closeBtn} onClick={close}>×</button>
+								<span>{r.name}</span>
+								<button className={sp.closeBtn} onClick={close}>
+									×
+								</button>
 							</div>
 							<div className={sp.content}>
 								<img className={s.qrImg} src={QrIcon} alt={r.name} />
-								<button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
+								<button className={sp.btn} onClick={() => {}}>
+									Роздрукувати
+								</button>
 							</div>
 						</>
 					)}
@@ -47,7 +49,7 @@ const ReadersTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>ПІБ {`(${readers.length})`}</p>
+				<p>ПІБ {`(${props.readers.length})`}</p>
 				<p>Email</p>
 				<p>Телефон</p>
 				<p>Особливі потреби</p>
