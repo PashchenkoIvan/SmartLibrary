@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import s from './CreateNews.module.css';
 
-const CreateNews = () => {
+const CreateNews = props => {
+	props.setHeader(false);
 	const [news, setNews] = useState({
 		name: '',
 		description: '',

@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import s from './CreateAnnualReport.module.css';
 
 const CreateAnnualReport = props => {
+	props.setHeader(false);
 	const { id } = useParams();
 
 	let initState = {};

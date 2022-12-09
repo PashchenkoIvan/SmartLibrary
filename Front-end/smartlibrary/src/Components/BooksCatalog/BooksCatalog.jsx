@@ -4,27 +4,29 @@ import { SideBar, ContentBlock } from '.';
 import s from './booksCatalog.module.css';
 
 const BooksCatalog = props => {
-  const [books, setBooks] = useState(props.data.books);
-  const { booksCategoryId } = useParams();
+	props.setHeader(false);
+	const [books, setBooks] = useState(props.data.books);
+	const { booksCategoryId } = useParams();
 
-  useEffect(
-    () => {
-      if (booksCategoryId !== undefined) {
-        const filteredBooksByCategory = props.data.books.filter(b => b.bookCategories.find(el => el === booksCategoryId));
-        setBooks(filteredBooksByCategory);
-      } else { setBooks(props.data.books) }
-      
-    }, [booksCategoryId, props.data.books],
-  );
+	useEffect(() => {
+		if (booksCategoryId !== undefined) {
+			const filteredBooksByCategory = props.data.books.filter(b =>
+				b.bookCategories.find(el => el === booksCategoryId)
+			);
+			setBooks(filteredBooksByCategory);
+		} else {
+			setBooks(props.data.books);
+		}
+	}, [booksCategoryId, props.data.books]);
 
-  return (
-    <div className={s.container}>
-      <div className={s.row}>
-        <SideBar data={props.data} />
-        <ContentBlock books={books} />
-      </div>
-    </div>
-  )
-}
+	return (
+		<div className={s.container}>
+			<div className={s.row}>
+				<SideBar data={props.data} />
+				<ContentBlock books={books} />
+			</div>
+		</div>
+	);
+};
 
 export default BooksCatalog;

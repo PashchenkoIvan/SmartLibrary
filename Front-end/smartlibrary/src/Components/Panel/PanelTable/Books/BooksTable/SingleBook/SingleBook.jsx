@@ -7,8 +7,8 @@ import s from './singleBook.module.css';
 import sp from './popUps.module.css';
 import './popUps.css';
 
-
 const SingleBook = props => {
+	props.setHeader(false);
 	const { currentBookId } = useParams();
 	const [bookData, setDataBook] = useState(props.data.books);
 
@@ -29,12 +29,16 @@ const SingleBook = props => {
 							{close => (
 								<>
 									<div className={sp.header}>
-									<span>Роздрукувати QR-код</span>
-									<button className={sp.closeBtn} onClick={close}>×</button>
+										<span>Роздрукувати QR-код</span>
+										<button className={sp.closeBtn} onClick={close}>
+											×
+										</button>
 									</div>
 									<div className={sp.content}>
 										<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
-										<button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
+										<button className={sp.btn} onClick={() => {}}>
+											Роздрукувати
+										</button>
 									</div>
 								</>
 							)}

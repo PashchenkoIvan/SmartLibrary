@@ -1,0 +1,21 @@
+.container {
+	@apply w-screen h-screen flex items-center justify-center;
+}
+.block {
+	@apply w-4/6 h-3/4 flex justify-between;
+}
+.infoBlock {
+	@apply w-1/2 h-full flex-col;
+}
+.infoBlock h1 {
+	@apply text-2xl font-medium;
+}
+.infoBlock h4 {
+	@apply font-semibold mt-5;
+}
+.infoBlock a {
+	@apply underline text-blue-500;
+}
+.infoBlock img {
+	@apply h-52;
+}
