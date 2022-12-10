@@ -3,18 +3,14 @@
 	height: 560px;
 	display: flex;
 	justify-content: center;
-	/* background-image: url(./images/background.png); */
 	background-size: cover;
-	background-position: center center;
+	background-position: center;
 }
 .videoTag {
 	align-self: center;
 	position: absolute;
-	margin: 0 auto;
 	min-width: 1920px;
 	width: 100vw;
-	left: 0;
-	top: 0;
 	z-index: -1;
 }
 .blueFilter {
