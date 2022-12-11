@@ -57,8 +57,8 @@ let state = {
 						{
 							id: 'brat-2',
 							name: 'Брат - 2',
-						}
-					]
+						},
+					],
 				},
 				{
 					id: 'sergey-zorya-2',
@@ -113,8 +113,8 @@ let state = {
 						{
 							id: 'brat-2',
 							name: 'Брат - 2',
-						}
-					]
+						},
+					],
 				},
 			],
 			books: [
@@ -153,7 +153,7 @@ let state = {
 					smallDescription: 'Малый опис до дня фантастики',
 					bigDescription: 'Великий опис до дня фантастики',
 					category: 'Новини ОТГ',
-					dateTime: '10/21/2020 12:00:00 AM',
+					dateTime: '2022/12/22 12:00:00 AM',
 					id: 1,
 				},
 				{
@@ -161,7 +161,7 @@ let state = {
 					smallDescription: 'Малый опис до международный дня «спасибо»',
 					bigDescription: 'Великий опис до международный дня «спасибо»',
 					category: 'Новини бібліотеки',
-					dateTime: '10/22/2020 12:00:00 AM',
+					dateTime: '2022/12/23 12:00:00 AM',
 					id: 2,
 				},
 			],

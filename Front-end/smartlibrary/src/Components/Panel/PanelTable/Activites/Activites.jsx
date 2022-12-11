@@ -6,7 +6,10 @@ const Activites = props => {
 	const [activities, setActivities] = useState(props.activities);
 	return (
 		<div>
-			<ActivitiesSearch setActivities={setActivities} />
+			<ActivitiesSearch
+				setActivities={setActivities}
+				activities={props.activities}
+			/>
 			<ActivitiesTable activities={activities} />
 		</div>
 	);
