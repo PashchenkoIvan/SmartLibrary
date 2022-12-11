@@ -176,3 +176,46 @@
 
     background-color: #ecf3fc;
 }
+
+.formFields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 100%;
+}
+
+.singleFormField {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    width: 100%;
+}
+
+.formLabel {
+    font-family: "Avenir Next";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.1875px;
+}
+
+.formInput  {
+    width: 100%;
+
+    padding: 17px 24px;
+
+    color: #555;
+    font-size: 14px;
+    line-height: 1.42857143;
+    
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+}
