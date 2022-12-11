@@ -29,84 +29,6 @@ function App(props) {
 
 	return (
 		<div className={s.wrapper}>
-			{/* <Header />
-			<Routes>
-				<Route path='/' element={<MainPage data={props.state.data} />} />
-
-				<Route
-					exact
-					path='/catalog'
-					element={<BooksCatalog data={props.state.data} />}
-				/>
-				<Route
-					exact
-					path='/catalog/:booksCategoryId'
-					element={<BooksCatalog data={props.state.data} />}
-				/>
-
-				<Route
-					path='/reader/:currentReaderId'
-					element={
-						<CurrentReader admin={props.state.admin} data={props.state.data} />
-					}
-				/>
-				<Route path='/book-single/create' element={<BookCreate />} />
-				<Route
-					path='/books/categories'
-					element={<BooksCategories data={props.state.data} />}
-				/>
-				<Route
-					path='/book-single/:currentBookId'
-					element={
-						<SingleBook admin={props.state.admin} data={props.state.data} />
-					}
-				/>
-				<Route
-					path='/book-single/edit/:currentBookId'
-					element={<BookEdit data={props.state.data} />}
-				/>
-				<Route
-					exact
-					path='/:bookId'
-					element={<SelectedBook data={props.state.data} />}
-				/>
-				<Route path='/faq/*' element={<FaqPage />} />
-				<Route path='/admin/*' element={<AdminPage state={props.state} />} />
-				<Route
-					path='/admin/event-reports/create/:id'
-					element={<CreateEventReport />}
-				/>
-				<Route
-					path='/admin/event-reports/edit/:id'
-					element={
-						<EditEventReport
-							reports={props.state.admin.tables.eventReporting}
-						/>
-					}
-				/>
-				<Route
-					path='/admin/annual-reports/create/:id'
-					element={
-						<CreateAnnualReport
-							annualReports={props.state.admin.tables.annualReporting}
-						/>
-					}
-				/>
-				<Route
-					path='/admin/news/edit/:id'
-					element={<EditNews news={props.state.admin.tables.news} />}
-				/>
-				<Route
-					path='/admin/news/publish/:id'
-					element={<PublishNews news={props.state.admin.tables.news} />}
-				/>
-				<Route path='/admin/news/create' element={<CreateNews />} />
-				<Route path='/personPage' element={<PersonPage admin={props.state.admin} data={props.state.data} />} />
-				<Route path='/reg' element={<RegisterPage />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/contacts' element={<ContactsPage />} />
-			</Routes>
-			<Footer /> */}
 			{header ? <TransHeader /> : <Header />}
 			<Routes>
 				<Route
@@ -175,7 +97,13 @@ function App(props) {
 
 				<Route
 					path='/personPage'
-					element={<PersonPage setHeader={setHeader} admin={props.state.admin} data={props.state.data}/>}
+					element={
+						<PersonPage
+							setHeader={setHeader}
+							admin={props.state.admin}
+							data={props.state.data}
+						/>
+					}
 				/>
 
 				<Route path='/reg' element={<RegisterPage setHeader={setHeader} />} />
