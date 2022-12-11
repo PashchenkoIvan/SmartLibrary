@@ -23,6 +23,8 @@ import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishN
 import ContactsPage from './Pages/ContactsPage/ContactsPage';
 import FaqPage from './Pages/FaqPage/FaqPage';
 import { useState } from 'react';
+import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form';
+import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form';
 
 function App(props) {
 	const [header, setHeader] = useState(true);
@@ -233,6 +235,15 @@ function App(props) {
 					element={
 						<SelectedBook data={props.state.data} setHeader={setHeader} />
 					}
+				/>
+				<Route 
+					path='/admin/visitors/form' 
+					element={<FormVisitors/>}
+				/>
+				<Route
+					path='/admin/reports-to-the-news/form'
+					element={<FormReport/>}
+				
 				/>
 			</Routes>
 			<Footer />

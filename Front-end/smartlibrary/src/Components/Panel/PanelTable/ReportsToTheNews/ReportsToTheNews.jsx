@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import s from './ReportsToTheNews.module.css';
 
 export let Array = [
@@ -11,7 +12,7 @@ const Block = props => {
 			<p>{props.name}</p>
 			<p>{props.home}</p>
 			<p>{props.birthday}</p>
-			<button>Редагувати</button>
+			<Link to='/admin/reports-to-the-news/form'>Редагувати</Link>
 			<button>Видалити</button>
 		</div>
 	);
@@ -23,7 +24,7 @@ const ReportsToTheNews = () => {
 	));
 	return (
 		<div className={s.container}>
-			<button>+ Додати звіт</button>
+			{/* <button>+ Додати звіт</button> */}
 			<div className={s.table}>
 				<div className={s.titleBlock}>
 					<p>Мета ({Array.length})</p>

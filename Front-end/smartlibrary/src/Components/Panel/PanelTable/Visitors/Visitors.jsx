@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import s from './Visitors.module.css';
 
 export let Array = [
@@ -223,7 +224,7 @@ export const Visitors = () => {
 	));
 	return (
 		<div className={s.container}>
-			<button>+ Додати</button>
+			<Link to='/admin/visitors/form'>+ Додати</Link>
 			<div className={s.titleBlock}>
 				<p>ПІБ ({Array.length})</p>
 				<p>Місце проживання</p>
