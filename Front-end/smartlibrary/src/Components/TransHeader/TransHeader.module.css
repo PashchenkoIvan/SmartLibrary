@@ -8,7 +8,7 @@
 }
 .videoTag {
 	align-self: center;
-	position: absolute;
+	position: fixed;
 	min-width: 1920px;
 	width: 100vw;
 	z-index: -1;
