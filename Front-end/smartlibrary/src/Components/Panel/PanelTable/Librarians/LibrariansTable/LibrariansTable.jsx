@@ -9,9 +9,11 @@ const LibrariansTable = props => {
 			<div className={s.row}>
 				<div>{l.name}</div>
 				<div>
+					<a href={'mailto:' + l.email}>{l.email}</a>
+				</div>
+				<div>
 					<a href={'tel:' + l.phone}>{l.phone}</a>
 				</div>
-				<div>{l.email}</div>
 				<div>{l.title}</div>
 			</div>
 		);

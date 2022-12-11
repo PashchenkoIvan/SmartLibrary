@@ -129,7 +129,7 @@
 
 .subFormTable {
     display: table;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     width: 100%;
 }
 
@@ -153,14 +153,18 @@
     display: table-cell;
 
     padding: 10px;
-    box-shadow: 0 0 1px #ddd;
+    box-shadow: 0 0 0 1px #ddd;
 }
 
 .formFullWCell {
+    display: flex;
+    align-items: center;
+
+    height: 64px;
+
     padding: 10px;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    background-color: #ecf3fc;
+    border-left: 2px solid #ddd;
+    border-right: 2px solid #ddd;
 }
 
 .tableHeaderRow {

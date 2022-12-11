@@ -2,13 +2,17 @@ import { React, useEffect } from 'react'
 import axios from 'axios';
 import Popup from 'reactjs-popup';
 import Calendar from 'react-calendar';
+import CyrillicToTranslit from 'cyrillic-to-translit-js';
 
 import Qr from '../image/qrcode.png';
 import s from './Cabinet.module.css';
 import sp from '../../../Components/Panel/PanelTable/Books/BooksTable/SingleBook/popUps.module.css';
 import './CalendarStyle.css';
+import { useState } from 'react';
 
 // import 'react-calendar/dist/Calendar.css';
+
+const toTranslit = new CyrillicToTranslit();
 
 const subFormTableRowAdd = (name, fieldName, isChecked = true) => {
     return (
@@ -17,7 +21,7 @@ const subFormTableRowAdd = (name, fieldName, isChecked = true) => {
                 {name}
             </div>
             <div className={s.subFormTableCell}>
-                <input type="radio" name={`${fieldName}`} checked />
+                <input type="radio" name={`${fieldName}`} />
             </div>
             <div className={s.subFormTableCell}>
                 <input type="radio" name={`${fieldName}`} />
@@ -26,7 +30,13 @@ const subFormTableRowAdd = (name, fieldName, isChecked = true) => {
     )
 }
 
-const MySubcribesPopUp = () => {
+const subFormCategoriesMap = (categories) => {
+    return (
+        categories.map(c => (subFormTableRowAdd(c.title, "title")))
+    )
+}
+
+const MySubcribesPopUp = props => {
     return(
         <div>
             <div className={s.subFormTable}>
@@ -44,23 +54,25 @@ const MySubcribesPopUp = () => {
                 {subFormTableRowAdd("Новини", "news")}
                 {subFormTableRowAdd("Повідомлення про наявність книги", "notification")}
             </div>
-            <div className={s.formFullWCell}>
+            <div className={`${s.formFullWCell} ${s.tableHeaderRow}`}>
                 Нові надходження
             </div>
             <div className={s.subFormTable}>
-                {subFormTableRowAdd("Новини", "news")}
+                {subFormCategoriesMap(props.categories)}
             </div>
         </div>
     )
 }
 
 const Cabinet = () => {
+    const [categories, setCategories] = useState([]);
+
     useEffect(() => {
         axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/categories`)
-          .then(res => {
-            const persons = res.data;
-            console.log(res);
-          });
+            .then(res => {
+                const categories = res.data;
+                setCategories(categories)
+            });
     }, []);
 
     return (
@@ -90,7 +102,7 @@ const Cabinet = () => {
                                     <button className={sp.closeBtn} onClick={close}>×</button>
                                     </div>
                                     <div className={sp.content}>
-                                        <MySubcribesPopUp />
+                                        <MySubcribesPopUp categories={categories} />
                                         <button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
                                     </div>
                                 </>

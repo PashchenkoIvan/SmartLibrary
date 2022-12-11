@@ -9,7 +9,7 @@ const PersonPage = props => {
 	return (
 		<div className={s.container}>
 			<Cabinet />
-			<Library />
+			<Library admin={props.admin} data={props.data} />
 			<Alerts />
 		</div>
 	);

@@ -175,7 +175,7 @@ function App(props) {
 
 				<Route
 					path='/personPage'
-					element={<PersonPage setHeader={setHeader} />}
+					element={<PersonPage setHeader={setHeader} admin={props.state.admin} data={props.state.data}/>}
 				/>
 
 				<Route path='/reg' element={<RegisterPage setHeader={setHeader} />} />

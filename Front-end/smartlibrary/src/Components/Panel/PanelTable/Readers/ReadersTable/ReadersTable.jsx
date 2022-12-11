@@ -13,7 +13,9 @@ const ReadersTable = props => {
 		return (
 			<div className={s.row}>
 				<Link to={`/reader/${r.id}`}>{r.name}</Link>
-				<div>{r.email}</div>
+				<div>
+					<a href={'mailto:' + r.email}>{r.email}</a>
+				</div>
 				<div>{r.phone}</div>
 				<div>{r.needs === true ? 'так' : 'немає'}</div>
 				<Popup
