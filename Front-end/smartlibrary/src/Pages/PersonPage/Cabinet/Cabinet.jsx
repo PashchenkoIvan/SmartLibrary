@@ -32,7 +32,7 @@ const subFormTableRowAdd = (name, fieldName, isChecked = true) => {
 
 const subFormCategoriesMap = (categories) => {
     return (
-        categories.map(c => (subFormTableRowAdd(c.title, "title")))
+        categories.map(c => (subFormTableRowAdd(c.title, toTranslit.transform(c.title, "-").toLowerCase())))
     )
 }
 
@@ -88,7 +88,47 @@ const Cabinet = () => {
                 <div className={s.editBlock}>
                     <p>Pashchenko Ivan</p>
                     <div className={s.buttonBlock}>
-                        <button>Редагувати пароль</button>
+                        <Popup
+                            trigger={
+                                <button>Редагувати пароль</button>
+                            }
+                            modal
+                        >
+                            {close => (
+                                <>
+                                    <div className={sp.header}>
+                                    <span>Редагувати пароль</span>
+                                    <button className={sp.closeBtn} onClick={close}>×</button>
+                                    </div>
+                                    <div className={sp.content}>
+                                        <div className={s.formFields}>
+                                            <div className={s.singleFormField}>
+                                                <label className={s.formLabel}>Email</label>
+                                                <input className={s.formInput} type="email" name="email" value="example@user.mail" required />
+                                            </div>
+                                            <div className={s.singleFormField}>
+                                                <label className={s.formLabel}>Введіть код з листа</label>
+                                                <input className={s.formInput} type="text" name="code" required />
+                                            </div>
+                                        </div>
+                                        <button
+                                            className={sp.btn}
+                                            onClick={() => {
+                                                let code = document.querySelector("input[name=\"code\"]")
+
+                                                if (code.value !== "123") {
+                                                    alert("Невірний код")
+                                                } else { 
+                                                    alert("Успіх")
+                                                }
+                                            }}
+                                        >
+                                            Далі
+                                        </button>
+                                    </div>
+                                </>
+                            )}
+                        </Popup>
                         <Popup
                             trigger={
                                 <button>Мої підписки</button>
@@ -103,7 +143,7 @@ const Cabinet = () => {
                                     </div>
                                     <div className={sp.content}>
                                         <MySubcribesPopUp categories={categories} />
-                                        <button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
+                                        <button className={sp.btn} onClick={() => {}}>Зберегти зміни</button>
                                     </div>
                                 </>
                             )}
