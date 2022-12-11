@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { BooksCatalog, Header, SelectedBook } from './Components/';
 import s from './App.css';
@@ -25,8 +26,8 @@ import FaqPage from './Pages/FaqPage/FaqPage';
 
 function App(props) {
 	// useEffect(() => {
-
-	// }, window.location.href);
+	// 	console.log(event.target.window.location.href);
+	// }, []);
 	return (
 		<div className={s.wrapper}>
 			{window.location.href == 'http://localhost:3000/' ? (
@@ -103,7 +104,7 @@ function App(props) {
 					element={<PublishNews news={props.state.admin.tables.news} />}
 				/>
 				<Route path='/admin/news/create' element={<CreateNews />} />
-				<Route path='/personPage' element={<PersonPage />} />
+				<Route path='/personPage' element={<PersonPage admin={props.state.admin} data={props.state.data} />} />
 				<Route path='/reg' element={<RegisterPage />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/contacts' element={<Contacts />} />

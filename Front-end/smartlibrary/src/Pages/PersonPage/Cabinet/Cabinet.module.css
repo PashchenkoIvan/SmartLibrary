@@ -69,25 +69,27 @@
     /* height: 40px; */
 }
 .buttonBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
     width: 100%;
     height: 100%;
     background-color: white;
-    /* border-radius: 12px; */
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 45px;
+    
+    padding: 25px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
-.buttonBlock button {
-    width: 150px;
+.buttonBlock > * {
+    width: 100%;
     height: 40px;
     border: none;
     border-radius: 3px;
     font-size: 14px;
-    margin-bottom: 10px;
 }
 .buttonBlock button:nth-child(1) {
     background-color: #a9e2e9;  
@@ -123,5 +125,50 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
 
+.subFormTable {
+    display: table;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.subFormTableRow {
+    display: table-row;
+}
+
+.subFormTableRow > div {
+    width: 35%;
+    height: 64px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.subFormTableRow > div:first-child {
+    width: 30%;
+    text-align: left;
+}
+
+.subFormTableCell {
+    display: table-cell;
+
+    padding: 10px;
+    box-shadow: 0 0 1px #ddd;
+}
+
+.formFullWCell {
+    padding: 10px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    background-color: #ecf3fc;
+}
+
+.tableHeaderRow {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.2px;
+    color: #242A31;
+
+    background-color: #ecf3fc;
 }

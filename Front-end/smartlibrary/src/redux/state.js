@@ -45,6 +45,20 @@ let state = {
 							color: '#7ed321',
 						},
 					],
+					willRead: [
+						{
+							id: 'zahovoreno-na-lyubov',
+							name: 'Заговорено на любов',
+						},
+						{
+							id: 'iz-soho-dna',
+							name: 'Із сьомого дна',
+						},
+						{
+							id: 'brat-2',
+							name: 'Брат - 2',
+						}
+					]
 				},
 				{
 					id: 'sergey-zorya-2',
@@ -57,6 +71,50 @@ let state = {
 					homeAddress: 'Дніпро, Глінки 2',
 					workAddress: 'Кривий Ріг, Перемоги 23',
 					passportInfo: '748294739',
+					booksHistory: [
+						{
+							id: 'trytsylindrovyy-dvyhun-lyubovi',
+							dateOfIssue: '30.10.2022',
+							dateOfreturn: '07.11.2022',
+							status: 'Повернена',
+							color: '#e8eef6',
+						},
+						{
+							id: 'armahedon-na-maydani',
+							dateOfIssue: '10.11.2022',
+							dateOfreturn: '-',
+							status: 'Не повернена',
+							color: '#ff0000',
+						},
+						{
+							id: 'zahovoreno-na-lyubov',
+							dateOfIssue: '20.11.2022',
+							dateOfreturn: '-',
+							status: 'Читається',
+							color: '#ffff00',
+						},
+						{
+							id: 'iz-soho-dna',
+							dateOfIssue: '20.11.2022',
+							dateOfreturn: '-',
+							status: 'Заброньована',
+							color: '#7ed321',
+						},
+					],
+					willRead: [
+						{
+							id: 'zahovoreno-na-lyubov',
+							name: 'Заговорено на любов',
+						},
+						{
+							id: 'iz-soho-dna',
+							name: 'Із сьомого дна',
+						},
+						{
+							id: 'brat-2',
+							name: 'Брат - 2',
+						}
+					]
 				},
 			],
 			books: [

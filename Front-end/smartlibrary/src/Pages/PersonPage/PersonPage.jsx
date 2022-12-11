@@ -4,12 +4,12 @@ import Cabinet from './Cabinet/Cabinet';
 import { Library } from './Library/Library';
 import Alerts from './Alerts/Alerts'
 
-const PersonPage = () => {
+const PersonPage = props => {
   return (
     <div className={s.container}>
-        <Cabinet/>
-        <Library/>
-        <Alerts/>
+        <Cabinet />
+        <Library admin={props.admin} data={props.data} />
+        <Alerts />
     </div>
   )
 }

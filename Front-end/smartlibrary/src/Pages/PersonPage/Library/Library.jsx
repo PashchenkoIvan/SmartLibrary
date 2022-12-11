@@ -1,13 +1,13 @@
 import s from './Library.module.css';
 import React from 'react'
 import BookTableBlock from './BookTable/BookTable';
-import WllRead from './WillRead/WllRead';
+import WillRead from './WillRead/WillRead';
 
-export const Library = () => {
+export const Library = props => {
   return (
     <div className={s.container}>
-        <BookTableBlock/>
-        <WllRead/>
+        <BookTableBlock admin={props.admin} data={props.data} />
+        <WillRead admin={props.admin} />
     </div>
   )
 }
