@@ -8,8 +8,6 @@ import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
 import qrCode from '../../../img/qricon.png';
 import { QrIcon } from '../../../img';
 
-// fixed background in trans header and replaced email in phone in readers table
-
 const ReadersTable = props => {
 	let readersElements = props.readers.map(r => {
 		return (
