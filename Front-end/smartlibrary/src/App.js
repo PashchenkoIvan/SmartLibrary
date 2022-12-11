@@ -141,20 +141,25 @@ function App(props) {
 						/>
 					}
 				/>
-				<Route
-					path='/admin/annual-reports/create/:id'
-					element={
-						<CreateAnnualReport
-							annualReports={props.state.admin.tables.annualReporting}
-							setHeader={setHeader}
-						/>
-					}
-				/>
+				
 				<Route
 					path='/admin/news/edit/:id'
 					element={
 						<EditNews
 							news={props.state.admin.tables.news}
+							setHeader={setHeader}
+						/>
+					}
+				/>
+				<Route
+					path='/admin/news/create'
+					element={<CreateNews setHeader={setHeader} />}
+				/>
+				<Route
+					path='/admin/annual-reports/create/:id'
+					element={
+						<CreateAnnualReport
+							annualReports={props.state.admin.tables.annualReporting}
 							setHeader={setHeader}
 						/>
 					}
@@ -168,10 +173,7 @@ function App(props) {
 						/>
 					}
 				/>
-				<Route
-					path='/admin/news/create'
-					element={<CreateNews setHeader={setHeader} />}
-				/>
+				
 
 				<Route
 					path='/personPage'
@@ -188,6 +190,13 @@ function App(props) {
 
 				<Route
 					exact
+					path='/:bookId'
+					element={
+						<SelectedBook data={props.state.data} setHeader={setHeader} />
+					}
+				/>
+				<Route
+					exact
 					path='/catalog'
 					element={
 						<BooksCatalog data={props.state.data} setHeader={setHeader} />
@@ -199,12 +208,15 @@ function App(props) {
 						<BooksCatalog data={props.state.data} setHeader={setHeader} />
 					}
 				/>
-				<Route path='/book-single/create' element={<BookCreate />} />
 				<Route
 					path='/books/categories'
 					element={
 						<BooksCategories data={props.state.data} setHeader={setHeader} />
 					}
+				/>
+				<Route
+					path='/book-single/create'
+					element={<BookCreate />}
 				/>
 				<Route
 					path='/book-single/:currentBookId'
@@ -219,20 +231,6 @@ function App(props) {
 				<Route
 					path='/book-single/edit/:currentBookId'
 					element={<BookEdit data={props.state.data} setHeader={setHeader} />}
-				/>
-				<Route
-					exact
-					path='/:bookId'
-					element={
-						<SelectedBook data={props.state.data} setHeader={setHeader} />
-					}
-				/>
-				<Route
-					exact
-					path='/:bookId'
-					element={
-						<SelectedBook data={props.state.data} setHeader={setHeader} />
-					}
 				/>
 			</Routes>
 			<Footer />
