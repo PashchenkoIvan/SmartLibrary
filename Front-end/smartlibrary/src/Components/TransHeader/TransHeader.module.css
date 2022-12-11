@@ -3,22 +3,21 @@
 	height: 560px;
 	display: flex;
 	justify-content: center;
-	/* background-image: url(./images/background.png); */
-	background-color: black;
 	background-size: cover;
-	background-position: center center;
+	background-position: center;
 }
-/* .videoTag {
+.videoTag {
+	align-self: center;
 	position: absolute;
-	width: 110%;
-	height: 110%;
-	left: 0;
-	top: 0;
-	z-index: 1;
-} */
+	min-width: 1920px;
+	width: 100vw;
+	z-index: -1;
+}
 .blueFilter {
-	width: 100%;
+	width: 100vw;
 	height: 560px;
+	top: 0;
+	left: 0;
 	position: absolute;
 	z-index: 2;
 	background-color: rgba(27, 96, 104, 0.7);

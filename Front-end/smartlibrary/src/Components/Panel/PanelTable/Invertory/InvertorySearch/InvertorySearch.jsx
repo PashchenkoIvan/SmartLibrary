@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './InvertorySearch.module.css';
 
-const InvertorySearch = () => {
+const InvertorySearch = props => {
 	const [search, setSearch] = useState('');
+
+	useEffect(() => {
+		props.setInvertory(
+			props.invertory.filter(b =>
+				b.bookName.toLowerCase().indexOf(search.toLowerCase()) == -1 &&
+				b.bookAuthor.toLowerCase().indexOf(search.toLowerCase()) == -1
+					? false
+					: true
+			)
+		);
+	}, [search]);
 	return (
 		<div className={s.container}>
 			<input

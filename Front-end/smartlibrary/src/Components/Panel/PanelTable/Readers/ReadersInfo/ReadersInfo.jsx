@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import AddReaderForm from '../AddReaderForm/AddReaderForm';
 import s from './ReadersInfo.module.css';
 import './addReader.css';
 
-const ReadersInfo = () => {
+const ReadersInfo = props => {
+	const [search, setSearch] = useState('');
+
+	useEffect(() => {
+		props.setReaders(
+			props.readers.filter(r =>
+				r.name.toLowerCase().indexOf(search.toLowerCase()) == -1 ? false : true
+			)
+		);
+	}, [search]);
+
 	return (
 		<div className={s.container}>
 			<div className={s.search}>
 				<div className={s.input}>
-					<input type='text' placeholder='Введіть ПІБ або проскануйте QR-код' />
+					<input
+						type='text'
+						placeholder='Введіть ПІБ або проскануйте QR-код'
+						value={search}
+						onChange={e => setSearch(e.target.value)}
+					/>
 					<button>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'

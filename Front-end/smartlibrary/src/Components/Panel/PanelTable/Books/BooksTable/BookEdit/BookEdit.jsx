@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import s from './bookEdit.module.css';
 
 const BookEdit = props => {
+	props.setHeader(false);
 	const [isHidden, setIsHidden] = useState(true);
 	useEffect(() => {}, [isHidden]);
 

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import s from './EditEventReport.module.css';
 
 const EditEventReport = props => {
+	props.setHeader(false);
 	const { id } = useParams();
 
 	let initState = {};

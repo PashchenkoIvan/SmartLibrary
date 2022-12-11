@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import s from './CreateEventReport.module.css';
 
-const CreateEventReport = () => {
+const CreateEventReport = props => {
+	props.setHeader(false);
 	const { id } = useParams();
 	const [eventReport, setEventReport] = useState({
 		id: id,

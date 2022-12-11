@@ -2,7 +2,8 @@ import React from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import s from './FaqPage.module.css';
 
-const FaqPage = () => {
+const FaqPage = props => {
+	props.setHeader(false);
 	return (
 		<div className={s.container}>
 			<div className={s.inner}>

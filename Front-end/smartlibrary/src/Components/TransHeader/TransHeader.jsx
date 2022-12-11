@@ -1,6 +1,5 @@
 import s from './TransHeader.module.css';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import sample from './video/videoplayback.mp4';
 
 const TransHeader = () => {
@@ -22,28 +21,32 @@ const TransHeader = () => {
           </div>
         </div>
       </div> */}
+			<video className={s.videoTag} autoPlay loop muted>
+				<source src={sample} type='video/mp4' />
+			</video>
+			<div className={s.blueFilter} />
 			<div className={s.inner}>
 				<div className={s.logo}></div>
 				<div className={s.navlinksBlock}>
-					<a href='/' className={s.link}>
+					<Link to='/' className={s.link}>
 						Головна
-					</a>
-					<a href='/catalog' className={s.link}>
+					</Link>
+					<Link to='/catalog' className={s.link}>
 						Каталог книг
-					</a>
-					<a href='/contacts' className={s.link}>
+					</Link>
+					<Link to='/contacts' className={s.link}>
 						Контакти
-					</a>
-					<a href='/faq/making-orders' className={s.link}>
+					</Link>
+					<Link to='/faq/making-orders' className={s.link}>
 						Як це працює
-					</a>
-					<a href='/admin/readers' className={s.link}>
+					</Link>
+					<Link to='/admin/readers' className={s.link}>
 						Бібліотекар
-					</a>
-					<a className={s.link}>Вийти</a>
-					<a href='/personPage' className={s.blueLink}>
+					</Link>
+					<Link className={s.link}>Вийти</Link>
+					<Link to='/personPage' className={s.blueLink}>
 						Особистий кабінет
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>

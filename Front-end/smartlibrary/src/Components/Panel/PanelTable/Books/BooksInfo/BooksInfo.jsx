@@ -7,7 +7,12 @@ const BooksInfo = props => {
 
 	useEffect(() => {
 		props.setBooks(
-			props.books.filter(b => (b.bookName.indexOf(search) == -1 ? false : true))
+			props.books.filter(b =>
+				b.bookName.toLowerCase().indexOf(search.toLowerCase()) == -1 &&
+				b.bookAuthor.toLowerCase().indexOf(search.toLowerCase()) == -1
+					? false
+					: true
+			)
 		);
 	}, [search]);
 
