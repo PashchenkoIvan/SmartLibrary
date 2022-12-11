@@ -1,10 +1,11 @@
-import React from 'react';
+import { useState } from 'react';
 import AffiliatesTable from './AffiliatesTable/AffiliatesTable';
 
 const Affiliates = props => {
+	const [affiliates, setAffiliates] = useState(props.affiliates);
 	return (
 		<div>
-			<AffiliatesTable affiliates={props.affiliates} />
+			<AffiliatesTable affiliates={affiliates} />
 		</div>
 	);
 };

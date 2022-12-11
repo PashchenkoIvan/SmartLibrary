@@ -1,5 +1,4 @@
 import s from './Login.module.css';
-import React from 'react';
 
 const Login = props => {
 	props.setHeader(false);

@@ -1,44 +1,41 @@
-.container {
-	padding: 15px;
-	font-weight: 500;
-	outline: none;
-	font-size: 16px;
-}
+.fieldBlock {
+	display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-.container h1 {
-	text-align: center;
-	font-size: 22px;
-}
-
-.container p {
-	margin: 10px 0 5px;
-}
-
-.container input {
 	width: 100%;
-	background: #f7fafe;
-	border: 1px solid #dedede;
-	box-sizing: border-box;
-	border-radius: 3px;
-	padding: 5px;
-	outline: none;
-	font-size: 14px;
 }
 
-.container textarea {
+.fieldBlock label {
+	font-family: "Avenir Next";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.1875px;
+}
+
+.fieldBlock input,
+.fieldBlock textarea {
 	width: 100%;
-	background: #f7fafe;
-	border: 1px solid #dedede;
-	box-sizing: border-box;
-	border-radius: 3px;
-	outline: none;
-	resize: none;
-	padding: 5px;
-	font-size: 14px;
+
+    padding: 17px 24px;
+
+    color: #555;
+    font-size: 14px;
+    line-height: 1.42857143;
+    
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
 }
 
 .smallDescription {
-	height: 50px;
+	height: 56px;
 }
 
 .bigDescription {
@@ -49,10 +46,10 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	gap: 15px;
 }
 
-.container select {
-	width: 200px;
+.fieldBlock select {
 	color: #242a31;
 	padding: 0 5px;
 	border: 2px solid transparent;
@@ -63,22 +60,14 @@
 	border-radius: 3px;
 }
 
-.category {
-	width: 200px;
-}
-
 .dataset {
 	height: 40px;
-	width: 250px;
-}
-
-.dataset input {
 	border: 2px solid transparent;
 	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
 	border-radius: 3px;
 }
 
-.dataset input:before {
+.dataset:before {
 	font-family: 'Avenir Next', sans-serif;
 	font-size: 14px;
 	color: #555;
@@ -86,17 +75,27 @@
 	content: attr(value);
 }
 
-.saveAndCansel {
-	width: 100%;
+.saveBtn {
 	display: flex;
-	justify-content: center;
-	margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+
+    width: 40%;
+
+    padding: 14px 0;
+    margin: 0 auto;
+    
+    background-color: #36bbcb;
+    border-radius: 3px;
+    border: none;
+
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    line-height: 18px;
 }
 
-.saveAndCansel button {
-	width: 200px;
-	height: 40px;
-	border-radius: 3px;
-	color: #fff;
-	background: #36bbcb;
+.saveBtn:hover {
+    opacity: 0.9;
+    cursor: pointer;
 }

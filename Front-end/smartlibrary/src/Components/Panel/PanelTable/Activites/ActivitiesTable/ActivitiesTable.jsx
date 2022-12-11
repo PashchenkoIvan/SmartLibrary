@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
-import s from './ActivitiesTable.module.css';
-import './changeEvent.css';
+
 import ChangeEvent from '../ChangeEvent/ChangeEvent';
 
-const ActivitiesTable = props => {
-	const [activities, setActivities] = useState(props.activities);
+import './changeEvent.css';
+import s from './ActivitiesTable.module.css';
+
+const ActivitiesTable = ({ activities }) => {
 	let activitiesElements = activities.map(a => {
 		return (
 			<div className={s.row}>
@@ -14,8 +14,10 @@ const ActivitiesTable = props => {
 				<div>{a.category}</div>
 				<div>{a.dateTime}</div>
 				<div>
-					<Popup trigger={<button>Редагувати</button>}>
-						<ChangeEvent activity={a} />
+					<Popup trigger={<button>Редагувати</button>} modal>
+						{close => (
+								<ChangeEvent activity={a} close={close} />
+						)}
 					</Popup>
 				</div>
 				<div>

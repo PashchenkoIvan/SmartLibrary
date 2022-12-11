@@ -1,10 +1,7 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import s from './NewsTable.module.css';
 
-const NewsTable = props => {
-	const [news, setNews] = useState(props.news);
-
+const NewsTable = ({ news }) => {
 	let newsElements = news.map(n => {
 		return (
 			<div className={s.row}>
