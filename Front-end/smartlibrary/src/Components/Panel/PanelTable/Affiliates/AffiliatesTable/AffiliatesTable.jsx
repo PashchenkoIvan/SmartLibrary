@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import s from './AffiliatesTable.module.css';
 
-const AffiliatesTable = props => {
-	const [affiliates, setAffiliates] = useState(props.affiliates);
-
+const AffiliatesTable = ({ affiliates }) => {
 	let affiliatesElements = affiliates.map(a => {
 		return (
 			<div className={s.row}>

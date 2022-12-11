@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
 import s from './LibrariansTable.module.css';
 
-const LibrariansTable = props => {
-	const [librarians, setLibrarians] = useState(props.librarians);
-
+const LibrariansTable = ({ librarians }) => {
 	let librariansElements = librarians.map(l => {
 		return (
 			<div className={s.row}>

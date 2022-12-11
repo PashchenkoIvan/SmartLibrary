@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import s from './AnnualReportingTable.module.css';
 
-const AnnualReportingTable = props => {
-	const [annualReports, setAnnualReports] = useState(props.annualReporting);
-	let annualReportsElements = annualReports.map(r => {
+const AnnualReportingTable = ({ annualReporting }) => {
+	let annualReportsElements = annualReporting.map(r => {
 		return (
 			<div className={s.row}>
 				<div>{r.name}</div>
@@ -20,7 +18,7 @@ const AnnualReportingTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>Назва ({annualReports.length})</p>
+				<p>Назва ({annualReporting.length})</p>
 			</div>
 			<div className={s.main}>{annualReportsElements}</div>
 		</div>

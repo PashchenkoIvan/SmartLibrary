@@ -1,5 +1,4 @@
 import s from './regPage.module.css';
-import React from 'react';
 
 const regPage = props => {
 	props.setHeader(false);

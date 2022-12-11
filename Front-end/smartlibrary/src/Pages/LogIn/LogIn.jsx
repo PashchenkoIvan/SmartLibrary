@@ -1,6 +1,5 @@
-import React from 'react'
-import s from './LogIn.module.css'
-import { TransHeader, LogInBLock } from '../../containers'
+import s from './LogIn.module.css';
+import { TransHeader, LogInBLock } from '../../containers';
 function LogIn() {
 	return (
 		<div className={s.LogIn}>
@@ -10,7 +9,7 @@ function LogIn() {
 				<LogInBLock />
 			</div>
 		</div>
-	)
+	);
 }
 
-export default LogIn
+export default LogIn;

@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import s from './EventReportsTable.module.css';
 
-const EventReportsTable = props => {
-	const [eventReports, seteventReporting] = useState(props.eventReporting);
-
-	let eventReportsElements = eventReports.map(e => {
+const EventReportsTable = ({ eventReporting }) => {
+	let eventReportsElements = eventReporting.map(e => {
 		return (
 			<div className={s.row}>
 				<div>{e.name}</div>
@@ -18,7 +15,7 @@ const EventReportsTable = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<p>Назва звіту ({eventReports.length})</p>
+				<p>Назва звіту ({eventReporting.length})</p>
 				<p>Дата створення</p>
 			</div>
 			<div className={s.main}>{eventReportsElements}</div>
