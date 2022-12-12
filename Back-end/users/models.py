@@ -1,16 +1,25 @@
 from django.db import models
 from django.urls import reverse
 
-from library_app.models import Book
+from string import ascii_letters
+from random import choice
 
 class Visitor(models.Model):
+    @staticmethod
+    def create_passwd() -> str:
+        symb_list = list(ascii_letters)
+        symb_list.extend([str(i) for i in range(9)])
+        return ''.join([choice(symb_list) for _ in range(10)])
+        
+        
     full_name = models.CharField(max_length=70, verbose_name="ФИО")
     email = models.EmailField(max_length=254, verbose_name="Email")
     full_address = models.CharField(max_length=100, verbose_name='Aдресса') 
     birthday = models.DateField()
-    last_visit = models.DateTimeField()
+    last_visit = models.DateTimeField(auto_now=True)
     comment = models.TextField()
-    books = models.ForeignKey(Book, on_delete=models.SET_NULL, blank=True, null=True)
+    password = models.CharField(max_length=77, default=create_passwd())
+    is_disabled_person = models.BooleanField(default=False)
     
     class Meta:
         verbose_name = ("Reader")

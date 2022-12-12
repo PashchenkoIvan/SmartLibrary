@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from .models import Book, Category
+from library_app.validators import status_validator
+
 
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,20 +25,28 @@ class BookSerializer(serializers.ModelSerializer):
                 'city_of_publishing',
                 'ubk',
                 'additional_type',
-                'publication_type'
+                'publication_type',
+                'status'
                 )
+    def validate(self, data):
+        book_status = data.get('status')
+        visitor = data.get('current_reader')
+        status_validator(book_status, visitor) 
         
-    
-class BookSerializerWithAdditional(serializers.ModelSerializer):
+        return data
+        
+        
+class BookSerializerWithAdditional(BookSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = Book
         fields = ("__all__")
         
+    def validate(self, data):
+        return super().validate(data)
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        
         fields = ("title",)
         

@@ -6,17 +6,27 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import Book, Category
 from .serializers import BookSerializer, BookSerializerWithAdditional, CategorySerializer
 
-class BookApi(APIView):
 
+def serializer_obj_save(serializer):
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
+
+
+class BookApi(APIView):
     @staticmethod
     def select_serializer(req):
         is_additional = req.query_params.get('is_additional')
-        if is_additional and is_additional is True:
+        print(type(is_additional))
+        if is_additional and is_additional == "True":
+            print("Idi nahui")
             serializer_obj = BookSerializerWithAdditional
         else:
             serializer_obj = BookSerializer
-        return serializer_obj
-    
+        return serializer_obj    
+
+        
     def get(self, req):
         book = req.query_params.get('title')
         serializer_obj = self.select_serializer(req)
@@ -37,7 +47,7 @@ class BookApi(APIView):
         print(categories)
         for category in categories:
             try:
-                category_obj = Category.objects.get(title=category)
+                category_obj = Category.objects.get_or_create(title=category)[0]
             except ObjectDoesNotExist:
                 return Response(f"Error: Category: {category} doesn't exist")
             categories_id.append(category_obj.id)
@@ -46,12 +56,8 @@ class BookApi(APIView):
         print(categories)
         serializer_obj = self.select_serializer(req)
         serializer = serializer_obj(data=req.data)
-        if serializer.is_valid():
-            serializer.save()
-            print(serializer.data)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+        return serializer_obj_save(serializer)
+
 
 class CategoriesApi(APIView):
     def get(self, req):
@@ -68,4 +74,8 @@ class CategoriesApi(APIView):
             categories = Category.objects.all()
             serializer = CategorySerializer(categories, many=True)
             return Response(serializer.data)
-        
+    def post(self, req):
+        category_name = req.data
+        print(category_name)
+        serializer = CategorySerializer(data=category_name)
+        return serializer_obj_save(serializer)
