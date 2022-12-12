@@ -103,6 +103,10 @@
 	padding-left: 15px;
 }
 
+.row > *:nth-child(5) > * {
+	cursor: pointer;
+}
+
 .row > *:nth-child(6) {
 	width: 10%;
 }

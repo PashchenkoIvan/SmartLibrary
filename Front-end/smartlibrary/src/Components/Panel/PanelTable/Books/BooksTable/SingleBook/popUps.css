@@ -4,16 +4,16 @@
 	left: 50% !important;
 
 	width: fit-content !important;
+	height: fit-content !important;
 	max-width: 600px !important;
 	min-width: 400px !important;
-	max-height: 80vh !important;
-	overflow-y: scroll;
+	max-height: 70vh !important;
 
 	background-color: #fff;
 	background-clip: padding-box;
 	border-radius: 6px;
 
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -40%);
 	-webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
 	box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
 	outline: 0;

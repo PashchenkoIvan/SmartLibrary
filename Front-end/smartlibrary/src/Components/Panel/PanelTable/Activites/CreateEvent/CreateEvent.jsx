@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import s from './CreateEvent.module.css';
+import { React, useState } from 'react';
 
-const CreateEvent = () => {
+import s from './CreateEvent.module.css';
+import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
+
+const CreateEvent = (props) => {
 	const [event, setEvent] = useState({
 		name: '',
 		smallDescription: '',
@@ -10,64 +12,70 @@ const CreateEvent = () => {
 		dateTime: '',
 	});
 	return (
-		<div className={s.container}>
-			<h1>Створення нового заходу</h1>
-			<label>
-				<p>Назва заходу</p>
-				<input
-					type='text'
-					value={event.name}
-					onChange={e => setEvent({ ...event, name: e.target.value })}
-				/>
-			</label>
-			<label>
-				<p>Короткий опис заходу</p>
-				<textarea
-					className={s.smallDescription}
-					type='text'
-					value={event.smallDescription}
-					onChange={e =>
-						setEvent({ ...event, smallDescription: e.target.value })
-					}
-				/>
-			</label>
-			<label>
-				<p>Повний опис заходу</p>
-				<textarea
-					className={s.bigDescription}
-					type='text'
-					value={event.bigDescription}
-					onChange={e => setEvent({ ...event, bigDescription: e.target.value })}
-				/>
-			</label>
-			<div className={s.categoryAndTime}>
-				<label className={s.category}>
-					<p>Категорія</p>
-					<select
-						value={event.category}
-						onChange={e => setEvent({ ...event, category: e.target.value })}
-					>
-						<option value='Новини ОТГ'>Новини ОТГ</option>
-						<option value='Новини бібліотеки'>Новини бібліотеки</option>
-						<option value='Заходи'>Заходи</option>
-					</select>
-				</label>
-				<label className={s.dataset}>
-					<p>Дата та час заходу</p>
+		<div className={sp.container}>
+			<div className={sp.header}>
+				<span>Створення нового заходу</span>
+				<button className={sp.closeBtn} onClick={props.close}>
+					×
+				</button>
+			</div>
+			<div className={sp.content}>
+				<div className={s.fieldBlock}>
+					<label>Назва заходу</label>
 					<input
-						type='datetime-local'
-						value={event.dateTime}
+						type='text'
+						value={event.name}
+						onChange={e => setEvent({ ...event, name: e.target.value })}
+					/>
+				</div>
+				<div className={s.fieldBlock}>
+					<label>Короткий опис заходу</label>
+					<textarea
+						className={s.smallDescription}
+						type='text'
+						value={event.smallDescription}
 						onChange={e =>
-							setEvent({
-								...event,
-								dateTime: e.target.value.replace('T', ' '),
-							})
+							setEvent({ ...event, smallDescription: e.target.value })
 						}
 					/>
-				</label>
-			</div>
-			<div className={s.saveAndCansel}>
-				<button>Створити новий захід</button>
+				</div>
+				<div className={s.fieldBlock}>
+					<label>Повний опис заходу</label>
+					<textarea
+						className={s.bigDescription}
+						type='text'
+						value={event.bigDescription}
+						onChange={e => setEvent({ ...event, bigDescription: e.target.value })}
+					/>
+				</div>
+				<div className={s.categoryAndTime}>
+					<div className={s.fieldBlock}>
+						<label>Категорія</label>
+						<select
+							value={event.category}
+							onChange={e => setEvent({ ...event, category: e.target.value })}
+						>
+							<option value='Новини ОТГ'>Новини ОТГ</option>
+							<option value='Новини бібліотеки'>Новини бібліотеки</option>
+							<option value='Заходи'>Заходи</option>
+						</select>
+					</div>
+					<div className={s.fieldBlock}>
+						<label>Дата та час заходу</label>
+						<input
+							className={s.dataset}
+							type='datetime-local'
+							value={event.dateTime}
+							onChange={e =>
+								setEvent({
+									...event,
+									dateTime: e.target.value.replace('T', ' '),
+								})
+							}
+						/>
+					</div>
+				</div>
+				<button className={s.saveBtn}>Зберегти</button>
 			</div>
 		</div>
 	);

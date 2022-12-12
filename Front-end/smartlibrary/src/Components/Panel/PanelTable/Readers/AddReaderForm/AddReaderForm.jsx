@@ -1,7 +1,9 @@
-import s from './AddReaderForm.module.css';
-import React, { useState } from 'react';
+import { React, useState } from 'react';
 
-const AddReaderForm = () => {
+import s from './AddReaderForm.module.css';
+import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
+
+const AddReaderForm = (props) => {
 	const [reader, setReader] = useState({
 		name: '',
 		email: '',
@@ -14,10 +16,15 @@ const AddReaderForm = () => {
 
 	return (
 		<div className={s.container}>
-			<form>
-				<h2>Додати читача</h2>
+			<div className={sp.header}>
+				<span>Додати читача</span>
+				<button className={sp.closeBtn} onClick={props.close}>
+					×
+				</button>
+			</div>
+			<form className={sp.content}>
 				<div className={s.formInput}>
-					<p>ПІБ</p>
+					<label>ПІБ</label>
 					<input
 						type='text'
 						value={reader.name}
@@ -27,7 +34,7 @@ const AddReaderForm = () => {
 					/>
 				</div>
 				<div className={s.formInput}>
-					<p>Email</p>
+					<label>Email</label>
 					<input
 						type='text'
 						value={reader.email}
@@ -37,7 +44,7 @@ const AddReaderForm = () => {
 					/>
 				</div>
 				<div className={s.formInput}>
-					<p>Місце роботи</p>
+					<label>Місце роботи</label>
 					<input
 						type='text'
 						value={reader.work}
@@ -47,7 +54,7 @@ const AddReaderForm = () => {
 					/>
 				</div>
 				<div className={s.formInput}>
-					<p>Дата народження</p>
+					<label>Дата народження</label>
 					<input
 						className={s.dateInput}
 						type='date'
@@ -59,7 +66,7 @@ const AddReaderForm = () => {
 					/>
 				</div>
 				<div className={s.formInput}>
-					<p>Домашня адреса</p>
+					<label>Домашня адреса</label>
 					<input
 						type='text'
 						value={reader.homeAddress}
@@ -69,7 +76,7 @@ const AddReaderForm = () => {
 					/>
 				</div>
 				<div className={s.formInput}>
-					<p>Телефон (за згодою)</p>
+					<label>Телефон (за згодою)</label>
 					<input
 						type='text'
 						value={reader.phone}
@@ -79,7 +86,7 @@ const AddReaderForm = () => {
 					/>
 				</div>
 				<div className={s.formInput}>
-					<p>Паспорт (за згодою)</p>
+					<label>Паспорт (за згодою)</label>
 					<input
 						type='text'
 						value={reader.passport}

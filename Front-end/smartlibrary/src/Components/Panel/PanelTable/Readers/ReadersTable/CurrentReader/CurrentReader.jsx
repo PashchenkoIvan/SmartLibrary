@@ -1,6 +1,8 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Popup from 'reactjs-popup';
+
+import ShowFieldsList from './ShowFieldsList/ShowFieldsList'
 
 import s from './currentReader.module.css';
 import sp from '../../../Books/BooksTable/SingleBook/popUps.module.css';
@@ -10,77 +12,17 @@ import { QrIcon } from '../../../../img';
 const CurrentReader = props => {
 	props.setHeader(false);
 	const { currentReaderId } = useParams();
+	const [search, setSearch] = useState('');
 	const [bookData, setDataBook] = useState(props.data.books);
 	const [readersData, setReadersData] = useState(props.admin.tables.readers);
 
-	const singleFieldCreator = (label, type, value, name) => {
-		const typeChecker = () => {
-			if (type === 'text' || type === 'password' || type === 'checkbox') {
-				return (
-					<>
-						<label>{label}</label>
-						<input type={type} value={value} name={name} />
-					</>
-				);
-			} else if (type === 'textarea') {
-				return (
-					<>
-						<label>{label}</label>
-						<textarea name={name}>{value}</textarea>
-					</>
-				);
-			} else {
-			}
-		};
-		return <li className={s.singleFieldBlock}>{typeChecker()}</li>;
-	};
-
-	const showFieldsList = r => {
-		return (
-			<ul className={s.fieldsList}>
-				{singleFieldCreator('ПІБ', 'text', r.name, r.id)}
-				{singleFieldCreator('Email', 'text', r.email, `${r.name}_email`)}
-				{singleFieldCreator(
-					'Місце роботи',
-					'text',
-					r.workAddress,
-					`${r.id}_workAddress`
-				)}
-				{singleFieldCreator(
-					'Дата народження',
-					'text',
-					r.birthday,
-					`${r.id}_birthday`
-				)}
-				{singleFieldCreator(
-					'Домашня адреса',
-					'text',
-					r.homeAddress,
-					`${r.id}_homeAddress`
-				)}
-				{singleFieldCreator('Телефон', 'text', r.phone, `${r.id}_phone`)}
-				{singleFieldCreator(
-					'Паспортні дані (за згодою)',
-					'text',
-					`${r.passportInfo ? r.passportInfo : 'Не дав(-ла) згоду'}`,
-					`${r.id}_passportInfo`
-				)}
-				{singleFieldCreator(
-					'Пароль',
-					'password',
-					r.password,
-					`${r.id}_password`
-				)}
-				{singleFieldCreator('Дитина', 'checkbox', r.isChild, `${r.id}_isChild`)}
-				{singleFieldCreator(
-					'Додаткова інформація',
-					'textarea',
-					r.additionalInfo,
-					`${r.id}_additionalInfo`
-				)}
-			</ul>
+	useEffect(() => {
+		setDataBook(
+			props.data.books.filter(b =>
+				b.bookName.toLowerCase().indexOf(search.toLowerCase()) == -1 ? false : true
+			)
 		);
-	};
+	}, [props.data.books, search]);
 
 	const singleReaderMap = readersData.map(r =>
 		r.id === currentReaderId ? (
@@ -109,7 +51,9 @@ const CurrentReader = props => {
 									</button>
 								</div>
 								<div className={sp.content}>
-									<div className={sp.fields}>{showFieldsList(r)}</div>
+									<div className={sp.fields}>
+										<ShowFieldsList reader={r} />
+									</div>
 									<button className={sp.btn} onClick={() => {}}>
 										Зберегти зміни
 									</button>
@@ -271,6 +215,8 @@ const CurrentReader = props => {
 							<input
 								type='text'
 								placeholder='Проскануйте QR-код або введіть назву/автора книги'
+								value={search}
+								onChange={e => setSearch(e.target.value)}
 							/>
 							<button>
 								<svg

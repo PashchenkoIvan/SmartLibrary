@@ -47,10 +47,10 @@ const ActivitiesSearch = ({ setActivities, activities }) => {
 					onChange={e => setDates({ ...dates, to: e.target.value })}
 				/>
 			</div>
-			<Popup
-				trigger={<button className={s.addActivity}>+ Додати захід</button>}
-			>
-				<CreateEvent />
+			<Popup trigger={<button className={s.addActivity}>+ Додати захід</button>} modal>
+				{close => (
+					<CreateEvent close={close} />
+				)}
 			</Popup>
 		</div>
 	);

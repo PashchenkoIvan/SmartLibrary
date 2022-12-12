@@ -428,6 +428,11 @@
     line-height: 18px;
 }
 
+.bookName:hover {
+    color: #36bbcb;
+    transition: all 0.2s;
+}
+
 .bookQr {
     width: 5%;
 }
