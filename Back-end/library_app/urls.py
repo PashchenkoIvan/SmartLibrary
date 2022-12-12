@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import BookApi
+from .views import BookApi, CategoriesApi
 
 urlpatterns = [
-    path('', BookApi.as_view()),
+    path('books/', BookApi.as_view()),
+    path('categories/', CategoriesApi.as_view())
 ]

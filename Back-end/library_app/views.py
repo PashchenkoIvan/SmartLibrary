@@ -4,7 +4,7 @@ from rest_framework import status
 from django.core.exceptions import ObjectDoesNotExist
 
 from .models import Book, Category
-from .serializers import BookSerializer, BookSerializerWithAdditional
+from .serializers import BookSerializer, BookSerializerWithAdditional, CategorySerializer
 
 class BookApi(APIView):
 
@@ -51,3 +51,21 @@ class BookApi(APIView):
             print(serializer.data)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+class CategoriesApi(APIView):
+    def get(self, req):
+        category = req.query_params.get('title')
+        if category:
+            try:
+                category = Category.objects.get(title=category)
+                books = category.books.all()
+                serializer = BookSerializer(books, many=True)
+                return Response(serializer.data)
+            except ObjectDoesNotExist:
+                return Response(f"Error: Category: {category} doesn't exist")
+        else:
+            categories = Category.objects.all()
+            serializer = CategorySerializer(categories, many=True)
+            return Response(serializer.data)
+        
