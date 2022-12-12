@@ -11,7 +11,7 @@ class BookApi(APIView):
     @staticmethod
     def select_serializer(req):
         is_additional = req.query_params.get('is_additional')
-        if is_additional:
+        if is_additional and is_additional is True:
             serializer_obj = BookSerializerWithAdditional
         else:
             serializer_obj = BookSerializer

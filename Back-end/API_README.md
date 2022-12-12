@@ -2,9 +2,9 @@
 
 ## Books
 ### GET
-https://ualib-orion.herokuapp.com/api/v1/library/books -- List of all books 
+https://ualib-orion.herokuapp.com/api/v1/library/books?is_additional=True/False -- List of all books 
 or
-https://ualib-orion.herokuapp.com/api/v1/library/books?title={book_title} -- Get Book Object by title
+https://ualib-orion.herokuapp.com/api/v1/library/books?title={book_title}&is_additional=True/False -- Get Book Object by title
 
 ### POST
 ## Book JSON Example (without additional)
