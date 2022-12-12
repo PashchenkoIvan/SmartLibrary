@@ -27,6 +27,8 @@
     gap: 25px;
 
     width: 100%;
+    max-height: 60vh;
+    overflow-y: scroll;
 
     position: relative;
     padding: 15px 30px 30px;

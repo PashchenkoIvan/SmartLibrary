@@ -7,7 +7,6 @@ const ChangeEvent = props => {
 	const [event, setEvent] = useState(props.activity);
 	return (
 		<div className={sp.container}>
-			{console.log(props.close)}
 			<div className={sp.header}>
 				<span>Редагувати захід</span>
 				<button className={sp.closeBtn} onClick={props.close}>
