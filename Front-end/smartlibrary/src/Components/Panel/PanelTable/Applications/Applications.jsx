@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ApplicationsTable from './ApplicationsTable/ApplicationsTable';
 
 const Applications = props => {
+	const [applications, setApplications] = useState(props.applications);
 	return (
 		<div>
-			<ApplicationsTable applications={props.applications} />
+			<ApplicationsTable applications={applications} />
 		</div>
 	);
 };

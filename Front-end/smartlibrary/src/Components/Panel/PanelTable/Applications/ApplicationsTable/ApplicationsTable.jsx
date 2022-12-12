@@ -5,8 +5,7 @@ import qrCode from '../../../img/qricon.png';
 import Popup from 'reactjs-popup';
 import { QrIcon } from '../../../img';
 
-const ApplicationsTable = props => {
-	const [applications, setApplications] = useState(props.applications);
+const ApplicationsTable = ({ applications }) => {
 	let applicationsElements = applications.map(a => {
 		return (
 			<div className={s.row}>

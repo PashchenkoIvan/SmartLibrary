@@ -1,4 +1,3 @@
-import { React, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 // import QRCode from 'react-qr-code';
@@ -13,8 +12,12 @@ const ReadersTable = props => {
 		return (
 			<div className={s.row}>
 				<Link to={`/reader/${r.id}`}>{r.name}</Link>
-				<div>{r.email}</div>
-				<div>{r.phone}</div>
+				<div>
+					<a href={'tel:' + r.phone}>{r.phone}</a>
+				</div>
+				<div>
+					<a href={'mailto:' + r.email}>{r.email}</a>
+				</div>
 				<div>{r.needs === true ? 'так' : 'немає'}</div>
 				<Popup
 					trigger={
@@ -50,8 +53,8 @@ const ReadersTable = props => {
 		<div className={s.container}>
 			<div className={s.header}>
 				<p>ПІБ {`(${props.readers.length})`}</p>
-				<p>Email</p>
 				<p>Телефон</p>
+				<p>Email</p>
 				<p>Особливі потреби</p>
 				<p>QR-код</p>
 				<p>Статус</p>

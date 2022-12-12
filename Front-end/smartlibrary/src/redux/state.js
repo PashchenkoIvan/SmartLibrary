@@ -28,21 +28,35 @@ let state = {
 							dateOfIssue: '10.11.2022',
 							dateOfreturn: '-',
 							status: 'Не повернена',
-							color: '#ff0000',
+							color: '#f87e73',
 						},
 						{
 							id: 'zahovoreno-na-lyubov',
 							dateOfIssue: '20.11.2022',
 							dateOfreturn: '-',
 							status: 'Читається',
-							color: '#ffff00',
+							color: '#fbf587',
 						},
 						{
 							id: 'iz-soho-dna',
 							dateOfIssue: '20.11.2022',
 							dateOfreturn: '-',
 							status: 'Заброньована',
-							color: '#7ed321',
+							color: '#69c398',
+						},
+					],
+					willRead: [
+						{
+							id: 'zahovoreno-na-lyubov',
+							name: 'Заговорено на любов',
+						},
+						{
+							id: 'iz-soho-dna',
+							name: 'Із сьомого дна',
+						},
+						{
+							id: 'brat-2',
+							name: 'Брат - 2',
 						},
 					],
 				},
@@ -57,6 +71,50 @@ let state = {
 					homeAddress: 'Дніпро, Глінки 2',
 					workAddress: 'Кривий Ріг, Перемоги 23',
 					passportInfo: '748294739',
+					booksHistory: [
+						{
+							id: 'trytsylindrovyy-dvyhun-lyubovi',
+							dateOfIssue: '30.10.2022',
+							dateOfreturn: '07.11.2022',
+							status: 'Повернена',
+							color: '#e8eef6',
+						},
+						{
+							id: 'armahedon-na-maydani',
+							dateOfIssue: '10.11.2022',
+							dateOfreturn: '-',
+							status: 'Не повернена',
+							color: '#f87e73',
+						},
+						{
+							id: 'zahovoreno-na-lyubov',
+							dateOfIssue: '20.11.2022',
+							dateOfreturn: '-',
+							status: 'Читається',
+							color: '#fbf587',
+						},
+						{
+							id: 'iz-soho-dna',
+							dateOfIssue: '20.11.2022',
+							dateOfreturn: '-',
+							status: 'Заброньована',
+							color: '#69c398',
+						},
+					],
+					willRead: [
+						{
+							id: 'zahovoreno-na-lyubov',
+							name: 'Заговорено на любов',
+						},
+						{
+							id: 'iz-soho-dna',
+							name: 'Із сьомого дна',
+						},
+						{
+							id: 'brat-2',
+							name: 'Брат - 2',
+						},
+					],
 				},
 			],
 			books: [
@@ -95,7 +153,7 @@ let state = {
 					smallDescription: 'Малый опис до дня фантастики',
 					bigDescription: 'Великий опис до дня фантастики',
 					category: 'Новини ОТГ',
-					dateTime: '10/21/2020 12:00:00 AM',
+					dateTime: '2022/12/22 12:00:00 AM',
 					id: 1,
 				},
 				{
@@ -103,7 +161,7 @@ let state = {
 					smallDescription: 'Малый опис до международный дня «спасибо»',
 					bigDescription: 'Великий опис до международный дня «спасибо»',
 					category: 'Новини бібліотеки',
-					dateTime: '10/22/2020 12:00:00 AM',
+					dateTime: '2022/12/23 12:00:00 AM',
 					id: 2,
 				},
 			],

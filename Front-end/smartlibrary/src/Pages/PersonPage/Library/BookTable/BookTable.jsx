@@ -1,37 +1,57 @@
+import { React, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+
 import s from './BookTable.module.css';
-import React from 'react'
+import sp from '../../../../Components/Panel/PanelTable/Books/BooksTable/SingleBook/popUps.module.css';
+import qrCode from '../../../../Components/Panel/img/qricon.png';
+import { QrIcon } from '../../../../Components/Panel/img';
 
-// const BookTable = () => {
-//     let InfoMap = [
-//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-//         {name: 'Книга Узоры из бисера кошмаров', startData: '15.10.2022', endData: '25.11.2022', status: 'Повернена'},
-//     ];
-//     let InfoMapAdd = InfoMap.map(i => (<BookTableBlock bookName={i.name} startDate={i.startData} endDate={i.endData} status={i.status}/>));
-//     return (
-//         {InfoMapAdd}
-//     );
-// }
+export const BookTableBlock = props => {
+  	const { currentReaderId } = useParams();
+	const [bookData, setDataBook] = useState(props.data.books);
+	const [readersData, setReadersData] = useState(props.admin.tables.readers);
 
-export const BookTableBlock = (props) => {
+  	const singleBookHistoryCreater = (bookHistoryData) => {
+		const currentBookBuilder = bookData.map(b =>
+			b.id === bookHistoryData.id ? (
+				<div className={s.singleBookHistoryContainer}>
+					<Link
+						to={`/${b.id}`}
+						className={s.bookName}
+            			onClick={() => {window.scrollTo(0, 0)}}
+					>
+						{b.bookName}
+					</Link>
+					<span className={s.dateInfo}>{bookHistoryData.dateOfIssue}</span>
+					<span className={s.dateInfo}>{bookHistoryData.dateOfreturn}</span>
+					<div className={s.bookStatus}>
+						<div className={s.bookStatusValue} style={{ backgroundColor: bookHistoryData.color }}>
+							{bookHistoryData.status}
+						</div>
+					</div>
+				</div>
+		) : (''));
+		return currentBookBuilder;
+	}
+
+  const booksHistoryMap = readersData.filter(r => r.id === "sergey-zorya-1")
+									   .map(r => r.booksHistory
+									   .map(b => singleBookHistoryCreater(b)));
+
   return (
     <div className={s.container}>
         <h2>ПЕРЕЛІК КНИГ</h2>
-        <div className={s.tableTitleBlock}>
-            <p>Назва книги</p>
-            <p>Дата видачі</p>
-            <p>Дата повернення</p>
-            <p>Статус</p>
-        </div>
+        <div className={s.tableTopBar}>
+			<div className={s.tableTitleBlock}>
+				<p>Назва книги</p>
+				<p>Дата видачі</p>
+				<p>Дата повернення</p>
+				<p>Статус</p>
+			</div>
+		</div>
         <div className={s.bookBlock}>
-            <a>{props.bookName}</a>
-            <div className={s.right}>
-                <p>{props.startDate}</p>
-                <p>{props.endDate}</p>
-                <p>{props.status}</p>
-            </div>
+          { booksHistoryMap }
         </div>
     </div>
   )

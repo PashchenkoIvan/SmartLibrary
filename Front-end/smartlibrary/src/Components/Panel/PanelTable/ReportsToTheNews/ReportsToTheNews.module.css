@@ -62,15 +62,20 @@
 .infoBlock p:nth-child(3) {
     width: 150px;
 }
-.infoBlock button {
+.infoBlock a {
     width: 120px;
     height: 40px;
     border-radius: 3px;
     background-color: #36bbcb;
     color: white;
     margin-left: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.infoBlock button:last-child {
+.infoBlock button {
     margin-left: 10px;
+    width: 120px;
+    height: 40px;
     background-color: red;
 }

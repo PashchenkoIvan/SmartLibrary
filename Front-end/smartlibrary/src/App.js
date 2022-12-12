@@ -22,90 +22,14 @@ import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishN
 import ContactsPage from './Pages/ContactsPage/ContactsPage';
 import FaqPage from './Pages/FaqPage/FaqPage';
 import { useState } from 'react';
+import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form';
+import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form';
 
 function App(props) {
 	const [header, setHeader] = useState(true);
 
 	return (
 		<div className={s.wrapper}>
-			{/* <Header />
-			<Routes>
-				<Route path='/' element={<MainPage data={props.state.data} />} />
-
-				<Route
-					exact
-					path='/catalog'
-					element={<BooksCatalog data={props.state.data} />}
-				/>
-				<Route
-					exact
-					path='/catalog/:booksCategoryId'
-					element={<BooksCatalog data={props.state.data} />}
-				/>
-
-				<Route
-					path='/reader/:currentReaderId'
-					element={
-						<CurrentReader admin={props.state.admin} data={props.state.data} />
-					}
-				/>
-				<Route path='/book-single/create' element={<BookCreate />} />
-				<Route
-					path='/books/categories'
-					element={<BooksCategories data={props.state.data} />}
-				/>
-				<Route
-					path='/book-single/:currentBookId'
-					element={
-						<SingleBook admin={props.state.admin} data={props.state.data} />
-					}
-				/>
-				<Route
-					path='/book-single/edit/:currentBookId'
-					element={<BookEdit data={props.state.data} />}
-				/>
-				<Route
-					exact
-					path='/:bookId'
-					element={<SelectedBook data={props.state.data} />}
-				/>
-				<Route path='/faq/*' element={<FaqPage />} />
-				<Route path='/admin/*' element={<AdminPage state={props.state} />} />
-				<Route
-					path='/admin/event-reports/create/:id'
-					element={<CreateEventReport />}
-				/>
-				<Route
-					path='/admin/event-reports/edit/:id'
-					element={
-						<EditEventReport
-							reports={props.state.admin.tables.eventReporting}
-						/>
-					}
-				/>
-				<Route
-					path='/admin/annual-reports/create/:id'
-					element={
-						<CreateAnnualReport
-							annualReports={props.state.admin.tables.annualReporting}
-						/>
-					}
-				/>
-				<Route
-					path='/admin/news/edit/:id'
-					element={<EditNews news={props.state.admin.tables.news} />}
-				/>
-				<Route
-					path='/admin/news/publish/:id'
-					element={<PublishNews news={props.state.admin.tables.news} />}
-				/>
-				<Route path='/admin/news/create' element={<CreateNews />} />
-				<Route path='/personPage' element={<PersonPage />} />
-				<Route path='/reg' element={<RegisterPage />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/contacts' element={<ContactsPage />} />
-			</Routes>
-			<Footer /> */}
 			{header ? <TransHeader /> : <Header />}
 			<Routes>
 				<Route
@@ -140,20 +64,25 @@ function App(props) {
 						/>
 					}
 				/>
-				<Route
-					path='/admin/annual-reports/create/:id'
-					element={
-						<CreateAnnualReport
-							annualReports={props.state.admin.tables.annualReporting}
-							setHeader={setHeader}
-						/>
-					}
-				/>
+				
 				<Route
 					path='/admin/news/edit/:id'
 					element={
 						<EditNews
 							news={props.state.admin.tables.news}
+							setHeader={setHeader}
+						/>
+					}
+				/>
+				<Route
+					path='/admin/news/create'
+					element={<CreateNews setHeader={setHeader} />}
+				/>
+				<Route
+					path='/admin/annual-reports/create/:id'
+					element={
+						<CreateAnnualReport
+							annualReports={props.state.admin.tables.annualReporting}
 							setHeader={setHeader}
 						/>
 					}
@@ -167,14 +96,17 @@ function App(props) {
 						/>
 					}
 				/>
-				<Route
-					path='/admin/news/create'
-					element={<CreateNews setHeader={setHeader} />}
-				/>
+				
 
 				<Route
 					path='/personPage'
-					element={<PersonPage setHeader={setHeader} />}
+					element={
+						<PersonPage
+							setHeader={setHeader}
+							admin={props.state.admin}
+							data={props.state.data}
+						/>
+					}
 				/>
 
 				<Route path='/reg' element={<RegisterPage setHeader={setHeader} />} />
@@ -185,6 +117,13 @@ function App(props) {
 				/>
 				<Route path='/faq/*' element={<FaqPage setHeader={setHeader} />} />
 
+				<Route
+					exact
+					path='/:bookId'
+					element={
+						<SelectedBook data={props.state.data} setHeader={setHeader} />
+					}
+				/>
 				<Route
 					exact
 					path='/catalog'
@@ -198,12 +137,15 @@ function App(props) {
 						<BooksCatalog data={props.state.data} setHeader={setHeader} />
 					}
 				/>
-				<Route path='/book-single/create' element={<BookCreate />} />
 				<Route
 					path='/books/categories'
 					element={
 						<BooksCategories data={props.state.data} setHeader={setHeader} />
 					}
+				/>
+				<Route
+					path='/book-single/create'
+					element={<BookCreate />}
 				/>
 				<Route
 					path='/book-single/:currentBookId'
@@ -232,6 +174,15 @@ function App(props) {
 					element={
 						<SelectedBook data={props.state.data} setHeader={setHeader} />
 					}
+				/>
+				<Route 
+					path='/admin/visitors/form' 
+					element={<FormVisitors/>}
+				/>
+				<Route
+					path='/admin/reports-to-the-news/form'
+					element={<FormReport/>}
+				
 				/>
 			</Routes>
 			<Footer />
