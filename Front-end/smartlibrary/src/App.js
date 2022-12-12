@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import { BooksCatalog, Header, SelectedBook } from './Components/';
-import s from './App.css';
+
 import MainPage from './Pages/MainPage/MainPage';
 import PersonPage from './Pages/PersonPage/PersonPage';
 import AdminPage from './Pages/AdminPage/AdminPage';
@@ -21,9 +22,10 @@ import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews';
 import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews';
 import ContactsPage from './Pages/ContactsPage/ContactsPage';
 import FaqPage from './Pages/FaqPage/FaqPage';
-import { useState } from 'react';
 import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form';
 import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form';
+
+import s from './App.css';
 
 function App(props) {
 	const [header, setHeader] = useState(true);
@@ -175,14 +177,10 @@ function App(props) {
 						<SelectedBook data={props.state.data} setHeader={setHeader} />
 					}
 				/>
-				<Route 
-					path='/admin/visitors/form' 
-					element={<FormVisitors/>}
-				/>
+				<Route path='/admin/visitors/form' element={<FormVisitors />} />
 				<Route
 					path='/admin/reports-to-the-news/form'
-					element={<FormReport/>}
-				
+					element={<FormReport />}
 				/>
 			</Routes>
 			<Footer />
