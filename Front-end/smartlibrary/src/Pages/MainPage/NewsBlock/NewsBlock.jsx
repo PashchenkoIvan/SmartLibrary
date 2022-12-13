@@ -1,15 +1,11 @@
 import s from './NewsBlock.module.css';
-import React from 'react'
-import { useState } from 'react';
+import React from 'react';
 
-const NewsBlock = () => {
-    let [data, setData] = useState({
-        date: '03.04.2005',
-        new: 'Add calendar',
-    });
+const NewsBlock = (props) => {
   return (
     <div className={s.container}>
         <p className={s.actualNewsText}>Актуальні новини</p>
+        <p className={s.new}>{props.new}</p>
     </div>
   )
 }
