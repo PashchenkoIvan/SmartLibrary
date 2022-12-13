@@ -13,7 +13,8 @@ const MainPage = props => {
 	// 	text: 'Мы купили арбуз',
 	// });
 	let News = [
-		{date: 'Thu Dec 15 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)', news: 'Мы купили арбуз',}
+		{date: 'Thu Dec 15 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)', news: 'Мы купили арбуз',},
+		{date: 'Tue Dec 13 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)', news: 'Мы купили арбуз во вторник',},
 	]
 
 	const [value, setValue] = useState('');
@@ -37,6 +38,7 @@ const MainPage = props => {
 						<div className={s.calendar}>
 							<Calendar onClickDay={(value) => {
 								setValue(value);
+								// alert(value)
 								// { Date.parse(data.date) === Date.parse(value) ? <NewsBlock new = {data.text}/> : <NewsBlock new = 'Not today'/> }
 								// { Date.parse(dades) === Date.parse(value) ? alert('true') : alert('false') }
 								// alert(dades)
