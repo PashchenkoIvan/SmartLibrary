@@ -1,56 +1,56 @@
-const fieldsData = e => [
+const fieldsData = r => [
 	{
 		label: 'Мета, читацьке призначення',
 		type: 'text',
-		value: e.target,
+		value: r.target,
 		name: 'target',
 	},
 	{
 		label: 'Кількість присутніх',
 		type: 'number',
-		value: e.attends,
+		value: r.attends,
 		name: 'attends',
 	},
 	{
 		label: 'Використання технічних засобів',
 		type: 'text',
-		value: e.techUse,
+		value: r.techUse,
 		name: 'techUse',
 	},
 	{
 		label: 'Ефективність',
 		type: 'text',
-		value: e.efficiency,
+		value: r.efficiency,
 		name: 'efficiency',
 	},
 	{
 		label: 'Форма роботи',
 		type: 'text',
-		value: e.formOfWork,
+		value: r.formOfWork,
 		name: 'formOfWork',
 	},
 	{
 		label: 'Відповідальні за захід',
 		type: 'text',
-		value: e.responsibles,
+		value: r.responsibles,
 		name: 'responsibles',
 	},
 	{
 		label: 'Висновки бібліотекаря',
 		type: 'text',
-		value: e.conclusions,
+		value: r.conclusions,
 		name: 'conclusions',
 	},
 	{
 		label: 'Використаня література',
 		type: 'text',
-		value: e.usedBooks,
+		value: r.usedBooks,
 		name: 'usedBooks',
 	},
 	{
 		label: 'Список учасників',
 		type: 'text',
-		value: e.participants,
+		value: r.participants,
 		name: 'participants',
 	},
 ];

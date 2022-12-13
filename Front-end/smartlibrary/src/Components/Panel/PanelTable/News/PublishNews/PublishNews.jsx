@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import FieldsList from '../../../../FieldsList/FieldsList';
+import fieldsData from '../CreateNews/fieldsData';
 import s from './PublishNews.module.css';
 
 const PublishNews = props => {
@@ -24,31 +26,7 @@ const PublishNews = props => {
 				<h1>Публікація новини</h1>
 				<Link to='/admin/news'>Повернутись</Link>
 			</div>
-			<label>
-				<p>Новина</p>
-				<input
-					type='text'
-					value={news.name}
-					onChange={e => setNews({ ...news, name: e.target.value })}
-				/>
-			</label>
-			<label>
-				<p>Опис</p>
-				<input
-					type='text'
-					value={news.description}
-					onChange={e => setNews({ ...news, description: e.target.value })}
-				/>
-			</label>
-			<label>
-				<p>Формат події</p>
-				<input
-					className={s.dateInput}
-					type='date'
-					value={news.date}
-					onChange={e => setNews({ ...news, date: e.target.value })}
-				/>
-			</label>
+			<FieldsList data={fieldsData(news)} />
 			<button>Опіблікувати</button>
 		</div>
 	);
