@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import FieldsList from '../../../../FieldsList/FieldsList';
 import s from './CreateAnnualReport.module.css';
+import fieldsData from './fieldsData';
 
 const CreateAnnualReport = props => {
 	props.setHeader(false);
@@ -27,32 +29,7 @@ const CreateAnnualReport = props => {
 				<h1>Підготовка звіту</h1>
 				<Link to='/admin/annual-reporting'>Повернутись</Link>
 			</div>
-			<label>
-				<p>Назва репорту</p>
-				<input
-					type='text'
-					value={report.name}
-					onChange={e => setReport({ ...report, name: e.target.value })}
-				/>
-			</label>
-			<label>
-				<p>Дата с</p>
-				<input
-					className={s.dateInput}
-					type='date'
-					value={report.dateFrom}
-					onChange={e => setReport({ ...report, dateFrom: e.target.value })}
-				/>
-			</label>
-			<label>
-				<p>Дата по</p>
-				<input
-					className={s.dateInput}
-					type='date'
-					value={report.dateTo}
-					onChange={e => setReport({ ...report, dateTo: e.target.value })}
-				/>
-			</label>
+			<FieldsList data={fieldsData(report)} />
 			<div className={s.buttons}>
 				<button>Генерувати</button>
 				<button>Відправити</button>
