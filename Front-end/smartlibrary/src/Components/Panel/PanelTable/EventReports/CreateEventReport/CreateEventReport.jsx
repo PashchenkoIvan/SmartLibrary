@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import FieldsList from '../../../../FieldsList/FieldsList';
 import s from './CreateEventReport.module.css';
+import fieldsData from './fieldsData';
 
 const CreateEventReport = props => {
 	props.setHeader(false);
@@ -24,7 +26,7 @@ const CreateEventReport = props => {
 				<h1>Створення звіту до заходу</h1>
 				<Link to='/admin/activities'>Повернутися</Link>
 			</div>
-			<label>
+			{/* <label>
 				<p>Мета, читацьке призначення</p>
 				<input
 					type='text'
@@ -123,7 +125,8 @@ const CreateEventReport = props => {
 						setEventReport({ ...eventReport, participants: e.target.value })
 					}
 				/>
-			</label>
+			</label> */}
+			<FieldsList data={fieldsData(eventReport)} />
 			<button>Додати звіт</button>
 		</div>
 	);
