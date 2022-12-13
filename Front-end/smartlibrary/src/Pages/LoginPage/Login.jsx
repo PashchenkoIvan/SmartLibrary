@@ -14,7 +14,7 @@ const Login = props => {
 					<p>Пароль</p>
 					<input type='password' placeholder='Пароль' />
 				</div>
-				<button>Вхід</button>
+				<button>Вхід до аккаунту</button>
 			</div>
 		</div>
 	);

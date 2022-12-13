@@ -1,6 +1,8 @@
 from django.db import models
+from users.models import Visitor
 
 class Book(models.Model):
+        
     title = models.CharField(max_length=100, verbose_name='Назва')
     inventory_num = models.IntegerField(verbose_name='Інвентарний номер')
     author = models.CharField(max_length=200, verbose_name='Автор(и) книги')
@@ -35,7 +37,13 @@ class Book(models.Model):
         ("Dgtl", "Цифрові видання"), 
         ("Map", "Карта"),
     ))
-    
+    status = models.CharField(max_length=1, default="W", choices=(
+        ('R','Reading'), 
+        ('W','Waiting'),
+        ('A','Availible'),
+        ('B', 'Booked')
+    ))
+    current_reader = models.OneToOneField(Visitor, on_delete=models.SET_NULL, null=True, blank=True)
     # Additional
     
     document_type = models.CharField(max_length=100, null=True, blank=True, 
@@ -157,10 +165,12 @@ class Book(models.Model):
     
     
 class Category(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, unique=True)
     
     def __str__(self) -> str:
         return self.title
     
     class Meta:
         verbose_name_plural = 'Categories'
+
+

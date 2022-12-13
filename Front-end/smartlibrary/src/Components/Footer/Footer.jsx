@@ -1,52 +1,21 @@
-import s from './Footer.module.css';
 import React from 'react'
-import Clock from './image/clock.png';
-import Phone from './image/phone.png';
-import Point from './image/point.png';
-import Logo from '../Header/images/logo.png';
-import { NavLink } from 'react-router-dom';
-
+import s from './Footer.module.css'
+import ContClock from './ContItem/ContClock'
+import ContLogo from './ContItem/ContLogo'
+import ContPhone from './ContItem/ContPhone'
+import ContPoint from './ContItem/ContPoint'
 
 const Footer = () => {
-  return (
-    <div className={s.container}>
-        <div className={s.item}>
-            <div className={s.image}>
-                <img src={Clock} alt="Clock" />
-            </div>
-            <div className={s.text}>
-                <p>Вт-Сб: 9:00 - 18:00</p>
-                <p>Вс-Пн:Вихідний</p>
-            </div>
-        </div>
-        <div className={s.item}>
-            <div className={s.image}>
-                <img src={Phone} alt="Phone" />
-            </div>
-            <div className={s.text}>
-                <a>+38 093 22 26 111</a>
-            </div>
-        </div>
-        <div className={s.item}>
-            <div className={s.image}>
-                <img src={Point} alt="Clock" />
-            </div>
-            <div className={s.text}>
-                <a>c. Дослідне</a>
-                <a>вул. Наукова 20</a>
-            </div>
-        </div>
-        <div className={s.itemLast}>
-            <img src={Logo} alt="Logo" />
-            <div className={s.textLast}>
-                <p>Розроблено   #SmartLibrary</p>
-                <p>
-                    Інформація та зображення на сайті взяті
-                    з відкритих джерел.
-                </p>
-            </div>
-        </div>
-    </div>
-  )
+	return (
+		<footer className={s.footer}>
+			<div className={s.footerContainer}>
+				<ContClock />
+				<ContPhone />
+				<ContPoint />
+				<ContLogo />
+			</div>
+		</footer>
+	)
 }
+
 export default Footer;
