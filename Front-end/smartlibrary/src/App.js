@@ -10,7 +10,7 @@ import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBoo
 import BookEdit from './Components/Panel/PanelTable/Books/BooksTable/BookEdit/BookEdit'
 import BookCreate from './Components/Panel/PanelTable/Books/BooksTable/BookCreate/BookCreate'
 import BooksCategories from './Components/Panel/PanelTable/Books/BooksTable/BooksCategories/BooksCategories'
-import Footer from './Components/footer/Footer'
+import Footer from './Components/Footer/Footer'
 import TransHeader from './Components/TransHeader/TransHeader'
 import CreateEventReport from './Components/Panel/PanelTable/EventReports/CreateEventReport/CreateEventReport'
 import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport'

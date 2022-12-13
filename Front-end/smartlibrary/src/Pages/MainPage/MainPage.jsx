@@ -1,6 +1,7 @@
 import s from './MainPage.module.css';
 import { PopularBooks } from '../../Components';
 import Calendar from 'react-calendar';
+import NewsBlock from './NewsBlock/NewsBlock';
 
 const MainPage = props => {
 	props.setHeader(true);
@@ -14,9 +15,11 @@ const MainPage = props => {
 				<div className={s.bottomBlock}>
 					<div className={s.calendarBlock}>
 						<div className={s.calendar}>
-							<Calendar />
+							<Calendar onClickDay={(value, event) => alert(value)} />
 						</div>
-						<div className={s.newsBlock}></div>
+						<div className={s.newsBlock}>
+							<NewsBlock/>
+						</div>
 					</div>
 					<div className={s.editBlock}>
 						<p>Андрюх Людмила</p>

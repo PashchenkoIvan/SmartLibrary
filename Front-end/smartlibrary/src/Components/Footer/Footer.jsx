@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './footer.module.css'
+import s from './Footer.module.css'
 import ContClock from './ContItem/ContClock'
 import ContLogo from './ContItem/ContLogo'
 import ContPhone from './ContItem/ContPhone'
@@ -18,4 +18,4 @@ const Footer = () => {
 	)
 }
 
-export default Footer
+export default Footer;
