@@ -1,6 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+
+import tableData from './tableData';
 import s from './ReportsToTheNews.module.css';
+import Table from '../../../Table/Table';
 
 export let Array = [
 	{ threme: 'Мета', place: 'st.Darnitskaya 19', date: '03.12.2022' },
@@ -24,15 +26,15 @@ const ReportsToTheNews = () => {
 	));
 	return (
 		<div className={s.container}>
-			{/* <button>+ Додати звіт</button> */}
-			<div className={s.table}>
+			{/* <div className={s.table}>
 				<div className={s.titleBlock}>
 					<p>Мета ({Array.length})</p>
 					<p>Місце</p>
 					<p>Дата</p>
 				</div>
 				{ArrayAdd}
-			</div>
+			</div> */}
+			<Table data={Array} keys={tableData()} />
 		</div>
 	);
 };
