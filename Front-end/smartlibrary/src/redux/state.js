@@ -219,6 +219,7 @@ let state = {
 					ganreImg: 'http://1.smart-library.in.ua/img/icon.png',
 					ganreText: 'Художня література',
 					isPopularBook: true,
+					isScanned: true,
 					lang: 'Російська',
 					pageAmount: '320',
 					bookType: 'Паперова',
@@ -242,6 +243,7 @@ let state = {
 					ganreImg: 'http://1.smart-library.in.ua/img/icon.png',
 					ganreText: 'Художня література',
 					isPopularBook: false,
+					isScanned: false,
 					lang: 'Українська',
 					pageAmount: '94',
 					bookType: 'Паперова',
@@ -314,6 +316,7 @@ let state = {
 			{
 				bookAuthor: 'Юрій Андрухович',
 				id: '12-obruchiv',
+				bookStatus: 'У бібліотеці',
 				bookName: '12 обручів',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1-Qz85aAQHVPvc5qhGELvKY6Jb0NXeUgy',
@@ -337,6 +340,7 @@ let state = {
 			{
 				bookAuthor: 'Римма Запесоцька',
 				id: 'yzbrannye-sny',
+				bookStatus: 'У бібліотеці',
 				bookName: 'Избранные сны',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1K4IOE_g3_09T7O8HX5zleCRuUGxiBe8O',
@@ -360,6 +364,7 @@ let state = {
 			{
 				bookAuthor: 'Катерина Бабкіна',
 				id: 'zahovoreno-na-lyubov',
+				bookStatus: 'У бібліотеці',
 				bookName: 'Заговорено на любов',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=10KtRm7iX2eEvmbkVFLKFeuo1dYBJDm7y',
@@ -379,6 +384,7 @@ let state = {
 			{
 				bookAuthor: 'Василь Базів',
 				id: 'armahedon-na-maydani',
+				bookStatus: 'Не у бібліотеці',
 				bookName: 'Армагедон на Майдані',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1G7En-T1SN9exxirncl1GwvlX1U7IbHEs',
@@ -398,6 +404,7 @@ let state = {
 			{
 				bookAuthor: 'Ярослав Яріш, Ярослава Бакалець',
 				id: 'iz-soho-dna',
+				bookStatus: 'У бібліотеці',
 				bookName: 'Із сьомого дна',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1QsUcz7nIvRG0HoYbtLLLBPRb3okU0gsT',
@@ -420,6 +427,7 @@ let state = {
 			{
 				bookAuthor: 'Беркут Ігор',
 				id: 'brat-2',
+				bookStatus: 'У бібліотеці',
 				bookName: 'Брат - 2',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1iIAS2lj3KIm_ke7B1MAtJbZEvPPvfQgz',
@@ -438,6 +446,7 @@ let state = {
 			{
 				bookAuthor: 'Іван Білик',
 				id: 'pokhoron-bohiv',
+				bookStatus: 'У бібліотеці',
 				bookName: 'Похорон Богів',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1PrEfoBj99A7lzXXuw3nxY5d5rw4OLWyw',
@@ -460,6 +469,7 @@ let state = {
 			{
 				bookAuthor: 'Євгеній Тищенко',
 				id: 'svitlonosets-mech-voli',
+				bookStatus: 'У бібліотеці',
 				bookName: 'Светлоносец. Меч Воли',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1YuwgLPX4SHHmHCn9KaGOy50VbIbpD6C1',
@@ -478,6 +488,7 @@ let state = {
 			{
 				bookAuthor: 'Мартін Брест',
 				id: 'pekhota',
+				bookStatus: 'У бібліотеці',
 				bookName: 'Пехота',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1i3G_irKX2T5UXvi6a9XAn3Jm-MyjdN5a',
@@ -500,6 +511,7 @@ let state = {
 			{
 				bookAuthor: 'Есаулов Олександр',
 				id: 'peremozhtsiv-ne-sudyat',
+				bookStatus: 'У бібліотеці',
 				bookName: 'Переможців не судять',
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1qzjaXYKeUvHsDFOp5MdP4h6flXttWFui',
@@ -518,6 +530,7 @@ let state = {
 			{
 				bookAuthor: 'Галина Вдовиченко',
 				id: 'pivyabluka-inshi-pivyabluka',
+				bookStatus: 'У бібліотеці',
 				bookName: "Пів'яблука. Інші пів'яблука",
 				bookImg:
 					'https://drive.google.com/uc?export=view&id=1kDneD_RppqKN5d4kOS_dLBWY4Ifh3O0Q',
@@ -536,6 +549,7 @@ let state = {
 			{
 				bookAuthor: 'Автор',
 				id: 'book-1',
+				bookStatus: 'У бібліотеці',
 				bookName: 'Назва книги',
 				bookImg: '',
 				ganreImg: 'http://1.smart-library.in.ua/img/icon.png',
@@ -553,6 +567,7 @@ let state = {
 			{
 				bookAuthor: 'Автор',
 				id: 'book-2',
+				bookStatus: 'Не у бібліотеці',
 				bookName: 'Назва книги',
 				bookImg: '',
 				ganreImg: 'http://1.smart-library.in.ua/img/icon.png',
@@ -570,6 +585,7 @@ let state = {
 			{
 				bookAuthor: 'Автор',
 				id: 'book-3',
+				bookStatus: 'Не у бібліотеці',
 				bookName: 'Назва книги',
 				bookImg: '',
 				ganreImg: 'http://1.smart-library.in.ua/img/icon.png',

@@ -1,6 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+
 import s from './Visitors.module.css';
+import tableData from './tableData';
+import Table from '../../../Table/Table';
 
 export let Array = [
 	{
@@ -224,7 +226,7 @@ export const Visitors = () => {
 	));
 	return (
 		<div className={s.container}>
-			<Link to='/admin/visitors/form'>+ Додати</Link>
+			{/* <Link to='/admin/visitors/form'>+ Додати</Link>
 			<div className={s.titleBlock}>
 				<p>ПІБ ({Array.length})</p>
 				<p>Місце проживання</p>
@@ -233,7 +235,8 @@ export const Visitors = () => {
 				<p>Книги</p>
 				<p>Дата</p>
 			</div>
-			<div className={s.table}>{ArrayAdd}</div>
+			<div className={s.table}>{ArrayAdd}</div> */}
+			<Table data={Array} keys={tableData()} />
 		</div>
 	);
 };

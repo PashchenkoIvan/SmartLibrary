@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import s from './ApplicationsTable.module.css';
 import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
 import qrCode from '../../../img/qricon.png';

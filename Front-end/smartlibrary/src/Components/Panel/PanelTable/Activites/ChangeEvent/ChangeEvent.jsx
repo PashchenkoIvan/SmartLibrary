@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import s from './changeEvent.module.css';
 import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
@@ -39,7 +39,9 @@ const ChangeEvent = props => {
 						className={s.bigDescription}
 						type='text'
 						value={event.bigDescription}
-						onChange={e => setEvent({ ...event, bigDescription: e.target.value })}
+						onChange={e =>
+							setEvent({ ...event, bigDescription: e.target.value })
+						}
 					/>
 				</div>
 				<div className={s.categoryAndTime}>

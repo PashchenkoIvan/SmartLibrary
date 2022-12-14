@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import s from './AffiliatesTable.module.css';
 
 const AffiliatesTable = ({ affiliates }) => {
