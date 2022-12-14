@@ -34,12 +34,12 @@
     color: #36bbcb;
 }
 .bottomBlock {
-    width: 1300px;
+    width: 1500px;
     margin-top: 33px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: center; */
 }
 .calendarBlock {
     width: 825px;
@@ -69,7 +69,7 @@
 
 }
 .editBlock {
-    width: 200px;
+    width: 300px;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -78,13 +78,20 @@
     box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
     padding-top: 25px;
     border-radius: 12px;
+    margin-right: 40px;
 }
-.editBlock p {
+.titleText {
     font-size: 16px;
     font-weight: 600;
     color: black;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     /* height: 40px; */
+}
+.underTitleText {
+    font-size: 16px;
+    font-weight: 200;
+    color: black;
+    margin-bottom: 20px;
 }
 .buttonBlock {
     width: 100%;
@@ -95,7 +102,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 45px;
+    padding-top: 15px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+}
+.buttonBlock p {
+    margin-bottom: 20px;
+}
+.buttonBlock img {
+    width: 30%;
+    height: 40%;
 }

@@ -2,20 +2,42 @@
 	@apply w-screen h-screen flex items-center justify-center;
 }
 .block {
-	@apply w-4/6 h-3/4 flex justify-between;
+	width: 1300px;
+	height: 500px;
+	@apply p-4 rounded-xl border border-solid border-slate-400 flex justify-between;
+	background-color: #ecf3fc;
 }
-.infoBlock {
-	@apply w-1/2 h-full flex-col;
+
+.constact {
+	@apply w-2/5 h-full ml-4;
 }
-.infoBlock h1 {
-	@apply text-2xl font-medium;
+
+.constact .infoBlock {
+	@apply h-1/2 w-full	
+	rounded-xl 
+	flex flex-col items-center 
+	border border-solid border-slate-400;
 }
-.infoBlock h4 {
-	@apply font-semibold mt-5;
+
+.personal {
+	@apply w-1/5 h-full
+	rounded-xl 
+	flex flex-col items-center 
+	border border-solid border-slate-400;
 }
-.infoBlock a {
-	@apply underline text-blue-500;
+
+.title {
+	@apply w-full h-14 bg-white text-center rounded-t-xl flex items-center justify-center;
 }
-.infoBlock img {
-	@apply h-52;
+.mainPart {
+	/* height: 100% */
+	@apply w-full h-full p-4 flex justify-center;
+}
+.mainPart a {
+	@apply max-w-full text-sky-600;
+}
+
+.mainPart img {
+	/* @apply w-full h-full; */
+	height: 400px;
 }
