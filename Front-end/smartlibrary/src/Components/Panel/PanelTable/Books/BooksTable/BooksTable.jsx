@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 
@@ -14,47 +14,65 @@ const BooksTable = props => {
 
 	const bookElementCreating = (b, counter) => {
 		if (counter < booksAmount) {
-		  	return (
+			return (
 				<div className={s.row}>
-					<Link to={`/book-single/${b.id}`} onClick={() => window.scrollTo(0, 0)}>{b.bookName}</Link>
+					<Link
+						to={`/book-single/${b.id}`}
+						onClick={() => window.scrollTo(0, 0)}
+					>
+						{b.bookName}
+					</Link>
 					<div>{b.bookAuthor}</div>
 					<div>{b.ISBN}</div>
 					<div>{b.isPopularBook ? 'У наявності' : 'Відсутня'}</div>
 					<Popup
-							trigger={
-								<div>
-									<img src={qrCode} alt='' />
-								</div>
-							}
-							modal
-						>
-							{close => (
-								<>
-									<div className={sp.header}>
+						trigger={
+							<div>
+								<img src={qrCode} alt='' />
+							</div>
+						}
+						modal
+					>
+						{close => (
+							<>
+								<div className={sp.header}>
 									<span>{b.bookName}</span>
-									<button className={sp.closeBtn} onClick={close}>×</button>
-									</div>
-									<div className={sp.content}>
-										<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
-										<button className={sp.btn} onClick={() => {}}>Роздрукувати</button>
-									</div>
-								</>
-							)}
-						</Popup>
-					<Link to={`/book-single/edit/${b.id}`} onClick={() => window.scrollTo(0, 0)}>Редагувати</Link>
+									<button className={sp.closeBtn} onClick={close}>
+										×
+									</button>
+								</div>
+								<div className={sp.content}>
+									<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
+									<button className={sp.btn} onClick={() => {}}>
+										Роздрукувати
+									</button>
+								</div>
+							</>
+						)}
+					</Popup>
+					<Link
+						to={`/book-single/edit/${b.id}`}
+						onClick={() => window.scrollTo(0, 0)}
+					>
+						Редагувати
+					</Link>
 				</div>
-		  	)
-		} else { }
-	}
+			);
+		} else {
+		}
+	};
 
 	let booksCounter = 0;
-	let booksElements = books.map(el => { booksCounter = 0; return el; }).map((b) => (bookElementCreating(b, booksCounter++)))
+	let booksElements = books
+		.map(el => {
+			booksCounter = 0;
+			return el;
+		})
+		.map(b => bookElementCreating(b, booksCounter++));
 
-	useEffect(
-		() => {
-		  	setBooks(props.books);
-		}, [props.books],
-	);
+	useEffect(() => {
+		setBooks(props.books);
+	}, [props.books]);
 
 	return (
 		<div className={s.container}>
@@ -102,16 +120,19 @@ const BooksTable = props => {
 				</div>
 			</div>
 			<div className={s.header}>
-				<p>Назва книги {`(${booksAmount > books.length ? books.length : booksAmount})`}</p>
+				<p>
+					Назва книги{' '}
+					{`(${booksAmount > books.length ? books.length : booksAmount})`}
+				</p>
 				<p>Автор</p>
 				<p>Інвертарний номер</p>
 				<p>Статус</p>
 				<p>QR-код</p>
 			</div>
 			<div className={s.main}>{booksElements}</div>
-			<button className={s.btn} onClick={() => setBooksAmount((c) => c + 4)}>
-                Показати ще
-            </button>
+			<button className={s.btn} onClick={() => setBooksAmount(c => c + 4)}>
+				Показати ще
+			</button>
 		</div>
 	);
 };
