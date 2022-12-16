@@ -1,6 +1,7 @@
 import s from './TransHeader.module.css';
 import { Link } from 'react-router-dom';
 import sample from './video/videoplayback.mp4';
+// import Menu from './Menu/Menu';
 
 const TransHeader = () => {
 	return (
@@ -27,10 +28,40 @@ const TransHeader = () => {
 						Особистий кабінет
 					</Link>
 				</div>
+				<button className={s.burger}>
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+						</svg>
+				</button>
 			</div>
 			<video className={s.videoTag} autoPlay loop muted>
 				<source src={sample} type='video/mp4' />
 			</video>
+			<div className={s.menu}>
+				<div className={s.header}>
+					<Link to='/' className={s.link}>
+						<div className={s.logo}></div>
+					</Link>
+				</div>
+				<div className={s.navlinksBlockMenu}>
+					<Link to='/catalog' className={s.link}>
+						Каталог книг
+					</Link>
+					<Link to='/contacts' className={s.link}>
+						Контакти
+					</Link>
+					<Link to='/faq/making-orders' className={s.link}>
+						Як це працює
+					</Link>
+					<Link to='/admin/readers' className={s.link}>
+						Бібліотекар
+					</Link>
+					<Link className={s.link}>Вийти</Link>
+					<Link to='/personPage' className={s.blueLink}>
+						Особистий кабінет
+					</Link>
+				</div>
+			</div>
 			<div className={s.blueFilter} />
 			<div className={s.headerSearch}>
 				<h1>Вітаємо, раді вас бачити</h1>
