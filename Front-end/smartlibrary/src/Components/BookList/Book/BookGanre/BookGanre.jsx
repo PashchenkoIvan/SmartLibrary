@@ -4,8 +4,8 @@ import s from './bookGanre.module.css';
 const BookGanre = props => {
   return (
     <span className={s.bookGanre}>
-      <img className={s.bookGanreImg} src={props.ganreImg} alt='' />
-      <span>{props.ganreText}</span>
+      <img className={s.bookGanreImg} src="http://1.smart-library.in.ua/img/icon.png" alt='' />
+      <span>{props.category[0]}</span>
     </span>
   )
 }

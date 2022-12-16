@@ -1,8 +1,10 @@
-import { React, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 
+import tableData from './tableData';
 import ShowFieldsList from './ShowFieldsList/ShowFieldsList'
+import Table from '../../../../../Table/Table';
 
 import s from './currentReader.module.css';
 import sp from '../../../Books/BooksTable/SingleBook/popUps.module.css';
@@ -17,6 +19,7 @@ const CurrentReader = props => {
 	const [readersData, setReadersData] = useState(props.admin.tables.readers);
 
 	useEffect(() => {
+		// console.log(readersData.map(r => r.id === currentReaderId ? r.booksHistory.filter(b => b.name.toLowerCase().indexOf(search.toLowerCase()) === -1 ? false : true) : ""))
 		setDataBook(
 			props.data.books.filter(b =>
 				b.bookName.toLowerCase().indexOf(search.toLowerCase()) == -1 ? false : true
@@ -244,6 +247,7 @@ const CurrentReader = props => {
 							<span>Статус</span>
 						</div>
 						<div className={s.valuesTable}>{booksHistoryMap}</div>
+						{/* <Table data={readersData.map(r => r.id === currentReaderId ? r.booksHistory : '').filter(el => el).flat()} keys={tableData()} /> */}
 					</div>
 				</div>
 			</div>

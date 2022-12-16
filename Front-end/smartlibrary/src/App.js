@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import axios from 'axios';
+
 import { BooksCatalog, Header, SelectedBook } from './Components/'
 
 import MainPage from './Pages/MainPage/MainPage'
@@ -29,6 +31,27 @@ import s from './App.css'
 
 function App(props) {
 	const [header, setHeader] = useState(true)
+	const [categories, setCategories] = useState({
+		categories: [""],
+		isLoading: true,
+	});
+	const [books, setBooks] = useState({
+		books: [""],
+		isLoading: true,
+	});
+
+    useEffect(() => {
+        axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/books`)
+			.then(res => {
+				const books = res.data;
+				setBooks({books: books, isLoading: false})
+			})
+		axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/categories`)
+			.then(res => {
+				const categories = res.data;
+				setCategories({categories: categories, isLoading: false})
+			})
+    }, []);
 
 	return (
 		<div className={s.wrapper}>
@@ -36,7 +59,7 @@ function App(props) {
 			<Routes>
 				<Route
 					index
-					element={<MainPage data={props.state.data} setHeader={setHeader} />}
+					element={<MainPage books={books} setHeader={setHeader} />}
 				/>
 
 				<Route
@@ -120,22 +143,22 @@ function App(props) {
 
 				<Route
 					exact
-					path='/:bookId'
+					path='/:bookName'
 					element={
-						<SelectedBook data={props.state.data} setHeader={setHeader} />
+						<SelectedBook books={books} setHeader={setHeader} />
 					}
 				/>
 				<Route
 					exact
 					path='/catalog'
 					element={
-						<BooksCatalog data={props.state.data} setHeader={setHeader} />
+						<BooksCatalog categories={categories} books={books} setHeader={setHeader} />
 					}
 				/>
 				<Route
 					path='/catalog/:booksCategoryId'
 					element={
-						<BooksCatalog data={props.state.data} setHeader={setHeader} />
+						<BooksCatalog categories={categories} books={books} setHeader={setHeader} />
 					}
 				/>
 				<Route

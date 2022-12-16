@@ -18,6 +18,7 @@ let state = {
 					booksHistory: [
 						{
 							id: 'trytsylindrovyy-dvyhun-lyubovi',
+							name: 'Трициліндровий двигун любові',
 							dateOfIssue: '30.10.2022',
 							dateOfreturn: '07.11.2022',
 							status: 'Повернена',
@@ -25,6 +26,7 @@ let state = {
 						},
 						{
 							id: 'armahedon-na-maydani',
+							name: 'Армагедон на Майдані',
 							dateOfIssue: '10.11.2022',
 							dateOfreturn: '-',
 							status: 'Не повернена',
@@ -32,6 +34,7 @@ let state = {
 						},
 						{
 							id: 'zahovoreno-na-lyubov',
+							name: 'Заговорено на любов',
 							dateOfIssue: '20.11.2022',
 							dateOfreturn: '-',
 							status: 'Читається',
@@ -39,6 +42,7 @@ let state = {
 						},
 						{
 							id: 'iz-soho-dna',
+							name: 'Із сьомого дна',
 							dateOfIssue: '20.11.2022',
 							dateOfreturn: '-',
 							status: 'Заброньована',
@@ -74,6 +78,7 @@ let state = {
 					booksHistory: [
 						{
 							id: 'trytsylindrovyy-dvyhun-lyubovi',
+							name: 'Трициліндровий двигун любові',
 							dateOfIssue: '30.10.2022',
 							dateOfreturn: '07.11.2022',
 							status: 'Повернена',
@@ -81,6 +86,7 @@ let state = {
 						},
 						{
 							id: 'armahedon-na-maydani',
+							name: 'Армагедон на Майдані',
 							dateOfIssue: '10.11.2022',
 							dateOfreturn: '-',
 							status: 'Не повернена',
@@ -88,6 +94,7 @@ let state = {
 						},
 						{
 							id: 'zahovoreno-na-lyubov',
+							name: 'Заговорено на любов',
 							dateOfIssue: '20.11.2022',
 							dateOfreturn: '-',
 							status: 'Читається',
@@ -95,6 +102,7 @@ let state = {
 						},
 						{
 							id: 'iz-soho-dna',
+							name: 'Із сьомого дна',
 							dateOfIssue: '20.11.2022',
 							dateOfreturn: '-',
 							status: 'Заброньована',

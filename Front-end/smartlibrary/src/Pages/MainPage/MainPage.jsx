@@ -1,17 +1,13 @@
+import { useEffect, useState } from 'react';
+
 import s from './MainPage.module.css';
 import { PopularBooks } from '../../Components';
 import Calendar from 'react-calendar';
 import NewsBlock from './NewsBlock/NewsBlock';
-import { useState } from 'react';
-import { useEffect } from 'react';
-// import { useState } from 'react';
 
 const MainPage = props => {
 	props.setHeader(true);
-	// let [data, setData] = useState({
-	// 	date: 'Thu Dec 15 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)',
-	// 	text: 'Мы купили арбуз',
-	// });
+
 	let News = [
 		{date: 'Thu Dec 15 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)', news: 'Мы купили арбуз',},
 		{date: 'Tue Dec 13 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)', news: 'Мы купили арбуз во вторник',},
@@ -58,7 +54,8 @@ const MainPage = props => {
 					</div>
 				</div>
 			</div>
-			<PopularBooks data={props.data} />
+			{/* {console.log(props.books)} */}
+			<PopularBooks books={props.books} />
 		</div>
 	);
 };
