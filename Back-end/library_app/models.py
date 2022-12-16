@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import Visitor
+from users.models import User
 
 class Book(models.Model):
         
@@ -43,7 +43,7 @@ class Book(models.Model):
         ('A','Availible'),
         ('B', 'Booked')
     ))
-    current_reader = models.OneToOneField(Visitor, on_delete=models.SET_NULL, null=True, blank=True)
+    current_reader = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=True)
     # Additional
     
     document_type = models.CharField(max_length=100, null=True, blank=True, 
@@ -166,7 +166,7 @@ class Book(models.Model):
     
 class Category(models.Model):
     title = models.CharField(max_length=100, unique=True)
-    
+    color = models.CharField(max_length=7)
     def __str__(self) -> str:
         return self.title
     

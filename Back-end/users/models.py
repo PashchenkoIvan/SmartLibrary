@@ -1,10 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 
 from string import ascii_letters
 from random import choice
 
-class Visitor(models.Model):
+class User(AbstractUser):
     @staticmethod
     def create_passwd() -> str:
         symb_list = list(ascii_letters)
