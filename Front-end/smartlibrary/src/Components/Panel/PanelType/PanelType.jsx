@@ -39,20 +39,20 @@ const PanelType = () => {
 	useEffect(() => {
 		let column = typeColumn.current.style;
 		if (activeColumn) {
-			let i = -380;
+			let i = -275;
 			let showColumn = setInterval(() => {
 				if (column.left == '0px') clearInterval(showColumn);
 				else {
-					i += 20;
+					i += 11;
 					column.left = i + 'px';
 				}
 			});
 		} else {
 			let i = 0;
 			let hideColumn = setInterval(() => {
-				if (column.left == '-380px') clearInterval(hideColumn);
+				if (column.left == '-275px') clearInterval(hideColumn);
 				else {
-					i -= 20;
+					i -= 11;
 					column.left = i + 'px';
 				}
 			});

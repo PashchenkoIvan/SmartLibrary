@@ -55,20 +55,20 @@
 	border-radius: 0 10px 10px 0;
 	overflow: hidden;
 	height: 400px;
-	width: 400px;
+	width: 300px;
 	top: 50vh;
 	transform: translateY(-50%);
 	@apply xl:hidden;
 }
 
 .scrollItems {
-	width: 380px;
+	width: 275px;
 	overflow-y: scroll;
 	padding: 0;
 }
 
 .showButton {
-	width: 20px;
+	width: 25px;
 	height: 100%;
 	background-color: #dae3ef;
 	display: flex;
