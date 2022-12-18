@@ -18,6 +18,7 @@
 	align-items: center;
 	z-index: 12;
 }
+
 .burger {
 	width: 50px;
 	height: 50px;
@@ -30,38 +31,77 @@
 	cursor: pointer;
 	@apply lg:hidden;
 }
+
 .burger svg {
 	width: 30px;
 	height: 30px;
 	stroke: white;
 }
-.menu {
-	position: absolute;
-	z-index: 11;
-	width: 100%;
-	@apply lg:hidden;
-}
+
 .header {
 	background-color: #dbdbdb;
 	width: 100%;
 	height: 100px;
 	display: block;
 }
-.navlinksBlockMenu {
+
+.menu {
+	position: absolute;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #fff;
+	z-index: 11;
+	width: 100%;
+	border-bottom: 4px solid #d1d1d1;
+	@apply lg:hidden;
+}
+
+.columnMenu {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
-.navlinksBlockMenu a {
-	color: black;
+
+.item {
 	width: 100%;
-	height: 40px;
+	height: 100px;
 	padding: 20px;
 	display: flex;
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
 	align-items: center;
-	justify-content: flex-start;
-	background-color: #ecf3fc;
+	justify-content: center;
+	@apply transition-all duration-75;
 }
+
+.isActive {
+	color: #fff;
+	background-color: #36bbcb;
+}
+
+.notActive {
+	color: #000;
+	background-color: transparent;
+}
+
+.contacts {
+	margin-top: auto;
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	background-color: #d1d1d1;
+}
+
+.contacts p {
+	font-size: 18px;
+	font-weight: 500;
+}
+
 .logo {
 	width: 150px;
 	height: 45px;
