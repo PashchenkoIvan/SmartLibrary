@@ -1,9 +1,35 @@
 import s from './TransHeader.module.css';
 import { Link } from 'react-router-dom';
 import sample from './video/videoplayback.mp4';
-// import Menu from './Menu/Menu';
+import { useEffect, useRef, useState } from 'react';
 
 const TransHeader = () => {
+	const menu = useRef(null);
+	const [menuActive, setMenuActive] = useState(false);
+
+	useEffect(() => {
+		let menuStyle = menu.current.style;
+		if (menuActive) {
+			let i = -340;
+			let showMenu = setInterval(() => {
+				if (menuStyle.top == '0px') clearInterval(showMenu);
+				else {
+					menuStyle.top = i + 'px';
+					i += 10;
+				}
+			});
+		} else {
+			let i = 0;
+			let hideMenu = setInterval(() => {
+				if (menuStyle.top == '-340px') clearInterval(hideMenu);
+				else {
+					menuStyle.top = i + 'px';
+					i -= 10;
+				}
+			});
+		}
+	}, [menuActive]);
+
 	return (
 		<div className={s.container}>
 			<div className={s.inner}>
@@ -28,21 +54,26 @@ const TransHeader = () => {
 						Особистий кабінет
 					</Link>
 				</div>
-				<button className={s.burger}>
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-						</svg>
+				<button className={s.burger} onClick={() => setMenuActive(!menuActive)}>
+					<svg
+						xmlns='http://www.w3.org/2000/svg'
+						fill='none'
+						viewBox='0 0 24 24'
+						stroke-width='1.5'
+					>
+						<path
+							stroke-linecap='round'
+							stroke-linejoin='round'
+							d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
+						/>
+					</svg>
 				</button>
 			</div>
 			<video className={s.videoTag} autoPlay loop muted>
 				<source src={sample} type='video/mp4' />
 			</video>
-			<div className={s.menu}>
-				<div className={s.header}>
-					<Link to='/' className={s.link}>
-						<div className={s.logo}></div>
-					</Link>
-				</div>
+			<div className={s.menu} ref={menu}>
+				<div className={s.header}></div>
 				<div className={s.navlinksBlockMenu}>
 					<Link to='/catalog' className={s.link}>
 						Каталог книг

@@ -37,23 +37,23 @@ const PanelType = () => {
 	const typeColumn = useRef(null);
 
 	useEffect(() => {
-		let column = typeColumn.current.style;
+		let columnStyle = typeColumn.current.style;
 		if (activeColumn) {
 			let i = -275;
 			let showColumn = setInterval(() => {
-				if (column.left == '0px') clearInterval(showColumn);
+				if (columnStyle.left == '0px') clearInterval(showColumn);
 				else {
 					i += 11;
-					column.left = i + 'px';
+					columnStyle.left = i + 'px';
 				}
 			});
 		} else {
 			let i = 0;
 			let hideColumn = setInterval(() => {
-				if (column.left == '-275px') clearInterval(hideColumn);
+				if (columnStyle.left == '-275px') clearInterval(hideColumn);
 				else {
 					i -= 11;
-					column.left = i + 'px';
+					columnStyle.left = i + 'px';
 				}
 			});
 		}

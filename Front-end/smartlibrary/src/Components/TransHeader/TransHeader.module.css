@@ -16,18 +16,19 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	z-index: 3;
+	z-index: 12;
 }
 .burger {
-	display: none;
 	width: 50px;
 	height: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border: none;
+	outline: none;
 	background-color: transparent;
 	cursor: pointer;
+	@apply lg:hidden;
 }
 .burger svg {
 	width: 30px;
@@ -35,41 +36,30 @@
 	stroke: white;
 }
 .menu {
-	position: fixed;
-	z-index: 999;
-	/* position: absolute; */
-	top: 0;
-	right: 0;
-	width: 50%;
-	height: 100vh;
-	background-color: white;
-	display: none;
+	position: absolute;
+	z-index: 11;
+	width: 100%;
+	@apply lg:hidden;
 }
 .header {
-	background-color: #ecf3fc;
+	background-color: #dbdbdb;
 	width: 100%;
 	height: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-bottom: 1px solid #36bbcb;
+	display: block;
 }
 .navlinksBlockMenu {
 	width: 100%;
-	/* color: black; */
 	display: flex;
 	flex-direction: column;
 }
 .navlinksBlockMenu a {
 	color: black;
-	margin-top: 20px;
 	width: 100%;
-	height: 50px;
-	/* border: 1px solid black; */
-	/* text-align: center; */
+	height: 40px;
+	padding: 20px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	background-color: #ecf3fc;
 }
 .logo {
@@ -83,10 +73,11 @@
 .navlinksBlock {
 	width: 850px;
 	height: 30px;
-	display: flex;
+	display: none;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	@apply lg:flex;
 }
 
 .link {
@@ -189,12 +180,7 @@
 	.headerSearch {
 		width: 450px;
 	}
-	.navlinksBlock {
-		display: none;
-	}
-	.burger {
-		display: block;
-	}
+
 	.headerSearch h1 {
 		font-size: 38px;
 	}
@@ -203,6 +189,7 @@
 	.headerSearch {
 		width: 550px;
 	}
+
 	.headerSearch h1 {
 		font-size: 40px;
 	}
@@ -212,12 +199,6 @@
 		width: 650px;
 	}
 
-	.navlinksBlock {
-		display: flex;
-	}
-	.burger {
-		display: none;
-	}
 	.headerSearch h1 {
 		font-size: 42px;
 	}
