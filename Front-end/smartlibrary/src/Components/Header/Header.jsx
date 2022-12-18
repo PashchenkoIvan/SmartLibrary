@@ -7,20 +7,26 @@ const Header = () => {
 	const [menuActive, setMenuActive] = useState(false);
 
 	useEffect(() => {
+		menu.current.style.top = '-240px';
+	}, []);
+
+	useEffect(() => {
+		let start = -140,
+			end = 100;
 		let menuStyle = menu.current.style;
 		if (menuActive) {
-			let i = -340;
+			let i = start;
 			let showMenu = setInterval(() => {
-				if (menuStyle.top == '0px') clearInterval(showMenu);
+				if (menuStyle.top == `${end}px`) clearInterval(showMenu);
 				else {
 					menuStyle.top = i + 'px';
 					i += 10;
 				}
 			});
 		} else {
-			let i = 0;
+			let i = end;
 			let hideMenu = setInterval(() => {
-				if (menuStyle.top == '-340px') clearInterval(hideMenu);
+				if (menuStyle.top == `${start}px`) clearInterval(hideMenu);
 				else {
 					menuStyle.top = i + 'px';
 					i -= 10;
@@ -30,6 +36,7 @@ const Header = () => {
 	}, [menuActive]);
 	return (
 		<div className={s.container}>
+			<div className={s.background} />
 			<div className={s.inner}>
 				<Link to='/'>
 					<div className={s.logo}></div>
@@ -70,7 +77,6 @@ const Header = () => {
 				</button>
 			</div>
 			<div className={s.menu} ref={menu}>
-				<div className={s.header}></div>
 				<div className={s.navlinksBlockMenu}>
 					<Link to='/catalog' className={s.link}>
 						Каталог книг

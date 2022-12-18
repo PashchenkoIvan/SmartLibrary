@@ -8,6 +8,10 @@ const TransHeader = () => {
 	const [menuActive, setMenuActive] = useState(false);
 
 	useEffect(() => {
+		menu.current.style.top = '-340px';
+	}, []);
+
+	useEffect(() => {
 		let menuStyle = menu.current.style;
 		if (menuActive) {
 			let i = -340;

@@ -3,9 +3,19 @@
 	height: 100px;
 	display: flex;
 	justify-content: center;
+	background: transparent;
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
 	background-image: url(./images/background.png);
 	background-size: cover;
 	background-position: center center;
+	z-index: 5;
 }
 
 .inner {
@@ -16,7 +26,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	z-index: 10;
+	z-index: 6;
 }
 
 .logo {
@@ -74,16 +84,11 @@
 }
 .menu {
 	position: absolute;
-	z-index: 3;
+	z-index: 4;
 	width: 100%;
 	@apply lg:hidden;
 }
-.header {
-	background-color: #dbdbdb;
-	width: 100%;
-	height: 100px;
-	display: block;
-}
+
 .navlinksBlockMenu {
 	width: 100%;
 	display: flex;
