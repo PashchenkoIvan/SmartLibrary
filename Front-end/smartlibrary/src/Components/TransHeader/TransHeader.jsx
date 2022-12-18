@@ -1,14 +1,14 @@
 import s from './TransHeader.module.css';
 import { Link, NavLink } from 'react-router-dom';
 import sample from './video/videoplayback.mp4';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
-const TransHeader = () => {
+const TransHeader = ({ menuActive, setMenuActive }) => {
 	const menu = useRef(null);
-	const [menuActive, setMenuActive] = useState(false);
 
 	useEffect(() => {
-		menu.current.style.top = '-100vh';
+		if (menuActive) menu.current.style.top = '0vh';
+		else menu.current.style.top = '-100vh';
 	}, []);
 
 	useEffect(() => {

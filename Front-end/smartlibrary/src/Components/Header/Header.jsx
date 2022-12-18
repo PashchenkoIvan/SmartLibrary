@@ -1,13 +1,13 @@
 import s from './Header.module.css';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ menuActive, setMenuActive }) => {
 	const menu = useRef(null);
-	const [menuActive, setMenuActive] = useState(false);
 
 	useEffect(() => {
-		menu.current.style.top = 'calc(-100vh + 100px)';
+		if (menuActive) menu.current.style.top = 'calc(0vh + 100px)';
+		else menu.current.style.top = 'calc(-100vh + 100px)';
 	}, []);
 
 	useEffect(() => {
