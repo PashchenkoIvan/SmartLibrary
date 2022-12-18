@@ -95,6 +95,22 @@
 	@apply lg:hidden;
 }
 
+.showedMenu {
+	top: calc(0vh + 100px);
+}
+
+.hiddenMenu {
+	top: calc(-100vh + 100px);
+}
+
+.showingMenu {
+	animation: show 0.2s ease;
+}
+
+.hidingMenu {
+	animation: hide 0.2s ease;
+}
+
 .columnMenu {
 	width: 100%;
 	display: flex;
@@ -136,4 +152,22 @@
 .contacts p {
 	font-size: 18px;
 	font-weight: 500;
+}
+
+@keyframes show {
+	from {
+		top: calc(-100vh + 100px);
+	}
+	to {
+		top: calc(0vh + 100px);
+	}
+}
+
+@keyframes hide {
+	from {
+		top: calc(0vh + 100px);
+	}
+	to {
+		top: calc(-100vh + 100px);
+	}
 }

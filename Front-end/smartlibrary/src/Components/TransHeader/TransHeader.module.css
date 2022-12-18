@@ -59,6 +59,22 @@
 	@apply lg:hidden;
 }
 
+.showedMenu {
+	top: 0vh;
+}
+
+.hiddenMenu {
+	top: -100vh;
+}
+
+.showingMenu {
+	animation: show 0.2s ease;
+}
+
+.hidingMenu {
+	animation: hide 0.2s ease;
+}
+
 .columnMenu {
 	width: 100%;
 	display: flex;
@@ -241,5 +257,23 @@
 
 	.headerSearch h1 {
 		font-size: 42px;
+	}
+}
+
+@keyframes show {
+	from {
+		top: -100vh;
+	}
+	to {
+		top: 0vh;
+	}
+}
+
+@keyframes hide {
+	from {
+		top: 0vh;
+	}
+	to {
+		top: -100vh;
 	}
 }

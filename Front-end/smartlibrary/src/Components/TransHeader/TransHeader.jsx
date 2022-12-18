@@ -2,38 +2,35 @@ import s from './TransHeader.module.css';
 import { Link, NavLink } from 'react-router-dom';
 import sample from './video/videoplayback.mp4';
 import { useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 const TransHeader = ({ menuActive, setMenuActive }) => {
 	const menu = useRef(null);
+	const [rendersCount, setRendersCount] = useState(0);
 
 	useEffect(() => {
-		if (menuActive) menu.current.style.top = '0vh';
-		else menu.current.style.top = '-100vh';
-	}, []);
-
-	useEffect(() => {
-		let start = -100,
-			end = 0;
-		let menuStyle = menu.current.style;
-		if (menuActive) {
-			let i = start;
-			let showMenu = setInterval(() => {
-				if (menuStyle.top == `${end}vh`) clearInterval(showMenu);
-				else {
-					menuStyle.top = `${i}vh`;
-					i += 2;
-				}
-			}, 4);
+		console.log(menuActive);
+		if (rendersCount == 0) {
+			if (menuActive) menu.current.classList.add(s.showedMenu);
+			else menu.current.classList.add(s.hiddenMenu);
 		} else {
-			let i = end;
-			let hideMenu = setInterval(() => {
-				if (menuStyle.top == `${start}vh`) clearInterval(hideMenu);
-				else {
-					menuStyle.top = `${i}vh`;
-					i -= 2;
-				}
-			}, 4);
+			if (menuActive) {
+				menu.current.classList.add(s.showingMenu);
+				menu.current.classList.remove(s.hiddenMenu);
+				menu.current.classList.add(s.showedMenu);
+				const timed = setTimeout(() => {
+					menu.current.classList.remove(s.showingMenu);
+				}, 200);
+			} else {
+				menu.current.classList.add(s.hidingMenu);
+				menu.current.classList.remove(s.showedMenu);
+				menu.current.classList.add(s.hiddenMenu);
+				const timed = setTimeout(() => {
+					menu.current.classList.remove(s.hidingMenu);
+				}, 200);
+			}
 		}
+		setRendersCount(rendersCount + 1);
 	}, [menuActive]);
 
 	return (
