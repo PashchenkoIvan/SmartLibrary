@@ -1,0 +1,112 @@
+.container {
+	height: 560px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.videoTag {
+	align-self: center;
+	position: fixed;
+	min-width: 1920px;
+	width: 100vw;
+	z-index: -1;
+}
+
+.blueFilter {
+	width: 100%;
+	height: 560px;
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 2;
+	background-color: rgba(27, 96, 104, 0.451);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.headerSearch {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	z-index: 10;
+	margin-top: 80px;
+	text-align: center;
+}
+.headerSearch h1 {
+	font-size: 42px;
+	font-weight: 500;
+	color: white;
+	margin-bottom: 10px;
+}
+.headerSearch p {
+	font-size: 18px;
+	color: white;
+}
+.inputBlock {
+	margin-top: 20px;
+	width: 100%;
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.searchIcon {
+	height: 100%;
+	padding: 0 20px;
+	background-color: white;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-right: 1px solid #c9c9c9;
+}
+.searchIcon svg {
+	width: 20px;
+	height: 20px;
+	stroke: #c9c9c9;
+}
+.inputBlock input {
+	width: 500px;
+	height: 100%;
+	outline: none;
+	padding: 10px;
+}
+.inputBlock button {
+	width: 102px;
+	height: 100%;
+	color: white;
+	background-color: #36bbcb;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+@media screen and (min-width: 0px) {
+	.headerSearch {
+		width: 450px;
+	}
+
+	.headerSearch h1 {
+		font-size: 38px;
+	}
+}
+@media screen and (min-width: 768px) {
+	.headerSearch {
+		width: 550px;
+	}
+
+	.headerSearch h1 {
+		font-size: 40px;
+	}
+}
+@media screen and (min-width: 1025px) {
+	.headerSearch {
+		width: 650px;
+	}
+
+	.headerSearch h1 {
+		font-size: 42px;
+	}
+}

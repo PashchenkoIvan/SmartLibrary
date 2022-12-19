@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AuthRequests from './requests/AuthRequests';
 import BookRequests from './requests/BookRequests';
 
-const RequestsContext = createContext();
+export const RequestsContext = createContext();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

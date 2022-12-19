@@ -1,0 +1,90 @@
+.menu {
+	position: absolute;
+	width: 100vw;
+	height: calc(100vh - 100px);
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #fff;
+	z-index: 5;
+	@apply lg:hidden;
+}
+
+.columnMenu {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.item {
+	width: 100%;
+	height: 100px;
+	padding: 20px;
+	display: flex;
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	@apply transition-all duration-75;
+}
+
+.isActive {
+	color: #fff;
+	background-color: #36bbcb;
+}
+
+.notActive {
+	color: #000;
+	background-color: transparent;
+}
+
+.contacts {
+	margin-top: auto;
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	background-color: #d1d1d1;
+}
+
+.contacts a {
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.showedMenu {
+	top: calc(0vh + 100px);
+}
+
+.hiddenMenu {
+	top: calc(-100vh + 100px);
+}
+
+.showingMenu {
+	animation: show 0.2s ease;
+}
+
+.hidingMenu {
+	animation: hide 0.2s ease;
+}
+
+@keyframes show {
+	from {
+		top: calc(-100vh + 100px);
+	}
+	to {
+		top: calc(0vh + 100px);
+	}
+}
+
+@keyframes hide {
+	from {
+		top: calc(0vh + 100px);
+	}
+	to {
+		top: calc(-100vh + 100px);
+	}
+}

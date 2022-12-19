@@ -1,6 +1,10 @@
 .container {
 	width: 100%;
 	height: 100px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
 	display: flex;
 	justify-content: center;
 	background: transparent;
@@ -10,23 +14,41 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 100;
 	width: 100%;
 	height: 100px;
-	background-image: url(./images/background.png);
+	background: url(./images/background.png);
 	background-size: cover;
 	background-position: center center;
-	z-index: 5;
 }
 
+.whiteBackground {
+	position: absolute;
+	display: none;
+	background-color: rgb(255, 255, 255);
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100px;
+}
+
+.whiteBackgroundShowed {
+	animation: showWhiteBg 0.2s ease;
+}
+
+.whiteBackgroundHidden {
+	animation: hideWhiteBg 0.2s ease;
+}
 .inner {
 	max-width: 1340px;
 	width: 100vw;
 	padding: 0 20px;
 	height: 100%;
+	z-index: 110;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	z-index: 6;
 }
 
 .logo {
@@ -84,11 +106,10 @@
 }
 .menu {
 	position: absolute;
-	height: calc(100vh - 100px);
+	height: 100vh;
 	background-color: #fff;
 	z-index: 4;
 	width: 100%;
-	border-bottom: 4px solid #d1d1d1;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -169,5 +190,23 @@
 	}
 	to {
 		top: calc(-100vh + 100px);
+	}
+}
+
+@keyframes showWhiteBg {
+	from {
+		background-color: rgba(0, 0, 0, 0);
+	}
+	to {
+		background-color: rgb(255, 255, 255);
+	}
+}
+
+@keyframes hideWhiteBg {
+	from {
+		background-color: rgb(255, 255, 255);
+	}
+	to {
+		background-color: rgba(0, 0, 0, 0);
 	}
 }
