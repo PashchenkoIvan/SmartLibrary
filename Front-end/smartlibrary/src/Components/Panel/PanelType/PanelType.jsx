@@ -28,7 +28,7 @@ const PanelType = () => {
 			{b.title}
 		</NavLink>
 	));
-	const [activeColumn, setActiveColumn] = useState(true);
+	const [activeColumn, setActiveColumn] = useState(false);
 
 	const showAndHidden = () => {
 		setActiveColumn(!activeColumn);

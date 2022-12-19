@@ -1,11 +1,17 @@
 import s from './Header.module.css';
 import { Link } from 'react-router-dom';
 import HeaderMenu from '../HeaderMenu/HeaderMenu';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+import { useScroll } from 'framer-motion';
 
 const Header = ({ menuActive, setMenuActive, header }) => {
+	const { scrollY } = useScroll();
+
 	const background = useRef();
 	const whiteBackground = useRef();
+
+	const [scrollYValue, setScrollYValue] = useState(0);
 
 	useEffect(() => {
 		if (header) background.current.style.display = 'none';
@@ -13,13 +19,28 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 	}, [header]);
 
 	useEffect(() => {
-		if (menuActive && header) {
-			whiteBackground.current.style.display = 'block';
-			whiteBackground.current.classList.add(s.whiteBackgroundShowed);
-		} else {
-			whiteBackground.current.style.display = 'none';
+		if (scrollYValue == 0 && menuActive)
+			document.querySelector('body').classList.add('hiddenForMenu');
+		else document.querySelector('body').classList.remove('hiddenForMenu');
+	}, [scrollYValue, menuActive]);
+
+	useEffect(() => {
+		return scrollY.onChange(latest => setScrollYValue(latest));
+	}, []);
+
+	useEffect(() => {
+		if (header) {
+			if (scrollYValue > 0) {
+				whiteBackground.current.style.display = 'block';
+				whiteBackground.current.classList.add(s.whiteBackgroundShowed);
+				whiteBackground.current.classList.remove(s.whiteBackgroundHidden);
+			} else {
+				whiteBackground.current.classList.remove(s.whiteBackgroundShowed);
+				whiteBackground.current.classList.add(s.whiteBackgroundHidden);
+				setTimeout(() => (whiteBackground.current.style.display = 'none'), 200);
+			}
 		}
-	});
+	}, [scrollYValue]);
 
 	return (
 		<div className={s.container}>
@@ -31,6 +52,7 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 						(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
 					}
 					to='/'
+					onClick={() => setMenuActive(false)}
 				>
 					<div className={s.logo}></div>
 				</Link>
@@ -54,7 +76,13 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 						Особистий кабінет
 					</Link>
 				</div>
-				<button className={s.burger} onClick={() => setMenuActive(!menuActive)}>
+				<button
+					className={s.burger}
+					onClick={() => {
+						setMenuActive(!menuActive);
+						window.scrollTo(0, 0);
+					}}
+				>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
 						fill='none'

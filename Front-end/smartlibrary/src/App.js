@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { BooksCatalog, Header, SelectedBook } from './Components/';
 
 import MainPage from './Pages/MainPage/MainPage';
@@ -42,11 +42,6 @@ function App(props) {
 	// useEffect(() => {
 	// 	Requests.GetBooksCategories().then(res => console.log(res));
 	// }, []);
-
-	useEffect(() => {
-		if (header) router.current.classList.remove('addMargin');
-		else router.current.classList.add('addMargin');
-	}, [header]);
 
 	return (
 		<div ref={wrapper}>
