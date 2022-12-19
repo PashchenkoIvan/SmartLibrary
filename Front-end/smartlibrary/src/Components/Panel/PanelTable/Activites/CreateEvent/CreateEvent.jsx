@@ -1,9 +1,9 @@
-import { React, useState } from 'react';
+import { useState } from 'react';
 
 import s from './CreateEvent.module.css';
 import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
 
-const CreateEvent = (props) => {
+const CreateEvent = props => {
 	const [event, setEvent] = useState({
 		name: '',
 		smallDescription: '',
@@ -45,7 +45,9 @@ const CreateEvent = (props) => {
 						className={s.bigDescription}
 						type='text'
 						value={event.bigDescription}
-						onChange={e => setEvent({ ...event, bigDescription: e.target.value })}
+						onChange={e =>
+							setEvent({ ...event, bigDescription: e.target.value })
+						}
 					/>
 				</div>
 				<div className={s.categoryAndTime}>

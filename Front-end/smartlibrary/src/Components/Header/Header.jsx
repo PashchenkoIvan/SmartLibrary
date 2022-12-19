@@ -6,11 +6,10 @@ const Header = () => {
 	return (
 		<div className={s.container}>
 			<div className={s.inner}>
-				<div className={s.logo}></div>
+				<Link to='/'>
+					<div className={s.logo}></div>
+				</Link>
 				<div className={s.navlinksBlock}>
-					<Link to='/' className={s.link}>
-						Головна
-					</Link>
 					<Link to='/catalog' className={s.link}>
 						Каталог книг
 					</Link>

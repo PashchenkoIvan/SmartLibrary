@@ -2,26 +2,12 @@ import { useEffect, useState } from 'react';
 
 import s from './MainPage.module.css';
 import { PopularBooks } from '../../Components';
-import Calendar from 'react-calendar';
-import NewsBlock from './NewsBlock/NewsBlock';
+// import Calendar from 'react-calendar';
+import GCalendar from '../../Components/GlobalCalendar/GCalendar';
+// import { useState } from 'react';
 
 const MainPage = props => {
 	props.setHeader(true);
-
-	let News = [
-		{date: 'Thu Dec 15 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)', news: 'Мы купили арбуз',},
-		{date: 'Tue Dec 13 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)', news: 'Мы купили арбуз во вторник',},
-	]
-
-	const [value, setValue] = useState('');
-	const [news, setNews] = useState('');
-
-	useEffect(() => {
-		News.forEach(n => {
-			if (Date.parse(value) == Date.parse(n.date)) setNews(n.news);		
-		}) 
-	})
-
 	return (
 		<div className={s.container}>
 			<div className={s.zahodi}>
@@ -30,27 +16,22 @@ const MainPage = props => {
 					<h1>ЗАХОДИ БІБЛІОТЕКИ</h1>
 				</div>
 				<div className={s.bottomBlock}>
-					<div className={s.calendarBlock}>
-						<div className={s.calendar}>
-							<Calendar onClickDay={(value) => {
-								setValue(value);
-								// alert(value)
-								// { Date.parse(data.date) === Date.parse(value) ? <NewsBlock new = {data.text}/> : <NewsBlock new = 'Not today'/> }
-								// { Date.parse(dades) === Date.parse(value) ? alert('true') : alert('false') }
-								// alert(dades)
-							}}/>
-						</div>
-						<div className={s.newsBlock}>
-							<NewsBlock new={news}/>
+					<GCalendar/>
+					<div className={s.editBlock}>
+						<p className={s.titleText}>Андрюх Людмила</p>
+						<p className={s.underTitleText}>Найкращий бібліотекарь</p>
+						<div className={s.buttonBlock}>
+							<p>Додано 72 книжки</p>
+							<img src="http://1.smart-library.in.ua/img/bestMarker.png" alt="" />
 						</div>
 					</div>
 					<div className={s.editBlock}>
-						<p>Андрюх Людмила</p>
-						<div className={s.buttonBlock}></div>
-					</div>
-					<div className={s.editBlock}>
-						<p>Карпенко Тарас</p>
-						<div className={s.buttonBlock}></div>
+						<p className={s.titleText}>Карпенко Тарас</p>
+						<p className={s.underTitleText}>Найкращий читач</p>
+						<div className={s.buttonBlock}>
+							<p>Прочитана 72 книжки</p>
+							<img src="http://1.smart-library.in.ua/img/bestMarker.png" alt="" />
+						</div>
 					</div>
 				</div>
 			</div>

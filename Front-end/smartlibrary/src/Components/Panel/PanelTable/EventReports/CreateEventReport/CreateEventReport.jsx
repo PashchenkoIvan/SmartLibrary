@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import FieldsList from '../../../../FieldsList/FieldsList';
+import Form from '../../../../Form/Form';
 import s from './CreateEventReport.module.css';
 import fieldsData from './fieldsData';
 
@@ -26,8 +26,7 @@ const CreateEventReport = props => {
 				<h1>Створення звіту до заходу</h1>
 				<Link to='/admin/activities'>Повернутися</Link>
 			</div>
-			<FieldsList data={fieldsData(eventReport)} />
-			<button>Додати звіт</button>
+			<Form main={fieldsData(eventReport)} btns={[{title: "Додати звіт"}]} />
 		</div>
 	);
 };

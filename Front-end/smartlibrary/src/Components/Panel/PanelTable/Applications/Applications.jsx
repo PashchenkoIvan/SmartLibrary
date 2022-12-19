@@ -1,5 +1,4 @@
-import { React, useState } from 'react';
-
+import { useState } from 'react';
 import tableData from './tableData';
 import ApplicationsTable from './ApplicationsTable/ApplicationsTable';
 import Table from '../../../Table/Table';

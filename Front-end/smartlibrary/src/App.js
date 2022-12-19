@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import axios from 'axios';
 
 import { BooksCatalog, Header, SelectedBook } from './Components/'
@@ -27,9 +27,12 @@ import FaqPage from './Pages/FaqPage/FaqPage'
 import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form'
 import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form'
 
+import { RequestsContext } from './index';
+
 import s from './App.css'
 
 function App(props) {
+	const BookRequests = useContext(RequestsContext)
 	const [header, setHeader] = useState(true)
 	const [categories, setCategories] = useState({
 		categories: [""],
@@ -41,11 +44,14 @@ function App(props) {
 	});
 
     useEffect(() => {
-        axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/books`)
-			.then(res => {
-				const books = res.data;
-				setBooks({books: books, isLoading: false})
-			})
+		BookRequests.GetBooks().then(res => {
+			console.log(res.data);
+			const books = res.data;
+			setBooks({books: books, isLoading: false})
+		})
+		
+        // axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/books`)
+			
 		axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/categories`)
 			.then(res => {
 				const categories = res.data;
@@ -167,7 +173,7 @@ function App(props) {
 						<BooksCategories data={props.state.data} setHeader={setHeader} />
 					}
 				/>
-				<Route path='/book-single/create' element={<BookCreate />} />
+				<Route path='/book-single/create' element={<BookCreate setHeader={setHeader} />} />
 				<Route
 					path='/book-single/:currentBookId'
 					element={

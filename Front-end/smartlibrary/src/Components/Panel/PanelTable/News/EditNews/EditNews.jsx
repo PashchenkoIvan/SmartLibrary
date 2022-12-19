@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import FieldsList from '../../../../FieldsList/FieldsList';
+import Form from '../../../../Form/Form';
 import fieldsData from '../CreateNews/fieldsData';
 import s from './EditNews.module.css';
 
@@ -27,8 +27,7 @@ const EditNews = props => {
 				<h1>Редагування новини</h1>
 				<Link to='/admin/news'>Повернутись</Link>
 			</div>
-			<FieldsList data={fieldsData(news)} />
-			<button>Оновити</button>
+			<Form main={fieldsData(news)} btns={[{title: "Оновити", type: "submit"}]} />
 		</div>
 	);
 };

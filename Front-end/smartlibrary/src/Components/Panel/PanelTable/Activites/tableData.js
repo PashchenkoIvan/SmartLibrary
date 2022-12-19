@@ -3,7 +3,7 @@ import sp from '../../../Popup/popUps.module.css'
 
 import { qrCode, QrIcon } from '../../img'
 import editFieldsData from './editFieldsData.js'
-import { FieldsList } from '../../../index'
+import { Form } from '../../../index'
 
 const tableData = () => {
     const keys = [
@@ -35,12 +35,7 @@ const tableData = () => {
                     popupTitle: "Редагувати захід",
                     showPopUp(url, el) {
                         return(
-                            <>
-                                <FieldsList data={editFieldsData(el)} />
-                                <button className={sp.btn} onClick={() => {}}>
-                                    Зберегти
-                                </button>
-                            </>
+                            <Form main={editFieldsData(el)} btn={{ title: "Зберегти" }} />
                         )
                     }
                 },
