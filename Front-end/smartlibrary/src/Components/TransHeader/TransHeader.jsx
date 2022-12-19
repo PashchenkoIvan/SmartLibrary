@@ -11,8 +11,12 @@ const TransHeader = ({ menuActive, setMenuActive }) => {
 	useEffect(() => {
 		console.log(menuActive);
 		if (rendersCount == 0) {
-			if (menuActive) menu.current.classList.add(s.showedMenu);
-			else menu.current.classList.add(s.hiddenMenu);
+			menu.current.classList.add(s.hidingMenu);
+			menu.current.classList.remove(s.showedMenu);
+			menu.current.classList.add(s.hiddenMenu);
+			const timed = setTimeout(() => {
+				menu.current.classList.remove(s.hidingMenu);
+			}, 200);
 		} else {
 			if (menuActive) {
 				menu.current.classList.add(s.showingMenu);
@@ -72,7 +76,7 @@ const TransHeader = ({ menuActive, setMenuActive }) => {
 					</svg>
 				</button>
 			</div>
-			<div className={s.menu} ref={menu}>
+			<div className={s.menu} ref={menu} onClick={() => {setMenuActive(false)}}>
 				<div className={s.header}></div>
 				<div className={s.columnMenu}>
 					<NavLink
