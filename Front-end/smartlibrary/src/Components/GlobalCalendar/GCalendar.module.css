@@ -8,6 +8,7 @@
 .container h1 {
     margin-bottom: 33px;
 }
+
 .calendarBlock {
     width: 80%;
     height: 100%;
@@ -38,4 +39,51 @@
 .input {
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (min-width: 0px) {
+    .calendarBlock {
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+    }
+    .calendar {
+        width: 100%;
+    }
+    .newsBlock {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 1025px) {
+    .calendarBlock {
+    width: 80%;
+    height: 100%;
+    background-color: #ecf3fc;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    /* TODO: При добавлении календаря, поменяять на space-between */
+    box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
+}
+.newsBlock {
+    width: 60%;
+    height: 100%;
+    background-color: white;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.calendar {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.input {
+    display: flex;
+    flex-direction: column;
+}
 }
