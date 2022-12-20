@@ -7,6 +7,7 @@
 		@apply 
 		flex;
 		flex-direction: row;
+		/* align-items: flex-start; */
 		margin-bottom: 162px;
 	}
 	
@@ -20,6 +21,7 @@
 		flex flex-col items-center
 		border border-solid border-slate-400;
 		background-color: #ecf3fc;
+		margin-top: 55px;
 	}
 	.constact .infoBlock:nth-child(2) {
 		@apply mt-4;
@@ -50,7 +52,7 @@
 	}	
 @media screen and (min-width: 0px) {
 	.block {
-		width: 470px;
+		width: 100%;
 		height: 100%;
 		flex-direction: column;
 		align-items: center;
