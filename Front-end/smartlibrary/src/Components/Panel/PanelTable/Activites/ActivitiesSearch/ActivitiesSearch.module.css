@@ -23,10 +23,6 @@
 	outline: none;
 }
 
-/* .filter input:nth-child(2) {
-	margin-right: 10px;
-} */
-
 .filters input:before {
 	font-family: 'Avenir Next', sans-serif;
 	font-size: 14px;
