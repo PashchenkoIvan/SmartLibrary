@@ -14,10 +14,13 @@ const CreateNews = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<h1>Додавання новини</h1>
 				<Link to='/admin/news'>Повернутись</Link>
+				<h1>Додавання новини</h1>
 			</div>
-			<Form main={fieldsData(news)} btns={[{title: "Створити", type: "submit"}]} />
+			<Form
+				main={fieldsData(news)}
+				btns={[{ title: 'Створити', type: 'submit' }]}
+			/>
 		</div>
 	);
 };
