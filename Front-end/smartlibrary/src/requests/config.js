@@ -5,6 +5,13 @@ const API_URL = 'https://ualib-orion.herokuapp.com/api';
 const $api = axios.create({
 	withCredentials: true,
 	baseURL: API_URL,
+	headers: {
+		'Access-Control-Allow-Origin': '*',
+		Allow: 'GET, POST, HEAD, OPTIONS',
+		'Access-Control-Allow-Headers': '*',
+		'Content-Type': 'application/json',
+		Vary: 'Accept',
+	},
 });
 
 $api.interceptors.request.use(config => {
