@@ -54,18 +54,26 @@
         width: 100%;
     }
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px){
+    .container {
+        width: 800px    ;
+    }
     .calendarBlock {
-    width: 80%;
-    height: 100%;
-    background-color: #ecf3fc;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: row;
+        width: 80%;
+        flex-direction: row;
+    }
+    .newsBlock {
+        width: 50%;
+    }
+    .calendar {
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .calendarBlock {
+    width: 95%;
     align-items: center;
     justify-content: end;
-    /* TODO: При добавлении календаря, поменяять на space-between */
-    box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
 }
 .newsBlock {
     width: 60%;

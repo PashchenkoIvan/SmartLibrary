@@ -17,11 +17,12 @@
     padding-top: 50px;
 }
 .infoBlock {
-    width: 1300px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    margin-left: 500px;
 }
 .infoBlock h1 {
     font-size: 22px;
@@ -119,8 +120,35 @@
     .buttonBlock img {
         width: 18%;
     }
+    .infoBlock {
+        /* display: none; */
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 50px 0;
+    }
 }
 @media screen and (min-width: 1025px) {
+    .editBlock {
+        width: 200px;
+        margin-right: 20px;
+    }
+    .bottomBlock {
+        flex-direction: row;
+    }
+    .buttonBlock img {
+        width: 32%;
+    }
+    .bottomBlock {
+        width: 100%;
+    }
+    .infoBlock {
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-left: 600px;
+        margin-bottom: 0;
+    }
+}
+@media screen and (min-width: 1440px) {
     .buttonBlock img {
         width: 30%;
         height: 40%;
@@ -128,20 +156,11 @@
     .bottomBlock {
         width: 1500px;
         margin-top: 33px;
-        display: flex;
         flex-direction: row;
         align-items: center;
     }
     .editBlock {
         width: 300px;
-        height: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #ecf3fc;
-        box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
-        padding-top: 25px;
-        border-radius: 12px;
         margin-right: 40px;
     }
 }
