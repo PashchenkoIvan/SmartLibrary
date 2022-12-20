@@ -6,7 +6,8 @@
 }
 
 .inner {
-	width: 1300px;
+	width: 1340px;
+	padding: 0 20px;
 	display: flex;
 	@apply justify-between;
 }

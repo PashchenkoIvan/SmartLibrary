@@ -1,19 +1,31 @@
 .container {
 	width: 100%;
+	gap: 5px;
 	display: flex;
 	justify-content: space-between;
+	flex-direction: column;
+	@apply md:flex-row;
+}
+
+.filters {
+	display: flex;
+	gap: 5px;
+	@apply w-full md:w-9/12;
 }
 
 .filters input {
-	width: 205px;
+	width: 50%;
 	height: 40px;
 	border-radius: 3px;
-	margin-right: 10px;
 	padding: 6px 12px;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	outline: none;
 }
+
+/* .filter input:nth-child(2) {
+	margin-right: 10px;
+} */
 
 .filters input:before {
 	font-family: 'Avenir Next', sans-serif;
@@ -24,7 +36,7 @@
 }
 
 .addActivity {
-	width: 160px;
+	width: 100%;
 	height: 40px;
 	border-radius: 3px;
 	text-align: center;
@@ -32,4 +44,5 @@
 	font-size: 16px;
 	line-height: 18px;
 	background-color: #fdbc4b;
+	@apply md:w-3/12;
 }

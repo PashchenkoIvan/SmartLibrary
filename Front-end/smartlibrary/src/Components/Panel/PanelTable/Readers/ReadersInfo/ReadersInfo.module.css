@@ -12,8 +12,22 @@
 
 .input {
 	display: flex;
-	width: 65%;
+	width: 50%;
 	height: 100%;
+	@apply md:w-8/12 lg:w-10/12;
+}
+
+.addBtn {
+	height: 40px;
+	width: 50%;
+	border-radius: 3px;
+	background-color: #36bbcb;
+	margin-left: 10px;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+	border: none;
+	@apply md:w-4/12 lg:w-2/12;
 }
 
 .input button {
@@ -41,16 +55,4 @@
 	border: 1px solid #c7d2e6;
 	border-right: none;
 	padding-left: 20px;
-}
-
-.addBtn {
-	height: 40px;
-	width: 35%;
-	border-radius: 3px;
-	background-color: #36bbcb;
-	margin-left: 10px;
-	text-align: center;
-	color: white;
-	font-size: 16px;
-	border: none;
 }
