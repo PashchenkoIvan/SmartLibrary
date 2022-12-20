@@ -60,3 +60,8 @@
 	color: white;
 	border-radius: 3px;
 }
+
+.tableContainer {
+	width: 100%;
+	overflow-x: scroll;
+}

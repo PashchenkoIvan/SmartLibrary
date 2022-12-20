@@ -6,7 +6,6 @@ import BooksInfo from './BooksInfo/BooksInfo';
 import BooksTable from './BooksTable/BooksTable';
 import Table from '../../../Table/Table';
 
-
 const Books = props => {
 	const [filter, setFilter] = useState('all');
 	const [books, setBooks] = useState(props.books);
@@ -58,7 +57,9 @@ const Books = props => {
 					</label>
 				</div>
 			</div>
-			<Table data={books} keys={tableData()} />
+			<div className={s.tableContainer}>
+				<Table data={books} keys={tableData()} />
+			</div>
 		</div>
 	);
 };
