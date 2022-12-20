@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import HeaderMenu from '../HeaderMenu/HeaderMenu';
 import { useEffect, useRef, useState } from 'react';
 
-import { useScroll } from 'framer-motion';
+// import { useScroll } from 'framer-motion';
 
 const Header = ({ menuActive, setMenuActive, header }) => {
-	const { scrollY } = useScroll();
+	// const { scrollY } = useScroll();
 
 	const background = useRef();
 	const whiteBackground = useRef();
@@ -25,7 +25,7 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 	}, [scrollYValue, menuActive]);
 
 	useEffect(() => {
-		return scrollY.onChange(latest => setScrollYValue(latest));
+		// return scrollY.onChange(latest => setScrollYValue(latest));
 	}, []);
 
 	useEffect(() => {

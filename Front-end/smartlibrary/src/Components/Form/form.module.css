@@ -1,3 +1,60 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    width: 100%;
+}
+
+.additionalBtn {
+    width: fit-content;
+
+    padding: 14px 20px;
+
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.additionalBtn:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40%;
+
+    padding: 14px 0;
+    margin: 0 auto;
+    
+    background-color: #36bbcb;
+    border-radius: 3px;
+    border: none;
+
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    line-height: 18px;
+}
+.btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.fieldsList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    width: 100%;
+
+    list-style: none;
+}
+
 .fieldBlock {
 	display: flex;
 	flex-direction: column;

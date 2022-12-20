@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import s from './MainPage.module.css';
 import { PopularBooks } from '../../Components';
 // import Calendar from 'react-calendar';
@@ -41,7 +43,8 @@ const MainPage = props => {
 					</div>
 				</div>
 			</div>
-			<PopularBooks data={props.data} />
+			{/* {console.log(props.books)} */}
+			<PopularBooks books={props.books} />
 		</div>
 	);
 };

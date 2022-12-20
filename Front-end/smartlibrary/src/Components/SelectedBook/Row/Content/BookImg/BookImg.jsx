@@ -1,4 +1,3 @@
-import { React } from 'react';
 import s from './bookImg.module.css';
 
 const BookImg = props => {

@@ -1,29 +1,32 @@
 import { React, useState, useEffect } from 'react';
+import axios from 'axios';
+
 import { useParams } from 'react-router-dom';
 import { SideBar, ContentBlock } from '.';
 import s from './booksCatalog.module.css';
 
 const BooksCatalog = props => {
 	props.setHeader(false);
-	const [books, setBooks] = useState(props.data.books);
 	const { booksCategoryId } = useParams();
+	const [filteredBooks, setFilteredBooks] = useState(props.books)
 
 	useEffect(() => {
 		if (booksCategoryId !== undefined) {
-			const filteredBooksByCategory = props.data.books.filter(b =>
-				b.bookCategories.find(el => el === booksCategoryId)
-			);
-			setBooks(filteredBooksByCategory);
+			axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/categories?title=${booksCategoryId}`)
+			.then(res => {
+				const filteredBooks = res.data;
+				setFilteredBooks({books: filteredBooks, isLoading: false})
+			})
 		} else {
-			setBooks(props.data.books);
+			setFilteredBooks(props.books)
 		}
-	}, [booksCategoryId, props.data.books]);
+	}, [booksCategoryId, props.books]);
 
 	return (
 		<div className={s.container}>
 			<div className={s.row}>
-				<SideBar data={props.data} />
-				<ContentBlock books={books} />
+				<SideBar categories={props.categories} isLoading={props.categories.isLoading} />
+				<ContentBlock books={filteredBooks} />
 			</div>
 		</div>
 	);

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import FieldsList from '../../../../FieldsList/FieldsList';
+import Form from '../../../../Form/Form';
 import s from './CreateNews.module.css';
 import fieldsData from './fieldsData';
 
@@ -17,8 +17,7 @@ const CreateNews = props => {
 				<h1>Додавання новини</h1>
 				<Link to='/admin/news'>Повернутись</Link>
 			</div>
-			<FieldsList data={fieldsData(news)} />
-			<button>Створити</button>
+			<Form main={fieldsData(news)} btns={[{title: "Створити", type: "submit"}]} />
 		</div>
 	);
 };

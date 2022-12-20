@@ -30,7 +30,7 @@ const Table = props => {
 				const style = {
 					width: `${k.width}%`,
 					justifyContent: k.align === 'center' ? 'center' : (k.align === 'flex-end' ? 'flex-end' : 'flex-start'),
-					backgroundColor: k.colors ? (["Немає боргів", "У бібліотеці"].includes(el[k.propertyTitle]) ? k.colors[0] : (["Не у бібліотеці", "Є борги"].includes(el[k.propertyTitle])) ? k.colors[1] : k.colors[2]) : 'transparent'
+					backgroundColor: k.colors ? (["Немає боргів", "У бібліотеці", "Повернена"].includes(el[k.propertyTitle]) ? k.colors[0] : (["Не у бібліотеці", "Є борги", "Не повернена"].includes(el[k.propertyTitle])) ? k.colors[1] : (["Читається"].includes(el[k.propertyTitle])) ? k.colors[2] : k.colors[3]) : 'transparent'
 				}
 				if (k.isLink === true) {
 					return (

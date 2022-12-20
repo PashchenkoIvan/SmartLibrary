@@ -2,3 +2,7 @@
 # yarn lockfile v1
 
 
+eslint-plugin-react-hooks@^5.0.0-next-4dda96a40-20221213:
+  version "5.0.0-next-4dda96a40-20221213"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-5.0.0-next-4dda96a40-20221213.tgz#8e8a63d53bd19b73d1e2147c31377297ef883b7a"
+  integrity sha512-S7hpQZzn7jfy/E4pA2jZHIDFTXUezgxzwPwD1mwLyNnCNDXVHHGIbmigVKygYPhhO38nwCDtemByyXcm0iJ6XQ==

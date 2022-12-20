@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import FieldsList from '../../../../FieldsList/FieldsList';
+import Form from '../../../../Form/Form';
 import s from './CreateAnnualReport.module.css';
 import fieldsData from './fieldsData';
 
@@ -29,11 +29,7 @@ const CreateAnnualReport = props => {
 				<h1>Підготовка звіту</h1>
 				<Link to='/admin/annual-reporting'>Повернутись</Link>
 			</div>
-			<FieldsList data={fieldsData(report)} />
-			<div className={s.buttons}>
-				<button>Генерувати</button>
-				<button>Відправити</button>
-			</div>
+			<Form main={fieldsData(report)} btns={[{title: 'Генерувати'}, {title: 'Відправити'}]} />
 		</div>
 	);
 };

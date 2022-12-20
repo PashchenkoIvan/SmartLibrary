@@ -44,6 +44,11 @@
     cursor: pointer;
 }
 
+.categoryLink:hover {
+    color: #36bbcb;
+    transition: 0.2s;
+}
+
 .activeCategoryLink {
     color: #36bbcb !important;
 }
