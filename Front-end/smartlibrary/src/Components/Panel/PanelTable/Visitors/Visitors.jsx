@@ -225,17 +225,7 @@ export const Visitors = () => {
 		/>
 	));
 	return (
-		<div className={s.container}>
-			{/* <Link to='/admin/visitors/form'>+ Додати</Link>
-			<div className={s.titleBlock}>
-				<p>ПІБ ({Array.length})</p>
-				<p>Місце проживання</p>
-				<p>Дата народження</p>
-				<p>Коментар</p>
-				<p>Книги</p>
-				<p>Дата</p>
-			</div>
-			<div className={s.table}>{ArrayAdd}</div> */}
+		<div className={s.tableContainer}>
 			<Table data={Array} keys={tableData()} />
 		</div>
 	);

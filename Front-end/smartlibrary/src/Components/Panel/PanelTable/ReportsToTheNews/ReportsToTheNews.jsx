@@ -25,15 +25,7 @@ const ReportsToTheNews = () => {
 		<Block name={e.threme} home={e.place} birthday={e.date} />
 	));
 	return (
-		<div className={s.container}>
-			{/* <div className={s.table}>
-				<div className={s.titleBlock}>
-					<p>Мета ({Array.length})</p>
-					<p>Місце</p>
-					<p>Дата</p>
-				</div>
-				{ArrayAdd}
-			</div> */}
+		<div className={s.tableContainer}>
 			<Table data={Array} keys={tableData()} />
 		</div>
 	);
