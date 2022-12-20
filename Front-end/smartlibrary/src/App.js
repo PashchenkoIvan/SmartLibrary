@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { BooksCatalog, Header, SelectedBook } from './Components/';
 
 import MainPage from './Pages/MainPage/MainPage';
@@ -25,165 +25,179 @@ import FaqPage from './Pages/FaqPage/FaqPage';
 import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form';
 import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form';
 
-import s from './App.css';
+import { RequestsContext } from './index';
+
+import './App.css';
+import { useContext } from 'react';
 
 function App(props) {
+	const Requests = useContext(RequestsContext);
+
 	const [header, setHeader] = useState(true);
 	const [menuActive, setMenuActive] = useState(false);
 
+	const wrapper = useRef();
+	const router = useRef();
+
+	// useEffect(() => {
+	// 	Requests.GetBooksCategories().then(res => console.log(res));
+	// }, []);
+
 	return (
-		<div className={s.wrapper}>
-			{header ? (
-				<TransHeader menuActive={menuActive} setMenuActive={setMenuActive} />
-			) : (
-				<Header menuActive={menuActive} setMenuActive={setMenuActive} />
-			)}
-			<Routes>
-				<Route
-					index
-					element={<MainPage data={props.state.data} setHeader={setHeader} />}
-				/>
+		<div ref={wrapper}>
+			<Header
+				menuActive={menuActive}
+				setMenuActive={setMenuActive}
+				header={header}
+			/>
+			<div className={'router'} ref={router}>
+				<Routes>
+					<Route
+						index
+						element={<MainPage data={props.state.data} setHeader={setHeader} />}
+					/>
 
-				<Route
-					path='/admin/*'
-					element={<AdminPage state={props.state} setHeader={setHeader} />}
-				/>
-				<Route
-					path='/reader/:currentReaderId'
-					element={
-						<CurrentReader
-							admin={props.state.admin}
-							data={props.state.data}
-							setHeader={setHeader}
-						/>
-					}
-				/>
-				<Route
-					path='/admin/event-reports/create/:id'
-					element={<CreateEventReport setHeader={setHeader} />}
-				/>
-				<Route
-					path='/admin/event-reports/edit/:id'
-					element={
-						<EditEventReport
-							reports={props.state.admin.tables.eventReporting}
-							setHeader={setHeader}
-						/>
-					}
-				/>
+					<Route
+						path='/admin/*'
+						element={<AdminPage state={props.state} setHeader={setHeader} />}
+					/>
+					<Route
+						path='/reader/:currentReaderId'
+						element={
+							<CurrentReader
+								admin={props.state.admin}
+								data={props.state.data}
+								setHeader={setHeader}
+							/>
+						}
+					/>
+					<Route
+						path='/admin/event-reports/create/:id'
+						element={<CreateEventReport setHeader={setHeader} />}
+					/>
+					<Route
+						path='/admin/event-reports/edit/:id'
+						element={
+							<EditEventReport
+								reports={props.state.admin.tables.eventReporting}
+								setHeader={setHeader}
+							/>
+						}
+					/>
 
-				<Route
-					path='/admin/news/edit/:id'
-					element={
-						<EditNews
-							news={props.state.admin.tables.news}
-							setHeader={setHeader}
-						/>
-					}
-				/>
-				<Route
-					path='/admin/news/create'
-					element={<CreateNews setHeader={setHeader} />}
-				/>
-				<Route
-					path='/admin/annual-reports/create/:id'
-					element={
-						<CreateAnnualReport
-							annualReports={props.state.admin.tables.annualReporting}
-							setHeader={setHeader}
-						/>
-					}
-				/>
-				<Route
-					path='/admin/news/publish/:id'
-					element={
-						<PublishNews
-							news={props.state.admin.tables.news}
-							setHeader={setHeader}
-						/>
-					}
-				/>
+					<Route
+						path='/admin/news/edit/:id'
+						element={
+							<EditNews
+								news={props.state.admin.tables.news}
+								setHeader={setHeader}
+							/>
+						}
+					/>
+					<Route
+						path='/admin/news/create'
+						element={<CreateNews setHeader={setHeader} />}
+					/>
+					<Route
+						path='/admin/annual-reports/create/:id'
+						element={
+							<CreateAnnualReport
+								annualReports={props.state.admin.tables.annualReporting}
+								setHeader={setHeader}
+							/>
+						}
+					/>
+					<Route
+						path='/admin/news/publish/:id'
+						element={
+							<PublishNews
+								news={props.state.admin.tables.news}
+								setHeader={setHeader}
+							/>
+						}
+					/>
 
-				<Route
-					path='/personPage'
-					element={
-						<PersonPage
-							setHeader={setHeader}
-							admin={props.state.admin}
-							data={props.state.data}
-						/>
-					}
-				/>
+					<Route
+						path='/personPage'
+						element={
+							<PersonPage
+								setHeader={setHeader}
+								admin={props.state.admin}
+								data={props.state.data}
+							/>
+						}
+					/>
 
-				<Route path='/reg' element={<RegisterPage setHeader={setHeader} />} />
-				<Route path='/login' element={<Login setHeader={setHeader} />} />
-				<Route
-					path='/contacts'
-					element={<ContactsPage setHeader={setHeader} />}
-				/>
-				<Route path='/faq/*' element={<FaqPage setHeader={setHeader} />} />
+					<Route path='/reg' element={<RegisterPage setHeader={setHeader} />} />
+					<Route path='/login' element={<Login setHeader={setHeader} />} />
+					<Route
+						path='/contacts'
+						element={<ContactsPage setHeader={setHeader} />}
+					/>
+					<Route path='/faq/*' element={<FaqPage setHeader={setHeader} />} />
 
-				<Route
-					exact
-					path='/:bookId'
-					element={
-						<SelectedBook data={props.state.data} setHeader={setHeader} />
-					}
-				/>
-				<Route
-					exact
-					path='/catalog'
-					element={
-						<BooksCatalog data={props.state.data} setHeader={setHeader} />
-					}
-				/>
-				<Route
-					path='/catalog/:booksCategoryId'
-					element={
-						<BooksCatalog data={props.state.data} setHeader={setHeader} />
-					}
-				/>
-				<Route
-					path='/books/categories'
-					element={
-						<BooksCategories data={props.state.data} setHeader={setHeader} />
-					}
-				/>
-				<Route path='/book-single/create' element={<BookCreate />} />
-				<Route
-					path='/book-single/:currentBookId'
-					element={
-						<SingleBook
-							admin={props.state.admin}
-							data={props.state.data}
-							setHeader={setHeader}
-						/>
-					}
-				/>
-				<Route
-					path='/book-single/edit/:currentBookId'
-					element={<BookEdit data={props.state.data} setHeader={setHeader} />}
-				/>
-				<Route
-					exact
-					path='/:bookId'
-					element={
-						<SelectedBook data={props.state.data} setHeader={setHeader} />
-					}
-				/>
-				<Route
-					exact
-					path='/:bookId'
-					element={
-						<SelectedBook data={props.state.data} setHeader={setHeader} />
-					}
-				/>
-				<Route path='/admin/visitors/form' element={<FormVisitors />} />
-				<Route
-					path='/admin/reports-to-the-news/form'
-					element={<FormReport />}
-				/>
-			</Routes>
+					<Route
+						exact
+						path='/:bookId'
+						element={
+							<SelectedBook data={props.state.data} setHeader={setHeader} />
+						}
+					/>
+					<Route
+						exact
+						path='/catalog'
+						element={
+							<BooksCatalog data={props.state.data} setHeader={setHeader} />
+						}
+					/>
+					<Route
+						path='/catalog/:booksCategoryId'
+						element={
+							<BooksCatalog data={props.state.data} setHeader={setHeader} />
+						}
+					/>
+					<Route
+						path='/books/categories'
+						element={
+							<BooksCategories data={props.state.data} setHeader={setHeader} />
+						}
+					/>
+					<Route path='/book-single/create' element={<BookCreate />} />
+					<Route
+						path='/book-single/:currentBookId'
+						element={
+							<SingleBook
+								admin={props.state.admin}
+								data={props.state.data}
+								setHeader={setHeader}
+							/>
+						}
+					/>
+					<Route
+						path='/book-single/edit/:currentBookId'
+						element={<BookEdit data={props.state.data} setHeader={setHeader} />}
+					/>
+					<Route
+						exact
+						path='/:bookId'
+						element={
+							<SelectedBook data={props.state.data} setHeader={setHeader} />
+						}
+					/>
+					<Route
+						exact
+						path='/:bookId'
+						element={
+							<SelectedBook data={props.state.data} setHeader={setHeader} />
+						}
+					/>
+					<Route path='/admin/visitors/form' element={<FormVisitors />} />
+					<Route
+						path='/admin/reports-to-the-news/form'
+						element={<FormReport />}
+					/>
+				</Routes>
+			</div>
 			<Footer />
 		</div>
 	);
