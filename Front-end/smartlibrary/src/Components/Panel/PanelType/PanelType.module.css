@@ -50,25 +50,41 @@
 }
 
 .columnContainer {
-	position: fixed;
+	position: absolute;
+	top: 110px;
 	display: flex;
 	background-color: #fff;
 	border-radius: 0 10px 10px 0;
 	overflow: hidden;
 	height: 400px;
 	width: 300px;
-	top: 110px;
 	@apply xl:hidden;
 }
 
+.showed {
+	left: 0;
+}
+
+.show {
+	animation: show 0.2s ease;
+}
+
+.hidden {
+	left: -280px;
+}
+
+.hide {
+	animation: hide 0.2s ease;
+}
+
 .scrollItems {
-	width: 275px;
+	width: 280px;
 	overflow-y: scroll;
 	padding: 0;
 }
 
 .showButton {
-	width: 25px;
+	width: 20px;
 	height: 100%;
 	background-color: #dae3ef;
 	display: flex;
@@ -77,8 +93,26 @@
 }
 
 .vertBar {
-	width: 10px;
+	width: 5px;
 	height: 100px;
 	background-color: #d3d3d4;
 	border-radius: 5px;
+}
+
+@keyframes show {
+	from {
+		left: -280px;
+	}
+	to {
+		left: 0;
+	}
+}
+
+@keyframes hide {
+	from {
+		left: 0;
+	}
+	to {
+		left: -280px;
+	}
 }
