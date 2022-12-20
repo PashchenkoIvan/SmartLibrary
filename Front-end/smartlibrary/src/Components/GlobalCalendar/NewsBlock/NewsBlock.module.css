@@ -26,6 +26,11 @@
 }
 @media screen and (min-width: 1025px) {
     .actualNewsText {
+        width: 80%;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .actualNewsText {
         color: white;
         background-color: #244973;
         font-weight: 600;
