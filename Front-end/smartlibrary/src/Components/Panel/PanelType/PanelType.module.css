@@ -1,7 +1,8 @@
 .container {
 	width: 100%;
-	display: flex;
+	display: none;
 	justify-content: center;
+	@apply xl:flex;
 }
 
 .inner {
@@ -25,11 +26,11 @@
 	outline: none;
 }
 
-.item:first-child {
+.container .item:first-child {
 	border-radius: 3px 0px 0px 3px;
 }
 
-.item:last-child {
+.container .item:last-child {
 	border-radius: 0px 3px 3px 0px;
 }
 
@@ -45,4 +46,38 @@
 	color: #fff;
 	text-decoration: none;
 	text-align: center;
+}
+
+.columnContainer {
+	position: fixed;
+	display: flex;
+	background-color: #fff;
+	border-radius: 0 10px 10px 0;
+	overflow: hidden;
+	height: 400px;
+	width: 300px;
+	top: 110px;
+	@apply xl:hidden;
+}
+
+.scrollItems {
+	width: 275px;
+	overflow-y: scroll;
+	padding: 0;
+}
+
+.showButton {
+	width: 25px;
+	height: 100%;
+	background-color: #dae3ef;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.vertBar {
+	width: 10px;
+	height: 100px;
+	background-color: #d3d3d4;
+	border-radius: 5px;
 }

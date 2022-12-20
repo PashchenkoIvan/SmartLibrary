@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
+import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
-import axios from 'axios';
-
 import { BooksCatalog, Header, SelectedBook } from './Components/'
 
 import MainPage from './Pages/MainPage/MainPage'
@@ -29,11 +28,12 @@ import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form
 
 import { RequestsContext } from './index';
 
-import s from './App.css'
+import s from './App.css';
 
 function App(props) {
 	const BookRequests = useContext(RequestsContext)
 	const [header, setHeader] = useState(true)
+	const [menuActive, setMenuActive] = useState(false);
 	const [categories, setCategories] = useState({
 		categories: [""],
 		isLoading: true,
@@ -61,7 +61,11 @@ function App(props) {
 
 	return (
 		<div className={s.wrapper}>
-			{header ? <TransHeader /> : <Header />}
+			{header ? (
+				<TransHeader menuActive={menuActive} setMenuActive={setMenuActive} />
+			) : (
+				<Header menuActive={menuActive} setMenuActive={setMenuActive} />
+			)}
 			<Routes>
 				<Route
 					index
@@ -210,7 +214,7 @@ function App(props) {
 			</Routes>
 			<Footer />
 		</div>
-	)
+	);
 }
 
-export default App
+export default App;

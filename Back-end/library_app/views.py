@@ -47,7 +47,7 @@ class BookApi(APIView):
         print(categories)
         for category in categories:
             try:
-                category_obj = Category.objects.get_or_create(title=category)[0]
+                category_obj = Category.objects.get(title=category)
             except ObjectDoesNotExist:
                 return Response(f"Error: Category: {category} doesn't exist")
             categories_id.append(category_obj.id)
@@ -74,8 +74,4 @@ class CategoriesApi(APIView):
             categories = Category.objects.all()
             serializer = CategorySerializer(categories, many=True)
             return Response(serializer.data)
-    def post(self, req):
-        category_name = req.data
-        print(category_name)
-        serializer = CategorySerializer(data=category_name)
-        return serializer_obj_save(serializer)
+ 

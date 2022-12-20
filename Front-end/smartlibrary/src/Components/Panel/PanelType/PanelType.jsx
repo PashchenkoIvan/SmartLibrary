@@ -1,5 +1,6 @@
 import s from './PanelType.module.css';
 import { NavLink } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 
 const PanelType = () => {
 	let btnMap = [
@@ -27,11 +28,53 @@ const PanelType = () => {
 			{b.title}
 		</NavLink>
 	));
+	const [activeColumn, setActiveColumn] = useState(true);
+
+	const showAndHidden = () => {
+		setActiveColumn(!activeColumn);
+	};
+
+	const typeColumn = useRef(null);
+
+	useEffect(() => {
+		let columnStyle = typeColumn.current.style;
+		if (activeColumn) {
+			let i = -275;
+			let showColumn = setInterval(() => {
+				if (columnStyle.left == '0px') clearInterval(showColumn);
+				else {
+					i += 11;
+					columnStyle.left = i + 'px';
+				}
+			});
+		} else {
+			let i = 0;
+			let hideColumn = setInterval(() => {
+				if (columnStyle.left == '-275px') clearInterval(hideColumn);
+				else {
+					i -= 11;
+					columnStyle.left = i + 'px';
+				}
+			});
+		}
+	}, [activeColumn]);
 
 	return (
-		<div className={s.container}>
-			<div className={s.inner}>{btnMapAdd}</div>
-		</div>
+		<>
+			<div className={s.container}>
+				<div className={s.inner}>{btnMapAdd}</div>
+			</div>
+			<div
+				className={s.columnContainer}
+				ref={typeColumn}
+				onClick={showAndHidden}
+			>
+				<div className={s.scrollItems}>{btnMapAdd}</div>
+				<div className={s.showButton}>
+					<div className={s.vertBar} />
+				</div>
+			</div>
+		</>
 	);
 };
 

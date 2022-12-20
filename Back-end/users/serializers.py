@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Visitor
+from .models import User
+
 
 class VisitorSerializer(serializers.ModelSerializer):
     fields = (

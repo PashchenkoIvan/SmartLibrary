@@ -16,7 +16,106 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	z-index: 3;
+	z-index: 12;
+}
+
+.burger {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	cursor: pointer;
+	@apply lg:hidden;
+}
+
+.burger svg {
+	width: 30px;
+	height: 30px;
+	stroke: white;
+}
+
+.header {
+	display: block;
+	background-color: #3bcddd;
+	width: 100%;
+	height: 100px;
+}
+
+.menu {
+	position: absolute;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: #fff;
+	z-index: 11;
+	width: 100%;
+	border-bottom: 4px solid #d1d1d1;
+	@apply lg:hidden;
+}
+
+.showedMenu {
+	top: 0vh;
+}
+
+.hiddenMenu {
+	top: -100vh;
+}
+
+.showingMenu {
+	animation: show 0.2s ease;
+}
+
+.hidingMenu {
+	animation: hide 0.2s ease;
+}
+
+.columnMenu {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.item {
+	width: 100%;
+	height: 100px;
+	padding: 20px;
+	display: flex;
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	@apply transition-all duration-75;
+}
+
+.isActive {
+	color: #fff;
+	background-color: #36bbcb;
+}
+
+.notActive {
+	color: #000;
+	background-color: transparent;
+}
+
+.contacts {
+	margin-top: auto;
+	width: 100%;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	background-color: #d1d1d1;
+}
+
+.contacts a {
+	font-size: 12px;
+	font-weight: 500;
 }
 
 .logo {
@@ -30,10 +129,11 @@
 .navlinksBlock {
 	width: 850px;
 	height: 30px;
-	display: flex;
+	display: none;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	@apply lg:flex;
 }
 
 .link {
@@ -69,7 +169,7 @@
 	left: 0;
 	position: absolute;
 	z-index: 2;
-	background-color: rgba(27, 96, 104, 0.7);
+	background-color: rgba(27, 96, 104, 0.451);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -131,4 +231,49 @@
 	background-color: #36bbcb;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
+}
+@media screen and (min-width: 0px) {
+	.headerSearch {
+		width: 450px;
+	}
+
+	.headerSearch h1 {
+		font-size: 38px;
+	}
+}
+@media screen and (min-width: 768px) {
+	.headerSearch {
+		width: 550px;
+	}
+
+	.headerSearch h1 {
+		font-size: 40px;
+	}
+}
+@media screen and (min-width: 1025px) {
+	.headerSearch {
+		width: 650px;
+	}
+
+	.headerSearch h1 {
+		font-size: 42px;
+	}
+}
+
+@keyframes show {
+	from {
+		top: -100vh;
+	}
+	to {
+		top: 0vh;
+	}
+}
+
+@keyframes hide {
+	from {
+		top: 0vh;
+	}
+	to {
+		top: -100vh;
+	}
 }
