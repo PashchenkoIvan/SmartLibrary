@@ -44,11 +44,7 @@ function App(props) {
 	});
 	const [books, setBooks] = useState({
 		// 12 макетных книг
-		books: [
-			'', '', '', '',
-			'', '', '', '',
-			'', '', '', ''
-		],
+		books: ['', '', '', '', '', '', '', '', '', '', '', ''],
 		isLoading: true,
 	});
 
@@ -62,11 +58,11 @@ function App(props) {
 		console.log(store);
     }, [])
 
-    useEffect(() => {
+	useEffect(() => {
 		Requests.GetBooks().then(res => {
 			const books = res.data;
-			setBooks({books: books, isLoading: false})
-		})
+			setBooks({ books: books, isLoading: false });
+		});
 
 		Requests.GetBooksCategories().then(res => {
 			const categories = res.data;
@@ -150,6 +146,11 @@ function App(props) {
 							/>
 						}
 					/>
+					<Route path='/admin/visitors/form' element={<FormVisitors />} />
+					<Route
+						path='/admin/reports-to-the-news/form'
+						element={<FormReport />}
+					/>
 
 					<Route
 						path='/personPage'
@@ -232,11 +233,6 @@ function App(props) {
 						element={
 							<SelectedBook data={props.state.data} setHeader={setHeader} />
 						}
-					/>
-					<Route path='/admin/visitors/form' element={<FormVisitors />} />
-					<Route
-						path='/admin/reports-to-the-news/form'
-						element={<FormReport />}
 					/>
 				</Routes>
 			</div>

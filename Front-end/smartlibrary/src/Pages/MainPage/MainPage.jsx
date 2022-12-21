@@ -1,14 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import s from './MainPage.module.css';
 import { PopularBooks } from '../../Components';
-// import Calendar from 'react-calendar';
 import GCalendar from '../../Components/GlobalCalendar/GCalendar';
 import MainVideoBlock from '../../Components/MainVideoBlock/MainVideoBlock';
-// import { useState } from 'react';
 
 const MainPage = props => {
 	props.setHeader(true);
+	useEffect(() => {
+		document.title = 'Головна';
+	}, []);
 	return (
 		<div className={s.container}>
 			<MainVideoBlock />

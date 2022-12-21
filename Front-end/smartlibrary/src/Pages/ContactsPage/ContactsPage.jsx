@@ -1,8 +1,12 @@
 import s from './ContactsPage.module.css';
 import Iframe from 'react-iframe';
 import Luda from './images/luda.jpeg';
+import { useEffect } from 'react';
 
 const Contacts = props => {
+	useEffect(() => {
+		document.title = 'Контакти';
+	}, []);
 	props.setHeader(false);
 	return (
 		<div className={s.container}>
@@ -23,8 +27,8 @@ const Contacts = props => {
 						</div>
 						<div className={s.mainPart}>
 							<p>
-								Дніпропетровська область Дніпровський район Селище 
-								Дослідне, вулиця Наукова 20 приміщення сільського клубу
+								Дніпропетровська область Дніпровський район Селище Дослідне,
+								вулиця Наукова 20 приміщення сільського клубу
 							</p>
 						</div>
 					</div>
@@ -33,9 +37,7 @@ const Contacts = props => {
 							<h2>Адреса електронної пошти</h2>
 						</div>
 						<div className={s.mainPart}>
-							<a>
-								artyukh.lyudmila@gmail.com
-							</a>
+							<a>artyukh.lyudmila@gmail.com</a>
 						</div>
 					</div>
 				</div>
@@ -44,7 +46,7 @@ const Contacts = props => {
 						<h2>Вас обслуговує</h2>
 					</div>
 					<div className={s.mainPart}>
-						<img src={Luda} alt="" />
+						<img src={Luda} alt='' />
 					</div>
 				</div>
 			</div>

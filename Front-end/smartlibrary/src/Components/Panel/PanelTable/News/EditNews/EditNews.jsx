@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Form from '../../../../Form/Form';
 import fieldsData from '../CreateNews/fieldsData';
@@ -19,6 +19,10 @@ const EditNews = props => {
 			};
 		}
 	});
+
+	useEffect(() => {
+		document.title = 'Бібліотекар';
+	}, []);
 
 	const [news, setNews] = useState(initState);
 	return (
