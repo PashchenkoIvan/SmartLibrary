@@ -6,7 +6,7 @@ export default class BookRequests {
 	};
 
 	static GetBooksCategories = () => {
-		return $api.get('/v1/library/categories');
+		return $api.get('/v1/library/categories/');
 	};
 
 	static GetBooksCategory = category => {

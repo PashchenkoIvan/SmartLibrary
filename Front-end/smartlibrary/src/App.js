@@ -46,25 +46,38 @@ function App(props) {
 	});
 
     useEffect(() => {
-		// Requests.GetBooks().then(res => {
-		// 	console.log(res.data);
-		// 	const books = res.data;
-		// 	setBooks({books: books, isLoading: false})
-		// })
+		Requests.GetBooks().then(res => {
+			console.log(res.data);
+			const books = res.data;
+			setBooks({books: books, isLoading: false})
+		})
 
-		// Requests.GetBooksCategories().then(res => {
-		// 	console.log(res.data);
-		// 	// const books = res.data;
-		// 	// setBooks({books: books, isLoading: false})
-		// })
+		Requests.GetBooksCategories().then(res => {
+			console.log(res.data);
+			// const books = res.data;
+			// setBooks({books: books, isLoading: false})
+		})
 		
-        // axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/books`)
-		debugger;
-		axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/categories`)
-			.then(res => {
+        // // axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/books`)
+		// axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/categories/`, {
+		// 	withCredentials: false,
+		// // baseURL: API_URL,
+		// headers: {
+		// 	'Access-Control-Allow-Origin': '*',
+		// 	Allow: 'GET, POST, HEAD, OPTIONS',
+		// 	'Access-Control-Allow-Headers': '*',
+		// 	'Content-Type': 'application/json',
+		// 	Vary: 'Accept',
+		// },})
+		// 	.then(res => {
 				
-				const categories = res.data;
-				console.log(categories);
+		// 		const categories = res.data;
+		// 		console.log(categories);
+		// 		// setCategories({categories: categories, isLoading: false})
+		// 	})
+		axios.post(`https://ualib-orion.herokuapp.com/api/v1/library/categories/`, {})
+			.then(res => {
+				console.log(res);
 				// setCategories({categories: categories, isLoading: false})
 			})
     }, [Requests]);

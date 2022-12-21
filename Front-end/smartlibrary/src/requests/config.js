@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'https://ualib-orion.herokuapp.com/api';
+const API_URL = 'https://ualib-orion.herokuapp.com/api/';
 
 const $api = axios.create({
-	withCredentials: true,
+	xhrFields: { withCredentials: true },
 	baseURL: API_URL,
 	headers: {
 		'Access-Control-Allow-Origin': '*',
