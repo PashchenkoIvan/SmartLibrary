@@ -45,18 +45,16 @@ function App(props) {
 		isLoading: true,
 	});
 
-    useEffect(() => {
-		Requests.GetBooks().then(res => {
-			console.log(res.data);
-			const books = res.data;
-			setBooks({books: books, isLoading: false})
-		})
-
-		Requests.GetBooksCategories().then(res => {
-			console.log(res.data);
-			// const books = res.data;
-			// setBooks({books: books, isLoading: false})
-		})
+	useEffect(() => {
+		// Requests.GetBooks().then(res => {
+		// 	console.log(res.data);
+		// 	const books = res.data;
+		// 	setBooks({books: books, isLoading: false})
+		// })
+		// Requests.GetBooksCategories().then(res => {
+		// 	console.log(res.data);
+		// const books = res.data;
+		// setBooks({books: books, isLoading: false})
 	}, [Requests]);
 
 	const wrapper = useRef();
@@ -138,6 +136,11 @@ function App(props) {
 								setHeader={setHeader}
 							/>
 						}
+					/>
+					<Route path='/admin/visitors/form' element={<FormVisitors />} />
+					<Route
+						path='/admin/reports-to-the-news/form'
+						element={<FormReport />}
 					/>
 
 					<Route
@@ -221,11 +224,6 @@ function App(props) {
 						element={
 							<SelectedBook data={props.state.data} setHeader={setHeader} />
 						}
-					/>
-					<Route path='/admin/visitors/form' element={<FormVisitors />} />
-					<Route
-						path='/admin/reports-to-the-news/form'
-						element={<FormReport />}
 					/>
 				</Routes>
 			</div>

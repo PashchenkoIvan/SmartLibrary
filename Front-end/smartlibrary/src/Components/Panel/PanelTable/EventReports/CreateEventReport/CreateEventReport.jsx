@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Form from '../../../../Form/Form';
 import s from './CreateEventReport.module.css';
 import fieldsData from './fieldsData';
 
 const CreateEventReport = props => {
+	useEffect(() => {
+		document.title = 'Бібліотекар';
+	}, []);
 	props.setHeader(false);
 	const { id } = useParams();
 	const [eventReport, setEventReport] = useState({

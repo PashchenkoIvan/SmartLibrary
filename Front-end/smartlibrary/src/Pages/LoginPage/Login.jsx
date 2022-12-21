@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import s from './Login.module.css';
 
 const Login = props => {
+	useEffect(() => {
+		document.title = 'Вхід';
+	}, []);
 	props.setHeader(false);
 	return (
 		<div className={s.container}>

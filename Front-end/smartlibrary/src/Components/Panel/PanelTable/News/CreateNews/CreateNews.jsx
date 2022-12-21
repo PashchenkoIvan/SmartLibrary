@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Form from '../../../../Form/Form';
 import s from './CreateNews.module.css';
 import fieldsData from './fieldsData';
 
 const CreateNews = props => {
+	useEffect(() => {
+		document.title = 'Бібліотекар';
+	}, []);
 	props.setHeader(false);
 	const [news, setNews] = useState({
 		name: '',

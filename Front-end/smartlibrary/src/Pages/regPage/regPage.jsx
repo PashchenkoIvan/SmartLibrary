@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import s from './regPage.module.css';
 
-const regPage = props => {
+const RegPage = props => {
+	useEffect(() => {
+		document.title = 'Вхід';
+	}, []);
 	props.setHeader(false);
 	return (
 		<div className={s.container}>
@@ -27,4 +31,4 @@ const regPage = props => {
 		</div>
 	);
 };
-export default regPage;
+export default RegPage;
