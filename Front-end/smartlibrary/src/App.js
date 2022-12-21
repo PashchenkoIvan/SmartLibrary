@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 import { BooksCatalog, Header, SelectedBook } from './Components/';
 import axios from 'axios';
 
@@ -29,7 +29,6 @@ import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form
 import { RequestsContext } from './index';
 
 import './App.css';
-import { useContext } from 'react';
 
 function App(props) {
 	const Requests = useContext(RequestsContext);
@@ -37,34 +36,36 @@ function App(props) {
 	const [header, setHeader] = useState(true);
 	const [menuActive, setMenuActive] = useState(false);
 	const [categories, setCategories] = useState({
-		categories: [''],
+		// 5 макетных категорий
+		categories: ['', '', '', '', ''],
 		isLoading: true,
 	});
 	const [books, setBooks] = useState({
-		books: [''],
+		// 12 макетных книг
+		books: [
+			'', '', '', '',
+			'', '', '', '',
+			'', '', '', ''
+		],
 		isLoading: true,
 	});
 
     useEffect(() => {
 		Requests.GetBooks().then(res => {
-			console.log(res.data);
+			// console.log(res.data);
 			const books = res.data;
 			setBooks({books: books, isLoading: false})
 		})
 
 		Requests.GetBooksCategories().then(res => {
-			console.log(res.data);
-			// const books = res.data;
-			// setBooks({books: books, isLoading: false})
+			// console.log(res.data);
+			const categories = res.data;
+			setCategories({categories: categories, isLoading: false})
 		})
 	}, [Requests]);
 
 	const wrapper = useRef();
 	const router = useRef();
-
-	// useEffect(() => {
-	// 	Requests.GetBooksCategories().then(res => console.log(res));
-	// }, []);
 
 	return (
 		<div ref={wrapper}>
