@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useRef, useState, useEffect, useContext } from 'react';
 import { BooksCatalog, Header, SelectedBook } from './Components/';
-import axios from 'axios';
 
 import MainPage from './Pages/MainPage/MainPage';
 import PersonPage from './Pages/PersonPage/PersonPage';
@@ -12,7 +11,6 @@ import BookEdit from './Components/Panel/PanelTable/Books/BooksTable/BookEdit/Bo
 import BookCreate from './Components/Panel/PanelTable/Books/BooksTable/BookCreate/BookCreate';
 import BooksCategories from './Components/Panel/PanelTable/Books/BooksTable/BooksCategories/BooksCategories';
 import Footer from './Components/Footer/Footer';
-import TransHeader from './Components/TransHeader/TransHeader';
 import CreateEventReport from './Components/Panel/PanelTable/EventReports/CreateEventReport/CreateEventReport';
 import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
 import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
@@ -26,7 +24,7 @@ import FaqPage from './Pages/FaqPage/FaqPage';
 import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form';
 import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form';
 
-import { RequestsContext } from './index';
+import { RequestsContext, AuthContext } from './index';
 
 import './App.css';
 
@@ -36,8 +34,12 @@ function App(props) {
 	const [header, setHeader] = useState(true);
 	const [menuActive, setMenuActive] = useState(false);
 	const [categories, setCategories] = useState({
-		// 5 макетных категорий
-		categories: ['', '', '', '', ''],
+		// 15 макетных категорий
+		categories: [
+			'', '', '', '', '',
+			'', '', '', '', '',
+			'', '', '', '', ''
+		],
 		isLoading: true,
 	});
 	const [books, setBooks] = useState({
@@ -50,15 +52,23 @@ function App(props) {
 		isLoading: true,
 	});
 
+	const {store} = useContext(AuthContext);
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+			store.checkAuth()
+        }
+
+		console.log(store);
+    }, [])
+
     useEffect(() => {
 		Requests.GetBooks().then(res => {
-			// console.log(res.data);
 			const books = res.data;
 			setBooks({books: books, isLoading: false})
 		})
 
 		Requests.GetBooksCategories().then(res => {
-			// console.log(res.data);
 			const categories = res.data;
 			setCategories({categories: categories, isLoading: false})
 		})
