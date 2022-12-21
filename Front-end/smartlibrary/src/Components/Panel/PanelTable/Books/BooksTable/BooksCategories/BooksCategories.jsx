@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
+import ContentLoader from "react-content-loader"
 import { RequestsContext } from '../../../../../../index';
 
 import s from './booksCategories.module.css';
@@ -23,88 +24,99 @@ const BooksCategories = props => {
 		isLoading: true,
 	});
   
-	// const change = (prop, event) => {
-	// 	setCategories(categories.categories.map((obj, index) => {
-	// 	   if (index == idToEdit) {
-	// 		  return {...obj, prop: event.target.value};
-	// 	   } else {
-	// 		  return obj;
-	// 	   }
-	// 	}));
-	//  }
+	const change = (event) => {
+		
+	 }
 
-	const categoriesMap = categories.categories.map((c, i) => (
-		<form
-			className={s.singleCategoryContainer}
-			onSubmit={
-				e => { 
-					e.preventDefault(); 
-					Requests.DeleteBooksCategory(c.title).then(res => {console.log(res.data);})
-				}
-			}
-		>
-			<span className={s.categoryName}>{c.title}</span>
-			<div>
-				<div
-					className={s.categoryColor}
-					style={{ backgroundColor: c.color, border: "1px solid #ccc" }}
-				></div>
-				<div className={s.categoryBtns}>
-					<Popup
-						trigger={<button className={s.categoryEdit} onClick={() => {setIdToEdit(i); console.log(idToEdit);}}>Редагувати</button>}
-						modal
-					>
-						{close => (
-							<>
-								<div className={sp.header}>
-									<span>Редагувати категорію «{c.title}»</span>
-									<button className={sp.closeBtn} onClick={close}>
-										×
-									</button>
-								</div>
-								<form
-									className={sp.content}
-									onReset={
-										e => { 
-											e.preventDefault(); 
-											Requests.ChangeBooksCategory(c.title, categories.categories[idToEdit]).then(res => {console.log(res.data);})
+	const categoriesMap = categories.categories.map((c, i) => {
+		const skeletonLoad =
+			<ContentLoader 
+				speed={2}
+				viewBox="0 0 100 10"
+				backgroundColor="#f3f3f3"
+				foregroundColor="#ecebeb"
+				{...props}
+			>
+				<rect x="22" y="3.5" rx="1" ry="1" width="2.5" height="2.5" />
+				<rect x="1" y="3.5" rx="1" ry="1" width="20" height="2.5" />
+			</ContentLoader>
+
+		const categoryData = c.title;
+
+		return (
+			<div className={s.singleCategoryContainer}>
+				<span className={s.categoryName}>{categories.isLoading ? skeletonLoad : categoryData}</span>
+				<div>
+					<div
+						className={s.categoryColor}
+						style={{ backgroundColor: c.color, border: "1px solid #ccc" }}
+					></div>
+					<div className={s.categoryBtns}>
+						<Popup
+							trigger={<button className={s.categoryEdit}>Редагувати</button>}
+							modal
+						>
+							{close => (
+								<>
+									<div className={sp.header}>
+										<span>Редагувати категорію «{c.title}»</span>
+										<button className={sp.closeBtn} onClick={close}>
+											×
+										</button>
+									</div>
+									<form
+										className={sp.content}
+										onSubmit={
+											e => { 
+												e.preventDefault(); 
+												console.log(categories.categories[idToEdit]);
+												// Requests.ChangeBooksCategory(c.title, categories.categories[idToEdit]).then(res => {console.log(res.data);})
+											}
 										}
-									}
-								>
-									<div>
-										<label>Назва категорії</label>
+									>
+										<div>
+											<label>Назва категорії</label>
+											<input
+												type='text'
+												value={categories.categories[i].title}
+												name='title'
+												disabled
+											/>
+										</div>
+										<div className={sp.colorContainer}>
+											<label>Колір</label>
+											<input
+												id='colorInput'
+												type='color'
+												value={categories.categories[i].color}
+												name='color'
+												onChange={e => setCategories({
+													...categories,
+													categories:
+														categories.categories.map((obj, index) =>
+															obj.title == c.title
+																? {...obj, color: e.target.value}
+																: obj,
+													)})
+												}
+												
+											/>
+										</div>
 										<input
-											type='text'
-											value={categories.categories[i].title}
-											name='title'
-											// onChange={event => change('title', event)}
+											className={sp.btn}
+											type="submit"
+											value='Зберегти зміни'
+											onClick={() => setIdToEdit(() => i)}
 										/>
-									</div>
-									<div className={sp.colorContainer}>
-										<label>Колір</label>
-										<input
-											id='colorInput'
-											type='color'
-											value={categories.categories[i].color}
-											name='color'
-											// onChange={event => change('color', event)}
-											
-										/>
-									</div>
-									<input
-										className={sp.btn}
-										type="reset"
-										value='Зберегти зміни'
-									/>
-								</form>
-							</>
-						)}
-					</Popup>
-					<input className={s.categoryDelete} type='submit' value='Видалити' />
+									</form>
+								</>
+							)}
+						</Popup>
+					</div>
 				</div>
 			</div>
-		</form>
-	));
+		)
+	});
 
 	useEffect(() => {
 		Requests.GetBooksCategories().then(res => {
@@ -122,10 +134,9 @@ const BooksCategories = props => {
 			<div className={s.contentBlock}>
 				<h2 className={s.caption}>Управління категоріями</h2>
 				<div className={s.main}>
-					<form className={s.topBar} onSubmit={
+					{/* <form className={s.topBar} onSubmit={
 						e => { 
 							e.preventDefault(); 
-							// console.log({...newCategoryState});
 							Requests.AddBooksCategory({...newCategoryState}).then(res => {console.log(res.data);})
 							}
 						}
@@ -155,7 +166,7 @@ const BooksCategories = props => {
 							required
 						/>
 						<input className={s.addCategoryBtn} type='submit' value='+ Додати категорію' />
-					</form>
+					</form> */}
 					<div className={s.tableContainer}>
 						<div className={s.keysBar}>
 							<span>Назва категорії</span>
