@@ -1,7 +1,3 @@
-import s from '../../../Popup/popUps.css';
-import sp from '../../../Popup/popUps.module.css';
-import { qrCode, QrIcon } from '../../img'
-
 const tableData = () => {
     const keys = [
         {

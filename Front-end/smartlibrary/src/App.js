@@ -3,28 +3,28 @@ import { useRef, useState, useEffect } from 'react';
 import { BooksCatalog, Header, SelectedBook } from './Components/';
 import axios from 'axios';
 
-import MainPage from './Pages/MainPage/MainPage'
-import PersonPage from './Pages/PersonPage/PersonPage'
-import AdminPage from './Pages/AdminPage/AdminPage'
-import CurrentReader from './Components/Panel/PanelTable/Readers/ReadersTable/CurrentReader/CurrentReader'
-import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBook/SingleBook'
-import BookEdit from './Components/Panel/PanelTable/Books/BooksTable/BookEdit/BookEdit'
-import BookCreate from './Components/Panel/PanelTable/Books/BooksTable/BookCreate/BookCreate'
-import BooksCategories from './Components/Panel/PanelTable/Books/BooksTable/BooksCategories/BooksCategories'
-import Footer from './Components/Footer/Footer'
-import TransHeader from './Components/TransHeader/TransHeader'
-import CreateEventReport from './Components/Panel/PanelTable/EventReports/CreateEventReport/CreateEventReport'
-import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport'
-import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport'
-import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews'
-import RegisterPage from './Pages/regPage/regPage'
-import Login from './Pages/LoginPage/Login'
-import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews'
-import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews'
-import ContactsPage from './Pages/ContactsPage/ContactsPage'
-import FaqPage from './Pages/FaqPage/FaqPage'
-import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form'
-import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form'
+import MainPage from './Pages/MainPage/MainPage';
+import PersonPage from './Pages/PersonPage/PersonPage';
+import AdminPage from './Pages/AdminPage/AdminPage';
+import CurrentReader from './Components/Panel/PanelTable/Readers/ReadersTable/CurrentReader/CurrentReader';
+import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBook/SingleBook';
+import BookEdit from './Components/Panel/PanelTable/Books/BooksTable/BookEdit/BookEdit';
+import BookCreate from './Components/Panel/PanelTable/Books/BooksTable/BookCreate/BookCreate';
+import BooksCategories from './Components/Panel/PanelTable/Books/BooksTable/BooksCategories/BooksCategories';
+import Footer from './Components/Footer/Footer';
+import TransHeader from './Components/TransHeader/TransHeader';
+import CreateEventReport from './Components/Panel/PanelTable/EventReports/CreateEventReport/CreateEventReport';
+import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
+import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
+import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews';
+import RegisterPage from './Pages/regPage/regPage';
+import Login from './Pages/LoginPage/Login';
+import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews';
+import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews';
+import ContactsPage from './Pages/ContactsPage/ContactsPage';
+import FaqPage from './Pages/FaqPage/FaqPage';
+import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form';
+import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form';
 
 import { RequestsContext } from './index';
 
@@ -37,11 +37,11 @@ function App(props) {
 	const [header, setHeader] = useState(true);
 	const [menuActive, setMenuActive] = useState(false);
 	const [categories, setCategories] = useState({
-		categories: [""],
+		categories: [''],
 		isLoading: true,
 	});
 	const [books, setBooks] = useState({
-		books: [""],
+		books: [''],
 		isLoading: true,
 	});
 
@@ -57,30 +57,7 @@ function App(props) {
 			// const books = res.data;
 			// setBooks({books: books, isLoading: false})
 		})
-		
-        // // axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/books`)
-		// axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/categories/`, {
-		// 	withCredentials: false,
-		// // baseURL: API_URL,
-		// headers: {
-		// 	'Access-Control-Allow-Origin': '*',
-		// 	Allow: 'GET, POST, HEAD, OPTIONS',
-		// 	'Access-Control-Allow-Headers': '*',
-		// 	'Content-Type': 'application/json',
-		// 	Vary: 'Accept',
-		// },})
-		// 	.then(res => {
-				
-		// 		const categories = res.data;
-		// 		console.log(categories);
-		// 		// setCategories({categories: categories, isLoading: false})
-		// 	})
-		axios.post(`https://ualib-orion.herokuapp.com/api/v1/library/categories/`, {})
-			.then(res => {
-				console.log(res);
-				// setCategories({categories: categories, isLoading: false})
-			})
-    }, [Requests]);
+	}, [Requests]);
 
 	const wrapper = useRef();
 	const router = useRef();
@@ -193,13 +170,21 @@ function App(props) {
 						exact
 						path='/catalog'
 						element={
-							<BooksCatalog books={books} categories={categories} setHeader={setHeader} />
+							<BooksCatalog
+								books={books}
+								categories={categories}
+								setHeader={setHeader}
+							/>
 						}
 					/>
 					<Route
 						path='/catalog/:booksCategoryId'
 						element={
-							<BooksCatalog books={books} categories={categories} setHeader={setHeader} />
+							<BooksCatalog
+								books={books}
+								categories={categories}
+								setHeader={setHeader}
+							/>
 						}
 					/>
 					<Route

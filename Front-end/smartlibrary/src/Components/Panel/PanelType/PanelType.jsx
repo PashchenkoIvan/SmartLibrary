@@ -18,6 +18,8 @@ const PanelType = () => {
 		{ title: 'Відвідувачі', path: 'visitors' },
 	];
 
+	const [rendersFirst, setRendersFirst] = useState(true);
+
 	let btnMapAdd = btnMap.map(b => (
 		<NavLink
 			to={'/admin/' + b.path}
@@ -30,32 +32,29 @@ const PanelType = () => {
 	));
 	const [activeColumn, setActiveColumn] = useState(false);
 
-	const showAndHidden = () => {
+	const showAndHide = () => {
 		setActiveColumn(!activeColumn);
 	};
 
 	const typeColumn = useRef(null);
 
 	useEffect(() => {
-		let columnStyle = typeColumn.current.style;
-		if (activeColumn) {
-			let i = -275;
-			let showColumn = setInterval(() => {
-				if (columnStyle.left == '0px') clearInterval(showColumn);
-				else {
-					i += 11;
-					columnStyle.left = i + 'px';
-				}
-			});
+		let columnClass = typeColumn.current.classList;
+		if (rendersFirst) {
+			columnClass.add(s.hidden);
+			setRendersFirst(false);
 		} else {
-			let i = 0;
-			let hideColumn = setInterval(() => {
-				if (columnStyle.left == '-275px') clearInterval(hideColumn);
-				else {
-					i -= 11;
-					columnStyle.left = i + 'px';
-				}
-			});
+			if (activeColumn) {
+				columnClass.add(s.show);
+				columnClass.remove(s.hidden);
+				columnClass.add(s.showed);
+				setTimeout(() => columnClass.remove(s.show), 200);
+			} else {
+				columnClass.add(s.hide);
+				columnClass.remove(s.showed);
+				columnClass.add(s.hidden);
+				setTimeout(() => columnClass.remove(s.hide), 200);
+			}
 		}
 	}, [activeColumn]);
 
@@ -64,11 +63,7 @@ const PanelType = () => {
 			<div className={s.container}>
 				<div className={s.inner}>{btnMapAdd}</div>
 			</div>
-			<div
-				className={s.columnContainer}
-				ref={typeColumn}
-				onClick={showAndHidden}
-			>
+			<div className={s.columnContainer} ref={typeColumn} onClick={showAndHide}>
 				<div className={s.scrollItems}>{btnMapAdd}</div>
 				<div className={s.showButton}>
 					<div className={s.vertBar} />

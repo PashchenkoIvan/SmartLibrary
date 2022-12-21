@@ -11,9 +11,37 @@
     width: 35%;
     border-radius: 3px;
     /* padding: 0 0 0 10px; */
+    white-space: nowrap;
     text-align: center;
 }
 .new {
     width: 90%;
     margin-top: 20px;
+}
+
+@media screen and (min-width: 0px) {
+    .actualNewsText {
+        width: 45%;
+    }
+}
+@media screen and (min-width: 1025px) {
+    .actualNewsText {
+        width: 80%;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .actualNewsText {
+        color: white;
+        background-color: #244973;
+        font-weight: 600;
+        width: 35%;
+        border-radius: 3px;
+        /* padding: 0 0 0 10px; */
+        white-space: nowrap;
+        text-align: center;
+    }
+    .new {
+        width: 90%;
+        margin-top: 20px;
+    }
 }

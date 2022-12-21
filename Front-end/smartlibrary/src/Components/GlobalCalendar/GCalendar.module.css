@@ -8,6 +8,7 @@
 .container h1 {
     margin-bottom: 33px;
 }
+
 .calendarBlock {
     width: 80%;
     height: 100%;
@@ -38,4 +39,59 @@
 .input {
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (min-width: 0px) {
+    .calendarBlock {
+        flex-direction: column;
+        align-items: center;
+        width: 400px;
+    }
+    .calendar {
+        width: 100%;
+    }
+    .newsBlock {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 1025px){
+    .container {
+        width: 800px    ;
+    }
+    .calendarBlock {
+        width: 80%;
+        flex-direction: row;
+    }
+    .newsBlock {
+        width: 50%;
+    }
+    .calendar {
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .calendarBlock {
+    width: 95%;
+    align-items: center;
+    justify-content: end;
+}
+.newsBlock {
+    width: 60%;
+    height: 100%;
+    background-color: white;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.calendar {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.input {
+    display: flex;
+    flex-direction: column;
+}
 }

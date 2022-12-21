@@ -26,10 +26,13 @@ const CreateAnnualReport = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<h1>Підготовка звіту</h1>
 				<Link to='/admin/annual-reporting'>Повернутись</Link>
+				<h1>Підготовка звіту</h1>
 			</div>
-			<Form main={fieldsData(report)} btns={[{title: 'Генерувати'}, {title: 'Відправити'}]} />
+			<Form
+				main={fieldsData(report)}
+				btns={[{ title: 'Генерувати' }, { title: 'Відправити' }]}
+			/>
 		</div>
 	);
 };

@@ -124,7 +124,9 @@ const Form = props => {
 				: ''
 			}
 			{/* Кнопка отправки формы */}
-			{props.btns.map(btn => <input className={s.btn} type={btn.type} value={btn.title} />)}
+			<div className={s.btns}>
+				{props.btns.map(btn => <input className={s.btn} type={btn.type} value={btn.title} />)}
+			</div>
 		</form>
 	);
 };

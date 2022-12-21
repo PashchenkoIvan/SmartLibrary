@@ -1,37 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Form } from '../../../../../index';
-import axios from 'axios';
 
 import s from './bookCreate.module.css';
 import mainlFieldsData from '../mainFieldsData';
 import additionalFieldsData from '../additionalFieldsData';
 
 const BookCreate = props => {
-	props.setHeader(false);
-	
-	// const { currentBookId } = useParams();
-	// const [books, setBooks] = useState(props.data.books);
-
-	//   const formMap = books.map(b =>
-	// 	b.id === currentBookId ?
-
-	// 	  : ''
-	//   );
-
-	// handleSubmit = e => {
-	// 	e.preventDefault();
-	
-	// 	const book = {
-	// 	  title: "sdgsdg"
-	// 	}
-
-	// 	axios.post(`https://ualib-orion.herokuapp.com/api/v1/library/books?title=${book.title}`, { book })
-	// 		.then(res => {
-	// 			console.log(res);
-	// 			console.log(res.data);
-	// 		})
-	// };
-
 	return (
 		<div className={s.container}>
 			<Link to='/admin/books' className={s.btn}>

@@ -1,18 +1,33 @@
 .container {
 	width: 100%;
-	display: flex;
-	justify-content: flex-start;
+	max-width: 1300px;
 }
 
 .search {
 	display: flex;
-	flex-direction: row;
 	align-items: center;
+	justify-content: space-between;
+	gap: 5px;
 }
 
 .input {
 	display: flex;
+	width: 50%;
 	height: 100%;
+	@apply md:w-8/12 lg:w-10/12;
+}
+
+.addBtn {
+	height: 40px;
+	width: 50%;
+	border-radius: 3px;
+	background-color: #36bbcb;
+	margin-left: 10px;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+	border: none;
+	@apply md:w-4/12 lg:w-2/12;
 }
 
 .input button {
@@ -34,22 +49,10 @@
 }
 
 .input input {
-	width: 300px;
+	width: calc(100% - 40px);
 	height: 40px;
 	outline: none;
 	border: 1px solid #c7d2e6;
 	border-right: none;
 	padding-left: 20px;
-}
-
-.addBtn {
-	height: 40px;
-	padding: 0 20px;
-	border-radius: 3px;
-	background-color: #36bbcb;
-	margin-left: 10px;
-	text-align: center;
-	color: white;
-	font-size: 16px;
-	border: none;
 }

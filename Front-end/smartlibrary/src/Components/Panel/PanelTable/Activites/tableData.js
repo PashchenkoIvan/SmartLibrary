@@ -1,7 +1,6 @@
 import s from '../../../Popup/popUps.css'
 import sp from '../../../Popup/popUps.module.css'
 
-import { qrCode, QrIcon } from '../../img'
 import editFieldsData from './editFieldsData.js'
 import { Form } from '../../../index'
 
@@ -35,7 +34,7 @@ const tableData = () => {
                     popupTitle: "Редагувати захід",
                     showPopUp(url, el) {
                         return(
-                            <Form main={editFieldsData(el)} btn={{ title: "Зберегти" }} />
+                            <Form main={editFieldsData(el)} btns={ [{ title: "Зберегти", type: "submit" }] } />
                         )
                     }
                 },

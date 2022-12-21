@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 import tableData from './tableData';
-import AffiliatesTable from './AffiliatesTable/AffiliatesTable';
 import Table from '../../../Table/Table';
+
+import s from './Affiliates.module.css';
 
 const Affiliates = props => {
 	const [affiliates, setAffiliates] = useState(props.affiliates);
 	return (
-		<div>
-			{/* <AffiliatesTable affiliates={affiliates} /> */}
+		<div className={s.tableContainer}>
 			<Table data={affiliates} keys={tableData()} />
 		</div>
 	);

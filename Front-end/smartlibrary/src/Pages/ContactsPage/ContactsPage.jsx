@@ -9,8 +9,8 @@ const Contacts = props => {
 			<div className={s.block}>
 				<Iframe
 					src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3205.0581719266543!2d35.03029361582813!3d48.38728994171444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfb13c13f5433%3A0x3937755b663960b6!2z0LLRg9C7LiDQndCw0YPQutC-0LLQsCwgMjAsINCU0L7RgdC70ZbQtNC90LUsINCU0L3RltC_0YDQvtC_0LXRgtGA0L7QstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA1MjA3MQ!5e1!3m2!1sru!2sua!4v1670498886716!5m2!1sru!2sua'
-					width='40%'
-					height='450'
+					width='390'
+					height='390'
 					style='border:0;'
 					allowfullscreen=''
 					loading='lazy'
