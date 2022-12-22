@@ -1,7 +1,9 @@
-import { React, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+
 import s from './sideBar.module.css';
-import { SideSignIn, RecBook } from '.';
+import { AddToPrefer, SideSignIn, RecBook } from '.';
+import { AuthContext } from '../../../../index';
+
 
 const SideBar = props => {
   // const recBooksAdd = props.books.map(
@@ -16,10 +18,11 @@ const SideBar = props => {
   //       </div>
   //       : ''
   //   )
+	const {store} = useContext(AuthContext);
   
   return (
     <div className={s.sideBar}>
-      <SideSignIn />
+      {store.status !== 'anonym' ? <AddToPrefer /> : <SideSignIn />}
       {/* {recBooksAdd} */}
     </div>
   )

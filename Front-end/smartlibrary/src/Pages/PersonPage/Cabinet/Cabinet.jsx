@@ -7,7 +7,7 @@ import { RequestsContext } from '../../../index';
 
 import Qr from '../image/qrcode.png';
 import s from './Cabinet.module.css';
-import sp from '../../../Components/Panel/PanelTable/Books/BooksTable/SingleBook/popUps.module.css';
+import sp from '../../../Components/Popup/popUps.module.css';
 import './CalendarStyle.css';
 
 // import 'react-calendar/dist/Calendar.css';
@@ -156,10 +156,12 @@ const Cabinet = () => {
                                     <span>Мої підписки</span>
                                     <button className={sp.closeBtn} onClick={close}>×</button>
                                     </div>
-                                    <div className={sp.content}>
-                                        <MySubcribesPopUp categories={categories} />
-                                        <button className={sp.btn} onClick={() => {}}>Зберегти зміни</button>
-                                    </div>
+                                    <form className={sp.content}>
+                                        <div className={sp.table}>
+                                            <MySubcribesPopUp categories={categories} />
+                                        </div>
+                                        <input className={sp.btn} value="Зберегти зміни" type="submit" />
+                                    </form>
                                 </>
                             )}
                         </Popup>

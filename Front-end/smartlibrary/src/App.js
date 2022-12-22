@@ -1,6 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useRef, useState, useEffect, useContext } from 'react';
-import { BooksCatalog, Header, SelectedBook } from './Components/';
+import { BooksCatalog, Header, SelectedBook, Error404 } from './Components/';
 
 import MainPage from './Pages/MainPage/MainPage';
 import PersonPage from './Pages/PersonPage/PersonPage';
@@ -61,6 +61,7 @@ function App(props) {
 	useEffect(() => {
 		Requests.GetBooks().then(res => {
 			const books = res.data;
+			console.log(books);
 			setBooks({ books: books, isLoading: false });
 		});
 
@@ -82,127 +83,24 @@ function App(props) {
 			/>
 			<div className={'router'} ref={router}>
 				<Routes>
+					{/* Главная страница */}
 					<Route
-						path='/reader/:currentReaderId'
-						element={
-							<CurrentReader
-								admin={props.state.admin}
-								data={props.state.data}
-								setHeader={setHeader}
-							/>
-						}
-					/>
-					<Route
-						path='/book-single/:currentBookId'
-						element={
-							<SingleBook
-								admin={props.state.admin}
-								data={props.state.data}
-								setHeader={setHeader}
-							/>
-						}
-					/>
-					<Route path='/book-single/create' element={<BookCreate />} />
-					<Route
-						path='/book-single/edit/:currentBookId'
-						element={<BookEdit data={props.state.data} setHeader={setHeader} />}
-					/>
-					<Route
-						path='/admin/event-reports/create/:id'
-						element={<CreateEventReport setHeader={setHeader} />}
-					/>
-					<Route
-						path='/admin/event-reports/edit/:id'
-						element={
-							<EditEventReport
-								reports={props.state.admin.tables.eventReporting}
-								setHeader={setHeader}
-							/>
-						}
+						index
+						exact path='/'
+						element={<MainPage books={books} setHeader={setHeader} />}
 					/>
 
+					{/* Страница книги */}
 					<Route
-						path='/admin/news/edit/:id'
-						element={
-							<EditNews
-								news={props.state.admin.tables.news}
-								setHeader={setHeader}
-							/>
-						}
-					/>
-					<Route
-						path='/admin/news/create'
-						element={<CreateNews setHeader={setHeader} />}
-					/>
-					<Route
-						path='/admin/news/publish/:id'
-						element={
-							<PublishNews
-								news={props.state.admin.tables.news}
-								setHeader={setHeader}
-							/>
-						}
-					/>
-					<Route
-						path='/admin/annual-reports/create/:id'
-						element={
-							<CreateAnnualReport
-								annualReports={props.state.admin.tables.annualReporting}
-								setHeader={setHeader}
-							/>
-						}
-					/>
-					<Route
-						path='/admin/visitors/form'
-						element={<FormVisitors />}
-					/>
-					<Route
-						path='/admin/reports-to-the-news/form'
-						element={<FormReport />}
-					/>
-
-					{store.status === "user"
-						? (
-							<Route
-								path='/personPage'
-								element={
-									<PersonPage
-										setHeader={setHeader}
-										admin={props.state.admin}
-										data={props.state.data}
-									/>
-								}
-							/>
-						)
-						: store.status === "librarian"
-						? (
-							<Route
-								path='/admin/*'
-								element={<AdminPage state={props.state} setHeader={setHeader} />}
-							/>
-						)
-						: <>
-							<Route path='/login' element={<Login setHeader={setHeader} />} />
-							<Route path='/registration' element={<RegPage setHeader={setHeader} />} />
-						</>
-					}
-
-					<Route
-						path='/contacts'
-						element={<ContactsPage setHeader={setHeader} />}
-					/>
-					<Route path='/faq/*' element={<FaqPage setHeader={setHeader} />} />
-
-					<Route
-						exact
-						path='selected-book/:bookId'
+						exact path='/:bookId'
 						element={
 							<SelectedBook data={props.state.data} setHeader={setHeader} />
 						}
 					/>
+
+					{/* Каталог */}
 					<Route
-						exact
-						path='/catalog'
+						exact path='/catalog'
 						element={
 							<BooksCatalog
 								books={books}
@@ -221,18 +119,157 @@ function App(props) {
 							/>
 						}
 					/>
+
+					{/* Контакты и ЧЗВ */}
+					<Route
+						path='/contacts'
+						element={<ContactsPage setHeader={setHeader} />}
+					/>
+					<Route
+						path='/faq/*'
+						element={<FaqPage setHeader={setHeader} />}
+					/>
+
+					{/* Авторизация / Регистрация */}
+					<Route
+						exact path='/login'
+						element={ store.status !== 'anonym' ? <Navigate replace to="/404" /> : <Login setHeader={setHeader} /> }
+					/>
+					<Route
+						exact path='/registration'
+						element={ store.status !== 'anonym' ? <Navigate replace to="/404" /> : <RegPage setHeader={setHeader} /> }
+					/>
+
+					{/* Error 404 Page */}
+					<Route
+						exact path='/404'
+						element={
+							<Error404 setHeader={setHeader} />
+						}
+					/>
+
+					{/* Страница пользователя */}
+					<Route
+						path='/personPage'
+						element={ 
+							store.status !== 'user'
+								? <Navigate replace to="/404" />
+								: <PersonPage
+									setHeader={setHeader}
+									admin={props.state.admin}
+									data={props.state.data}
+								/>
+						}
+					/>
+
+					{/* Админка + страницы с админки */}
+					<Route
+						path='/admin/*'
+						element={ store.status !== 'librarian' ? <Navigate replace to="/404" /> : <AdminPage state={props.state} setHeader={setHeader} /> }
+					/>
+					<Route
+						path='/reader/:currentReaderId'
+						element={
+							store.status !== 'librarian'
+								? <Navigate replace to="/404" />
+								: <CurrentReader
+									admin={props.state.admin}
+									data={props.state.data}
+									setHeader={setHeader}
+								/>
+						}
+					/>
+					<Route
+						path='/book-single/:currentBookId'
+						element={
+							store.status !== 'librarian'
+								? <Navigate replace to="/404" />
+								: <SingleBook
+									admin={props.state.admin}
+									data={props.state.data}
+									setHeader={setHeader}
+								/>
+						}
+					/>
+					<Route
+						path='/book-single/create'
+						element={
+							store.status !== 'librarian'
+								? <Navigate replace to="/404" />
+								: <BookCreate />
+						}
+					/>
 					<Route
 						path='/books/categories'
 						element={
-							<BooksCategories data={props.state.data} setHeader={setHeader} />
+							store.status !== 'librarian'
+								? <Navigate replace to="/404" />
+								: <BooksCategories data={props.state.data} setHeader={setHeader} />
 						}
 					/>
-					
 					<Route
-						index
-						exact
-						path='/'
-						element={<MainPage books={books} setHeader={setHeader} />}
+						path='/book-single/edit/:currentBookId'
+						element={ store.status !== 'librarian' ? <Navigate replace to="/404" /> : <BookEdit data={props.state.data} setHeader={setHeader} /> }
+					/>
+					<Route
+						path='/admin/event-reports/create/:id'
+						element={ store.status !== 'librarian' ? <Navigate replace to="/404" /> : <CreateEventReport setHeader={setHeader} /> }
+					/>
+					<Route
+						path='/admin/event-reports/edit/:id'
+						element={
+							store.status !== 'librarian'
+								? <Navigate replace to="/404" />
+								: <EditEventReport
+									reports={props.state.admin.tables.eventReporting}
+									setHeader={setHeader}
+								/>
+						}
+					/>
+					<Route
+						path='/admin/news/edit/:id'
+						element={
+							store.status !== 'librarian'
+								? <Navigate replace to="/404" />
+								: <EditNews
+									news={props.state.admin.tables.news}
+									setHeader={setHeader}
+								/>
+						}
+					/>
+					<Route
+						path='/admin/news/create'
+						element={ store.status !== 'librarian' ? <Navigate replace to="/404" /> : <CreateNews setHeader={setHeader} /> }
+					/>
+					<Route
+						path='/admin/news/publish/:id'
+						element={
+							store.status !== 'librarian'
+								? <Navigate replace to="/404" />
+								: <PublishNews
+									news={props.state.admin.tables.news}
+									setHeader={setHeader}
+								/>
+						}
+					/>
+					<Route
+						path='/admin/annual-reports/create/:id'
+						element={
+							store.status !== 'librarian'
+								? <Navigate replace to="/404" />
+								: <CreateAnnualReport
+									annualReports={props.state.admin.tables.annualReporting}
+									setHeader={setHeader}
+								/>
+						}
+					/>
+					<Route
+						path='/admin/visitors/form'
+						element={ store.status !== 'librarian' ? <Navigate replace to="/404" /> : <FormVisitors /> }
+					/>
+					<Route
+						path='/admin/reports-to-the-news/form'
+						element={ store.status !== 'librarian' ? <Navigate replace to="/404" /> : <FormReport /> }
 					/>
 				</Routes>
 			</div>

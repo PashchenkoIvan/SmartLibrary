@@ -1,0 +1,19 @@
+.container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 1324px;
+    min-height: calc(100vh - 203px);
+
+    padding: 10% 12px;
+    margin: 0 auto;
+}
+
+.error {
+    color: #ccc;
+    font-size: 16em;
+    font-weight: 600;
+}

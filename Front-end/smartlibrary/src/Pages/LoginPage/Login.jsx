@@ -1,12 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { Form } from '../../Components/index';
 
 import s from './Login.module.css';
 import formData from './formData';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../index';
 
 
 const Login = props => {
+	const {store} = useContext(AuthContext);
+
 	useEffect(() => {
 		document.title = 'Вхід';
 	}, []);
