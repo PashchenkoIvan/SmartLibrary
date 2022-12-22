@@ -1,15 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 
 import s from './MainPage.module.css';
-import { PopularBooks } from '../../Components';
+import { AuthContext } from '../../index';
+import { PopularBooks, RecommendedBooks } from '../../Components';
 import GCalendar from '../../Components/GlobalCalendar/GCalendar';
 import MainVideoBlock from '../../Components/MainVideoBlock/MainVideoBlock';
 
 const MainPage = props => {
 	props.setHeader(true);
+
+	const {store} = useContext(AuthContext);
+
 	useEffect(() => {
 		document.title = 'Головна';
 	}, []);
+
 	return (
 		<div className={s.container}>
 			<MainVideoBlock />
@@ -44,7 +49,8 @@ const MainPage = props => {
 					</div>
 				</div>
 			</div>
-			{/* {console.log(props.books)} */}
+
+			{store.status === "user" ? <RecommendedBooks books={props.books} /> : ''}
 			<PopularBooks books={props.books} />
 		</div>
 	);

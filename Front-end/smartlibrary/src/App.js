@@ -15,7 +15,7 @@ import CreateEventReport from './Components/Panel/PanelTable/EventReports/Create
 import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
 import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
 import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews';
-import RegisterPage from './Pages/regPage/regPage';
+import RegPage from './Pages/RegPage/RegPage';
 import Login from './Pages/LoginPage/Login';
 import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews';
 import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews';
@@ -74,7 +74,7 @@ function App(props) {
 	const router = useRef();
 
 	return (
-		<div ref={wrapper}>
+		<div ref={wrapper} className='wrapper'>
 			<Header
 				menuActive={menuActive}
 				setMenuActive={setMenuActive}
@@ -82,15 +82,6 @@ function App(props) {
 			/>
 			<div className={'router'} ref={router}>
 				<Routes>
-					<Route
-						index
-						element={<MainPage books={books} setHeader={setHeader} />}
-					/>
-
-					<Route
-						path='/admin/*'
-						element={<AdminPage state={props.state} setHeader={setHeader} />}
-					/>
 					<Route
 						path='/reader/:currentReaderId'
 						element={
@@ -100,6 +91,21 @@ function App(props) {
 								setHeader={setHeader}
 							/>
 						}
+					/>
+					<Route
+						path='/book-single/:currentBookId'
+						element={
+							<SingleBook
+								admin={props.state.admin}
+								data={props.state.data}
+								setHeader={setHeader}
+							/>
+						}
+					/>
+					<Route path='/book-single/create' element={<BookCreate />} />
+					<Route
+						path='/book-single/edit/:currentBookId'
+						element={<BookEdit data={props.state.data} setHeader={setHeader} />}
 					/>
 					<Route
 						path='/admin/event-reports/create/:id'
@@ -129,6 +135,15 @@ function App(props) {
 						element={<CreateNews setHeader={setHeader} />}
 					/>
 					<Route
+						path='/admin/news/publish/:id'
+						element={
+							<PublishNews
+								news={props.state.admin.tables.news}
+								setHeader={setHeader}
+							/>
+						}
+					/>
+					<Route
 						path='/admin/annual-reports/create/:id'
 						element={
 							<CreateAnnualReport
@@ -138,33 +153,40 @@ function App(props) {
 						}
 					/>
 					<Route
-						path='/admin/news/publish/:id'
-						element={
-							<PublishNews
-								news={props.state.admin.tables.news}
-								setHeader={setHeader}
-							/>
-						}
+						path='/admin/visitors/form'
+						element={<FormVisitors />}
 					/>
-					<Route path='/admin/visitors/form' element={<FormVisitors />} />
 					<Route
 						path='/admin/reports-to-the-news/form'
 						element={<FormReport />}
 					/>
 
-					<Route
-						path='/personPage'
-						element={
-							<PersonPage
-								setHeader={setHeader}
-								admin={props.state.admin}
-								data={props.state.data}
+					{store.status === "user"
+						? (
+							<Route
+								path='/personPage'
+								element={
+									<PersonPage
+										setHeader={setHeader}
+										admin={props.state.admin}
+										data={props.state.data}
+									/>
+								}
 							/>
-						}
-					/>
+						)
+						: store.status === "librarian"
+						? (
+							<Route
+								path='/admin/*'
+								element={<AdminPage state={props.state} setHeader={setHeader} />}
+							/>
+						)
+						: <>
+							<Route path='/login' element={<Login setHeader={setHeader} />} />
+							<Route path='/registration' element={<RegPage setHeader={setHeader} />} />
+						</>
+					}
 
-					<Route path='/reg' element={<RegisterPage setHeader={setHeader} />} />
-					<Route path='/login' element={<Login setHeader={setHeader} />} />
 					<Route
 						path='/contacts'
 						element={<ContactsPage setHeader={setHeader} />}
@@ -173,7 +195,7 @@ function App(props) {
 
 					<Route
 						exact
-						path='/:bookId'
+						path='selected-book/:bookId'
 						element={
 							<SelectedBook data={props.state.data} setHeader={setHeader} />
 						}
@@ -205,34 +227,12 @@ function App(props) {
 							<BooksCategories data={props.state.data} setHeader={setHeader} />
 						}
 					/>
-					<Route path='/book-single/create' element={<BookCreate />} />
+					
 					<Route
-						path='/book-single/:currentBookId'
-						element={
-							<SingleBook
-								admin={props.state.admin}
-								data={props.state.data}
-								setHeader={setHeader}
-							/>
-						}
-					/>
-					<Route
-						path='/book-single/edit/:currentBookId'
-						element={<BookEdit data={props.state.data} setHeader={setHeader} />}
-					/>
-					<Route
+						index
 						exact
-						path='/:bookId'
-						element={
-							<SelectedBook data={props.state.data} setHeader={setHeader} />
-						}
-					/>
-					<Route
-						exact
-						path='/:bookId'
-						element={
-							<SelectedBook data={props.state.data} setHeader={setHeader} />
-						}
+						path='/'
+						element={<MainPage books={books} setHeader={setHeader} />}
 					/>
 				</Routes>
 			</div>

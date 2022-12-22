@@ -11,7 +11,7 @@ const BookList = props => {
     console.log(b)
     if (counter < booksAmount) {
       return (
-        <Link to={isLoading ? `` : `/${b.title}`} onClick={() => {window.scrollTo(0, 0)}}>
+        <Link to={isLoading ? `` : `selected-book/${b.title}`} onClick={() => {window.scrollTo(0, 0)}}>
           <Book isLoading={isLoading}
                 author={`#${b.author}`}
                 title={b.title}

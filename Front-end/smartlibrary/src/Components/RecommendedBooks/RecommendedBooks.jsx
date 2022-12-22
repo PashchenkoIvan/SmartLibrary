@@ -1,9 +1,9 @@
-import { Caption, Btn } from '.';
+import { Caption } from '.';
 import BookList from '../BookList/BookList';
 
-import s from './popularBooks.module.css';
+import s from './recommendedBooks.module.css';
 
-const PopularBooks = props => {
+const RecommendedBooks = props => {
     // const popularBooksFilter = props.books.filter(b => b.isPopularBook === true)
 
     return (
@@ -11,10 +11,9 @@ const PopularBooks = props => {
             <div className={s.bookContainer}>
                 <Caption />
                 <BookList books={props.books} />
-                <Btn />
             </div>
         </div>
     )
 }
 
-export default PopularBooks;
+export default RecommendedBooks;

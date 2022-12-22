@@ -95,7 +95,7 @@ const getState = (main = [], additional = []) => {
 }
 
 const postRequest = (data) =>
-	axios.post(`https://ualib-orion.herokuapp.com/api/v1/library/books`, data)
+	axios.post(`https://ualib-orion.herokuapp.com/api/v1/library/books`, {...data})
 		.then(res => {
 		console.log(res);
 		console.log(res.data);

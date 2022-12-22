@@ -1,4 +1,5 @@
 export { default as PopularBooks } from './PopularBooks/PopularBooks';
+export { default as RecommendedBooks } from './RecommendedBooks/RecommendedBooks';
 export { default as BooksCatalog } from './BooksCatalog/BooksCatalog';
 export { default as SelectedBook } from './SelectedBook/SelectedBook';
 // export { default as Calendar } from './Calendar/Calendar';

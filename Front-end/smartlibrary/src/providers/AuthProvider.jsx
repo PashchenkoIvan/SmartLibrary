@@ -3,7 +3,7 @@ import AuthService from '../services/AuthService'
 import { API_URL } from '../requests/config';
 
 export default class Store {
-    status = 'anonym';
+    status = 'user';
     isAuth = false;
     isLoading = false;
 

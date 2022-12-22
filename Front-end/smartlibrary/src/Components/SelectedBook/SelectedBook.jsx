@@ -21,6 +21,7 @@ const SelectedBook = props => {
 	}, []);
 
 	useEffect(() => {
+		console.log(bookName);
 		axios
 			.get(
 				`https://ualib-orion.herokuapp.com/api/v1/library/books?title=${bookName}`
@@ -48,7 +49,6 @@ const SelectedBook = props => {
 			>
 				<Btn />
 			</Link>
-			{/* {console.log(book)} */}
 			<Row book={book} books={books} />
 		</div>
 	);
