@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://ualib-orion.herokuapp.com/api/';
+export const API_URL = 'https://ualib-orion.herokuapp.com/api/';
 
 const $api = axios.create({
 	xhrFields: { withCredentials: true },
