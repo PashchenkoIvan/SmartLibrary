@@ -35,11 +35,7 @@ function App(props) {
 	const [menuActive, setMenuActive] = useState(false);
 	const [categories, setCategories] = useState({
 		// 15 макетных категорий
-		categories: [
-			'', '', '', '', '',
-			'', '', '', '', '',
-			'', '', '', '', ''
-		],
+		categories: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 		isLoading: true,
 	});
 	const [books, setBooks] = useState({
@@ -48,15 +44,15 @@ function App(props) {
 		isLoading: true,
 	});
 
-	const {store} = useContext(AuthContext);
+	const { store } = useContext(AuthContext);
 
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-			store.checkAuth()
-        }
+	useEffect(() => {
+		if (localStorage.getItem('token')) {
+			store.checkAuth();
+		}
 
 		console.log(store);
-    }, [])
+	}, []);
 
 	useEffect(() => {
 		Requests.GetBooks().then(res => {
@@ -67,8 +63,8 @@ function App(props) {
 
 		Requests.GetBooksCategories().then(res => {
 			const categories = res.data;
-			setCategories({categories: categories, isLoading: false})
-		})
+			setCategories({ categories: categories, isLoading: false });
+		});
 	}, [Requests]);
 
 	const wrapper = useRef();
