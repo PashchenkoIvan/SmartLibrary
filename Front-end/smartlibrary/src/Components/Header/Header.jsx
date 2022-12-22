@@ -1,6 +1,6 @@
 import s from './Header.module.css';
 import { Link } from 'react-router-dom';
-import HeaderMenu from '../HeaderMenu/HeaderMenu';
+import HeaderMenu from './HeaderMenu/HeaderMenu';
 import { useEffect, useRef, useState } from 'react';
 
 import { useScroll } from 'framer-motion';
