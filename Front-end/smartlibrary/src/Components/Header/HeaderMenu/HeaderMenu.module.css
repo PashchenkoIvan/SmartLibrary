@@ -2,7 +2,7 @@
 	position: absolute;
 	width: 100vw;
 	height: calc(100vh - 100px);
-	min-height: 709px;
+	overflow-y: scroll;
 	left: 0;
 	display: flex;
 	flex-direction: column;
@@ -81,47 +81,11 @@
 	}
 }
 
-@keyframes smallShow {
-	from {
-		top: -809px;
-	}
-	to {
-		top: 100px;
-	}
-}
-
 @keyframes hide {
 	from {
 		top: calc(0vh + 100px);
 	}
 	to {
 		top: calc(-100vh + 100px);
-	}
-}
-
-@keyframes smallHide {
-	from {
-		top: 100px;
-	}
-	to {
-		top: -809px;
-	}
-}
-
-@media (max-height: 809px) {
-	.showedMenu {
-		top: 100px;
-	}
-
-	.hiddenMenu {
-		top: -809px;
-	}
-
-	.showingMenu {
-		animation: smallShow 0.2s ease;
-	}
-
-	.hidingMenu {
-		animation: smallHide 0.2s ease;
 	}
 }

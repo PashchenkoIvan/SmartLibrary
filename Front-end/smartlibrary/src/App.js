@@ -35,11 +35,7 @@ function App(props) {
 	const [menuActive, setMenuActive] = useState(false);
 	const [categories, setCategories] = useState({
 		// 15 макетных категорий
-		categories: [
-			'', '', '', '', '',
-			'', '', '', '', '',
-			'', '', '', '', ''
-		],
+		categories: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
 		isLoading: true,
 	});
 	const [books, setBooks] = useState({
@@ -48,15 +44,15 @@ function App(props) {
 		isLoading: true,
 	});
 
-	const {store} = useContext(AuthContext);
+	const { store } = useContext(AuthContext);
 
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-			store.checkAuth()
-        }
+	useEffect(() => {
+		if (localStorage.getItem('token')) {
+			store.checkAuth();
+		}
 
 		console.log(store);
-    }, [])
+	}, []);
 
 	useEffect(() => {
 		Requests.GetBooks().then(res => {
@@ -66,8 +62,8 @@ function App(props) {
 
 		Requests.GetBooksCategories().then(res => {
 			const categories = res.data;
-			setCategories({categories: categories, isLoading: false})
-		})
+			setCategories({ categories: categories, isLoading: false });
+		});
 	}, [Requests]);
 
 	const wrapper = useRef();
@@ -152,40 +148,37 @@ function App(props) {
 							/>
 						}
 					/>
-					<Route
-						path='/admin/visitors/form'
-						element={<FormVisitors />}
-					/>
+					<Route path='/admin/visitors/form' element={<FormVisitors />} />
 					<Route
 						path='/admin/reports-to-the-news/form'
 						element={<FormReport />}
 					/>
 
-					{store.status === "user"
-						? (
-							<Route
-								path='/personPage'
-								element={
-									<PersonPage
-										setHeader={setHeader}
-										admin={props.state.admin}
-										data={props.state.data}
-									/>
-								}
-							/>
-						)
-						: store.status === "librarian"
-						? (
-							<Route
-								path='/admin/*'
-								element={<AdminPage state={props.state} setHeader={setHeader} />}
-							/>
-						)
-						: <>
+					{store.status === 'user' ? (
+						<Route
+							path='/personPage'
+							element={
+								<PersonPage
+									setHeader={setHeader}
+									admin={props.state.admin}
+									data={props.state.data}
+								/>
+							}
+						/>
+					) : store.status === 'librarian' ? (
+						<Route
+							path='/admin/*'
+							element={<AdminPage state={props.state} setHeader={setHeader} />}
+						/>
+					) : (
+						<>
 							<Route path='/login' element={<Login setHeader={setHeader} />} />
-							<Route path='/registration' element={<RegPage setHeader={setHeader} />} />
+							<Route
+								path='/registration'
+								element={<RegPage setHeader={setHeader} />}
+							/>
 						</>
-					}
+					)}
 
 					<Route
 						path='/contacts'
@@ -227,7 +220,7 @@ function App(props) {
 							<BooksCategories data={props.state.data} setHeader={setHeader} />
 						}
 					/>
-					
+
 					<Route
 						index
 						exact

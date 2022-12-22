@@ -28,8 +28,8 @@ a {
 }
 
 .hiddenForMenu {
-	overflow-y: hidden;
 	height: 100vh;
+	overflow-y: hidden;
 }
 
 @font-face {
