@@ -5,12 +5,16 @@ export default class BookRequests {
 		return $api.get('/v1/library/books/');
 	};
 
+	static AddBook = data => {
+		return $api.post('/v1/library/books/', {...data});
+	};
+
 	static GetBooksCategories = () => {
-		return $api.get('/v1/library/categories');
+		return $api.get('/v1/library/categories/');
 	};
 
 	static category = () => {
-		return $api.post('/v1/library/categories', {});
+		return $api.post('/v1/library/categories/', {});
 	};
 
 	static GetBooksCategory = category => {

@@ -50,7 +50,7 @@ function App(props) {
 		if (localStorage.getItem('token')) {
 			store.checkAuth();
 		}
-
+		console.log(localStorage);
 		console.log(store);
 	}, []);
 
@@ -192,7 +192,7 @@ function App(props) {
 						element={
 							store.status !== 'librarian'
 								? <Navigate replace to="/404" />
-								: <BookCreate />
+								: <BookCreate setHeader={setHeader} />
 						}
 					/>
 					<Route

@@ -18,7 +18,7 @@ const Login = props => {
 		<div className={s.container}>
 			<div className={s.block}>
 				<h1 className={s.caption}>Авторизація</h1>
-				<Form main={formData()} btns={[{title: "Вхід до аккаунту", type: "submit"}]} />
+				<Form main={formData()} btns={[{title: "Вхід до аккаунту", type: "submit", post: "login", onclick: (email, password) => store.login(email, password)}]} />
 				<Link
 					className={s.link}
 					to='/registration'

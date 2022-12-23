@@ -6,6 +6,8 @@ import mainlFieldsData from '../mainFieldsData';
 import additionalFieldsData from '../additionalFieldsData';
 
 const BookCreate = props => {
+	props.setHeader(false)
+
 	return (
 		<div className={s.container}>
 			<Link to='/admin/books' className={s.btn}>
@@ -23,7 +25,7 @@ const BookCreate = props => {
 						placeholder='Введіть штрих код книги'
 					/>
 				</div>
-				<Form main={mainlFieldsData({})} additional={additionalFieldsData({})} btns={[{title: "Додати книгу", type: "submit"}]} />
+				<Form main={mainlFieldsData({})} additional={additionalFieldsData({})} btns={[{title: "Додати книгу", type: "submit", post: "add-book"}]} />
 			</div>
 		</div>
 	);

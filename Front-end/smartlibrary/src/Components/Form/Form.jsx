@@ -1,4 +1,5 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState, useEffect, useContext } from 'react';
+import { RequestsContext, AuthContext } from '../../index';
 import axios from 'axios';
 
 import s from './form.module.css';
@@ -94,24 +95,33 @@ const getState = (main = [], additional = []) => {
 	return obj
 }
 
-const postRequest = (data) =>
-	axios.post(`https://ualib-orion.herokuapp.com/api/v1/library/books`, {...data})
-		.then(res => {
-		console.log(res);
-		console.log(res.data);
-	})
-
 const Form = props => {
+	const Requests = useContext(RequestsContext);
+    const {store} = useContext(AuthContext);
+
 	const obj = getState(props.main, props.additional)
 	const [state, setState] = useState({...obj});
-
-	// console.log(state);
 
 	const [isHidden, setIsHidden] = useState(true);
 	useEffect(() => {}, [isHidden]);
 
+	const postRequest = (data, btns) => {
+		console.log(btns.filter(btn => btn.post === 'add-book'));
+		console.log({...data});
+		if (btns.filter(btn => btn.post === 'add-book').length > 0) {
+			Requests.AddBook({...data}).then(res => {
+				const book = res.data;
+				console.log(book);
+			});
+		} else if (btns.filter(btn => btn.post === 'login').length > 0) {
+			store.login(data.email, data.password)
+		} else {}
+	}
+		
+
+
 	return (
-		<form className={s.form} onSubmit={e => { e.preventDefault(); postRequest({...state}) }}>
+		<form className={s.form} onSubmit={e => { e.preventDefault(); postRequest({...state}, props.btns) }}>
 			{/* Те поля, которые прогрузяться в любом случае */}
 			{fieldList(props.main, state, setState)}
 			
@@ -125,7 +135,7 @@ const Form = props => {
 			}
 			{/* Кнопка отправки формы */}
 			<div className={s.btns}>
-				{props.btns.map(btn => <input className={s.btn} type={btn.type} value={btn.title} />)}
+				{props.btns.map(btn => <input className={s.btn} type={btn.type} value={btn.title} onClick={btn.onclick} />)}
 			</div>
 		</form>
 	);

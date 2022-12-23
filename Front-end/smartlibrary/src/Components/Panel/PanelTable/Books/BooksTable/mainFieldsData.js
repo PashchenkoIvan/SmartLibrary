@@ -28,8 +28,8 @@ const mainFieldsData = b => {
 			{
 				label: "Видавництво",
 				type: "text",
-				value: b.publusher,
-				name: "publusher",
+				value: b.publisher,
+				name: "publisher",
 			},
 			{
 				label: "ISBN",
@@ -82,14 +82,14 @@ const mainFieldsData = b => {
 			{
 				label: "Дата видавництва",
 				type: "number",
-				value: b.pubication_date,
-				name: "pubication_date",
+				value: b.piblication_date,
+				name: "piblication_date",
 			},
 			{
 				label: "Рік видавництва",
 				type: "number",
-				value: b.pubication_year,
-				name: "pubication_year",
+				value: b.piblication_year,
+				name: "piblication_year",
 			},
 			{
 				label: "Місто видавництва",

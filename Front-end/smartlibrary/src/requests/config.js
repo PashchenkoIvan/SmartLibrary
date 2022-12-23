@@ -15,7 +15,7 @@ const $api = axios.create({
 });
 
 $api.interceptors.request.use(config => {
-	config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+	config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcxNzg5NzU5LCJpYXQiOjE2NzE3ODk0NTksImp0aSI6ImM1NzkwMTRkMmQ4ZDQxMDNhOWJhYzdkYjJkZjZmYTM2IiwidXNlcl9pZCI6MX0.tqoOSWrHv0S47E0Q51NqTEi8jwawWA-ZGIv1D_r3Isg`;
 	return config;
 });
 
@@ -32,10 +32,10 @@ $api.interceptors.request.use(config => {
 // 		) {
 // 			originalRequest._isRetry = true;
 // 			try {
-// 				const response = await axios.get(`${API_URL}/refresh`, {
+// 				const response = await axios.get(`${API_URL}token/refresh`, {
 // 					xhrFields: { withCredentials: true },
 // 				});
-// 				localStorage.setItem('token', response.data.accessToken);
+// 				localStorage.setItem('token', response.data.access);
 // 				return $api.request(originalRequest);
 // 			} catch (e) {
 // 				console.log('НЕ АВТОРИЗОВАН');
