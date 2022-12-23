@@ -10,25 +10,34 @@ import s from './selectedBook.module.css';
 const SelectedBook = props => {
 	props.setHeader(false);
 	const [book, setBook] = useState({
-		book: [""],
+		book: [''],
 		isLoading: true,
 	});
 	const [books, setBooks] = useState([]);
 	const { bookName } = useParams();
 
 	useEffect(() => {
-        axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/books?title=${bookName}`)
+		document.title = 'Каталог книг';
+	}, []);
+
+	useEffect(() => {
+		console.log(bookName);
+		axios
+			.get(
+				`https://ualib-orion.herokuapp.com/api/v1/library/books?title=${bookName}`
+			)
 			.then(res => {
 				const book = res.data;
-				setBook({book: book, isLoading: false})
-			})
-		axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/books`)
+				setBook({ book: book, isLoading: false });
+			});
+		axios
+			.get(`https://ualib-orion.herokuapp.com/api/v1/library/books`)
 			.then(res => {
 				const books = res.data;
-				setBooks(books)
-			})
-    }, [bookName, setBook]);
-	
+				setBooks(books);
+			});
+	}, [bookName, setBook]);
+
 	return (
 		<div className={s.container}>
 			<Link
@@ -40,11 +49,7 @@ const SelectedBook = props => {
 			>
 				<Btn />
 			</Link>
-			{/* {console.log(book)} */}
-			<Row
-				book={book}
-				books={books}
-			/>
+			<Row book={book} books={books} />
 		</div>
 	);
 };

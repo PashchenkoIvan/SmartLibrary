@@ -1,12 +1,16 @@
-import s from './Header.module.css';
+import { useEffect, useRef, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import HeaderMenu from '../HeaderMenu/HeaderMenu';
-import { useEffect, useRef, useState } from 'react';
 
-// import { useScroll } from 'framer-motion';
+
+import s from './Header.module.css';
+import { AuthContext } from '../../index';
+import HeaderMenu from './HeaderMenu/HeaderMenu';
+
+import { useScroll } from 'framer-motion';
 
 const Header = ({ menuActive, setMenuActive, header }) => {
-	// const { scrollY } = useScroll();
+	const { scrollY } = useScroll();
+	const {store} = useContext(AuthContext);
 
 	const background = useRef();
 	const whiteBackground = useRef();
@@ -25,7 +29,7 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 	}, [scrollYValue, menuActive]);
 
 	useEffect(() => {
-		// return scrollY.onChange(latest => setScrollYValue(latest));
+		return scrollY.onChange(latest => setScrollYValue(latest));
 	}, []);
 
 	useEffect(() => {
@@ -66,15 +70,37 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 					<Link to='/faq/making-orders' className={s.link}>
 						Як це працює
 					</Link>
-					<Link to='/admin/readers' className={s.link}>
+					{/* <Link to='/admin/readers' className={s.link}>
 						Бібліотекар
-					</Link>
-					<Link to='/' className={s.link}>
-						Вийти
-					</Link>
-					<Link to='/personPage' className={s.blueLink}>
-						Особистий кабінет
-					</Link>
+					</Link> */}
+					{store.status !== "anonym"
+						? (
+							<Link to='/' className={s.link} onClick={() => store.setStatus('anonym')}>
+								Вийти
+							</Link>
+						)
+						: ''
+					}
+					{store.status === "user"
+						? (
+							<Link to='/personPage' className={s.blueLink}>
+								Особистий кабінет
+							</Link>
+						)
+						: store.status === "librarian"
+						? (
+							<Link to='/admin/readers' className={s.blueLink}>
+								Адмін панель
+							</Link>
+						)
+						: (
+							<Link to='/login' className={s.blueLink}>
+								Увійти в особистий кабінет
+							</Link>
+						)
+					}
+
+					
 				</div>
 				<button
 					className={s.burger}

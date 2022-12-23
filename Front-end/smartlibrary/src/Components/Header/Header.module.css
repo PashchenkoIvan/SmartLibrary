@@ -14,7 +14,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 101;
+	z-index: 30;
 	width: 100%;
 	height: 100px;
 	background: url(./images/background.png);
@@ -25,7 +25,7 @@
 .whiteBackground {
 	position: absolute;
 	display: none;
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(80, 81, 151, 0.5);
 	top: 0;
 	left: 0;
 	z-index: 102;
@@ -35,7 +35,7 @@
 
 .whiteBackgroundShowed {
 	animation: showWhiteBg 0.2s ease;
-	box-shadow: 0px 8px 8px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 8px 8px 3px rgba(0, 0, 0, 0.1);
 }
 
 .whiteBackgroundHidden {
@@ -66,7 +66,8 @@
 	display: none;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-end;
+	gap: 30px;
 	@apply lg:flex;
 }
 
@@ -77,15 +78,19 @@
 }
 
 .blueLink {
-	color: white;
-	text-decoration: none;
-	font-size: 16px;
-	width: 180px;
-	height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	max-height: 40px;
+	padding: 16px;
+
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+	
 	background-color: #36bbcb;
+	border-radius: 3px;
 }
 
 .burger {
@@ -105,109 +110,21 @@
 	height: 30px;
 	stroke: white;
 }
-.menu {
-	position: absolute;
-	height: 100vh;
-	background-color: #fff;
-	z-index: 4;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	@apply lg:hidden;
-}
-
-.showedMenu {
-	top: calc(0vh + 100px);
-}
-
-.hiddenMenu {
-	top: calc(-100vh + 100px);
-}
-
-.showingMenu {
-	animation: show 0.2s ease;
-}
-
-.hidingMenu {
-	animation: hide 0.2s ease;
-}
-
-.columnMenu {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-}
-
-.item {
-	width: 100%;
-	height: 100px;
-	padding: 20px;
-	display: flex;
-	font-size: 20px;
-	font-weight: 500;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	@apply transition-all duration-75;
-}
-
-.isActive {
-	color: #fff;
-	background-color: #36bbcb;
-}
-
-.notActive {
-	color: #000;
-	background-color: transparent;
-}
-
-.contacts {
-	margin-top: auto;
-	width: 100%;
-	padding: 20px;
-	display: flex;
-	justify-content: space-between;
-	background-color: #d1d1d1;
-}
-
-.contacts a {
-	font-size: 12px;
-	font-weight: 500;
-}
-
-@keyframes show {
-	from {
-		top: calc(-100vh + 100px);
-	}
-	to {
-		top: calc(0vh + 100px);
-	}
-}
-
-@keyframes hide {
-	from {
-		top: calc(0vh + 100px);
-	}
-	to {
-		top: calc(-100vh + 100px);
-	}
-}
 
 @keyframes showWhiteBg {
 	from {
 		background-color: rgba(0, 0, 0, 0);
 	}
 	to {
-		background-color: rgba(255, 255, 255, 0.3);
-		box-shadow: 0px 8px 8px 3px rgba(0, 0, 0, 0.2);
+		background-color: rgba(80, 81, 151, 0.5);
+		box-shadow: 0px 8px 8px 3px rgba(0, 0, 0, 0.1);
 	}
 }
 
 @keyframes hideWhiteBg {
 	from {
-		background-color: rgba(255, 255, 255, 0.3);
-		box-shadow: 0px 8px 8px 3px rgba(0, 0, 0, 0.2);
+		background-color: rgba(80, 81, 151, 0.5);
+		box-shadow: 0px 8px 8px 3px rgba(0, 0, 0, 0.1);
 	}
 	to {
 		background-color: rgba(0, 0, 0, 0);

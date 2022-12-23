@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Form from '../../../../Form/Form';
 import fieldsData from '../CreateNews/fieldsData';
@@ -20,14 +20,21 @@ const EditNews = props => {
 		}
 	});
 
+	useEffect(() => {
+		document.title = 'Бібліотекар';
+	}, []);
+
 	const [news, setNews] = useState(initState);
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<h1>Редагування новини</h1>
 				<Link to='/admin/news'>Повернутись</Link>
+				<h1>Редагування новини</h1>
 			</div>
-			<Form main={fieldsData(news)} btns={[{title: "Оновити", type: "submit"}]} />
+			<Form
+				main={fieldsData(news)}
+				btns={[{ title: 'Оновити', type: 'submit' }]}
+			/>
 		</div>
 	);
 };

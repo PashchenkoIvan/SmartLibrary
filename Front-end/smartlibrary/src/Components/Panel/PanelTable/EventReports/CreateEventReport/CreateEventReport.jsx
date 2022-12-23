@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Form from '../../../../Form/Form';
 import s from './CreateEventReport.module.css';
 import fieldsData from './fieldsData';
 
 const CreateEventReport = props => {
+	useEffect(() => {
+		document.title = 'Бібліотекар';
+	}, []);
 	props.setHeader(false);
 	const { id } = useParams();
 	const [eventReport, setEventReport] = useState({
@@ -23,10 +26,10 @@ const CreateEventReport = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<h1>Створення звіту до заходу</h1>
 				<Link to='/admin/activities'>Повернутися</Link>
+				<h1>Створення звіту до заходу</h1>
 			</div>
-			<Form main={fieldsData(eventReport)} btns={[{title: "Додати звіт"}]} />
+			<Form main={fieldsData(eventReport)} btns={[{ title: 'Додати звіт' }]} />
 		</div>
 	);
 };

@@ -11,17 +11,31 @@ body {
 }
 
 button {
+	outline: none;
 	border: 0;
 	background: transparent;
+	transition: .2s;
+}
+
+button:hover {
+	opacity: .8;
 }
 
 a {
 	text-decoration: none;
 }
 
+.wrapper {
+	min-height: 100vh;
+}
+
+.router {
+	min-height: calc(100vh - 203px);
+}
+
 .hiddenForMenu {
-	overflow-y: hidden;
 	height: 100vh;
+	overflow-y: hidden;
 }
 
 @font-face {

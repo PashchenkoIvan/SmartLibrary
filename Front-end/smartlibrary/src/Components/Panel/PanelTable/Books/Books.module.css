@@ -30,3 +30,8 @@
 	align-items: center;
 	margin-right: 15px;
 }
+
+.tableContainer {
+	width: 100%;
+	overflow-x: scroll;
+}

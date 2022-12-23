@@ -95,7 +95,7 @@ const getState = (main = [], additional = []) => {
 }
 
 const postRequest = (data) =>
-	axios.post(`https://ualib-orion.herokuapp.com/api/v1/library/books`, data)
+	axios.post(`https://ualib-orion.herokuapp.com/api/v1/library/books`, {...data})
 		.then(res => {
 		console.log(res);
 		console.log(res.data);
@@ -124,7 +124,9 @@ const Form = props => {
 				: ''
 			}
 			{/* Кнопка отправки формы */}
-			{props.btns.map(btn => <input className={s.btn} type={btn.type} value={btn.title} />)}
+			<div className={s.btns}>
+				{props.btns.map(btn => <input className={s.btn} type={btn.type} value={btn.title} />)}
+			</div>
 		</form>
 	);
 };

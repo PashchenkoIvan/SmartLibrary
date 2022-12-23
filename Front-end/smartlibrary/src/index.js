@@ -7,15 +7,20 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import AuthRequests from './requests/AuthRequests';
 import BookRequests from './requests/BookRequests';
+import Store from "./providers/AuthProvider";
 
+export const store = new Store();
 export const RequestsContext = createContext();
+export const AuthContext = createContext({store})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<RequestsContext.Provider value={(AuthRequests, BookRequests)}>
-		<BrowserRouter>
-			<App state={state} />
-		</BrowserRouter>
+		<AuthContext.Provider value={{store}}>
+			<BrowserRouter>
+				<App state={state} />
+			</BrowserRouter>
+		</AuthContext.Provider>
 	</RequestsContext.Provider>
 );
 // If you want to start measuring performance in your app, pass a function

@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-
 import { Caption, Btn } from '.';
 import BookList from '../BookList/BookList';
 
@@ -13,7 +10,6 @@ const PopularBooks = props => {
         <div className={s.bookCatalog}>
             <div className={s.bookContainer}>
                 <Caption />
-                {/* {console.log(props.books)} */}
                 <BookList books={props.books} />
                 <Btn />
             </div>

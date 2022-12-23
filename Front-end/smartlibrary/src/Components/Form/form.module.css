@@ -21,15 +21,20 @@
     cursor: pointer;
 }
 
+.btns {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 25px;
+
+	width: 100%;
+}
+
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 40%;
+	min-width: 20%;
 
-    width: 40%;
-
-    padding: 14px 0;
-    margin: 0 auto;
+    padding: 14px 20px;
     
     background-color: #36bbcb;
     border-radius: 3px;
@@ -39,6 +44,7 @@
     font-size: 16px;
     letter-spacing: -0.2px;
     line-height: 18px;
+	text-align: center;
 }
 .btn:hover {
     opacity: 0.9;

@@ -6,11 +6,16 @@ import { QrIcon } from '../../../../img';
 import s from './singleBook.module.css';
 import sp from './popUps.module.css';
 import './popUps.css';
+import { useEffect } from 'react';
 
 const SingleBook = props => {
 	props.setHeader(false);
 	const { currentBookId } = useParams();
 	const [bookData, setDataBook] = useState(props.data.books);
+
+	useEffect(() => {
+		document.title = 'Каталог книг';
+	}, []);
 
 	const singleBookMap = bookData.map(b =>
 		b.id == currentBookId ? (

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Form from '../../../../Form/Form';
 import fieldsData from '../CreateNews/fieldsData';
@@ -8,6 +8,10 @@ const PublishNews = props => {
 	props.setHeader(false);
 	const { id } = useParams();
 	let initState = {};
+
+	useEffect(() => {
+		document.title = 'Бібліотекар';
+	}, []);
 
 	props.news.forEach(n => {
 		if (id == n.id) {
@@ -23,10 +27,13 @@ const PublishNews = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.header}>
-				<h1>Публікація новини</h1>
 				<Link to='/admin/news'>Повернутись</Link>
+				<h1>Публікація новини</h1>
 			</div>
-			<Form main={fieldsData(news)} btns={[{title: "Опіблікувати", type: "submit"}]} />
+			<Form
+				main={fieldsData(news)}
+				btns={[{ title: 'Опіблікувати', type: 'submit' }]}
+			/>
 		</div>
 	);
 };

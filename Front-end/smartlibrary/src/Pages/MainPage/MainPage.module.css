@@ -3,13 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
 ::-webkit-scrollbar {
     display: none;
 }
 .zahodi {
     width: 100%;
-    height: 550px;
     background-color: #ecf3fc;
     display: flex;
     align-items: center;
@@ -17,12 +17,12 @@
     padding-top: 50px;
 }
 .infoBlock {
-    width: 1300px;
-    /* height: 100%; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    margin-left: 500px;
 }
 .infoBlock h1 {
     font-size: 22px;
@@ -39,7 +39,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: center; */
 }
 .calendarBlock {
     width: 825px;
@@ -50,7 +49,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: end;
-    /* TODO: При добавлении календаря, поменяять на space-between */
     box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
 }
 .newsBlock {
@@ -85,7 +83,6 @@
     font-weight: 600;
     color: black;
     margin-bottom: 5px;
-    /* height: 40px; */
 }
 .underTitleText {
     font-size: 16px;
@@ -97,7 +94,6 @@
     width: 100%;
     height: 100%;
     background-color: white;
-    /* border-radius: 12px; */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -112,4 +108,59 @@
 .buttonBlock img {
     width: 30%;
     height: 40%;
+}
+@media screen and (min-width: 0px) {
+    .bottomBlock {
+        flex-direction: column;
+    }
+    .editBlock {
+        width: 27%;
+        margin: 25px 0;
+    }
+    .buttonBlock img {
+        width: 18%;
+    }
+    .infoBlock {
+        /* display: none; */
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 50px 0;
+    }
+}
+@media screen and (min-width: 1025px) {
+    .editBlock {
+        width: 200px;
+        margin-right: 20px;
+    }
+    .bottomBlock {
+        flex-direction: row;
+    }
+    .buttonBlock img {
+        width: 32%;
+    }
+    .bottomBlock {
+        width: 100%;
+    }
+    .infoBlock {
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-left: 600px;
+        margin-bottom: 0;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .buttonBlock img {
+        width: 30%;
+        height: 40%;
+    }
+    .bottomBlock {
+        width: 1500px;
+        margin-top: 33px;
+        flex-direction: row;
+        align-items: center;
+    }
+    .editBlock {
+        width: 300px;
+        margin-right: 40px;
+    }
 }

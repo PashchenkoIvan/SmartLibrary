@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import s from './FaqPage.module.css';
 
 const FaqPage = props => {
+	useEffect(() => {
+		document.title = 'Найчастіші запитання';
+	}, []);
 	props.setHeader(false);
 	return (
 		<div className={s.container}>

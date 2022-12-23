@@ -8,10 +8,9 @@ const BookList = props => {
   const [booksAmount, setBooksAmount] = useState(12);
 
   const bookCreating = (b, counter, isLoading) => {
-    console.log(b)
     if (counter < booksAmount) {
       return (
-        <Link to={`/${b.title}`} onClick={() => {window.scrollTo(0, 0)}}>
+        <Link to={isLoading ? `` : `selected-book/${b.title}`} onClick={() => {window.scrollTo(0, 0)}}>
           <Book isLoading={isLoading}
                 author={`#${b.author}`}
                 title={b.title}
@@ -35,7 +34,6 @@ const BookList = props => {
   return (
     <>
       <div className={s.bookList}>
-        {/* {console.log(props.books.books)} */}
         {bookMapAdd}
       </div>
       <div className={s.btnContainer}>

@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
 import tableData from './tableData';
-import AnnualReportingTable from './AnnualReportingTable/AnnualReportingTable';
 import Table from '../../../Table/Table';
+
+import s from './AnnualReporting.module.css';
 
 const AnnualReporting = props => {
 	const [annualReporting, setAnnualReporting] = useState(props.annualReporting);
 	return (
-		<div>
-			{/* <AnnualReportingTable annualReporting={annualReporting} /> */}
+		<div className={s.tableContainer}>
 			<Table data={annualReporting} keys={tableData()} />
 		</div>
 	);

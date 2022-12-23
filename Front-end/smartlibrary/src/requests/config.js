@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const API_URL = 'https://ualib-orion.herokuapp.com/api';
+export const API_URL = 'https://ualib-orion.herokuapp.com/api/';
 
 const $api = axios.create({
-	withCredentials: true,
+	xhrFields: { withCredentials: true },
 	baseURL: API_URL,
 	headers: {
 		'Access-Control-Allow-Origin': '*',
@@ -33,7 +33,7 @@ $api.interceptors.request.use(config => {
 // 			originalRequest._isRetry = true;
 // 			try {
 // 				const response = await axios.get(`${API_URL}/refresh`, {
-// 					withCredentials: true,
+// 					xhrFields: { withCredentials: true },
 // 				});
 // 				localStorage.setItem('token', response.data.accessToken);
 // 				return $api.request(originalRequest);

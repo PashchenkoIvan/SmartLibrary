@@ -1,30 +1,28 @@
-import s from './regPage.module.css';
+import { useEffect } from 'react';
+import { Form } from '../../Components/index';
 
-const regPage = props => {
+import s from './regPage.module.css';
+import formData from './formData';
+import { Link } from 'react-router-dom';
+
+const RegPage = props => {
+	useEffect(() => {
+		document.title = 'Вхід';
+	}, []);
 	props.setHeader(false);
 	return (
 		<div className={s.container}>
 			<div className={s.block}>
-				<h1>Регістрація</h1>
-				<div className={s.inputBlock}>
-					<p>ПІБ</p>
-					<input type='text' placeholder='ПІБ' />
-				</div>
-				<div className={s.inputBlock}>
-					<p>Серія і номер паспорта (без пробілів)</p>
-					<input type='text' placeholder='Серія і номер паспорта' />
-				</div>
-				<div className={s.inputBlock}>
-					<p>Email</p>
-					<input type='email' placeholder='Email' />
-				</div>
-				<div className={s.inputBlock}>
-					<p>Пароль</p>
-					<input type='password' placeholder='Пароль' />
-				</div>
-				<button>Регістрація</button>
+				<h1 className={s.caption}>Реєстрація</h1>
+				<Form main={formData()} btns={[{title: "Зареєструвати", type: "submit"}]} />
+				<Link
+					className={s.link}
+					to='/login'
+				>
+					У мене вже є аккаунт
+				</Link>
 			</div>
 		</div>
 	);
 };
-export default regPage;
+export default RegPage;

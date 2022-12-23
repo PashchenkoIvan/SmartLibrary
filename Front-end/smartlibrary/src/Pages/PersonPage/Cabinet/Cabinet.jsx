@@ -1,14 +1,14 @@
-import { React, useEffect } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import axios from 'axios';
 import Popup from 'reactjs-popup';
 import Calendar from 'react-calendar';
 import CyrillicToTranslit from 'cyrillic-to-translit-js';
+import { RequestsContext } from '../../../index';
 
 import Qr from '../image/qrcode.png';
 import s from './Cabinet.module.css';
-import sp from '../../../Components/Panel/PanelTable/Books/BooksTable/SingleBook/popUps.module.css';
+import sp from '../../../Components/Popup/popUps.module.css';
 import './CalendarStyle.css';
-import { useState } from 'react';
 
 // import 'react-calendar/dist/Calendar.css';
 
@@ -37,6 +37,21 @@ const subFormCategoriesMap = (categories) => {
 }
 
 const MySubcribesPopUp = props => {
+    const Requests = useContext(RequestsContext);
+    const [categories, setCategories] = useState({
+        // 5 макетных категорий
+        categories: ['', '', '', '', ''],
+        isLoading: true,
+    });
+
+    useEffect(() => {
+		Requests.GetBooksCategories().then(res => {
+			console.log(res.data);
+			const categories = res.data;
+			setCategories({categories: categories, isLoading: false})
+		})
+	}, [Requests]);
+
     return(
         <div>
             <div className={s.subFormTable}>
@@ -58,7 +73,7 @@ const MySubcribesPopUp = props => {
                 Нові надходження
             </div>
             <div className={s.subFormTable}>
-                {subFormCategoriesMap(props.categories)}
+                {subFormCategoriesMap(categories.categories)}
             </div>
         </div>
     )
@@ -141,10 +156,12 @@ const Cabinet = () => {
                                     <span>Мої підписки</span>
                                     <button className={sp.closeBtn} onClick={close}>×</button>
                                     </div>
-                                    <div className={sp.content}>
-                                        <MySubcribesPopUp categories={categories} />
-                                        <button className={sp.btn} onClick={() => {}}>Зберегти зміни</button>
-                                    </div>
+                                    <form className={sp.content}>
+                                        <div className={sp.table}>
+                                            <MySubcribesPopUp categories={categories} />
+                                        </div>
+                                        <input className={sp.btn} value="Зберегти зміни" type="submit" />
+                                    </form>
                                 </>
                             )}
                         </Popup>
