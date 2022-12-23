@@ -48,4 +48,10 @@ class BookSerializerWithAdditional(BookSerializer, serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ("title", "color")
+        fields = ("id","title", "color")
+        
+    def update(self, instance, validated_data):
+        instance.color = validated_data.get('color', instance.color)
+        instance.save()
+    
+        return instance

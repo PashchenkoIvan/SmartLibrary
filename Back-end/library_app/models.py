@@ -1,5 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
+from authentication.models import User
+
+from transliterate import translit
 
 class Book(models.Model):
         
@@ -173,4 +175,5 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
 
-
+    def translate_title(self) -> str:
+        return translit(self.title, language_code='uk', reversed=True).replace(" ", "_").lower()
