@@ -1,5 +1,7 @@
 from django.db import models
-from users.models import User
+from authentication.models import User
+
+from transliterate import translit
 
 class Book(models.Model):
         
@@ -7,7 +9,7 @@ class Book(models.Model):
     inventory_num = models.IntegerField(verbose_name='Інвентарний номер')
     author = models.CharField(max_length=200, verbose_name='Автор(и) книги')
     number_of_pages = models.IntegerField(verbose_name='Кількість сторінок')
-    publusher = models.CharField(max_length=100, verbose_name='Видавництво')
+    publisher = models.CharField(max_length=100, verbose_name='Видавництво')
     isbn = models.CharField(max_length=20, verbose_name='ISBN')  # A unique number of the book edition, necessary for the distribution of the book in retail chains
     book_type = models.CharField(max_length=1, verbose_name='Тип книги', choices=(
         ("D", "Електронна"),
@@ -22,8 +24,8 @@ class Book(models.Model):
     category = models.ManyToManyField("Category", related_name=("books"), verbose_name='Категорія')
     description = models.TextField(verbose_name='Опис книги', blank=True)
     time_to_read = models.IntegerField(verbose_name='Кількість днів на прочитання')
-    pubication_date = models.DateField(verbose_name='Точна дата видавництва', blank=True, null=True)
-    pubication_year = models.IntegerField(verbose_name='Рік видавництва')
+    publication_date = models.DateField(verbose_name='Точна дата видавництва', blank=True, null=True)
+    publication_year = models.IntegerField(verbose_name='Рік видавництва')
     city_of_publishing = models.CharField(max_length=70, verbose_name='Місто видавництва', blank=True)
     ubk = models.IntegerField(verbose_name='УБК шифр', blank=True, null=True)
     additional_type = models.CharField(max_length=1, default="B", verbose_name='Тип', choices=(
@@ -173,4 +175,5 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = 'Categories'
 
-
+    def translate_title(self) -> str:
+        return translit(self.title, language_code='uk', reversed=True).replace(" ", "_").lower()
