@@ -1,6 +1,7 @@
 .container {
     width: 1300px;
-    height: 300px;
+    min-height: 300px;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;

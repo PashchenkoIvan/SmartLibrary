@@ -9,6 +9,7 @@ import Qr from '../image/qrcode.png';
 import s from './Cabinet.module.css';
 import sp from '../../../Components/Panel/PanelTable/Books/BooksTable/SingleBook/popUps.module.css';
 import './CalendarStyle.css';
+import GCalendar from '../../../Components/GlobalCalendar/GCalendar';
 
 // import 'react-calendar/dist/Calendar.css';
 
@@ -167,12 +168,7 @@ const Cabinet = () => {
                         <button>Вийти з системи</button>
                     </div>
                 </div>
-                <div className={s.calendarBlock}>
-                    <div className={s.calendar}>
-                        <Calendar/>
-                    </div>
-                    <div className={s.infoBlock}></div>
-                </div>
+                <GCalendar/>
             </div>
         </div>
     )
