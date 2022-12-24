@@ -11,7 +11,7 @@ class BookSerializer(serializers.ModelSerializer):
                 'inventory_num',
                 'author',
                 'number_of_pages',
-                'publusher',
+                'publisher',
                 'isbn',
                 'book_type',
                 'language',
@@ -20,8 +20,8 @@ class BookSerializer(serializers.ModelSerializer):
                 'category',
                 'description',
                 'time_to_read',
-                'pubication_date',
-                'pubication_year',
+                'publication_date',
+                'publication_year',
                 'city_of_publishing',
                 'ubk',
                 'additional_type',
@@ -48,4 +48,10 @@ class BookSerializerWithAdditional(BookSerializer, serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ("title", "color")
+        fields = ("id","title", "color")
+        
+    def update(self, instance, validated_data):
+        instance.color = validated_data.get('color', instance.color)
+        instance.save()
+    
+        return instance

@@ -140,3 +140,22 @@
 .categoryDelete {
     background: #F54B23;
 }
+@media screen and (min-width: 0px) {
+    .container {
+        width: 100%;
+        margin-top: 50px;
+        overflow-x: scroll;
+    }
+    .tableTopBar {
+        width: 700px;
+    }
+    .bookBlock {
+        width: 700px;
+    }
+}
+@media screen and (min-width: 1025px) {
+    .container {
+        width: 60%;
+        margin-top: 0;
+    }
+}
