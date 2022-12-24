@@ -1,9 +1,11 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../..';
 
 import s from './HeaderMenu.module.css';
 
 const HeaderMenu = ({ menuActive, setMenuActive }) => {
+	const Auth = useContext(AuthContext);
 	const menu = useRef(null);
 	const [rendersCount, setRendersCount] = useState(0);
 
@@ -37,56 +39,72 @@ const HeaderMenu = ({ menuActive, setMenuActive }) => {
 				setMenuActive(false);
 			}}
 		>
-			{/* <div className={s.header} /> */}
 			<div className={s.columnMenu}>
 				<NavLink
+					to='/catalog'
 					className={navData =>
 						(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
 					}
-					to='/catalog'
 				>
 					Каталог книг
 				</NavLink>
 				<NavLink
+					to='/contacts'
 					className={navData =>
 						(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
 					}
-					to='/contacts'
 				>
 					Контакти
 				</NavLink>
 				<NavLink
+					to='/faq/making-orders'
 					className={navData =>
 						(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
 					}
-					to='./faq/making-orders'
 				>
 					Як це працює
 				</NavLink>
-				<NavLink
-					className={navData =>
-						(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
-					}
-					to='/admin/readers'
-				>
-					Бібліотекар
-				</NavLink>
-				<NavLink
-					className={navData =>
-						(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
-					}
-					to=''
-				>
-					Вийти
-				</NavLink>
-				<NavLink
-					className={navData =>
-						(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
-					}
-					to='/personPage'
-				>
-					Особистий кабінет
-				</NavLink>
+				{Auth.status !== 'anonym' ? (
+					<NavLink
+						to='/'
+						className={navData =>
+							(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
+						}
+						onClick={() => Auth.makeLogout()}
+					>
+						Вийти
+					</NavLink>
+				) : (
+					''
+				)}
+				{Auth.status === 'user' ? (
+					<NavLink
+						to='/personPage'
+						className={navData =>
+							(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
+						}
+					>
+						Особистий кабінет
+					</NavLink>
+				) : Auth.status === 'librarian' ? (
+					<NavLink
+						to='/admin/readers'
+						className={navData =>
+							(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
+						}
+					>
+						Адмін панель
+					</NavLink>
+				) : (
+					<NavLink
+						to='/login'
+						className={navData =>
+							(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
+						}
+					>
+						Увійти в особистий кабінет
+					</NavLink>
+				)}
 			</div>
 			<div className={s.contacts}>
 				<a href='tel:+380932226111'>+38 093 22 26 111</a>

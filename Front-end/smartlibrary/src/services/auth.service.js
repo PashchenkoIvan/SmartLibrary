@@ -1,138 +1,139 @@
-import axios from 'axios'
+import axios from 'axios';
 // import { Navigate, redirect } from "react-router-dom";
 
-import { setStatus } from '../index'
-import { Http } from './http.init'
+import { setStatus } from '../index';
+import { Http } from './http.init';
 
-import { API_URL } from '../.env'
+import { API_URL } from '../.env';
 
-let BEARER = ''
-let EXP = 0
-
+let BEARER = '';
+let EXP = 0;
 
 export default class AuthService {
-  status = 'anonym';
-  /**
-   ******************************
-   * @API
-   ******************************
-  */
+	status = 'anonym';
+	/**
+	 ******************************
+	 * @API
+	 ******************************
+	 */
 
-  static async makeLogin ({ email, password }) {
-    try {
-      const response = await axios.post(`${API_URL}token/`,
-        { email, password }).then(function(result) {
-            _setAuthData({
-              accessToken: result.data.access,
-              exp: _parseTokenData(result.data.access).exp
-            })
-            return result;
-          }
-        ).then(function(result) {
-          console.log(result);
-          return result;
-        })
-        .finally(function(result) {
-          return (_parseTokenData(result.data.access))
-        })
-        
-      // debugger;
-      // return 1;
-    } catch (e) {
-        console.log(e.response?.data?.message);
-    }
-  }
+	static async makeLogin({ email, password }) {
+		try {
+			const response = await axios
+				.post(`${API_URL}token/`, { email, password })
+				.then(function (result) {
+					_setAuthData({
+						accessToken: result.data.access,
+						exp: _parseTokenData(result.data.access).exp,
+					});
+					return result;
+				})
+				.then(result => _parseTokenData(result.data.access));
+			// debugger;
+			// return 1;
+		} catch (e) {
+			console.log(e.response?.data?.message);
+		}
+	}
 
-  static async makeLogout () {
-    try {
-      const response = await new Http({ auth: true }).post('auth/logout', {}, { xhrFields: { withCredentials: true } })
-      _resetAuthData()
-    } catch (e) {
-      console.log(e.response?.data?.message);
-    }
-  }
+	static async makeLogout() {
+		try {
+			const response = await new Http({ auth: true }).post(
+				'auth/logout',
+				{},
+				{ xhrFields: { withCredentials: true } }
+			);
+			_resetAuthData();
+		} catch (e) {
+			console.log(e.response?.data?.message);
+		}
+	}
 
-  static async refreshTokens () {
-    try {
-      const response = await axios.post(`${API_URL}auth/refresh-tokens`, {
+	static async refreshTokens() {
+		try {
+			const response = await axios.post(
+				`${API_URL}auth/refresh-tokens`,
+				{},
+				{ xhrFields: { withCredentials: true } }
+			);
+			_setAuthData({
+				accessToken: response.data.data.accessToken,
+			});
+		} catch (e) {
+			console.log(e.response?.data?.message);
+			_resetAuthData();
+		}
+	}
 
-      }, {xhrFields: { withCredentials: true }})
-      _setAuthData({
-        accessToken: response.data.data.accessToken,
-      })
-    } catch (e) {
-      console.log(e.response?.data?.message);
-      _resetAuthData()
-    }
-  }
+	static debounceRefreshTokens = this._debounce(() => {
+		return this.refreshTokens();
+	}, 100);
 
-  static debounceRefreshTokens = this._debounce(() => {
-    return this.refreshTokens()
-  }, 100)
+	/**
+	 ******************************
+	 * @METHODS
+	 ******************************
+	 */
 
-  /**
-   ******************************
-   * @METHODS
-   ******************************
-   */
+	static isAccessTokenExpired() {
+		const accessTokenExpDate = this.getAccessTokenExp() - 10;
+		const nowTime = Math.floor(new Date().getTime() / 1000);
 
-  static isAccessTokenExpired () {
-    const accessTokenExpDate = this.getAccessTokenExp() - 10
-    const nowTime = Math.floor(new Date().getTime() / 1000)
+		return accessTokenExpDate <= nowTime;
+	}
 
-    return accessTokenExpDate <= nowTime
-  }
+	static hasRefreshToken() {
+		return Boolean(localStorage.getItem('refreshToken'));
+	}
 
-  static hasRefreshToken () {
-    return Boolean(localStorage.getItem('refreshToken'))
-  }
+	static setRefreshToken(status) {
+		if (!['', 'true'].includes(status)) {
+			throw new Error(
+				`setRefreshToken: invalid value ${status}; Expect one of ['', 'true']`
+			);
+		}
 
-  static setRefreshToken (status) {
-    if (!['', 'true'].includes(status)) {
-      throw new Error(`setRefreshToken: invalid value ${status}; Expect one of ['', 'true']`)
-    }
+		localStorage.setItem('refreshToken', status);
+	}
 
-    localStorage.setItem('refreshToken', status)
-  }
+	static getBearer() {
+		return BEARER;
+	}
 
-  static getBearer () {
-    return BEARER
-  }
+	static setBearer(accessToken) {
+		BEARER = `Bearer ${accessToken}`;
+	}
 
-  static setBearer (accessToken) {
-    BEARER = `Bearer ${accessToken}`
-  }
+	static getAccessTokenExp() {
+		return EXP;
+	}
 
-  static getAccessTokenExp () {
-    return EXP
-  }
+	static setAccessTokenExp(exp) {
+		EXP = exp;
+	}
 
-  static setAccessTokenExp (exp) {
-    EXP = exp
-  }
+	/**
+	 * https://stackoverflow.com/questions/35228052/debounce-function-implemented-with-promises
+	 * @param inner
+	 * @param ms
+	 * @returns {function(...[*]): Promise<unknown>}
+	 * @private
+	 */
+	static _debounce(inner, ms = 0) {
+		let timer = null;
+		let resolves = [];
 
-  /**
-   * https://stackoverflow.com/questions/35228052/debounce-function-implemented-with-promises
-   * @param inner
-   * @param ms
-   * @returns {function(...[*]): Promise<unknown>}
-   * @private
-   */
-  static _debounce (inner, ms = 0) {
-    let timer = null
-    let resolves = []
+		return function () {
+			clearTimeout(timer);
+			timer = setTimeout(() => {
+				const result = inner();
+				resolves.forEach(r => r(result));
+				resolves = [];
+			}, ms);
 
-    return function () {
-      clearTimeout(timer)
-      timer = setTimeout(() => {
-        const result = inner()
-        resolves.forEach(r => r(result))
-        resolves = []
-      }, ms)
-
-      return new Promise(resolve => resolves.push(resolve))
-    }
-  }
+			return new Promise(resolve => resolves.push(resolve));
+		};
+	}
 }
 
 /**
@@ -141,28 +142,28 @@ export default class AuthService {
  ******************************
  */
 
-function _parseTokenData (accessToken) {
-  let payload = ''
-  let tokenData = {}
+function _parseTokenData(accessToken) {
+	let payload = '';
+	let tokenData = {};
 
-  try {
-    payload = accessToken.split('.')[1]
-    tokenData = JSON.parse(atob(payload))
-  } catch (error) {
-    throw new Error(error)
-  }
+	try {
+		payload = accessToken.split('.')[1];
+		tokenData = JSON.parse(atob(payload));
+	} catch (error) {
+		throw new Error(error);
+	}
 
-  return tokenData
+	return tokenData;
 }
 
-function _resetAuthData () {
-  // reset tokens
-  AuthService.setRefreshToken('')
-  AuthService.setBearer('')
+function _resetAuthData() {
+	// reset tokens
+	AuthService.setRefreshToken('');
+	AuthService.setBearer('');
 }
 
-function _setAuthData ({ accessToken, exp } = {}) {
-  AuthService.setRefreshToken('true')
-  AuthService.setBearer(accessToken)
-  AuthService.setAccessTokenExp(exp)
+function _setAuthData({ accessToken, exp } = {}) {
+	AuthService.setRefreshToken('true');
+	AuthService.setBearer(accessToken);
+	AuthService.setAccessTokenExp(exp);
 }
