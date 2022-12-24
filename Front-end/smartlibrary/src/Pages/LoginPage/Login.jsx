@@ -1,24 +1,33 @@
 import { useEffect, useContext } from 'react';
+import { Link, useNavigate, Navigate, redirect, useHistory } from 'react-router-dom';
+
 import { Form } from '../../Components/index';
+import { AuthContext } from '../../index';
 
 import s from './Login.module.css';
 import formData from './formData';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../index';
-
 
 const Login = props => {
-	const {store} = useContext(AuthContext);
+	const navigate = useNavigate()
+	const Auth = useContext(AuthContext);
 
 	useEffect(() => {
 		document.title = 'Вхід';
 	}, []);
+
+	useEffect(() => {
+		console.log(Auth.status);
+		if (Auth.status === 'user') {
+			return <Navigate replace to="/personPage" />
+		}
+	}, [Auth.status]);
+
 	props.setHeader(false);
 	return (
 		<div className={s.container}>
 			<div className={s.block}>
 				<h1 className={s.caption}>Авторизація</h1>
-				<Form main={formData()} btns={[{title: "Вхід до аккаунту", type: "submit", post: "login", onclick: (email, password) => store.login(email, password)}]} />
+				<Form main={formData()} btns={[{ title: "Вхід до аккаунту", type: "submit", post: "login", onclick: () => setTimeout(() => Auth.status === 'anonym' ? console.log(0) : navigate("/"), 2000)}]} />
 				<Link
 					className={s.link}
 					to='/registration'

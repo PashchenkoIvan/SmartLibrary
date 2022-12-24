@@ -9,7 +9,7 @@ import MainVideoBlock from '../../Components/MainVideoBlock/MainVideoBlock';
 const MainPage = props => {
 	props.setHeader(true);
 
-	const {store} = useContext(AuthContext);
+	const Auth = useContext(AuthContext);
 
 	useEffect(() => {
 		document.title = 'Головна';
@@ -50,7 +50,7 @@ const MainPage = props => {
 				</div>
 			</div>
 
-			{store.status === "user" ? <RecommendedBooks books={props.books} /> : ''}
+			{Auth.status === "user" ? <RecommendedBooks books={props.books} /> : ''}
 			<PopularBooks books={props.books} />
 		</div>
 	);

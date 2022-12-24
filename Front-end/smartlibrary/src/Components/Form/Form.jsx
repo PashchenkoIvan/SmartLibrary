@@ -1,6 +1,6 @@
 import { React, useState, useEffect, useContext } from 'react';
-import { RequestsContext, AuthContext } from '../../index';
-import axios from 'axios';
+import { RequestsContext, AuthContext, status } from '../../index';
+import { Navigate, redirect } from 'react-router-dom';
 
 import s from './form.module.css';
 
@@ -37,7 +37,7 @@ const field = (data, state, setState) => {
 				return (
 					<input
 						type={type}
-						value={value}
+						value={state[`${name}`]}
 						name={name}
 						onChange={e =>
 							setState({
@@ -89,15 +89,12 @@ const getState = (main = [], additional = []) => {
 	const additionalParsing = additional.map(f => {
 		obj[f.name] = `${f.value !== undefined ? f.value : ''}`;
 	})
-	// console.log(mainParsing);
-	// console.log(additionalParsing);
-	// console.log(obj);
 	return obj
 }
 
 const Form = props => {
 	const Requests = useContext(RequestsContext);
-    const {store} = useContext(AuthContext);
+	const Auth = useContext(AuthContext);
 
 	const obj = getState(props.main, props.additional)
 	const [state, setState] = useState({...obj});
@@ -106,15 +103,17 @@ const Form = props => {
 	useEffect(() => {}, [isHidden]);
 
 	const postRequest = (data, btns) => {
-		console.log(btns.filter(btn => btn.post === 'add-book'));
-		console.log({...data});
+		// console.log(btns.filter(btn => btn.post === 'add-book'));
+		// console.log({...data});
 		if (btns.filter(btn => btn.post === 'add-book').length > 0) {
 			Requests.AddBook({...data}).then(res => {
 				const book = res.data;
 				console.log(book);
 			});
 		} else if (btns.filter(btn => btn.post === 'login').length > 0) {
-			store.login(data.email, data.password)
+			if (Auth.AuthService.makeLogin({email: data.email, password: data.password})) {
+				Auth.status = 'user'
+			}
 		} else {}
 	}
 		

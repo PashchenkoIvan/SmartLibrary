@@ -1,39 +1,39 @@
 import $api from './config';
-
+import { Http } from '../services/http.init';
 export default class BookRequests {
-	static GetBooks = () => {
-		return $api.get('/v1/library/books/');
+	static async GetBooks() {
+		return await new Http({ auth: false }).get('/library/books/');
 	};
 
 	static AddBook = data => {
-		return $api.post('/v1/library/books/', {...data});
+		return $api.post('/library/books/', {...data});
 	};
 
-	static GetBooksCategories = () => {
-		return $api.get('/v1/library/categories/');
+	static async GetBooksCategories() {
+		return await new Http({ auth: false }).get('/library/categories/');
 	};
 
 	static category = () => {
-		return $api.post('/v1/library/categories/', {});
+		return $api.post('/library/categories/', {});
 	};
 
 	static GetBooksCategory = category => {
-		return $api.get(`/v1/library/categories?title=${category}/`);
+		return $api.get(`/library/categories?title=${category}/`);
 	};
 
 	static DeleteBooksCategory = category => {
-		return $api.delete(`/v1/library/categories?title=${category}/`);
+		return $api.delete(`/library/categories?title=${category}/`);
 	};
 
 	static ChangeBooksCategory = (title, data) => {
-		return $api.post(`/v1/library/categories?title=${title}/`, {...data});
+		return $api.post(`/library/categories?title=${title}/`, {...data});
 	};
 
 	static AddBooksCategory = category => {
-		return $api.post('/v1/library/categories/', {...category});
+		return $api.post('/library/categories/', {...category});
 	};
 
 	static GetBoosByTitle = title => {
-		return $api.get(`/v1/library/books?title=${title}/`);
+		return $api.get(`/library/books?title=${title}/`);
 	};
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_URL = 'https://ualib-orion.herokuapp.com/api/';
+export const API_URL = 'https://ualib-orion.herokuapp.com/api/v1/';
 
 const $api = axios.create({
 	xhrFields: { withCredentials: true },
@@ -15,7 +15,7 @@ const $api = axios.create({
 });
 
 $api.interceptors.request.use(config => {
-	config.headers.Authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcxNzg5NzU5LCJpYXQiOjE2NzE3ODk0NTksImp0aSI6ImM1NzkwMTRkMmQ4ZDQxMDNhOWJhYzdkYjJkZjZmYTM2IiwidXNlcl9pZCI6MX0.tqoOSWrHv0S47E0Q51NqTEi8jwawWA-ZGIv1D_r3Isg`;
+	config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
 	return config;
 });
 

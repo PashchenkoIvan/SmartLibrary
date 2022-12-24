@@ -10,7 +10,8 @@ import { useScroll } from 'framer-motion';
 
 const Header = ({ menuActive, setMenuActive, header }) => {
 	const { scrollY } = useScroll();
-	const {store} = useContext(AuthContext);
+	const Auth = useContext(AuthContext);
+
 
 	const background = useRef();
 	const whiteBackground = useRef();
@@ -73,21 +74,21 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 					{/* <Link to='/admin/readers' className={s.link}>
 						Бібліотекар
 					</Link> */}
-					{store.status !== "anonym"
+					{Auth.status !== "anonym"
 						? (
-							<Link to='/' className={s.link} onClick={() => store.setStatus('anonym')}>
+							<Link to='/' className={s.link} onClick={() => Auth.makeLogout()}>
 								Вийти
 							</Link>
 						)
 						: ''
 					}
-					{store.status === "user"
+					{Auth.status === "user"
 						? (
 							<Link to='/personPage' className={s.blueLink}>
 								Особистий кабінет
 							</Link>
 						)
-						: store.status === "librarian"
+						: Auth.status === "librarian"
 						? (
 							<Link to='/admin/readers' className={s.blueLink}>
 								Адмін панель
