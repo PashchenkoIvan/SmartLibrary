@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useRef, useState, useEffect, createContext, useContext } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 import { BooksCatalog, Header, SelectedBook, Error404 } from './Components/';
 
 import MainPage from './Pages/MainPage/MainPage';
@@ -15,7 +15,7 @@ import CreateEventReport from './Components/Panel/PanelTable/EventReports/Create
 import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
 import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
 import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews';
-import RegPage from './Pages/regPage/regPage';
+import RegPage from './Pages/RegPage/RegPage';
 import Login from './Pages/LoginPage/Login';
 import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews';
 import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews';
@@ -54,13 +54,13 @@ function App(props) {
 	// }, []);
 
 	useEffect(() => {
-		Requests.GetBooks().then(res => {
+		Requests.BookRequests.GetBooks().then(res => {
 			const books = res.data;
 			console.log(books);
 			setBooks({ books: books, isLoading: false });
 		});
 
-		Requests.GetBooksCategories().then(res => {
+		Requests.BookRequests.GetBooksCategories().then(res => {
 			const categories = res.data;
 			setCategories({ categories: categories, isLoading: false });
 		});

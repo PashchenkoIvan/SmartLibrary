@@ -7,6 +7,7 @@ import { Http } from './http.init'
 import { API_URL } from '../.env'
 
 let BEARER = ''
+let EXP = 0
 
 
 export default class AuthService {
@@ -20,12 +21,23 @@ export default class AuthService {
   static async makeLogin ({ email, password }) {
     try {
       const response = await axios.post(`${API_URL}token/`,
-        { email, password })
-      console.log(response);
-      _setAuthData({
-        accessToken: response.data.access,
-      })
-      return true;
+        { email, password }).then(function(result) {
+            _setAuthData({
+              accessToken: result.data.access,
+              exp: _parseTokenData(result.data.access).exp
+            })
+            return result;
+          }
+        ).then(function(result) {
+          console.log(result);
+          return result;
+        })
+        .finally(function(result) {
+          return (_parseTokenData(result.data.access))
+        })
+        
+      // debugger;
+      // return 1;
     } catch (e) {
         console.log(e.response?.data?.message);
     }
@@ -64,6 +76,13 @@ export default class AuthService {
    ******************************
    */
 
+  static isAccessTokenExpired () {
+    const accessTokenExpDate = this.getAccessTokenExp() - 10
+    const nowTime = Math.floor(new Date().getTime() / 1000)
+
+    return accessTokenExpDate <= nowTime
+  }
+
   static hasRefreshToken () {
     return Boolean(localStorage.getItem('refreshToken'))
   }
@@ -82,6 +101,14 @@ export default class AuthService {
 
   static setBearer (accessToken) {
     BEARER = `Bearer ${accessToken}`
+  }
+
+  static getAccessTokenExp () {
+    return EXP
+  }
+
+  static setAccessTokenExp (exp) {
+    EXP = exp
   }
 
   /**
@@ -114,19 +141,19 @@ export default class AuthService {
  ******************************
  */
 
-// function _parseTokenData (accessToken) {
-//   let payload = ''
-//   let tokenData = {}
+function _parseTokenData (accessToken) {
+  let payload = ''
+  let tokenData = {}
 
-//   try {
-//     payload = accessToken.split('.')[1]
-//     tokenData = JSON.parse(atob(payload))
-//   } catch (error) {
-//     throw new Error(error)
-//   }
+  try {
+    payload = accessToken.split('.')[1]
+    tokenData = JSON.parse(atob(payload))
+  } catch (error) {
+    throw new Error(error)
+  }
 
-//   return tokenData
-// }
+  return tokenData
+}
 
 function _resetAuthData () {
   // reset tokens
@@ -134,7 +161,8 @@ function _resetAuthData () {
   AuthService.setBearer('')
 }
 
-function _setAuthData ({ accessToken } = {}) {
+function _setAuthData ({ accessToken, exp } = {}) {
   AuthService.setRefreshToken('true')
   AuthService.setBearer(accessToken)
+  AuthService.setAccessTokenExp(exp)
 }

@@ -111,9 +111,18 @@ const Form = props => {
 				console.log(book);
 			});
 		} else if (btns.filter(btn => btn.post === 'login').length > 0) {
-			if (Auth.AuthService.makeLogin({email: data.email, password: data.password})) {
-				Auth.status = 'user'
-			}
+			// new Promise(
+				
+			// 	).then(function(result) {
+			// 	console.log(result)
+			// })
+			// if (Auth.AuthService.makeLogin({email: data.email, password: data.password})) {
+			// 	console.log(1);
+			// } else {
+			// 	console.log(2);
+			// }
+			console.log(Auth.AuthService.makeLogin({email: data.email, password: data.password}));
+			setTimeout(() => Auth.status = 'user', 1000)
 		} else {}
 	}
 		

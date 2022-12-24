@@ -23,10 +23,8 @@ export class Http {
     if (this.isAuth) {
       this.instance.interceptors.request.use(request => {
         request.headers.authorization = AuthService.getBearer()
-        // if refreshToken is exist >> go to API and get new access token
-        // тут при каждом запросе будет приходить новая пара токенов,
-        // надо добавить условие на проверку валидности access токена
-        if (AuthService.hasRefreshToken()) {
+        // if access token expired and refreshToken is exist >> go to API and get new access token
+        if (AuthService.isAccessTokenExpired() && AuthService.hasRefreshToken()) {
           return AuthService.debounceRefreshTokens()
             .then(response => {
               AuthService.setBearer(response.data.accessToken)

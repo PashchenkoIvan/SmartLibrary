@@ -5,8 +5,8 @@ import state from './redux/state';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import AuthRequests from './requests/AuthRequests';
 import BookRequests from './requests/BookRequests';
+import UserRequests from './requests/UserRequests';
 import Store from "./providers/AuthProvider";
 import AuthService from "./services/auth.service";
 
@@ -23,7 +23,7 @@ export const AuthContext = createContext({AuthService, status, setStatus})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<RequestsContext.Provider value={(AuthRequests, BookRequests)}>
+	<RequestsContext.Provider value={{UserRequests, BookRequests}}>
 		<AuthContext.Provider value={{AuthService, status, setStatus}}>
 			<BrowserRouter>
 				<App state={state} />
