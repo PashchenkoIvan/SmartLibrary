@@ -1,12 +1,12 @@
 .container {
-    max-width: 1200px;
-    padding: 0 15px;
-    margin: 5em auto;
+	max-width: 1200px;
+	padding: 0 15px;
+	margin: 5em auto;
 }
 
 .row {
-    display: flex;
-    gap: 30px;
-    
-    width: 100%;
+	display: flex;
+	gap: 30px;
+	width: 100%;
+	@apply flex-col sm:flex-row;
 }

@@ -1,54 +1,54 @@
 .container {
-    width: 25%;
-    height: fit-content;
+	height: fit-content;
 
-    padding: 20px;
+	padding: 20px;
 
-    border: 1px solid #efefef;
+	border: 1px solid #efefef;
 
-    -webkit-box-shadow: 0 3px 5px 0 rgb(0 0 0 / 3%);
-    box-shadow: 0 3px 5px 0 rgb(0 0 0 / 3%);
+	-webkit-box-shadow: 0 3px 5px 0 rgb(0 0 0 / 3%);
+	box-shadow: 0 3px 5px 0 rgb(0 0 0 / 3%);
+	@apply w-full sm:w-1/4;
 }
 
 .caption {
-    padding: 10px 0 20px;
+	padding: 10px 0 20px;
 
-    color: #000;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.1;
+	color: #000;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.1;
 }
 
 .categoryList {
-    list-style: none;
+	list-style: none;
 }
 
 .singleCategory {
-    padding: 14px;
-    border-top: 1px solid #e8e8e8;
+	padding: 14px;
+	border-top: 1px solid #e8e8e8;
 }
 
 .categoryLink {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
-    width: 100%;
+	width: 100%;
 
-    padding-left: 10px;
+	padding-left: 10px;
 
-    color: #000;
-    font-weight: 400;
-    line-height: 1.2;
+	color: #000;
+	font-weight: 400;
+	line-height: 1.2;
 
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .categoryLink:hover {
-    color: #36bbcb;
-    transition: 0.2s;
+	color: #36bbcb;
+	transition: 0.2s;
 }
 
 .activeCategoryLink {
-    color: #36bbcb !important;
+	color: #36bbcb !important;
 }

@@ -22,11 +22,10 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 	}, [header]);
 
 	useEffect(() => {
-		console.log(scrollYValue);
-		if (scrollYValue == 0 && menuActive)
+		if (menuActive)
 			document.querySelector('body').classList.add('hiddenForMenu');
 		else document.querySelector('body').classList.remove('hiddenForMenu');
-	}, [scrollYValue, menuActive]);
+	}, [menuActive]);
 
 	useEffect(() => {
 		return scrollY.onChange(latest => setScrollYValue(latest));
@@ -106,7 +105,6 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 					className={s.burger}
 					onClick={() => {
 						setMenuActive(!menuActive);
-						window.scroll(0, 0);
 					}}
 				>
 					<svg
