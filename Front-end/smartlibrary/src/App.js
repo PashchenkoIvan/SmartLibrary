@@ -66,6 +66,16 @@ function App(props) {
 		});
 	}, [Requests]);
 
+	useEffect(() => {
+		if (localStorage.getItem('refresh') !== '') {
+			Auth.AuthService.refreshTokens().then(
+				res => (Auth.status = res ? 'librarian' : 'user')
+			);
+		} else {
+			Auth.status = 'anonym';
+		}
+	}, []);
+
 	const wrapper = useRef();
 	const router = useRef();
 
