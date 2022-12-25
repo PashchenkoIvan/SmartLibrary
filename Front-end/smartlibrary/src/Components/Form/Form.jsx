@@ -139,7 +139,7 @@ const Form = props => {
 					password: data.password,
 				})
 			).then(() => {
-				Auth.status = 'user';
+				Auth.status = 'librarian';
 				console.log(Auth);
 			});
 		} else {

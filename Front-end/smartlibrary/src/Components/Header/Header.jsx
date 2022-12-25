@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-
 import s from './Header.module.css';
 import { AuthContext } from '../../index';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
@@ -11,7 +10,6 @@ import { useScroll } from 'framer-motion';
 const Header = ({ menuActive, setMenuActive, header }) => {
 	const { scrollY } = useScroll();
 	const Auth = useContext(AuthContext);
-
 
 	const background = useRef();
 	const whiteBackground = useRef();
@@ -36,13 +34,17 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 	useEffect(() => {
 		if (header) {
 			if (scrollYValue > 0) {
-				whiteBackground.current.style.display = 'block';
+				whiteBackground.current.classList.add(s.whiteBackgroundBlock);
+				whiteBackground.current.classList.remove(s.whiteBackgroundNone);
 				whiteBackground.current.classList.add(s.whiteBackgroundShowed);
 				whiteBackground.current.classList.remove(s.whiteBackgroundHidden);
 			} else {
 				whiteBackground.current.classList.remove(s.whiteBackgroundShowed);
 				whiteBackground.current.classList.add(s.whiteBackgroundHidden);
-				setTimeout(() => (whiteBackground.current.style.display = 'none'), 200);
+				setTimeout(
+					() => whiteBackground.current.classList.add(s.whiteBackgroundNone),
+					200
+				);
 			}
 		}
 	}, [scrollYValue]);
@@ -74,34 +76,26 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 					{/* <Link to='/admin/readers' className={s.link}>
 						Бібліотекар
 					</Link> */}
-					{Auth.status !== "anonym"
-						? (
-							<Link to='/' className={s.link} onClick={() => Auth.makeLogout()}>
-								Вийти
-							</Link>
-						)
-						: ''
-					}
-					{Auth.status === "user"
-						? (
-							<Link to='/personPage' className={s.blueLink}>
-								Особистий кабінет
-							</Link>
-						)
-						: Auth.status === "librarian"
-						? (
-							<Link to='/admin/readers' className={s.blueLink}>
-								Адмін панель
-							</Link>
-						)
-						: (
-							<Link to='/login' className={s.blueLink}>
-								Увійти в особистий кабінет
-							</Link>
-						)
-					}
-
-					
+					{Auth.status !== 'anonym' ? (
+						<Link to='/' className={s.link} onClick={() => Auth.makeLogout()}>
+							Вийти
+						</Link>
+					) : (
+						''
+					)}
+					{Auth.status === 'user' ? (
+						<Link to='/personPage' className={s.blueLink}>
+							Особистий кабінет
+						</Link>
+					) : Auth.status === 'librarian' ? (
+						<Link to='/admin/readers' className={s.blueLink}>
+							Адмін панель
+						</Link>
+					) : (
+						<Link to='/login' className={s.blueLink}>
+							Увійти в особистий кабінет
+						</Link>
+					)}
 				</div>
 				<button
 					className={s.burger}

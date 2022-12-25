@@ -26,9 +26,10 @@ export default class AuthService {
 						accessToken: result.data.access,
 						exp: _parseTokenData(result.data.access).exp,
 					});
+					console.log(result);
 					return result;
 				})
-				.then(result => _parseTokenData(result.data.access));
+				.then(result => console.log(result.data));
 			// debugger;
 			// return 1;
 		} catch (e) {

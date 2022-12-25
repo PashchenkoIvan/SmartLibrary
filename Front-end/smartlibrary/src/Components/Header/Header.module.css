@@ -8,6 +8,7 @@
 	display: flex;
 	justify-content: center;
 	background: transparent;
+	@apply lg:relative;
 }
 
 .background {
@@ -24,7 +25,6 @@
 
 .whiteBackground {
 	position: absolute;
-	display: none;
 	background-color: rgba(80, 81, 151, 0.5);
 	top: 0;
 	left: 0;
@@ -41,6 +41,15 @@
 .whiteBackgroundHidden {
 	animation: hideWhiteBg 0.2s ease;
 }
+
+.whiteBackgroundBlock {
+	display: block;
+}
+
+.whiteBackgroundNone {
+	display: none;
+}
+
 .inner {
 	max-width: 1340px;
 	width: 100vw;
@@ -88,7 +97,7 @@
 	color: white;
 	text-decoration: none;
 	font-size: 16px;
-	
+
 	background-color: #36bbcb;
 	border-radius: 3px;
 }
@@ -128,5 +137,19 @@
 	}
 	to {
 		background-color: rgba(0, 0, 0, 0);
+	}
+}
+
+@media (min-width: 1024px) {
+	.whiteBackgroundBlock {
+		display: none;
+	}
+
+	.whiteBackgroundShowed {
+		animation: none;
+	}
+
+	.whiteBackgroundHidden {
+		animation: none;
 	}
 }

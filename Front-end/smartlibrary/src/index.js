@@ -7,24 +7,24 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import BookRequests from './requests/BookRequests';
 import UserRequests from './requests/UserRequests';
-import Store from "./providers/AuthProvider";
-import AuthService from "./services/auth.service";
+import Store from './providers/AuthProvider';
+import AuthService from './services/auth.service';
 
 export let status = 'anonym';
 
-const setStatus = (value) => {
+const setStatus = value => {
 	status = value;
-}
+};
 
 export const store = new Store();
 // export const authService = new AuthService();
 export const RequestsContext = createContext();
-export const AuthContext = createContext({AuthService, status, setStatus})
+export const AuthContext = createContext({ AuthService, status, setStatus });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<RequestsContext.Provider value={{UserRequests, BookRequests}}>
-		<AuthContext.Provider value={{AuthService, status, setStatus}}>
+	<RequestsContext.Provider value={{ UserRequests, BookRequests }}>
+		<AuthContext.Provider value={{ AuthService, status, setStatus }}>
 			<BrowserRouter>
 				<App state={state} />
 			</BrowserRouter>
