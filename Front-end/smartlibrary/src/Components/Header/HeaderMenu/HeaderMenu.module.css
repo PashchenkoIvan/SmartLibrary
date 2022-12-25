@@ -2,7 +2,6 @@
 	position: absolute;
 	width: 100vw;
 	height: calc(100vh - 100px);
-	overflow-y: scroll;
 	left: 0;
 	display: flex;
 	flex-direction: column;
@@ -21,9 +20,9 @@
 
 .item {
 	width: 100%;
-	height: 100px;
 	padding: 20px;
 	display: flex;
+	height: 70px;
 	font-size: 20px;
 	font-weight: 500;
 	text-align: center;
@@ -87,5 +86,17 @@
 	}
 	to {
 		top: calc(-100vh + 100px);
+	}
+}
+
+@media (min-height: 600px) {
+	.item {
+		height: 80px;
+	}
+}
+
+@media (min-height: 700px) {
+	.item {
+		height: 100px;
 	}
 }
