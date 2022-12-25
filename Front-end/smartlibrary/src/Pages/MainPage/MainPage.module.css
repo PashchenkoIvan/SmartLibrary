@@ -108,9 +108,10 @@
 @media screen and (min-width: 0px) {
 	.chartBlock {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
+		margin: 10px 20px;
 	}
 	.bottomBlock {
 		flex-direction: column;
@@ -138,11 +139,13 @@
 	.editBlock {
 		width: 250px;
 		height: 300px;
-		margin-right: 20px;
+		margin-right: 5px;
 		white-space: nowrap;
 	}
 	.bottomBlock {
 		flex-direction: row;
+		justify-content: flex-start;
+		/* align-items: center; */
 	}
 	.buttonBlock img {
 		width: 110px;
