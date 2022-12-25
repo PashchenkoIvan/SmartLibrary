@@ -138,10 +138,9 @@ const Form = props => {
 					email: data.email,
 					password: data.password,
 				})
-			).then(() => {
-				Auth.status = 'librarian';
-				console.log(Auth);
-			});
+			).then(() => (Auth.status = 'librarian'));
+			// .then(res => Requests.UserRequests.GetUser(res))
+			// .then(res => console.log(res));
 		} else {
 		}
 	};

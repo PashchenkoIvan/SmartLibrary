@@ -22,6 +22,7 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 	}, [header]);
 
 	useEffect(() => {
+		console.log(scrollYValue);
 		if (scrollYValue == 0 && menuActive)
 			document.querySelector('body').classList.add('hiddenForMenu');
 		else document.querySelector('body').classList.remove('hiddenForMenu');
@@ -41,11 +42,15 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 			} else {
 				whiteBackground.current.classList.remove(s.whiteBackgroundShowed);
 				whiteBackground.current.classList.add(s.whiteBackgroundHidden);
-				setTimeout(
-					() => whiteBackground.current.classList.add(s.whiteBackgroundNone),
-					200
-				);
+				setTimeout(() => {
+					whiteBackground.current.classList.remove(s.whiteBackgroundBlock);
+					whiteBackground.current.classList.add(s.whiteBackgroundNone);
+				}, 200);
 			}
+		} else {
+			whiteBackground.current.classList.remove(s.whiteBackgroundBlock);
+			whiteBackground.current.classList.add(s.whiteBackgroundNone);
+			whiteBackground.current.classList.remove(s.whiteBackgroundShowed);
 		}
 	}, [scrollYValue]);
 
@@ -101,7 +106,7 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 					className={s.burger}
 					onClick={() => {
 						setMenuActive(!menuActive);
-						window.scrollTo(0, 0);
+						window.scroll(0, 0);
 					}}
 				>
 					<svg

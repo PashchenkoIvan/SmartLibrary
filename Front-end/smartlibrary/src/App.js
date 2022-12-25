@@ -30,7 +30,7 @@ import './App.css';
 
 function App(props) {
 	const Requests = useContext(RequestsContext);
-	const Auth = useContext(AuthContext)
+	const Auth = useContext(AuthContext);
 
 	const [header, setHeader] = useState(true);
 	const [menuActive, setMenuActive] = useState(false);
@@ -43,7 +43,7 @@ function App(props) {
 		// 12 макетных книг
 		books: ['', '', '', '', '', '', '', '', '', '', '', ''],
 		isLoading: true,
-	});	
+	});
 
 	// useEffect(() => {
 	// 	if (localStorage.getItem('token')) {
@@ -81,13 +81,15 @@ function App(props) {
 					{/* Главная страница */}
 					<Route
 						index
-						exact path='/'
+						exact
+						path='/'
 						element={<MainPage books={books} setHeader={setHeader} />}
 					/>
 
 					{/* Страница книги */}
 					<Route
-						exact path='/:bookId'
+						exact
+						path='/:bookId'
 						element={
 							<SelectedBook data={props.state.data} setHeader={setHeader} />
 						}
@@ -95,7 +97,8 @@ function App(props) {
 
 					{/* Каталог */}
 					<Route
-						exact path='/catalog'
+						exact
+						path='/catalog'
 						element={
 							<BooksCatalog
 								books={books}
@@ -120,151 +123,218 @@ function App(props) {
 						path='/contacts'
 						element={<ContactsPage setHeader={setHeader} />}
 					/>
-					<Route
-						path='/faq/*'
-						element={<FaqPage setHeader={setHeader} />}
-					/>
+					<Route path='/faq/*' element={<FaqPage setHeader={setHeader} />} />
 
 					{/* Авторизация / Регистрация */}
 					<Route
-						exact path='/login'
-						element={ Auth.status !== 'anonym' ? <Navigate replace to="/404" /> : <Login setHeader={setHeader} /> }
+						exact
+						path='/login'
+						element={
+							Auth.status !== 'anonym' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<Login setHeader={setHeader} />
+							)
+						}
 					/>
 					<Route
-						exact path='/registration'
-						element={ Auth.status !== 'anonym' ? <Navigate replace to="/404" /> : <RegPage setHeader={setHeader} /> }
+						exact
+						path='/registration'
+						element={
+							Auth.status !== 'anonym' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<RegPage setHeader={setHeader} />
+							)
+						}
 					/>
 
 					{/* Error 404 Page */}
 					<Route
-						exact path='/404'
-						element={
-							<Error404 setHeader={setHeader} />
-						}
+						exact
+						path='/404'
+						element={<Error404 setHeader={setHeader} />}
 					/>
 
 					{/* Страница пользователя */}
 					<Route
 						path='/personPage'
-						element={ 
-							Auth.status !== 'user'
-								? <Navigate replace to="/404" />
-								: <PersonPage
+						element={
+							Auth.status !== 'user' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<PersonPage
 									setHeader={setHeader}
 									admin={props.state.admin}
 									data={props.state.data}
 								/>
+							)
 						}
 					/>
 
 					{/* Админка + страницы с админки */}
 					<Route
 						path='/admin/*'
-						element={ Auth.status !== 'librarian' ? <Navigate replace to="/404" /> : <AdminPage state={props.state} setHeader={setHeader} /> }
+						element={
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<AdminPage state={props.state} setHeader={setHeader} />
+							)
+						}
 					/>
 					<Route
 						path='/reader/:currentReaderId'
 						element={
-							Auth.status !== 'librarian'
-								? <Navigate replace to="/404" />
-								: <CurrentReader
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<CurrentReader
 									admin={props.state.admin}
 									data={props.state.data}
 									setHeader={setHeader}
 								/>
+							)
 						}
 					/>
 					<Route
 						path='/book-single/:currentBookId'
 						element={
-							Auth.status !== 'librarian'
-								? <Navigate replace to="/404" />
-								: <SingleBook
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<SingleBook
 									admin={props.state.admin}
 									data={props.state.data}
 									setHeader={setHeader}
 								/>
+							)
 						}
 					/>
 					<Route
 						path='/book-single/create'
 						element={
-							Auth.status !== 'librarian'
-								? <Navigate replace to="/404" />
-								: <BookCreate setHeader={setHeader} />
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<BookCreate setHeader={setHeader} />
+							)
 						}
 					/>
 					<Route
 						path='/books/categories'
 						element={
-							Auth.status !== 'librarian'
-								? <Navigate replace to="/404" />
-								: <BooksCategories data={props.state.data} setHeader={setHeader} />
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<BooksCategories
+									data={props.state.data}
+									setHeader={setHeader}
+								/>
+							)
 						}
 					/>
 					<Route
 						path='/book-single/edit/:currentBookId'
-						element={ Auth.status !== 'librarian' ? <Navigate replace to="/404" /> : <BookEdit data={props.state.data} setHeader={setHeader} /> }
+						element={
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<BookEdit data={props.state.data} setHeader={setHeader} />
+							)
+						}
 					/>
 					<Route
 						path='/admin/event-reports/create/:id'
-						element={ Auth.status !== 'librarian' ? <Navigate replace to="/404" /> : <CreateEventReport setHeader={setHeader} /> }
+						element={
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<CreateEventReport setHeader={setHeader} />
+							)
+						}
 					/>
 					<Route
 						path='/admin/event-reports/edit/:id'
 						element={
-							Auth.status !== 'librarian'
-								? <Navigate replace to="/404" />
-								: <EditEventReport
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<EditEventReport
 									reports={props.state.admin.tables.eventReporting}
 									setHeader={setHeader}
 								/>
+							)
 						}
 					/>
 					<Route
 						path='/admin/news/edit/:id'
 						element={
-							Auth.status !== 'librarian'
-								? <Navigate replace to="/404" />
-								: <EditNews
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<EditNews
 									news={props.state.admin.tables.news}
 									setHeader={setHeader}
 								/>
+							)
 						}
 					/>
 					<Route
 						path='/admin/news/create'
-						element={ Auth.status !== 'librarian' ? <Navigate replace to="/404" /> : <CreateNews setHeader={setHeader} /> }
+						element={
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<CreateNews setHeader={setHeader} />
+							)
+						}
 					/>
 					<Route
 						path='/admin/news/publish/:id'
 						element={
-							Auth.status !== 'librarian'
-								? <Navigate replace to="/404" />
-								: <PublishNews
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<PublishNews
 									news={props.state.admin.tables.news}
 									setHeader={setHeader}
 								/>
+							)
 						}
 					/>
 					<Route
 						path='/admin/annual-reports/create/:id'
 						element={
-							Auth.status !== 'librarian'
-								? <Navigate replace to="/404" />
-								: <CreateAnnualReport
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<CreateAnnualReport
 									annualReports={props.state.admin.tables.annualReporting}
 									setHeader={setHeader}
 								/>
+							)
 						}
 					/>
 					<Route
 						path='/admin/visitors/form'
-						element={ Auth.status !== 'librarian' ? <Navigate replace to="/404" /> : <FormVisitors /> }
+						element={
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<FormVisitors />
+							)
+						}
 					/>
 					<Route
 						path='/admin/reports-to-the-news/form'
-						element={ Auth.status !== 'librarian' ? <Navigate replace to="/404" /> : <FormReport /> }
+						element={
+							Auth.status !== 'librarian' ? (
+								<Navigate replace to='/404' />
+							) : (
+								<FormReport />
+							)
+						}
 					/>
 				</Routes>
 			</div>

@@ -19,6 +19,7 @@ export default class AuthService {
 
 	static async makeLogin({ email, password }) {
 		try {
+			let userId = '';
 			const response = await axios
 				.post(`${API_URL}token/`, { email, password })
 				.then(function (result) {
@@ -29,9 +30,8 @@ export default class AuthService {
 					console.log(result);
 					return result;
 				})
-				.then(result => console.log(result.data));
-			// debugger;
-			// return 1;
+				.then(result => (userId = _parseTokenData(result.data.access).user_id));
+			return userId;
 		} catch (e) {
 			console.log(e.response?.data?.message);
 		}
