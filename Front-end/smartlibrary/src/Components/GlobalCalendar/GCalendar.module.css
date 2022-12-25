@@ -1,100 +1,98 @@
 .container {
-    width: 1300px;
-    min-height: 300px;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	width: 1300px;
+	min-height: 300px;
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .container h1 {
-    margin-bottom: 33px;
+	margin-bottom: 33px;
 }
 
 .calendarBlock {
-    width: 80%;
-    height: 100%;
-    background-color: #ecf3fc;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    /* TODO: При добавлении календаря, поменяять на space-between */
-    box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
+	width: 80%;
+	height: 100%;
+	background-color: #ecf3fc;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: end;
+	/* TODO: При добавлении календаря, поменяять на space-between */
+	box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
 }
 .newsBlock {
-    width: 60%;
-    min-height: 300px;
-    max-height: 400px;
-    background-color: white;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+	width: 60%;
+	min-height: 300px;
+	max-height: 400px;
+	background-color: white;
 }
 .calendar {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+	width: 40%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .input {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 @media screen and (min-width: 0px) {
-    .calendarBlock {
-        flex-direction: column;
-        align-items: center;
-        width: 400px;
-    }
-    .calendar {
-        width: 100%;
-    }
-    .newsBlock {
-        width: 100%;
-        min-height: 200px;
-    }
+	.calendarBlock {
+		flex-direction: column;
+		align-items: center;
+		width: 400px;
+	}
+	.calendar {
+		width: 100%;
+	}
+	.newsBlock {
+		width: 100%;
+		min-height: 200px;
+		border-radius: 0 0 12px 12px;
+	}
 }
-@media screen and (min-width: 1025px){
-    .container {
-        width: 800px    ;
-    }
-    .calendarBlock {
-        width: 80%;
-        flex-direction: row;
-    }
-    .newsBlock {
-        width: 50%;
-    }
-    .calendar {
-        width: 50%;
-    }
+@media screen and (min-width: 1025px) {
+	.container {
+		width: 800px;
+	}
+	.calendarBlock {
+		width: 80%;
+		flex-direction: row;
+	}
+	.newsBlock {
+		width: 50%;
+		border-radius: 0 12px 12px 0;
+	}
+	.calendar {
+		width: 50%;
+	}
 }
 @media screen and (min-width: 1440px) {
-    .calendarBlock {
-    width: 95%;
-    align-items: center;
-    justify-content: end;
-}
-.newsBlock {
-    width: 60%;
-    height: 100%;
-    background-color: white;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-.calendar {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-.input {
-    display: flex;
-    flex-direction: column;
-}
+	.calendarBlock {
+		width: 95%;
+		align-items: center;
+		justify-content: end;
+	}
+	.newsBlock {
+		width: 60%;
+		height: 100%;
+		background-color: white;
+		border-top-right-radius: 12px;
+		border-bottom-right-radius: 12px;
+	}
+	.calendar {
+		width: 40%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.input {
+		display: flex;
+		flex-direction: column;
+	}
 }

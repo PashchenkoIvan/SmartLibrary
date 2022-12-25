@@ -26,34 +26,28 @@ const MainPage = props => {
 				</div>
 				<div className={s.bottomBlock}>
 					<GCalendar />
-					<div className={s.ChartBlock}>
-					<div className={s.editBlock}>
-						<p className={s.titleText}>Андрюх Людмила</p>
-						<p className={s.underTitleText}>Найкращий бібліотекарь</p>
-						<div className={s.buttonBlock}>
-							<p>Додано 72 книжки</p>
-							<img
-								src={Medal}
-								alt=''
-							/>
+					<div className={s.chartBlock}>
+						<div className={s.editBlock}>
+							<p className={s.titleText}>Андрюх Людмила</p>
+							<p className={s.underTitleText}>Найкращий бібліотекарь</p>
+							<div className={s.buttonBlock}>
+								<p>Додано 72 книжки</p>
+								<img src={Medal} alt='' />
+							</div>
 						</div>
-					</div>
-					<div className={s.editBlock}>
-						<p className={s.titleText}>Карпенко Тарас</p>
-						<p className={s.underTitleText}>Найкращий читач</p>
-						<div className={s.buttonBlock}>
-							<p>Прочитана 72 книжки</p>
-							<img
-								src={Medal}
-								alt=''
-							/>
+						<div className={s.editBlock}>
+							<p className={s.titleText}>Карпенко Тарас</p>
+							<p className={s.underTitleText}>Найкращий читач</p>
+							<div className={s.buttonBlock}>
+								<p>Прочитана 72 книжки</p>
+								<img src={Medal} alt='' />
+							</div>
 						</div>
-					</div>
 					</div>
 				</div>
 			</div>
 
-			{Auth.status === "user" ? <RecommendedBooks books={props.books} /> : ''}
+			{Auth.status === 'user' ? <RecommendedBooks books={props.books} /> : ''}
 			<PopularBooks books={props.books} />
 		</div>
 	);
