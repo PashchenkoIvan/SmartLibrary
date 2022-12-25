@@ -4,31 +4,33 @@
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
-	@apply md:flex-row;
+	@apply sm:flex-row;
 }
 
 .filters {
 	display: flex;
+	flex-direction: column;
 	gap: 5px;
-	@apply w-full md:w-9/12;
+	@apply w-full sm:flex-row sm:w-9/12;
 }
 
 .filters input {
-	width: 50%;
+	width: 100%;
 	height: 40px;
 	border-radius: 3px;
 	padding: 6px 12px;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	outline: none;
+	@apply sm:w-1/2;
 }
 
 .filters input:before {
 	font-family: 'Avenir Next', sans-serif;
-	font-size: 14px;
 	color: #555;
 	width: 100%;
 	content: attr(value);
+	@apply text-base;
 }
 
 .addActivity {
