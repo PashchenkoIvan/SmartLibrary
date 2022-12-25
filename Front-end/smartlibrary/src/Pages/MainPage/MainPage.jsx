@@ -26,6 +26,7 @@ const MainPage = props => {
 				</div>
 				<div className={s.bottomBlock}>
 					<GCalendar />
+					<div className={s.ChartBlock}>
 					<div className={s.editBlock}>
 						<p className={s.titleText}>Андрюх Людмила</p>
 						<p className={s.underTitleText}>Найкращий бібліотекарь</p>
@@ -47,6 +48,7 @@ const MainPage = props => {
 								alt=''
 							/>
 						</div>
+					</div>
 					</div>
 				</div>
 			</div>

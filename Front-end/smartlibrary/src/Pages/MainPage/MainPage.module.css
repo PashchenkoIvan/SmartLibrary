@@ -111,15 +111,26 @@
     height: 40%;
 }
 @media screen and (min-width: 0px) {
+    .ChartBlock {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
     .bottomBlock {
         flex-direction: column;
     }
     .editBlock {
-        width: 27%;
-        margin: 10px 0;
+        width: 180px;
+        height: 350px;
+        margin: 10px 20px;
+        text-align: center;
+    }
+    .editBlock p {
+        width: 70%;
     }
     .buttonBlock img {
-        width: 25%;
+        width: 55%;
         height: 50%;
     }
     .infoBlock {
@@ -131,8 +142,10 @@
 }
 @media screen and (min-width: 1025px) {
     .editBlock {
-        width: 200px;
+        width: 250px;
+        height: 300px;
         margin-right: 20px;
+        white-space: nowrap;
     }
     .bottomBlock {
         flex-direction: row;
