@@ -81,9 +81,16 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 						Бібліотекар
 					</Link> */}
 					{Auth.status !== 'anonym' ? (
-						<Link to='/' className={s.link} onClick={() => Auth.makeLogout()}>
+						<a
+							href='/'
+							className={s.link}
+							onClick={() => {
+								Auth.AuthService.setRefreshToken('');
+								Auth.AuthService.setBearer('');
+							}}
+						>
 							Вийти
-						</Link>
+						</a>
 					) : (
 						''
 					)}

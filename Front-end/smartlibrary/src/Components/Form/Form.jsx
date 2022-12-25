@@ -113,34 +113,12 @@ const Form = props => {
 				console.log(book);
 			});
 		} else if (btns.filter(btn => btn.post === 'login').length > 0) {
-			// new Promise().then(function (result) {
-			// 	console.log(result);
-			// });
-			// if (
-			// 	Auth.AuthService.makeLogin({
-			// 		email: data.email,
-			// 		password: data.password,
-			// 	})
-			// ) {
-			// 	console.log(1);
-			// } else {
-			// 	console.log(2);
-			// }
-			// console.log(
-			// 	Auth.AuthService.makeLogin({
-			// 		email: data.email,
-			// 		password: data.password,
-			// 	})
-			// );
-			// setTimeout(() => (Auth.status = 'user'), 1000);
 			Promise.resolve(
 				Auth.AuthService.makeLogin({
 					email: data.email,
 					password: data.password,
 				})
-			).then(() => (Auth.status = 'librarian'));
-			// .then(res => Requests.UserRequests.GetUser(res))
-			// .then(res => console.log(res));
+			).then(res => (Auth.status = res ? 'librarian' : 'user'));
 		} else {
 		}
 	};

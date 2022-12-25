@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import { Navigate, redirect } from "react-router-dom";
 
-import { setStatus } from '../index';
+import { AuthContext, status } from '../index';
 import { Http } from './http.init';
 
 import { API_URL } from '../.env';
@@ -19,19 +19,22 @@ export default class AuthService {
 
 	static async makeLogin({ email, password }) {
 		try {
-			let userId = '';
+			let isStaff = '';
 			const response = await axios
-				.post(`${API_URL}token/`, { email, password })
+				.post(`${API_URL}auth/token`, { email, password })
 				.then(function (result) {
 					_setAuthData({
 						accessToken: result.data.access,
+						refreshToken: result.data.refresh,
 						exp: _parseTokenData(result.data.access).exp,
 					});
 					console.log(result);
 					return result;
 				})
-				.then(result => (userId = _parseTokenData(result.data.access).user_id));
-			return userId;
+				.then(
+					result => (isStaff = _parseTokenData(result.data.access).is_staff)
+				);
+			return isStaff;
 		} catch (e) {
 			console.log(e.response?.data?.message);
 		}
@@ -53,16 +56,17 @@ export default class AuthService {
 	static async refreshTokens() {
 		try {
 			const response = await axios.post(
-				`${API_URL}auth/refresh-tokens`,
-				{},
-				{ xhrFields: { withCredentials: true } }
+				`${API_URL}auth/token/refresh`,
+				{
+					refresh: `${localStorage.getItem('refresh')}`,
+				}
+				// { xhrFields: { withCredentials: true } }
 			);
-			_setAuthData({
-				accessToken: response.data.data.accessToken,
-			});
+			console.log(_parseTokenData(response.data.access).is_staff);
+			AuthService.setBearer(response.data.access);
+			return _parseTokenData(response.data.access).is_staff;
 		} catch (e) {
 			console.log(e.response?.data?.message);
-			_resetAuthData();
 		}
 	}
 
@@ -87,14 +91,18 @@ export default class AuthService {
 		return Boolean(localStorage.getItem('refreshToken'));
 	}
 
-	static setRefreshToken(status) {
-		if (!['', 'true'].includes(status)) {
-			throw new Error(
-				`setRefreshToken: invalid value ${status}; Expect one of ['', 'true']`
-			);
-		}
+	// static setRefreshToken(status) {
+	// 	if (!['', 'true'].includes(status)) {
+	// 		throw new Error(
+	// 			`setRefreshToken: invalid value ${status}; Expect one of ['', 'true']`
+	// 		);
+	// 	}
 
-		localStorage.setItem('refreshToken', status);
+	// 	localStorage.setItem('refreshToken', status);
+	// }
+
+	static setRefreshToken(token) {
+		localStorage.setItem('refresh', token);
 	}
 
 	static getBearer() {
@@ -163,8 +171,9 @@ function _resetAuthData() {
 	AuthService.setBearer('');
 }
 
-function _setAuthData({ accessToken, exp } = {}) {
-	AuthService.setRefreshToken('true');
+function _setAuthData({ accessToken, refreshToken, exp } = {}) {
+	// AuthService.setRefreshToken('true');
+	AuthService.setRefreshToken(refreshToken);
 	AuthService.setBearer(accessToken);
 	AuthService.setAccessTokenExp(exp);
 }

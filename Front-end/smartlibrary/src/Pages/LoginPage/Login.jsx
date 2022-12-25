@@ -44,7 +44,7 @@ const Login = props => {
 								setTimeout(
 									() =>
 										Auth.status === 'anonym' ? console.log(0) : navigate('/'),
-									2000
+									1000
 								),
 						},
 					]}

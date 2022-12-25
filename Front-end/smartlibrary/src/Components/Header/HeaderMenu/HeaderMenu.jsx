@@ -65,15 +65,16 @@ const HeaderMenu = ({ menuActive, setMenuActive }) => {
 					Як це працює
 				</NavLink>
 				{Auth.status !== 'anonym' ? (
-					<NavLink
-						to='/'
-						className={navData =>
-							(navData.isActive ? s.isActive : s.notActive) + ' ' + s.item
-						}
-						onClick={() => Auth.makeLogout()}
+					<a
+						href='/'
+						className={s.item}
+						onClick={() => {
+							Auth.AuthService.setRefreshToken('');
+							Auth.AuthService.setBearer('');
+						}}
 					>
 						Вийти
-					</NavLink>
+					</a>
 				) : (
 					''
 				)}
