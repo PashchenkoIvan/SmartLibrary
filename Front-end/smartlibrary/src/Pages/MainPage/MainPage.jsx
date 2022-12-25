@@ -5,6 +5,7 @@ import { AuthContext } from '../../index';
 import { PopularBooks, RecommendedBooks } from '../../Components';
 import GCalendar from '../../Components/GlobalCalendar/GCalendar';
 import MainVideoBlock from '../../Components/MainVideoBlock/MainVideoBlock';
+import Medal from './images/medal.png';
 
 const MainPage = props => {
 	props.setHeader(true);
@@ -31,7 +32,7 @@ const MainPage = props => {
 						<div className={s.buttonBlock}>
 							<p>Додано 72 книжки</p>
 							<img
-								src='http://1.smart-library.in.ua/img/bestMarker.png'
+								src={Medal}
 								alt=''
 							/>
 						</div>
@@ -42,7 +43,7 @@ const MainPage = props => {
 						<div className={s.buttonBlock}>
 							<p>Прочитана 72 книжки</p>
 							<img
-								src='http://1.smart-library.in.ua/img/bestMarker.png'
+								src={Medal}
 								alt=''
 							/>
 						</div>
