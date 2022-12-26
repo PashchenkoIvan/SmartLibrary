@@ -17,3 +17,31 @@
     font-size: 16em;
     font-weight: 600;
 }
+
+@media (max-width: 1440px) {
+    .error {
+        font-size: 14em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .error {
+        font-size: 12em;
+    }
+}
+
+@media (max-width: 768px) {
+    .error {
+        font-size: 12em;
+    }
+
+    .container {
+        padding: 20% 12px;
+    }
+}
+
+@media (max-width: 425px) {
+    .error {
+        font-size: 10em;
+    }
+}

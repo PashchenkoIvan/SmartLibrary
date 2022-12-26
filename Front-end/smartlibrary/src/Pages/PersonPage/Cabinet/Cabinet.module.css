@@ -14,7 +14,7 @@
     margin-bottom: 33px;
 }
 .block {
-    width: 1300px;
+    max-width: 1300px;
     height: 300px;
     display: flex;
     flex-direction: row;

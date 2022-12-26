@@ -147,10 +147,10 @@
         overflow-x: scroll;
     }
     .tableTopBar {
-        width: 700px;
+        width: 750px;
     }
     .bookBlock {
-        width: 700px;
+        width: 750px;
     }
 }
 @media screen and (min-width: 1025px) {
