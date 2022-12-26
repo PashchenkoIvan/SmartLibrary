@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import s from './Header.module.css';
 import { AuthContext } from '../../index';
@@ -9,6 +9,7 @@ import { useScroll } from 'framer-motion';
 
 const Header = ({ menuActive, setMenuActive, header }) => {
 	const { scrollY } = useScroll();
+	const navigate = useNavigate();
 	const Auth = useContext(AuthContext);
 
 	const background = useRef();
@@ -77,20 +78,17 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 					<Link to='/faq/making-orders' className={s.link}>
 						Як це працює
 					</Link>
-					{/* <Link to='/admin/readers' className={s.link}>
-						Бібліотекар
-					</Link> */}
 					{Auth.status !== 'anonym' ? (
-						<a
-							href='/'
+						<Link
+							to='/'
 							className={s.link}
 							onClick={() => {
-								Auth.AuthService.setRefreshToken('');
-								Auth.AuthService.setBearer('');
+								Auth.AuthService.makeLogout();
+								return this.forceUpdate()
 							}}
 						>
 							Вийти
-						</a>
+						</Link>
 					) : (
 						''
 					)}

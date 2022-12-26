@@ -5,8 +5,8 @@ export default class BookRequests {
 		return await new Http({ auth: false }).get('/library/books/');
 	};
 
-	static AddBook = data => {
-		return $api.post('/library/books/', {...data});
+	static async AddBook(data) {
+		return await new Http({ auth: true }).post('/library/books/', {...data});
 	};
 
 	static async GetBooksCategories() {

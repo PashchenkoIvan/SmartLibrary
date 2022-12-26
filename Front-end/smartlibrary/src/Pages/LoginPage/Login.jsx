@@ -2,9 +2,7 @@ import { useEffect, useContext } from 'react';
 import {
 	Link,
 	useNavigate,
-	Navigate,
-	redirect,
-	useHistory,
+	Navigate
 } from 'react-router-dom';
 
 import { Form } from '../../Components/index';

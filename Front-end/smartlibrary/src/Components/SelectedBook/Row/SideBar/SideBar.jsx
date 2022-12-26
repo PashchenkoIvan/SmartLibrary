@@ -18,11 +18,11 @@ const SideBar = props => {
   //       </div>
   //       : ''
   //   )
-	const {store} = useContext(AuthContext);
+	const Auth = useContext(AuthContext);
   
   return (
     <div className={s.sideBar}>
-      {store.status !== 'anonym' ? <AddToPrefer /> : <SideSignIn />}
+      {Auth.status !== 'anonym' ? <AddToPrefer /> : <SideSignIn />}
       {/* {recBooksAdd} */}
     </div>
   )

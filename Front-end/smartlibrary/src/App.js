@@ -45,27 +45,6 @@ function App(props) {
 		isLoading: true,
 	});
 
-	// useEffect(() => {
-	// 	if (localStorage.getItem('token')) {
-	// 		store.checkAuth();
-	// 	}
-	// 	console.log(localStorage);
-	// 	console.log(store);
-	// }, []);
-
-	useEffect(() => {
-		Requests.BookRequests.GetBooks().then(res => {
-			const books = res.data;
-			console.log(books);
-			setBooks({ books: books, isLoading: false });
-		});
-
-		Requests.BookRequests.GetBooksCategories().then(res => {
-			const categories = res.data;
-			setCategories({ categories: categories, isLoading: false });
-		});
-	}, [Requests]);
-
 	useEffect(() => {
 		if (localStorage.getItem('refresh') !== '') {
 			Auth.AuthService.refreshTokens().then(
@@ -75,6 +54,27 @@ function App(props) {
 			Auth.status = 'anonym';
 		}
 	}, []);
+
+	useEffect(() => {
+		Requests.BookRequests.GetBooks().then(res => {
+			const books = res.data;
+			console.log(books);
+			if(res.data.length > 0) {
+				setBooks({ books: books, isLoading: false });
+			}
+		});
+
+		Requests.BookRequests.GetBooksCategories().then(res => {
+			const categories = res.data;
+			Auth.categoriesList = res.data;
+			if(res.data.length > 0) {
+				setCategories({ categories: categories, isLoading: false });
+			}
+		}).finally(function(result) {
+			console.log(Auth.categoriesList)
+			}
+		);
+	}, [Requests]);
 
 	const wrapper = useRef();
 	const router = useRef();
@@ -99,7 +99,7 @@ function App(props) {
 					{/* Страница книги */}
 					<Route
 						exact
-						path='/:bookId'
+						path='/selected-book/:bookName'
 						element={
 							<SelectedBook data={props.state.data} setHeader={setHeader} />
 						}

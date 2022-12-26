@@ -11,6 +11,7 @@ import Store from './providers/AuthProvider';
 import AuthService from './services/auth.service';
 
 export let status = 'anonym';
+export let categoriesList = [];
 
 const setStatus = value => {
 	status = value;
@@ -19,12 +20,12 @@ const setStatus = value => {
 export const store = new Store();
 // export const authService = new AuthService();
 export const RequestsContext = createContext();
-export const AuthContext = createContext({ AuthService, status, setStatus });
+export const AuthContext = createContext({ AuthService, status, setStatus, categoriesList });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<RequestsContext.Provider value={{ UserRequests, BookRequests }}>
-		<AuthContext.Provider value={{ AuthService, status, setStatus }}>
+		<AuthContext.Provider value={{ AuthService, status, setStatus, categoriesList }}>
 			<BrowserRouter>
 				<App state={state} />
 			</BrowserRouter>
