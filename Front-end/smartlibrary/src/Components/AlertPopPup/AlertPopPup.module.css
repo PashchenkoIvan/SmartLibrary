@@ -1,0 +1,57 @@
+.container {
+	position: fixed;
+	top: 150px;
+	display: flex;
+	width: 200px;
+	justify-content: center;
+	padding: 5px 10px;
+	border-radius: 0 4px 4px 0;
+	background-color: pink;
+	z-index: 100;
+}
+
+.hidden {
+	left: -200px;
+	animation: hide 0.2s ease;
+}
+
+.showed {
+	left: 0;
+	animation: show 0.2s ease;
+}
+
+.container p {
+	width: calc(100% - 30px);
+	text-align: center;
+	@apply text-base text-white;
+}
+
+.icon {
+	width: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.icon svg {
+	stroke: #fff;
+	@apply w-6 w-6;
+}
+
+@keyframes show {
+	from {
+		left: -200px;
+	}
+	to {
+		left: 0;
+	}
+}
+
+@keyframes hide {
+	from {
+		left: 0;
+	}
+	to {
+		left: -200px;
+	}
+}

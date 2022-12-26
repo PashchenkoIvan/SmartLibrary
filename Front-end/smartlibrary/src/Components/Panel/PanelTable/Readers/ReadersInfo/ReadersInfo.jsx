@@ -40,7 +40,10 @@ const ReadersInfo = props => {
 						</svg>
 					</button>
 				</div>
-				<Popup trigger={<button className={s.addBtn}>+ Додати читача</button>} modal>
+				<Popup
+					trigger={<button className={s.addBtn}>+ Додати читача</button>}
+					modal
+				>
 					{close => <AddReaderForm close={close} />}
 				</Popup>
 			</div>

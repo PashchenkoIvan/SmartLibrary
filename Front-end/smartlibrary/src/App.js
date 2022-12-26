@@ -27,11 +27,13 @@ import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form
 import { RequestsContext, AuthContext } from './index';
 
 import './App.css';
+import AlertPopPup from './Components/AlertPopPup/AlertPopPup';
 
 function App(props) {
 	const Requests = useContext(RequestsContext);
 	const Auth = useContext(AuthContext);
 
+	const [message, setMessage] = useState('init');
 	const [header, setHeader] = useState(true);
 	const [menuActive, setMenuActive] = useState(false);
 	const [categories, setCategories] = useState({
@@ -81,6 +83,7 @@ function App(props) {
 
 	return (
 		<div ref={wrapper} className='wrapper'>
+			<AlertPopPup message={message} />
 			<Header
 				menuActive={menuActive}
 				setMenuActive={setMenuActive}
