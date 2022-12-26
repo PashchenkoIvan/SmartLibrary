@@ -42,11 +42,11 @@ export default class AuthService {
 
 	static async makeLogout() {
 		try {
-			const response = await new Http({ auth: true }).post(
-				'auth/logout',
-				{},
-				{ xhrFields: { withCredentials: true } }
-			);
+			// const response = await new Http({ auth: true }).post(
+			// 	'auth/logout',
+			// 	{},
+			// 	{ xhrFields: { withCredentials: true } }
+			// );
 			_resetAuthData();
 		} catch (e) {
 			console.log(e.response?.data?.message);

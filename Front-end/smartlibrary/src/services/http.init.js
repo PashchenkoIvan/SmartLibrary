@@ -31,7 +31,7 @@ export class Http {
 					) {
 						return AuthService.debounceRefreshTokens()
 							.then(response => {
-								AuthService.setBearer(response.data.accessToken);
+								AuthService.setBearer(response.data.access);
 								request.headers.authorization = AuthService.getBearer();
 								return request;
 							})

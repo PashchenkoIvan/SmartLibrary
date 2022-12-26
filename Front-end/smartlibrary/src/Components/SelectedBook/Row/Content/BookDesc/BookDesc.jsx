@@ -3,7 +3,7 @@ import s from './bookDesc.module.css';
 
 const BookDesc = props => {
   return (
-    <p className={s.bookDesc}>{props.bookDesc}</p>
+    <p className={s.bookDesc}>{props.description}</p>
   )
 }
 

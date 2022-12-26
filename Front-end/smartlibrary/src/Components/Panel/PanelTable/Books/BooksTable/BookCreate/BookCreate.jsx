@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form } from '../../../../../index';
 
 import s from './bookCreate.module.css';
-import mainlFieldsData from '../mainFieldsData';
+import MainlFieldsData from '../MainFieldsData';
 import additionalFieldsData from '../additionalFieldsData';
 
 const BookCreate = props => {
 	props.setHeader(false)
+	const navigate = useNavigate();
 
 	return (
 		<div className={s.container}>
@@ -25,7 +26,26 @@ const BookCreate = props => {
 						placeholder='Введіть штрих код книги'
 					/>
 				</div>
-				<Form main={mainlFieldsData({})} additional={additionalFieldsData({})} btns={[{title: "Додати книгу", type: "submit", post: "add-book"}]} />
+				<Form
+					main={MainlFieldsData({})}
+					additional={additionalFieldsData({})}
+					btns={
+						[
+							{
+								title: "Додати книгу",
+								type: "submit",
+								post: "add-book",
+								onclick: () => 
+									setTimeout(
+										() => {
+											navigate('/admin/books')
+											window.scrollTo(0, 0)
+										}, 100
+									),
+							}
+						]
+					}
+				/>
 			</div>
 		</div>
 	);

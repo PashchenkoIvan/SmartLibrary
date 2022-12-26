@@ -1,4 +1,9 @@
-const mainFieldsData = b => {
+import { useContext } from 'react';
+import { RequestsContext } from '../../../../../index';
+
+const MainFieldsData = b => {
+	const Requests = useContext(RequestsContext);
+
 	return (
 		[
 			{
@@ -39,9 +44,23 @@ const mainFieldsData = b => {
 			},
 			{
 				label: "Тип книги",
-				type: "text",
+				type: "select",
 				value: b.book_type,
 				name: "book_type",
+				optionsList: [
+					{
+						value: '',
+						title: 'Оберіть тип'
+					},
+					{
+						value: 'D',
+						title: 'Електрона'
+					},
+					{
+						value: 'P',
+						title: 'Паперова'
+					}
+				]
 			},
 			{
 				label: "Мова",
@@ -66,6 +85,7 @@ const mainFieldsData = b => {
 				type: "select",
 				value: b.category,
 				name: "category",
+				categoriesList: Requests.BookRequests.GetBooksCategories()
 			},
 			{
 				label: "Опис книги",
@@ -88,8 +108,8 @@ const mainFieldsData = b => {
 			{
 				label: "Рік видавництва",
 				type: "number",
-				value: b.piblication_year,
-				name: "piblication_year",
+				value: b.publication_year,
+				name: "publication_year",
 			},
 			{
 				label: "Місто видавництва",
@@ -105,18 +125,58 @@ const mainFieldsData = b => {
 			},
 			{
 				label: "Тип",
-				type: "text",
+				type: "select",
 				value: b.additional_type,
 				name: "additional_type",
+				optionsList: [
+					{
+						value: '',
+						title: 'Оберіть тип'
+					},
+					{
+						value: 'B',
+						title: 'Книга'
+					},
+					{
+						value: 'J',
+						title: 'Журнал'
+					},
+					{
+						value: 'N',
+						title: 'Газета'
+					}
+				]
 			},
 			{
 				label: "Тип видання",
-				type: "text",
+				type: "select",
 				value: b.publication_type,
 				name: "publication_type",
+				optionsList: [
+					{
+						value: '',
+						title: 'Оберіть тип'
+					},
+					{
+						value: 'Period',
+						title: 'Періодичні видання'
+					},
+					{
+						value: 'Books',
+						title: 'Книги'
+					},
+					{
+						value: 'Dgtl',
+						title: 'Цифрові видання'
+					},
+					{
+						value: 'Map',
+						title: 'Карта'
+					}
+				]
 			},
 		]
 	);
 };
 
-export default mainFieldsData;
+export default MainFieldsData;
