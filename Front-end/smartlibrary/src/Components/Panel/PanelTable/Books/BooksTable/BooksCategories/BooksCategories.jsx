@@ -119,7 +119,7 @@ const BooksCategories = props => {
 	});
 
 	useEffect(() => {
-		Requests.GetBooksCategories().then(res => {
+		Requests.BookRequests.GetBooksCategories().then(res => {
 			console.log(res.data);
 			const categories = res.data;
 			setCategories({categories: categories, isLoading: false})
