@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Form } from '../../../../../index';
 
 import s from './bookCreate.module.css';
-import mainFieldsData from '../mainFieldsData';
+import mainFieldsData from '../MainFieldsData';
 import additionalFieldsData from '../additionalFieldsData';
 
 const BookCreate = props => {

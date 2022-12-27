@@ -224,9 +224,11 @@
         height: 1300px;
     }
     .qrBlock {
+        width: 270px;
         margin-bottom: 50px;
     }
     .editBlock {
+        width: 270px;
         margin-bottom: 50px;
     }
     .block {
@@ -263,11 +265,12 @@
 }
 @media screen and (min-width: 1440px) {
     .qrBlock {
-        width: 234px;
+        width: 270px;
         margin: 0 20px;
     }
     .editBlock {
-        width: 200px;
+        width: 270px;
+        margin-right: 20px;
     }
     .cabinetTitle {
         width: 1300px;
