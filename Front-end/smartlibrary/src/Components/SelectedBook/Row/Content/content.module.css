@@ -1,9 +1,10 @@
 .content {
-    width: 75%;
-    min-height: 600px;
+	min-height: 600px;
+	@apply w-full xl:w-3/4 md:pl-10;
 }
 
 .bookFullInfo {
-    display: flex;
-    gap: 65px;
+	display: flex;
+	gap: 65px;
+	@apply flex-col md:flex-row items-center;
 }

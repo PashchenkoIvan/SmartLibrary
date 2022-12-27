@@ -1,16 +1,17 @@
 .btn {
-    padding: 15px 31px 15px 31px;
+	padding: 15px 31px;
 
-    border-radius: 4px;
-    background-color: #36bbcb;
+	border-radius: 4px;
+	background-color: #36bbcb;
 
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.2px;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 500;
+
+	@apply w-full sm:w-auto;
 }
 
 .btn:hover {
-    background-color: #2ea8b7;
-    cursor: pointer;
+	background-color: #2ea8b7;
+	cursor: pointer;
 }

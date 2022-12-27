@@ -1,52 +1,48 @@
 .container {
-    position: relative;
+	position: relative;
 
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    width: 100%;
+	@apply w-full md:w-3/5;
 }
 
 .absolute {
-    position: absolute;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .bookName {
-    padding: 20px 0 10px;
-    color: #f37121;
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 1.1;
+	padding: 20px 0 10px;
+	color: #f37121;
+	@apply text-2xl font-medium sm:text-3xl;
 }
 
 .listParams {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 
-    list-style: none;
+	list-style: none;
 }
 
 .singleParam {
-    display: flex;
-    flex-direction: column;
-    
-    border-bottom: 1px solid #efefef;
-    padding-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+
+	border-bottom: 1px solid #efefef;
+	padding-bottom: 10px;
 }
 
 .paramKey {
-    color: #333;
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1.7;
+	color: #333;
+	@apply text-sm font-light sm:text-base;
 }
 
 .paramValue {
-    color: #000;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.7;
+	color: #000;
+	@apply text-sm font-semibold sm:text-base;
 }

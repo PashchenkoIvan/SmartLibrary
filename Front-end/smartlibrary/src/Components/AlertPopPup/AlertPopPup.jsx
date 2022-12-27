@@ -6,7 +6,6 @@ const AlertPopPup = ({ message }) => {
 	const window = useRef();
 	useEffect(() => {
 		if (message != '') {
-			window.current.classList.remove(s.hidden);
 			window.current.classList.add(s.showed);
 			setTimeout(() => {
 				window.current.classList.remove(s.showed);

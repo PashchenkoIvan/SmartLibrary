@@ -2,11 +2,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Form } from '../../../../../index';
 
 import s from './bookCreate.module.css';
-import MainlFieldsData from '../MainFieldsData';
+import mainFieldsData from '../mainFieldsData';
 import additionalFieldsData from '../additionalFieldsData';
 
 const BookCreate = props => {
-	props.setHeader(false)
+	props.setHeader(false);
 	const navigate = useNavigate();
 
 	return (
@@ -27,24 +27,20 @@ const BookCreate = props => {
 					/>
 				</div>
 				<Form
-					main={MainlFieldsData({})}
+					main={mainFieldsData({})}
 					additional={additionalFieldsData({})}
-					btns={
-						[
-							{
-								title: "Додати книгу",
-								type: "submit",
-								post: "add-book",
-								onclick: () => 
-									setTimeout(
-										() => {
-											navigate('/admin/books')
-											window.scrollTo(0, 0)
-										}, 100
-									),
-							}
-						]
-					}
+					btns={[
+						{
+							title: 'Додати книгу',
+							type: 'submit',
+							post: 'add-book',
+							onclick: () =>
+								setTimeout(() => {
+									navigate('/admin/books');
+									window.scrollTo(0, 0);
+								}, 100),
+						},
+					]}
 				/>
 			</div>
 		</div>

@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Form } from '../../../../../index';
 
 import s from './bookEdit.module.css';
-import mainlFieldsData from '../MainFieldsData';
+import mainFieldsData from '../mainFieldsData';
 import additionalFieldsData from '../additionalFieldsData';
 import { useEffect } from 'react';
 
@@ -22,7 +22,7 @@ const BookEdit = props => {
 			<div className={s.contentBlock}>
 				<h2 className={s.caption}>Редагування книги «{b.bookName}»</h2>
 				<Form
-					main={mainlFieldsData(b)}
+					main={mainFieldsData(b)}
 					additional={additionalFieldsData(b)}
 					btns={[{ title: 'Зберегти зміни', type: 'submit' }]}
 				/>
