@@ -4,5 +4,5 @@
 	gap: 15px;
 
 	width: 100%;
-	@apply flex-col-reverse xl:flex-row;
+	@apply flex-col xl:flex-row;
 }
