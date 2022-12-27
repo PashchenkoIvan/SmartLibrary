@@ -52,7 +52,7 @@
 .columnContainer {
 	position: absolute;
 	display: flex;
-	top: 110px;
+	top: 600px;
 	@apply xl:hidden;
 }
 
@@ -77,7 +77,7 @@
 	border-radius: 0 0 10px 0;
 	border: 2px solid #dae3ef;
 	overflow-y: scroll;
-	height: 450px;
+	height: 420px;
 	width: 250px;
 }
 

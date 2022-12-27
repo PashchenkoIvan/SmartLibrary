@@ -2,26 +2,29 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import s from './AlertPopPup.module.css';
 
-const AlertPopPup = ({ message }) => {
+const AlertPopPup = ({ text, color }) => {
 	const window = useRef();
 	useEffect(() => {
-		if (message != '') {
+		if (text != '') {
 			window.current.classList.add(s.showed);
+			window.current.style.background = color;
 			setTimeout(() => {
 				window.current.classList.remove(s.showed);
 				window.current.classList.add(s.hidden);
 			}, 2000);
+		} else {
+			window.current.classList.add(s.hidden);
 		}
-	}, [message]);
+	}, [text]);
 	return (
 		<div ref={window} className={s.container}>
-			<p>{message}</p>
+			<p>{text}</p>
 			<div className={s.icon}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					fill='none'
 					viewBox='0 0 24 24'
-					strokeWidth={1.5}
+					strokeWidth={1.8}
 				>
 					<path
 						strokeLinecap='round'

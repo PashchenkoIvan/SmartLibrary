@@ -5,18 +5,17 @@
 	width: 200px;
 	justify-content: center;
 	padding: 5px 10px;
-	border-radius: 0 4px 4px 0;
-	background-color: pink;
+	border-radius: 4px 0 0 4px;
 	z-index: 100;
 }
 
 .hidden {
-	left: -200px;
+	right: -200px;
 	animation: hide 0.2s ease;
 }
 
 .showed {
-	left: 0;
+	right: 0;
 	animation: show 0.2s ease;
 }
 
@@ -40,18 +39,18 @@
 
 @keyframes show {
 	from {
-		left: -200px;
+		right: -200px;
 	}
 	to {
-		left: 0;
+		right: 0;
 	}
 }
 
 @keyframes hide {
 	from {
-		left: 0;
+		right: 0;
 	}
 	to {
-		left: -200px;
+		right: -200px;
 	}
 }

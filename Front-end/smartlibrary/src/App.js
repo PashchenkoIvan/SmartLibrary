@@ -33,7 +33,10 @@ function App(props) {
 	const Requests = useContext(RequestsContext);
 	const Auth = useContext(AuthContext);
 
-	const [message, setMessage] = useState('init');
+	const [messageConfig, setMessageConfig] = useState({
+		text: '',
+		color: 'green',
+	});
 	const [header, setHeader] = useState(true);
 	const [menuActive, setMenuActive] = useState(false);
 	const [categories, setCategories] = useState({
@@ -61,21 +64,22 @@ function App(props) {
 		Requests.BookRequests.GetBooks().then(res => {
 			const books = res.data;
 			console.log(books);
-			if(res.data.length > 0) {
+			if (res.data.length > 0) {
 				setBooks({ books: books, isLoading: false });
 			}
 		});
 
-		Requests.BookRequests.GetBooksCategories().then(res => {
-			const categories = res.data;
-			Auth.categoriesList = res.data;
-			if(res.data.length > 0) {
-				setCategories({ categories: categories, isLoading: false });
-			}
-		}).finally(function(result) {
-			console.log(Auth.categoriesList)
-			}
-		);
+		Requests.BookRequests.GetBooksCategories()
+			.then(res => {
+				const categories = res.data;
+				Auth.categoriesList = res.data;
+				if (res.data.length > 0) {
+					setCategories({ categories: categories, isLoading: false });
+				}
+			})
+			.finally(function (result) {
+				console.log(Auth.categoriesList);
+			});
 	}, [Requests]);
 
 	const wrapper = useRef();
@@ -83,7 +87,7 @@ function App(props) {
 
 	return (
 		<div ref={wrapper} className='wrapper'>
-			<AlertPopPup message={message} />
+			<AlertPopPup text={messageConfig.text} color={messageConfig.color} />
 			<Header
 				menuActive={menuActive}
 				setMenuActive={setMenuActive}
