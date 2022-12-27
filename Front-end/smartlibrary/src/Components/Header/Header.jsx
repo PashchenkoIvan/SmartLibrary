@@ -52,7 +52,7 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 			whiteBackground.current.classList.add(s.whiteBackgroundNone);
 			whiteBackground.current.classList.remove(s.whiteBackgroundShowed);
 		}
-	}, [scrollYValue]);
+	}, [scrollYValue, header]);
 
 	return (
 		<div className={s.container}>
@@ -84,7 +84,7 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 							className={s.link}
 							onClick={() => {
 								Auth.AuthService.makeLogout();
-								return this.forceUpdate()
+								return this.forceUpdate();
 							}}
 						>
 							Вийти

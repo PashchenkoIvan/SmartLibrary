@@ -37,19 +37,31 @@ const PanelType = () => {
 	};
 
 	const typeColumn = useRef(null);
+	const showButton = useRef(null);
 
 	useEffect(() => {
 		let columnClass = typeColumn.current.classList;
+		let showButtonClass = showButton.current.classList;
 		if (rendersFirst) {
 			columnClass.add(s.hidden);
 			setRendersFirst(false);
 		} else {
 			if (activeColumn) {
+				showButtonClass.add(s.close);
+				showButtonClass.remove(s.opened);
+				showButtonClass.add(s.closed);
+				setTimeout(() => showButtonClass.remove(s.close), 200);
+
 				columnClass.add(s.show);
 				columnClass.remove(s.hidden);
 				columnClass.add(s.showed);
 				setTimeout(() => columnClass.remove(s.show), 200);
 			} else {
+				showButtonClass.add(s.open);
+				showButtonClass.remove(s.closed);
+				showButtonClass.add(s.opened);
+				setTimeout(() => showButtonClass.remove(s.open), 200);
+
 				columnClass.add(s.hide);
 				columnClass.remove(s.showed);
 				columnClass.add(s.hidden);
@@ -66,7 +78,20 @@ const PanelType = () => {
 			<div className={s.columnContainer} ref={typeColumn} onClick={showAndHide}>
 				<div className={s.scrollItems}>{btnMapAdd}</div>
 				<div className={s.showButton}>
-					<div className={s.vertBar} />
+					<div ref={showButton}>
+						<svg
+							xmlns='http://www.w3.org/2000/svg'
+							fill='none'
+							viewBox='0 0 24 24'
+							strokeWidth={4}
+						>
+							<path
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								d='M8.25 4.5l7.5 7.5-7.5 7.5'
+							/>
+						</svg>
+					</div>
 				</div>
 			</div>
 		</>
