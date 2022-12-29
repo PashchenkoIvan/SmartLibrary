@@ -56,9 +56,10 @@
 		width: 365px;
 	}
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1025px) {
 	.container {
-		width: 800px;
+		width: 700px;
+		margin-left: 50px;
 	}
 	.calendarBlock {
 		flex-direction: row;
@@ -72,5 +73,11 @@
 		border-top-right-radius: 12px;
 		border-bottom-right-radius: 12px;
 		border-bottom-left-radius: 0px;
+	}
+}
+@media screen and (min-width: 1440px) {
+	.container {
+		width: 800px;
+		margin-left: 0;
 	}
 }
