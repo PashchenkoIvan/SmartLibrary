@@ -50,9 +50,9 @@
 }
 
 .columnContainer {
-	position: absolute;
+	position: fixed;
 	display: flex;
-	top: 600px;
+	top: 200px;
 	@apply xl:hidden;
 }
 
