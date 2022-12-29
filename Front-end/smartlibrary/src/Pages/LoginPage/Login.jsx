@@ -1,9 +1,5 @@
 import { useEffect, useContext } from 'react';
-import {
-	Link,
-	useNavigate,
-	Navigate
-} from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 
 import { Form } from '../../Components/index';
 import { AuthContext } from '../../index';
@@ -21,9 +17,7 @@ const Login = props => {
 
 	useEffect(() => {
 		console.log(Auth.status);
-		if (Auth.status === 'user') {
-			return <Navigate replace to='/personPage' />;
-		}
+		if (Auth.status === 'user') navigate('../', { replace: true });
 	}, [Auth.status]);
 
 	props.setHeader(false);
