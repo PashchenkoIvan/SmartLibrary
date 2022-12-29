@@ -36,7 +36,7 @@
 }
 @media screen and (min-width: 0px) {
 	.container {
-		width: 300px;
+		width: calc(100% - 40px);
 	}
 	.calendarBlock {
 		flex-direction: column;
