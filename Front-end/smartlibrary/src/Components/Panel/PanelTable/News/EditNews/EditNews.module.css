@@ -26,6 +26,7 @@
 	align-items: center;
 	justify-content: center;
 	margin-bottom: 10px;
+	@apply w-full text-base font-medium text-center md:w-40;
 }
 
 .dateInput:before {

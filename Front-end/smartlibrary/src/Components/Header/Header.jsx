@@ -15,7 +15,12 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 	const background = useRef();
 	const whiteBackground = useRef();
 
+	const burger_row_1 = useRef();
+	const burger_row_2 = useRef();
+	const burger_row_3 = useRef();
+
 	const [scrollYValue, setScrollYValue] = useState(0);
+	const [firstRender, setFirstRender] = useState(true);
 
 	useEffect(() => {
 		if (header) background.current.style.display = 'none';
@@ -23,9 +28,32 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 	}, [header]);
 
 	useEffect(() => {
-		if (menuActive)
+		if (menuActive) {
 			document.querySelector('body').classList.add('hiddenForMenu');
-		else document.querySelector('body').classList.remove('hiddenForMenu');
+		} else {
+			document.querySelector('body').classList.remove('hiddenForMenu');
+		}
+
+		if (!firstRender && menuActive) {
+			burger_row_1.current.classList.add(s.rotateDown);
+			burger_row_2.current.classList.add(s.hide);
+			burger_row_3.current.classList.add(s.rotateUp);
+		} else {
+			burger_row_1.current.classList.add(s.rotateDownRev);
+			burger_row_2.current.classList.add(s.hideRev);
+			burger_row_3.current.classList.add(s.rotateUpRev);
+
+			burger_row_1.current.classList.remove(s.rotateDown);
+			burger_row_2.current.classList.remove(s.hide);
+			burger_row_3.current.classList.remove(s.rotateUp);
+
+			setTimeout(() => {
+				burger_row_1.current.classList.remove(s.rotateDownRev);
+				burger_row_2.current.classList.remove(s.hideRev);
+				burger_row_3.current.classList.remove(s.rotateUpRev);
+			}, 200);
+			setFirstRender(false);
+		}
 	}, [menuActive]);
 
 	useEffect(() => {
@@ -112,18 +140,9 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 						setMenuActive(!menuActive);
 					}}
 				>
-					<svg
-						xmlns='http://www.w3.org/2000/svg'
-						fill='none'
-						viewBox='0 0 24 24'
-						stroke-width='1.5'
-					>
-						<path
-							stroke-linecap='round'
-							stroke-linejoin='round'
-							d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5'
-						/>
-					</svg>
+					<div ref={burger_row_1} className={s.burger_row}></div>
+					<div ref={burger_row_2} className={s.burger_row}></div>
+					<div ref={burger_row_3} className={s.burger_row}></div>
 				</button>
 				<HeaderMenu menuActive={menuActive} setMenuActive={setMenuActive} />
 			</div>

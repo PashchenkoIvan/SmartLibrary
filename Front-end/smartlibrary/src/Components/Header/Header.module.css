@@ -103,21 +103,51 @@
 }
 
 .burger {
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 30px;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	border: none;
 	outline: none;
 	background-color: transparent;
 	cursor: pointer;
 	@apply lg:hidden;
 }
-.burger svg {
-	width: 30px;
-	height: 30px;
-	stroke: white;
+
+.burger_row {
+	width: 100%;
+	height: 3px;
+	border-radius: 1.5px;
+	background-color: #fff;
+}
+
+.rotateDown {
+	animation: rotateDown 0.2s ease;
+	transform: rotate(45deg) translate(9px, 10px);
+}
+
+.rotateDownRev {
+	animation: rotateDownRev 0.2s ease;
+}
+
+.hide {
+	animation: moveRight 0.2s linear;
+	transform: translateX(60px);
+}
+
+.hideRev {
+	animation: hideRev 0.2s linear;
+}
+
+.rotateUp {
+	animation: rotateUp 0.2s ease;
+	transform: rotate(-45deg) translate(9px, -10px);
+}
+
+.rotateUpRev {
+	animation: rotateUpRev 0.2s ease;
 }
 
 @keyframes showWhiteBg {
@@ -137,6 +167,60 @@
 	}
 	to {
 		background-color: rgba(0, 0, 0, 0);
+	}
+}
+
+@keyframes rotateDown {
+	from {
+		transform: rotate(0deg) translate(0px, 0px);
+	}
+	to {
+		transform: rotate(45deg) translate(9px, 10px);
+	}
+}
+
+@keyframes rotateDownRev {
+	from {
+		transform: rotate(45deg) translate(9px, 10px);
+	}
+	to {
+		transform: rotate(0deg) translate(0px, 0px);
+	}
+}
+
+@keyframes hide {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes hideRev {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes rotateUp {
+	from {
+		transform: rotate(0deg) translate(0px, 0px);
+	}
+	to {
+		transform: rotate(-45deg) translate(9px, -10px);
+	}
+}
+
+@keyframes rotateUpRev {
+	from {
+		transform: rotate(-45deg) translate(9px, -10px);
+	}
+	to {
+		transform: rotate(0deg) translate(0px, 0px);
 	}
 }
 
