@@ -1,5 +1,6 @@
 import s from './NewsBlock.module.css';
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const NewsBlock = (props) => {
   const func = () => {
@@ -7,7 +8,7 @@ const NewsBlock = (props) => {
     if(href) {
       return(        
         <div className={s.addBtn}>
-          <button>Add</button>
+          <Link to='/admin/news/create'>+ Додати</Link>
         </div>
       );
     }

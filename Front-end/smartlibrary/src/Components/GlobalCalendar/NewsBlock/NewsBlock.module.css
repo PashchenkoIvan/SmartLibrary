@@ -29,7 +29,10 @@
     align-items: center;
     /* justify-content: flex-end; */
 }
-.addBtn button {
+.addBtn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100px;
     height: 30px;
     background-color: #7ed321;
