@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     
     'library_app',
-    # 'users',
+    'events',
     'authentication'
 ]
 
@@ -148,9 +148,12 @@ db_from_env = dj_database_url.config()
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase', # This is where you put the name of the db file. 
-                 # If one doesn't exist, it will be created at migration time.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ualib',
+        'USER': 'postgres',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

@@ -13,14 +13,11 @@ class User(AbstractUser):
         return ''.join([choice(symb_list) for _ in range(10)])
         
         
-    full_name = models.CharField(max_length=70, verbose_name="ФИО")
     email = models.EmailField(max_length=254, verbose_name="Email")
-    full_address = models.CharField(max_length=100, verbose_name='Aдресса') 
-    birthday = models.DateField()
-    last_visit = models.DateTimeField(auto_now=True)
-    comment = models.TextField()
+    full_name = models.CharField(max_length=70, verbose_name="ФИО")
+
     password = models.CharField(max_length=77, default=create_passwd())
-    is_disabled_person = models.BooleanField(default=False)
+   
     
     class Meta:
         verbose_name = ("Reader")

@@ -8,8 +8,8 @@ from .serializers import AuthSerializer
 from .models import User
 
 class AuthView(APIView):
-    permission_classes = [permissions.IsAdminUser]
-    def get(self, req):
+    permission_classes = [permissions.AllowAny]
+    def get(self, req, pk=None):
         user_id = req.query_params.get('user_id')
         if user_id:
             try:
@@ -25,7 +25,10 @@ class AuthView(APIView):
     def post(self, req):
         serializer = AuthSerializer(data=req.data)
         if serializer.is_valid():
-            serializer.save()
+            try:
+                serializer.save()
+            except KeyError as e:
+                return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
     
@@ -47,3 +50,5 @@ class AuthView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)  
+
+

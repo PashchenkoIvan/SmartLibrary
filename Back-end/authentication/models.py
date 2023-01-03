@@ -3,9 +3,6 @@ from django.contrib.auth.models import (
 )
 
 from django.db import models
-
-from random import choice
-from string import ascii_letters
 from transliterate import translit
 
 class UserManager(BaseUserManager):
@@ -43,10 +40,6 @@ class UserManager(BaseUserManager):
     
 
 class User(AbstractBaseUser, PermissionsMixin):
-    @staticmethod
-    def gen_password():
-        return ''.join([choice(ascii_letters + "1234567890") for _ in range(7)])
-
 
     def get_user_id(self):
         return translit(self.full_name, language_code='uk', reversed=True).replace(" ", "_").lower()
@@ -59,7 +52,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_disabled = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    password = models.CharField(max_length=130, default=gen_password())
+    
+    phone_number = models.CharField(max_length=254, verbose_name="Телефон", blank=True, null=True)
+    home_address = models.CharField(max_length=100, verbose_name='Робоча адресса', blank=True, null=True) 
+    work_address = models.CharField(max_length=100, verbose_name='Домашня адресса', blank=True, null=True) 
+    birthday = models.DateField(blank=True, null=True)
+    last_visit = models.DateTimeField(auto_now=True)
+    comment = models.TextField(blank=True, null=True)
+    is_disabled_person = models.BooleanField(default=False)
+
+    password = models.CharField(max_length=130, null=True, blank=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
