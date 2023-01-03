@@ -24,10 +24,7 @@ const PanelTable = props => {
 						path='readers'
 						element={<Readers readers={props.state.admin.tables.readers} />}
 					/>
-					<Route
-						path='books'
-						element={<Books books={props.state.data.books} />}
-					/>
+					<Route path='books' element={<Books />} />
 					<Route
 						path='applications'
 						element={

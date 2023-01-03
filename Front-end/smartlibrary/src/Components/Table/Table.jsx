@@ -41,19 +41,20 @@ const Table = props => {
 							? 'flex-end'
 							: 'flex-start',
 					backgroundColor: k.colors
-						? ['Немає боргів', 'У бібліотеці', 'Повернена'].includes(
-								el[k.propertyTitle]
+						? ['Немає боргів', 'A', 'W', 'B', 'Повернена'].includes(
+								el[k.property]
 						  )
 							? k.colors[0]
 							: ['Не у бібліотеці', 'Є борги', 'Не повернена'].includes(
-									el[k.propertyTitle]
+									el[k.property]
 							  )
 							? k.colors[1]
-							: ['Читається'].includes(el[k.propertyTitle])
+							: ['Читається'].includes(el[k.property])
 							? k.colors[2]
 							: k.colors[3]
 						: 'transparent',
 				};
+
 				if (k.isLink === true) {
 					return (
 						<div style={style}>
@@ -122,7 +123,11 @@ const Table = props => {
 				} else if (k.property === 'status') {
 					return (
 						<div style={style} className={s.status}>
-							{el[k.propertyTitle]}
+							{el[k.property] == 'A'
+								? 'У бібліотеці'
+								: el[k.property] == 'W'
+								? 'Очікується'
+								: 'Немає'}
 						</div>
 					);
 				} else if (typeof el[k.property] === 'boolean') {

@@ -1,21 +1,29 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import s from './Books.module.css';
 import tableData from './tableData';
 import BooksInfo from './BooksInfo/BooksInfo';
 import BooksTable from './BooksTable/BooksTable';
 import Table from '../../../Table/Table';
+import { RequestsContext } from '../../../..';
 
-const Books = props => {
+const Books = () => {
+	const Requests = useContext(RequestsContext);
+	useEffect(() => {
+		Requests.BookRequests.GetBooks().then(res => {
+			setBooks(res.data);
+			console.log(res.data);
+		});
+	}, []);
+
 	const [filter, setFilter] = useState('all');
-	const [books, setBooks] = useState(props.books);
+	const [books, setBooks] = useState([]);
 
 	return (
 		<div className={s.container}>
-			<BooksInfo books={props.books} setBooks={setBooks} />
-			{/* <BooksTable books={books} /> */}
+			<BooksInfo books={books} setBooks={setBooks} />
 			<div className={s.filter}>
-				<p>Загальна кількість книг {`(${props.books.length})`}</p>
+				<p>Загальна кількість книг {`(${books.length})`}</p>
 				<div className={s.filters}>
 					<label className={s.filterItem} htmlFor='all'>
 						<input

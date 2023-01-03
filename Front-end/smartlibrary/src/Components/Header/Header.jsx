@@ -34,25 +34,29 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 			document.querySelector('body').classList.remove('hiddenForMenu');
 		}
 
-		if (!firstRender && menuActive) {
-			burger_row_1.current.classList.add(s.rotateDown);
-			burger_row_2.current.classList.add(s.hide);
-			burger_row_3.current.classList.add(s.rotateUp);
-		} else {
-			burger_row_1.current.classList.add(s.rotateDownRev);
-			burger_row_2.current.classList.add(s.hideRev);
-			burger_row_3.current.classList.add(s.rotateUpRev);
-
-			burger_row_1.current.classList.remove(s.rotateDown);
-			burger_row_2.current.classList.remove(s.hide);
-			burger_row_3.current.classList.remove(s.rotateUp);
-
-			setTimeout(() => {
-				burger_row_1.current.classList.remove(s.rotateDownRev);
-				burger_row_2.current.classList.remove(s.hideRev);
-				burger_row_3.current.classList.remove(s.rotateUpRev);
-			}, 200);
+		if (firstRender) {
 			setFirstRender(false);
+		} else {
+			if (menuActive) {
+				burger_row_1.current.classList.add(s.rotateDown);
+				burger_row_2.current.classList.add(s.hide);
+				burger_row_3.current.classList.add(s.rotateUp);
+			} else {
+				burger_row_1.current.classList.add(s.rotateDownRev);
+				burger_row_2.current.classList.add(s.hideRev);
+				burger_row_3.current.classList.add(s.rotateUpRev);
+
+				burger_row_1.current.classList.remove(s.rotateDown);
+				burger_row_2.current.classList.remove(s.hide);
+				burger_row_3.current.classList.remove(s.rotateUp);
+
+				setTimeout(() => {
+					burger_row_1.current.classList.remove(s.rotateDownRev);
+					burger_row_2.current.classList.remove(s.hideRev);
+					burger_row_3.current.classList.remove(s.rotateUpRev);
+				}, 200);
+				setFirstRender(false);
+			}
 		}
 	}, [menuActive]);
 
