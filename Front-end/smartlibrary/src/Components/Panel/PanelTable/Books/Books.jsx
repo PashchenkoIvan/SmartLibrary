@@ -12,16 +12,18 @@ const Books = () => {
 	useEffect(() => {
 		Requests.BookRequests.GetBooks().then(res => {
 			setBooks(res.data);
+			setAllBooks(res.data);
 			console.log(res.data);
 		});
 	}, []);
 
 	const [filter, setFilter] = useState('all');
 	const [books, setBooks] = useState([]);
+	const [allBooks, setAllBooks] = useState([]);
 
 	return (
 		<div className={s.container}>
-			<BooksInfo books={books} setBooks={setBooks} />
+			<BooksInfo books={allBooks} setBooks={setBooks} />
 			<div className={s.filter}>
 				<p>Загальна кількість книг {`(${books.length})`}</p>
 				<div className={s.filters}>
