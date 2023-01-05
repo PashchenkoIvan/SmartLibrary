@@ -1,16 +1,28 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import s from './Readers.module.css';
 import tableData from './tableData';
 import ReadersInfo from './ReadersInfo/ReadersInfo';
 import Table from '../../../Table/Table';
+import { AdminContext } from '../../Panel';
 
-const Readers = props => {
-	const [readers, setReaders] = useState(props.readers);
+const Readers = () => {
+	const Admin = useContext(AdminContext);
+
+	const [readers, setReaders] = useState([]);
+	const [allReaders, setAllReaders] = useState([]);
+
+	useEffect(() => {
+		Admin.AdminRequests.GetReaders().then(res => {
+			setAllReaders(res.data);
+			setReaders(res.data);
+			console.log(res.data);
+		});
+	}, []);
 
 	return (
 		<div className={s.container}>
-			<ReadersInfo readers={props.readers} setReaders={setReaders} />
+			<ReadersInfo readers={allReaders} setReaders={setReaders} />
 			<div className={s.tableContainer}>
 				<Table data={readers} keys={tableData()} />
 			</div>

@@ -6,4 +6,7 @@ export default class AdminRequests {
 			...reader,
 		});
 	}
+	static async GetReaders() {
+		return await axios.get('https://ualib-orion.herokuapp.com/api/v1/auth/');
+	}
 }
