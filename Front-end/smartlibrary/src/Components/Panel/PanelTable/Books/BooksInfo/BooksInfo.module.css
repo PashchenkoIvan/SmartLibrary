@@ -74,3 +74,44 @@
 	font-size: 16px;
 	text-decoration: none;
 }
+
+.filter {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	border-radius: 3px;
+	width: 100%;
+	padding: 5px 10px;
+	min-height: 40px;
+	margin-top: 10px;
+	background-color: #fff;
+	@apply sm:flex-row usm:items-center;
+}
+
+.filter p {
+	color: #242a31;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.filters {
+	display: flex;
+	flex-direction: column;
+	@apply usm:flex-row;
+}
+
+.filterItem {
+	display: flex;
+	align-items: center;
+	margin-right: 15px;
+}
+
+.filterItem p {
+	color: #242a31;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 18px;
+	padding-left: 10px;
+}
