@@ -10,7 +10,8 @@ export default class BookRequests {
 	}
 
 	static async ChangeBook(id, data) {
-		return await new Http({ auth: true }).post(`/books/${id}`, { ...data });
+		console.log({ ...data });
+		return await new Http({ auth: true }).patch(`/books/${id}`, { ...data });
 	}
 
 	static async GetBooksCategories() {

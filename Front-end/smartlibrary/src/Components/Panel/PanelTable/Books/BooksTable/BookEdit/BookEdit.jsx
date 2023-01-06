@@ -1,5 +1,5 @@
 import { React, useContext, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Form } from '../../../../../index';
 
 import s from './bookEdit.module.css';
@@ -13,6 +13,7 @@ const BookEdit = ({ books, setHeader }) => {
 
 	const { currentBookId } = useParams();
 	const Requests = useContext(RequestsContext);
+	const Navigate = useNavigate();
 
 	useEffect(() => {
 		document.title = 'Редагувати книгу';
@@ -22,7 +23,7 @@ const BookEdit = ({ books, setHeader }) => {
 	const formMap = books.books.map(b =>
 		b.id == currentBookId ? (
 			<div className={s.contentBlock}>
-				<h2 className={s.caption}>Редагування книги «{b.bookName}»</h2>
+				<h2 className={s.caption}>Редагування книги «{b.title}»</h2>
 				<Form
 					main={mainFieldsData(b)}
 					additional={additionalFieldsData(b)}
@@ -30,7 +31,12 @@ const BookEdit = ({ books, setHeader }) => {
 						{
 							title: 'Зберегти зміни',
 							type: 'submit',
-							oncLick: Requests.BookRequests.ChangeBook(b.id, b),
+							oncLick: () => {
+								Requests.BookRequests.ChangeBook(b.id, b).then(res => {
+									console.log(res);
+									Navigate('/admin/readers');
+								});
+							},
 						},
 					]}
 				/>
