@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useContext, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Form } from '../../../../../index';
 
@@ -6,25 +6,33 @@ import s from './bookEdit.module.css';
 import mainFieldsData from '../MainFieldsData';
 import additionalFieldsData from '../additionalFieldsData';
 import { useEffect } from 'react';
+import { RequestsContext } from '../../../../../..';
 
-const BookEdit = props => {
-	props.setHeader(false);
+const BookEdit = ({ books, setHeader }) => {
+	setHeader(false);
 
 	const { currentBookId } = useParams();
-	const [books, setBooks] = useState(props.data.books);
+	const Requests = useContext(RequestsContext);
 
 	useEffect(() => {
 		document.title = 'Редагувати книгу';
+		console.log(formMap);
 	}, []);
 
-	const formMap = books.map(b =>
-		b.id === currentBookId ? (
+	const formMap = books.books.map(b =>
+		b.id == currentBookId ? (
 			<div className={s.contentBlock}>
 				<h2 className={s.caption}>Редагування книги «{b.bookName}»</h2>
 				<Form
 					main={mainFieldsData(b)}
 					additional={additionalFieldsData(b)}
-					btns={[{ title: 'Зберегти зміни', type: 'submit' }]}
+					btns={[
+						{
+							title: 'Зберегти зміни',
+							type: 'submit',
+							oncLick: Requests.BookRequests.ChangeBook(b.id, b),
+						},
+					]}
 				/>
 			</div>
 		) : (
