@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Form } from '../../../../../index';
 
 import s from './bookEdit.module.css';
-import mainFieldsData from '../MainFieldsData';
+import mainFieldsData from '../mainFieldsData';
 import additionalFieldsData from '../additionalFieldsData';
 import { useEffect } from 'react';
 

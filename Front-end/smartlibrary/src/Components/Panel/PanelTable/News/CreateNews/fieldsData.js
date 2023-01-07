@@ -13,7 +13,7 @@ const fieldsData = n => [
 	},
 	{
 		label: 'Дата події',
-		type: 'date',
+		type: 'text',
 		value: n.date,
 		name: 'date',
 	},
