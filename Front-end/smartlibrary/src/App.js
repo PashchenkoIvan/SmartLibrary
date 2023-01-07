@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useRef, useState, useEffect, useContext } from 'react';
 import { BooksCatalog, Header, SelectedBook, Error404 } from './Components/';
@@ -49,6 +50,11 @@ function App(props) {
 		books: ['', '', '', '', '', '', '', '', '', '', '', ''],
 		isLoading: true,
 	});
+	const [readers, setReaders] = useState({
+		// 12 макетных книг
+		readers: ['', '', '', '', '', '', '', '', '', '', '', ''],
+		isLoading: true,
+	});
 
 	useEffect(() => {
 		if (localStorage.getItem('refresh') !== '') {
@@ -80,6 +86,13 @@ function App(props) {
 			.finally(function (result) {
 				console.log(Auth.categoriesList);
 			});
+
+		axios.get('https://ualib-orion.herokuapp.com/api/v1/auth/')
+			.then(res => {
+				const readers = res.data
+				setReaders({ readers: readers, isLoading: false });
+				console.log(res.data);
+			});			
 	}, [Requests]);
 
 	const wrapper = useRef();
@@ -209,6 +222,7 @@ function App(props) {
 								<CurrentReader
 									admin={props.state.admin}
 									data={props.state.data}
+									readers={readers}
 									setHeader={setHeader}
 								/>
 							)

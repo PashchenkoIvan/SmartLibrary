@@ -14,7 +14,7 @@ const CurrentReader = props => {
 	const { currentReaderId } = useParams();
 	const [search, setSearch] = useState('');
 	const [bookData, setDataBook] = useState(props.data.books);
-	const [readersData, setReadersData] = useState(props.admin.tables.readers);
+	const [readersData, setReadersData] = useState(props.readers.readers);
 	const [reader, setReader] = useState({});
 
 	useEffect(() => {
@@ -22,12 +22,13 @@ const CurrentReader = props => {
 	});
 
 	useEffect(() => {
-		props.admin.tables.readers.map(r => {
-			if(r.id === currentReaderId) {
+		props.readers.readers.map(r => {
+			if(r.id == currentReaderId) {
+				console.log(r);
 				setReader(r)
 			}
 		})
-	}, [currentReaderId, props.admin.tables.readers]);
+	}, [currentReaderId, props.readers.readers]);
 
 	useEffect(() => {
 		setDataBook(
