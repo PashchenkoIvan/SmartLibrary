@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import s from './CreateEvent.module.css';
-import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
+import ActivitiesForm from '../ActivitiesForm/ActivitiesForm';
+
+import sp from '../../../../../assets/styles/popUp.module.css';
 
 const CreateEvent = props => {
 	const [event, setEvent] = useState({
@@ -11,6 +12,7 @@ const CreateEvent = props => {
 		category: '',
 		dateTime: '',
 	});
+	
 	return (
 		<div className={sp.container}>
 			<div className={sp.header}>
@@ -20,64 +22,7 @@ const CreateEvent = props => {
 				</button>
 			</div>
 			<div className={sp.content}>
-				<div className={s.fieldBlock}>
-					<label>Назва заходу</label>
-					<input
-						type='text'
-						value={event.name}
-						onChange={e => setEvent({ ...event, name: e.target.value })}
-					/>
-				</div>
-				<div className={s.fieldBlock}>
-					<label>Короткий опис заходу</label>
-					<textarea
-						className={s.smallDescription}
-						type='text'
-						value={event.smallDescription}
-						onChange={e =>
-							setEvent({ ...event, smallDescription: e.target.value })
-						}
-					/>
-				</div>
-				<div className={s.fieldBlock}>
-					<label>Повний опис заходу</label>
-					<textarea
-						className={s.bigDescription}
-						type='text'
-						value={event.bigDescription}
-						onChange={e =>
-							setEvent({ ...event, bigDescription: e.target.value })
-						}
-					/>
-				</div>
-				<div className={s.categoryAndTime}>
-					<div className={s.fieldBlock}>
-						<label>Категорія</label>
-						<select
-							value={event.category}
-							onChange={e => setEvent({ ...event, category: e.target.value })}
-						>
-							<option value='Новини ОТГ'>Новини ОТГ</option>
-							<option value='Новини бібліотеки'>Новини бібліотеки</option>
-							<option value='Заходи'>Заходи</option>
-						</select>
-					</div>
-					<div className={s.fieldBlock}>
-						<label>Дата та час заходу</label>
-						<input
-							className={s.dataset}
-							type='datetime-local'
-							value={event.dateTime}
-							onChange={e =>
-								setEvent({
-									...event,
-									dateTime: e.target.value.replace('T', ' '),
-								})
-							}
-						/>
-					</div>
-				</div>
-				<button className={s.saveBtn}>Зберегти</button>
+				<ActivitiesForm activity={event} />
 			</div>
 		</div>
 	);

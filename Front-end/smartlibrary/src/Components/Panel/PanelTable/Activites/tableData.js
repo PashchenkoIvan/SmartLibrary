@@ -1,8 +1,4 @@
-import s from '../../../Popup/popUps.css'
-import sp from '../../../Popup/popUps.module.css'
-
-import editFieldsData from './editFieldsData.js'
-import { Form } from '../../../index'
+import ActivitiesForm from './ActivitiesForm/ActivitiesForm';
 
 const tableData = () => {
     const keys = [
@@ -34,7 +30,7 @@ const tableData = () => {
                     popupTitle: "Редагувати захід",
                     showPopUp(url, el) {
                         return(
-                            <Form main={editFieldsData(el)} btns={ [{ title: "Зберегти", type: "submit" }] } />
+                            <ActivitiesForm activity={el} />
                         )
                     }
                 },
