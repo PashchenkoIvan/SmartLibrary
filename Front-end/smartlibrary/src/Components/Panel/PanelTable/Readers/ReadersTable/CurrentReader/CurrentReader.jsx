@@ -23,11 +23,11 @@ const CurrentReader = props => {
 
 	useEffect(() => {
 		props.readers.readers.map(r => {
-			if(r.id == currentReaderId) {
+			if (r.id == currentReaderId) {
 				console.log(r);
-				setReader(r)
+				setReader(r);
 			}
-		})
+		});
 	}, [currentReaderId, props.readers.readers]);
 
 	useEffect(() => {
@@ -92,7 +92,9 @@ const CurrentReader = props => {
 		return currentBookBuilder;
 	};
 
-	const booksHistoryMap = reader.booksHistory?.map(b => singleBookHistoryCreater(b));
+	const booksHistoryMap = reader.booksHistory?.map(b =>
+		singleBookHistoryCreater(b)
+	);
 
 	return (
 		<>
@@ -101,87 +103,88 @@ const CurrentReader = props => {
 					До списку читачів
 				</Link>
 				<div className={s.contentBlock}>
-					<div className={s.qr}>
-						<div className={s.qrHeader}>Особистий QR-код</div>
-						<div className={s.qrMain}>
-							<img className={s.qrImg} src={QrIcon} alt={bookData.bookName} />
+					<div className={s.qrAndLinks}>
+						<div className={s.qr}>
+							<div className={s.qrHeader}>Особистий QR-код</div>
+							<div className={s.qrMain}>
+								<img className={s.qrImg} src={QrIcon} alt={bookData.bookName} />
+							</div>
 						</div>
-					</div>
-					<div className={s.links}>
-						<Popup
-							trigger={
-								<button className={`${s.sideBarLink} + ' ' + ${s.bg_a9e2e9}`}>
-									Редагувати профіль
-								</button>
-							}
-							modal
-						>
-							{close => (
-								<>
-									<div className={sp.header}>
-										<span>Редагувати профіль</span>
-										<button className={sp.closeBtn} onClick={close}>
-											×
-										</button>
-									</div>
-									<div className={sp.content}>
-										<form
-											className={f.form}
-											onSubmit={e => {
-												e.preventDefault();
-												console.log(reader);
-												// Promise.resolve(
-												//     Auth.AuthService.makeLogin({
-												//         email: state.email,
-												//         password: state.password,
-												//     })
-												// ).then(res => (res !== undefined ? (Auth.status = res ? 'librarian' : 'user') : Auth.status = 'anonym'));
-											}}
-										>
-											<ul className={`${f.fieldsList} + ${sp.fields}`}>
-											<li className={f.fieldBlock}>
-												<label>ПІБ</label>
-												<input
-													type='text'
-													value={reader.full_name}
-													name='full_name'
-													onChange={e =>
-														setReader({
-															...reader,
-															full_name: e.target.value,
-														})
-													}
-												/>
-											</li>
-											<li className={f.fieldBlock}>
-												<label>Email</label>
-												<input
-													type='email'
-													value={reader.email}
-													name='email'
-													onChange={e =>
-														setReader({
-															...reader,
-															email: e.target.value,
-														})
-													}
-												/>
-											</li>
-											<li className={f.fieldBlock}>
-												<label>Місце роботи</label>
-												<input
-													type='text'
-													value={reader.work}
-													name='work'
-													onChange={e =>
-														setReader({
-															...reader,
-															work: e.target.value,
-														})
-													}
-												/>
-											</li>
-											{/* <li className={f.fieldBlock}>
+						<div className={s.links}>
+							<Popup
+								trigger={
+									<button className={`${s.sideBarLink} + ' ' + ${s.bg_a9e2e9}`}>
+										Редагувати профіль
+									</button>
+								}
+								modal
+							>
+								{close => (
+									<>
+										<div className={sp.header}>
+											<span>Редагувати профіль</span>
+											<button className={sp.closeBtn} onClick={close}>
+												×
+											</button>
+										</div>
+										<div className={sp.content}>
+											<form
+												className={f.form}
+												onSubmit={e => {
+													e.preventDefault();
+													console.log(reader);
+													// Promise.resolve(
+													//     Auth.AuthService.makeLogin({
+													//         email: state.email,
+													//         password: state.password,
+													//     })
+													// ).then(res => (res !== undefined ? (Auth.status = res ? 'librarian' : 'user') : Auth.status = 'anonym'));
+												}}
+											>
+												<ul className={`${f.fieldsList} + ${sp.fields}`}>
+													<li className={f.fieldBlock}>
+														<label>ПІБ</label>
+														<input
+															type='text'
+															value={reader.full_name}
+															name='full_name'
+															onChange={e =>
+																setReader({
+																	...reader,
+																	full_name: e.target.value,
+																})
+															}
+														/>
+													</li>
+													<li className={f.fieldBlock}>
+														<label>Email</label>
+														<input
+															type='email'
+															value={reader.email}
+															name='email'
+															onChange={e =>
+																setReader({
+																	...reader,
+																	email: e.target.value,
+																})
+															}
+														/>
+													</li>
+													<li className={f.fieldBlock}>
+														<label>Місце роботи</label>
+														<input
+															type='text'
+															value={reader.work}
+															name='work'
+															onChange={e =>
+																setReader({
+																	...reader,
+																	work: e.target.value,
+																})
+															}
+														/>
+													</li>
+													{/* <li className={f.fieldBlock}>
 												<label>Дата народження</label>
 												<input
 													type='daye'
@@ -196,35 +199,35 @@ const CurrentReader = props => {
 													}
 												/>
 											</li> */}
-											<li className={f.fieldBlock}>
-												<label>Домашня адреса</label>
-												<input
-													type='text'
-													value={reader.home_address}
-													name='home_address'
-													onChange={e =>
-														setReader({
-															...reader,
-															home_address: e.target.value,
-														})
-													}
-												/>
-											</li>
-											<li className={f.fieldBlock}>
-												<label>Телефон (за згодою)</label>
-												<input
-													type='text'
-													value={reader.phone_number}
-													name='phone_number'
-													onChange={e =>
-														setReader({
-															...reader,
-															phone_number: e.target.value,
-														})
-													}
-												/>
-											</li>
-											{/* <li className={f.fieldBlock}>
+													<li className={f.fieldBlock}>
+														<label>Домашня адреса</label>
+														<input
+															type='text'
+															value={reader.home_address}
+															name='home_address'
+															onChange={e =>
+																setReader({
+																	...reader,
+																	home_address: e.target.value,
+																})
+															}
+														/>
+													</li>
+													<li className={f.fieldBlock}>
+														<label>Телефон (за згодою)</label>
+														<input
+															type='text'
+															value={reader.phone_number}
+															name='phone_number'
+															onChange={e =>
+																setReader({
+																	...reader,
+																	phone_number: e.target.value,
+																})
+															}
+														/>
+													</li>
+													{/* <li className={f.fieldBlock}>
 												<label>Паспорт (за згодою)</label>
 												<input
 													type='text'
@@ -238,61 +241,60 @@ const CurrentReader = props => {
 													}
 												/>
 											</li> */}
-											</ul>
-											<div className={f.btns}>
-												<input
-													className={f.btn}
-													type='submit'
-													value='Зберегти зміни'
-													onClick={
-														e => {
+												</ul>
+												<div className={f.btns}>
+													<input
+														className={f.btn}
+														type='submit'
+														value='Зберегти зміни'
+														onClick={e => {
 															// e.preventDefault();
 															console.log('Button Clicked!');
 															// Admin.AdminRequests.AddReader(reader);
-														}
-													}
-												/>
-											</div>
-										</form>
-									</div>
-								</>
-							)}
-						</Popup>
-						<Popup
-							trigger={
-								<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
-									Роздрукувати QR-код
-								</button>
-							}
-							modal
-						>
-							{close => (
-								<>
-									<div className={sp.header}>
-										<span>Роздрукувати QR-код</span>
-										<button className={sp.closeBtn} onClick={close}>
-											×
-										</button>
-									</div>
-									<div className={sp.content}>
-										<img
-											className={s.qrImg}
-											src={QrIcon}
-											alt={bookData.bookName}
-										/>
-										<button className={sp.btn} onClick={() => {}}>
-											Роздрукувати
-										</button>
-									</div>
-								</>
-							)}
-						</Popup>
-						<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
-							Надіслати пароль
-						</button>
-						<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
-							Видалити користувача
-						</button>
+														}}
+													/>
+												</div>
+											</form>
+										</div>
+									</>
+								)}
+							</Popup>
+							<Popup
+								trigger={
+									<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
+										Роздрукувати QR-код
+									</button>
+								}
+								modal
+							>
+								{close => (
+									<>
+										<div className={sp.header}>
+											<span>Роздрукувати QR-код</span>
+											<button className={sp.closeBtn} onClick={close}>
+												×
+											</button>
+										</div>
+										<div className={sp.content}>
+											<img
+												className={s.qrImg}
+												src={QrIcon}
+												alt={bookData.bookName}
+											/>
+											<button className={sp.btn} onClick={() => {}}>
+												Роздрукувати
+											</button>
+										</div>
+									</>
+								)}
+							</Popup>
+							<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
+								Надіслати пароль
+							</button>
+							<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
+								Видалити користувача
+							</button>
+						</div>
 					</div>
 					<div className={s.readerProfile}>
 						<div className={s.readerInfo}>

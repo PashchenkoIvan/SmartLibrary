@@ -1,279 +1,283 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
 
-    max-width: 1300px;
+	max-width: 1300px;
 
-    margin: 0 auto;
-    padding: 30px 0;
+	margin: 0 auto;
+	padding: 30px 20px;
 }
 
 .btn {
-    width: fit-content;
+	width: fit-content;
 
-    padding: 10px 20px;
+	padding: 10px 20px;
 
-    border-radius: 3px;
-    background-color: #36bbcb;
+	border-radius: 3px;
+	background-color: #36bbcb;
 
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.2px;
-    line-height: 18px;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: -0.2px;
+	line-height: 18px;
 }
 
 .contentBlock {
-    display: flex;
-    gap: 20px;
+	display: flex;
+	gap: 20px;
 
-    width: 100%;
+	width: 100%;
 
-    padding-bottom: 40px;
+	padding-bottom: 40px;
+	@apply flex-col lg:flex-row;
+}
+
+.qrAndLinks {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	@apply w-full flex-col usm:flex-row lg:w-2/5;
 }
 
 .qr,
 .links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-    width: 20%;
+	background-color: #ffffff;
+	box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
+	border-radius: 12px;
+	border: 1px solid #ececec;
 
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
-    border-radius: 12px;
-    border: 1px solid #ececec;
-
-    overflow: hidden;
+	overflow: hidden;
+	@apply w-full usm:w-1/2;
 }
 
 .links {
-    gap: 10px;
-    justify-content: center;
-    padding: 25px;
+	gap: 10px;
+	justify-content: center;
+	padding: 25px;
 }
 
 .qrHeader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    width: 100%;
-    max-height: 68px;
+	width: 100%;
+	max-height: 68px;
 
-    padding: 20px;
+	padding: 20px;
 
-    background-color: #ecf3fc;
+	background-color: #ecf3fc;
 
-    color: #242a31;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.2px;
+	color: #242a31;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: -0.2px;
 }
 
 .qrMain {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    height: 100%;
+	height: 100%;
 
-    padding: 25px;
+	padding: 25px;
 }
 
 .qrImg {
-    width: 80%;
-    height: auto;
+	width: 80%;
+	height: auto;
 }
 
 .sideBarLink {
-    width: 100%;
+	width: 100%;
 
-    padding: 10px 0;
+	padding: 10px 5px;
 
-    border-radius: 3px;
+	border-radius: 3px;
 
-    color: #13444a;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -0.17px;
-    line-height: 18px;
-    text-align: center;
-    cursor: pointer;
+	color: #13444a;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: -0.17px;
+	line-height: 18px;
+	text-align: center;
+	cursor: pointer;
 }
 
 .fieldsList {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 
-    width: 100%;
+	width: 100%;
 
-    list-style: none;
+	list-style: none;
 }
 
 .singleFieldBlock {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 
-    width: 100%;
+	width: 100%;
 }
 
 .singleFieldBlock label {
-    font-family: "Avenir Next";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 20px;
-    letter-spacing: -0.1875px;
+	font-family: 'Avenir Next';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 20px;
+	letter-spacing: -0.1875px;
 }
 
 .singleFieldBlock input,
-.singleFieldBlock textarea  {
-    width: 100%;
+.singleFieldBlock textarea {
+	width: 100%;
 
-    padding: 17px 24px;
+	padding: 17px 24px;
 
-    color: #555;
-    font-size: 14px;
-    line-height: 1.42857143;
-    
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
+	color: #555;
+	font-size: 14px;
+	line-height: 1.42857143;
 
-    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
-    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	outline: none;
+
+	-webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+	box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
 }
 
-.singleFieldBlock input[type="checkbox"] {
-    width: fit-content;
-    box-shadow: none;
+.singleFieldBlock input[type='checkbox'] {
+	width: fit-content;
+	box-shadow: none;
 }
 
 .singleFieldBlock textarea {
-    height: 100px;
+	height: 100px;
 }
 
 .bg_a9e2e9 {
-    background-color: #a9e2e9;
+	background-color: #a9e2e9;
 }
 .bg_ffbb68 {
-    background-color: #ffbb68;
+	background-color: #ffbb68;
 }
 
 .readerProfile {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 20px;
 
-    width: 60%;
+	padding: 25px;
 
-    padding: 25px;
-
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
-    border-radius: 12px;
-    border: 1px solid #ececec;
+	background-color: #ffffff;
+	box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
+	border-radius: 12px;
+	border: 1px solid #ececec;
+	@apply w-full lg:w-3/5;
 }
 
 .readerInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-    
-    width: 100%;
-    height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 10px;
+	overflow-x: scroll;
+
+	width: 100%;
+	height: 100%;
 }
 
 .readerInfoTop {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
 
-    width: 100%;
+	width: 100%;
 }
 
 .readerStatus {
-    width: fit-content;
+	width: fit-content;
 
-    padding: 5px 10px;
+	padding: 5px 10px;
 
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -0.17px;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: -0.17px;
 
-    background-color: #36bbcb;
-    border-radius: 2px;
+	background-color: #36bbcb;
+	border-radius: 2px;
 }
 
 .readerName {
-    color: #242a31;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: -0.21px;
-    text-transform: uppercase;
+	color: #242a31;
+	font-size: 17px;
+	font-weight: 600;
+	letter-spacing: -0.21px;
+	text-transform: uppercase;
 }
 
 .extendedReaderInfo {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    width: 100%;
+	width: 100%;
+	min-width: 350px;
 }
 
 .singleReaderParameter {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
-    width: 100%;
+	width: 100%;
 
-    padding: 8px 24px;
-    border-radius: 3px;
+	padding: 8px 24px;
+	border-radius: 3px;
 }
 
 .singleReaderParameter:nth-child(odd) {
-    background-color: #ecf3fc;
+	background-color: #ecf3fc;
 }
 
 .value {
-    width: 30%;
-    font-size: 16px;
+	width: 30%;
+	font-size: 16px;
 }
 
 .key {
-    font-size: 16px;
-    font-weight: 600;
+	font-size: 16px;
+	font-weight: 600;
 }
-
-
-
 
 /* Історія книг */
 /* ---------------------------------------------- */
 
 .booksHistoryContainer {
-    width: 100%;
-    padding: 40px;
-    background-color: #ebf2fb;
+	width: 100%;
+	padding: 30px 20px;
+	background-color: #ebf2fb;
 }
 
 .booksHistory {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 
-    max-width: 1340px;
-
-    padding: 0 20px;
-    margin: 0 auto;
+	max-width: 1340px;
+	margin: 0 auto;
 }
 
 .booksTopBar {
@@ -281,6 +285,7 @@
 	display: flex;
 	justify-content: space-between;
 	gap: 10px;
+	@apply flex-col usm:flex-row;
 }
 
 .search {
@@ -317,12 +322,12 @@
 }
 
 .giveBook {
-    display: flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 
 	max-height: 50px;
-    padding: 20px 25px;
+	padding: 20px 25px;
 
 	border-radius: 3px;
 	background-color: #36bbcb;
@@ -330,178 +335,181 @@
 	color: #fff;
 	font-size: 16px;
 	text-decoration: none;
-    white-space: nowrap;
+	white-space: nowrap;
 }
 
 .booksTable {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow-x: scroll;
+	gap: 10px;
+	width: 100%;
 }
 
 .keysBar {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
+	border-radius: 3px;
 
-    width: 100%;
-    padding: 5px 7.5px 5px 16px;
+	width: 100%;
+	min-width: 700px;
+	padding: 5px 7.5px 5px 16px;
 
-    background-color: #dae3ef;
+	background-color: #dae3ef;
 
-    font-weight: 600;
+	font-weight: 600;
 }
 
 .keysBar > * {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .keysBar > *:first-child {
-    display: flex;
-    justify-content: start;
+	display: flex;
+	justify-content: start;
 }
 
 .keysBar > span:nth-child(1) {
-    width: 40%;
+	width: 40%;
 }
 
 .keysBar > span:nth-child(2) {
-    width: 5%;
+	width: 5%;
 }
 
 .keysBar > span:nth-child(3) {
-    width: 15%;
+	width: 15%;
 }
 
 .keysBar > span:nth-child(4) {
-    width: 15%;
+	width: 15%;
 }
 
 .keysBar > span:nth-child(5) {
-    width: 15%;
+	width: 15%;
 }
 
 .valuesTable {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 
-    width: 100%;
-    height: fit-content;
-    max-height: 800px;
+	width: 100%;
+	height: fit-content;
+	max-height: 800px;
 
-    overflow-y: scroll;
+	overflow-y: scroll;
 }
 
 .singleBookHistoryContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 
-    width: 100%;
-    max-height: 55px;
+	width: 100%;
+	max-height: 55px;
 
-    padding: 20px 7.5px 20px 16px;
+	padding: 20px 7.5px 20px 16px;
 
-    background-color: #ffffff;
+	background-color: #ffffff;
 
-    box-shadow: 0 1px 4px rgb(30 37 82 / 24%);
-    border-radius: 3px;
+	box-shadow: 0 1px 4px rgb(30 37 82 / 24%);
+	border-radius: 3px;
 }
 
 .singleBookHistoryContainer > * {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .singleBookHistoryContainer > *:first-child {
-    justify-content: start;
+	justify-content: start;
 }
 
 .bookName {
-    width: 40%;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: -0.2px;
-    line-height: 18px;
+	width: 40%;
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: -0.2px;
+	line-height: 18px;
 }
 
 .bookName:hover {
-    color: #36bbcb;
-    transition: all 0.2s;
+	color: #36bbcb;
+	transition: all 0.2s;
 }
 
 .bookQr {
-    width: 5%;
+	width: 5%;
 }
 
 .bookQr > * {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .dateInfo {
-    width: 15%;
-    text-align: center;
+	width: 15%;
+	text-align: center;
 }
 
 .bookStatus {
-    display: flex;
-    justify-content: center;
-    width: 15%;
+	display: flex;
+	justify-content: center;
+	width: 15%;
 
-    padding: 0 2%;
+	padding: 0 2%;
 }
 
 .bookStatusValue {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    width: 100%;
-    
-    border-radius: 3px;
+	width: 100%;
+
+	border-radius: 3px;
 }
 
 .btnContainer {
-    display: flex;
-    justify-content: flex-end;
-    width: 10%;
+	display: flex;
+	justify-content: flex-end;
+	width: 10%;
 }
 
 .giveBookBtn {
-    width: 100%;
+	width: 100%;
 
-    padding: 11px;
-    margin-left: 5px;
+	padding: 11px;
+	margin-left: 5px;
 
-    border-radius: 3px;
-    background-color: #f5a623;
+	border-radius: 3px;
+	background-color: #f5a623;
 
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: -0.17px;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: -0.17px;
 }
 
 .categoryBtns > * {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-    max-height: 40px;
+	max-height: 40px;
 
-    padding: 16px;
+	padding: 16px;
 
-    border-radius: 3px;
-    color: white;
+	border-radius: 3px;
+	color: white;
 }
 
 .categoryEdit {
-    background: #36BBCB;
+	background: #36bbcb;
 }
 
 .categoryDelete {
-    background: #F54B23;
+	background: #f54b23;
 }
