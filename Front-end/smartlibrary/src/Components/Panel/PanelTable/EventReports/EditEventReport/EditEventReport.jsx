@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Form from '../../../../Form/Form';
+
+import EventReportForm from '../EventReportForm/EventReportForm'
+
 import s from './EditEventReport.module.css';
-import fieldsData from './fieldsData';
+
 
 const EditEventReport = props => {
 	props.setHeader(false);
@@ -36,7 +38,7 @@ const EditEventReport = props => {
 				<h1>Звіт до заходу</h1>
 				<Link to='/admin/event-reporting'>Повернутися</Link>
 			</div>
-			<Form main={fieldsData(initState)} btns={[{title: "Редагувати звіт", type: "submit"}]} />
+			<EventReportForm eventReport={eventReport} isEditing='true' />
 		</div>
 	);
 };

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Form from '../../../../Form/Form';
+
+import EventReportForm from '../EventReportForm/EventReportForm'
 import s from './CreateEventReport.module.css';
-import fieldsData from './fieldsData';
 
 const CreateEventReport = props => {
 	useEffect(() => {
@@ -29,7 +29,7 @@ const CreateEventReport = props => {
 				<Link to='/admin/activities'>Повернутися</Link>
 				<h1>Створення звіту до заходу</h1>
 			</div>
-			<Form main={fieldsData(eventReport)} btns={[{ title: 'Додати звіт' }]} />
+			<EventReportForm eventReport={eventReport} isEditing='false' />
 		</div>
 	);
 };
