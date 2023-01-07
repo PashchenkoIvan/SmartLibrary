@@ -6,8 +6,8 @@ import BookForm from '../BookForm/BookForm';
 import s from './bookEdit.module.css';
 
 
-const BookEdit = props => {
-	props.setHeader(false);
+const BookEdit = ({ books, setHeader }) => {
+	setHeader(false);
 
 	const { currentBookId } = useParams();
 
@@ -21,7 +21,7 @@ const BookEdit = props => {
 				До каталогу книжок
 			</Link>
 			<BookForm 
-				book={props.books.books.filter(b => {
+				book={books.books.filter(b => {
 					if(b.id == currentBookId) {
 						return b;
 					}

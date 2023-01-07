@@ -3,11 +3,16 @@ import { Http } from '../services/http.init';
 export default class BookRequests {
 	static async GetBooks() {
 		return await new Http({ auth: false }).get('/library/books/');
-	};
+	}
 
 	static async AddBook(data) {
-		return await new Http({ auth: true }).post('/library/books/', {...data});
-	};
+		return await new Http({ auth: true }).post('/library/books/', { ...data });
+	}
+
+	static async ChangeBook(id, data) {
+		console.log({ ...data });
+		return await new Http({ auth: true }).patch(`/books/${id}`, { ...data });
+	}
 
 	static async EditBook(id, data) {
 		console.log(id);
@@ -17,7 +22,7 @@ export default class BookRequests {
 
 	static async GetBooksCategories() {
 		return await new Http({ auth: false }).get('/library/categories/');
-	};
+	}
 
 	static category = () => {
 		return $api.post('/library/categories/', {});
@@ -36,7 +41,7 @@ export default class BookRequests {
 	};
 
 	static AddBooksCategory = category => {
-		return $api.post('/library/categories/', {...category});
+		return $api.post('/library/categories/', { ...category });
 	};
 
 	static GetBoosByTitle = title => {

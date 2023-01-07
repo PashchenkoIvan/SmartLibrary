@@ -3,7 +3,6 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	overflow-x: hidden;
 }
 ::-webkit-scrollbar {
 	display: none;
@@ -12,14 +11,15 @@
 	width: 100%;
 	background-color: #ecf3fc;
 	display: flex;
-	align-items: center;
 	flex-direction: column;
-	padding-top: 50px;
+	align-items: center;
+	padding: 50px 0 15px 0;
 }
 .infoBlock {
-	width: 100%;
+	width: 100%;	
 	display: flex;
 	flex-direction: column;
+	padding: 0;
 }
 .infoBlock h1 {
 	font-size: 22px;
@@ -141,12 +141,15 @@
 	.editBlock {
 		width: 250px;
 		height: 300px;
-		margin-right: 5px;
+		/* margin-right: 5px; */
 		white-space: nowrap;
+	}
+	.editBlock:last-child {
+		margin-left: 20px;
 	}
 	.bottomBlock {
 		flex-direction: row;
-		justify-content: flex-start;
+		justify-content: center;
 		/* align-items: center; */
 	}
 	.buttonBlock img {
@@ -162,21 +165,6 @@
 	.infoBlock {
 		align-items: flex-start;
 		justify-content: flex-start;
-		padding-left: 20%;
-	}
-}
-@media screen and (min-width: 1440px) {
-	.buttonBlock img {
-		width: 120px;
-		height: 120px;
-	}
-	.bottomBlock {
-		max-width: 1500px;
-		margin-top: 33px;
-		flex-direction: row;
-		align-items: center;
-	}
-	.chartBlock {
-		gap: 20px;
+		padding-left: 16%;
 	}
 }

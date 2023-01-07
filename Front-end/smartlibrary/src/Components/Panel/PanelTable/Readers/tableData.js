@@ -1,6 +1,6 @@
 import s from '../../../Popup/popUps.css';
 import sp from '../../../Popup/popUps.module.css';
-import { qrCode, QrIcon } from '../../img'
+import { qrCode, QrIcon } from '../../img';
 
 const tableData = () => {
     const keys = [
@@ -42,26 +42,21 @@ const tableData = () => {
 						<button className={sp.btn} onClick={() => {}}>
 							Роздрукувати
 						</button>
-                    </>
-                )
-            }
-        },
-        {
-            name: "Статус",
-            width: 10,
-            property: "status",
-            propertyTitle: "status",
-            align: "center",
-            colors: [
-                "rgb(232, 238, 246)", // У бібліотеці
-                "rgb(248, 126, 115)" // Немає у наявності
-            ]
-        },
-    ]
+					</>
+				);
+			},
+		},
+		{
+			name: 'Статус',
+			width: 10,
+			property: 'status',
+			propertyTitle: 'status',
+			align: 'center',
+			colors: ['rgb(232, 238, 246)', 'rgb(248, 126, 115)'],
+		},
+	];
 
-    return (
-        keys
-    )
-}
+	return keys;
+};
 
 export default tableData;

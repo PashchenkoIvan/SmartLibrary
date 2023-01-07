@@ -4,6 +4,7 @@ import NewsBlock from './NewsBlock/NewsBlock';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Calendar from 'react-calendar';
+import './CalendarStyle.css';
 
 const GCalendar = () => {
 	let News = [
