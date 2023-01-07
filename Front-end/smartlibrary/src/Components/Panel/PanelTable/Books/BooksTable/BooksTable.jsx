@@ -36,13 +36,13 @@ const BooksTable = props => {
 						{close => (
 							<>
 								<div className={sp.header}>
-									<span>{b.bookName}</span>
+									<span>{b.title}</span>
 									<button className={sp.closeBtn} onClick={close}>
 										×
 									</button>
 								</div>
 								<div className={sp.content}>
-									<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
+									<img className={s.qrImg} src={QrIcon} alt={b.title} />
 									<button className={sp.btn} onClick={() => {}}>
 										Роздрукувати
 									</button>

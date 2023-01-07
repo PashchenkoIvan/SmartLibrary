@@ -6,15 +6,15 @@ let state = {
 			readers: [
 				{
 					id: 'sergey-zorya-1',
-					name: 'Sergey Zorya',
+					full_name: 'Sergey Zorya',
 					email: 'sergey.zorya@gmail.com',
-					phone: '+380935096324',
+					phone_number: '+380935096324',
 					status: 'Немає боргів',
 					needs: true,
 					birthday: '01.05.2000',
-					homeAddress: 'Дніпро, Глінки 1',
-					workAddress: 'Кривий Ріг, Перемоги 13',
-					passportInfo: '',
+					home_address: 'Дніпро, Глінки 1',
+					work: 'Кривий Ріг, Перемоги 13',
+					passport: '',
 					booksHistory: [
 						{
 							id: 'trytsylindrovyy-dvyhun-lyubovi',
@@ -66,15 +66,15 @@ let state = {
 				},
 				{
 					id: 'sergey-zorya-2',
-					name: 'Sergey Zorya',
+					full_name: 'Sergey Zorya',
 					email: 'sergey.zorya@gmail.com',
-					phone: '+380935096324',
+					phone_number: '+380935096324',
 					status: 'Немає боргів',
 					needs: false,
 					birthday: '01.05.1990',
-					homeAddress: 'Дніпро, Глінки 2',
-					workAddress: 'Кривий Ріг, Перемоги 23',
-					passportInfo: '748294739',
+					home_address: 'Дніпро, Глінки 2',
+					work: 'Кривий Ріг, Перемоги 23',
+					passport: '748294739',
 					booksHistory: [
 						{
 							id: 'trytsylindrovyy-dvyhun-lyubovi',

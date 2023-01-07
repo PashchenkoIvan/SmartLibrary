@@ -1,0 +1,91 @@
+.trigger {
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header span {
+    position: relative;
+    width: 80%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.header span:after {
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    content: "";
+
+    box-shadow: inset -15px 0 15px #fff;
+}
+
+.closeBtn {
+    color: #000;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+
+    border: none;
+    outline: none;
+
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    width: 100%;
+    /* overflow-y: scroll; */
+
+    position: relative;
+    padding: 15px 30px 30px;
+}
+
+.content > *:first-child {
+    overflow-y: scroll;
+    max-height: 47vh;
+}
+
+.content input[type="color"] {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto;
+    padding: 1px;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    width: 100%;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.btn {
+    padding: 12px 20px;
+
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+    line-height: 18px;
+
+    background-color: #36bbcb;
+    border-radius: 3px;
+    border: none;
+
+    cursor: pointer;
+}

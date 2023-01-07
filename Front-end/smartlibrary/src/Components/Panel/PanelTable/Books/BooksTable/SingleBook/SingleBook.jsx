@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 const SingleBook = props => {
 	props.setHeader(false);
 	const { currentBookId } = useParams();
-	const [bookData, setDataBook] = useState(props.data.books);
+	const [bookData, setDataBook] = useState(props.books.books);
 
 	useEffect(() => {
 		document.title = 'Каталог книг';
@@ -22,7 +22,7 @@ const SingleBook = props => {
 			<div className={s.contentBlock}>
 				<div className={s.sideBar}>
 					<div className={s.qr}>
-						<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
+						<img className={s.qrImg} src={QrIcon} alt={b.title} />
 						<Popup
 							trigger={
 								<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
@@ -40,7 +40,7 @@ const SingleBook = props => {
 										</button>
 									</div>
 									<div className={sp.content}>
-										<img className={s.qrImg} src={QrIcon} alt={b.bookName} />
+										<img className={s.qrImg} src={QrIcon} alt={b.title} />
 										<button className={sp.btn} onClick={() => {}}>
 											Роздрукувати
 										</button>
@@ -57,7 +57,7 @@ const SingleBook = props => {
 							Редагувати книгу
 						</Link>
 						<Link
-							to={`/${b.id}`}
+							to={`/selected-book/${b.title}`}
 							className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}
 							onClick={() => {
 								window.scrollTo(0, 0);
@@ -82,7 +82,7 @@ const SingleBook = props => {
 										</button>
 									</div>
 									<div className={sp.content}>
-										<span>{`«${b.bookName}.» — ${b.bookAuthor}, ${b.lang}, ${b.dateOfPublication}. - c. ${b.pageAmount}`}</span>
+										<span>{`«${b.title}.» — ${b.author}, ${b.language}, ${b.publication_year}. - c. ${b.number_of_pages}`}</span>
 										<button className={sp.btn} onClick={() => {}}>
 											Роздрукувати
 										</button>
@@ -95,41 +95,41 @@ const SingleBook = props => {
 				<div className={s.bookProfile}>
 					<div
 						className={s.bookImg}
-						style={{ backgroundImage: 'url(' + b.bookImg + ')' }}
+						style={{ backgroundImage: 'url(' + b.cover_img_path + ')' }}
 					></div>
 					<div className={s.bookInfo}>
 						<div className={s.bookInfoTop}>
-							<div className={s.bookStatus}>{b.bookStatus}</div>
-							<h3 className={s.bookName}>{b.bookName}</h3>
+							<div className={s.bookStatus}>{b.status}</div>
+							<h3 className={s.bookName}>{b.title}</h3>
 						</div>
 						<ul className={s.extendedBookInfo}>
 							<li className={s.singleBookParameter}>
 								<div className={s.value}>Автор</div>
-								<div className={s.key}>{b.bookAuthor}</div>
+								<div className={s.key}>{b.author}</div>
 							</li>
 							<li className={s.singleBookParameter}>
 								<div className={s.value}>Категорія</div>
-								<div className={s.key}>{b.ganreText}</div>
+								<div className={s.key}>{b.category}</div>
 							</li>
 							<li className={s.singleBookParameter}>
 								<div className={s.value}>Мова</div>
-								<div className={s.key}>{b.lang}</div>
+								<div className={s.key}>{b.language}</div>
 							</li>
 							<li className={s.singleBookParameter}>
 								<div className={s.value}>Рік</div>
-								<div className={s.key}>{b.dateOfPublication}</div>
+								<div className={s.key}>{b.publication_year}</div>
 							</li>
 							<li className={s.singleBookParameter}>
 								<div className={s.value}>Сторінок</div>
-								<div className={s.key}>{b.pageAmount}</div>
+								<div className={s.key}>{b.number_of_pages}</div>
 							</li>
 							<li className={s.singleBookParameter}>
 								<div className={s.value}>Тип</div>
-								<div className={s.key}>{b.bookType}</div>
+								<div className={s.key}>{b.book_type == 'P' ? 'Паперова' : 'Електрона'}</div>
 							</li>
 							<li className={s.singleBookParameter}>
 								<div className={s.value}>ISBN</div>
-								<div className={s.key}>{b.ISBN}</div>
+								<div className={s.key}>{b.isbn}</div>
 							</li>
 						</ul>
 					</div>

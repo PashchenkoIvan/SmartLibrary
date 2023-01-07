@@ -37,7 +37,7 @@ const tableData = () => {
 			name: 'QR-код',
 			width: 12,
 			property: 'qr',
-			propertyTitle: 'bookName',
+			propertyTitle: 'title',
 			isPopup: true,
 			align: 'center',
 			showPopUp(url) {

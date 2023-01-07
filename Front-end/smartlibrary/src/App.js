@@ -222,7 +222,7 @@ function App(props) {
 							) : (
 								<SingleBook
 									admin={props.state.admin}
-									data={props.state.data}
+									books={books}
 									setHeader={setHeader}
 								/>
 							)
@@ -257,7 +257,7 @@ function App(props) {
 							Auth.status !== 'librarian' ? (
 								<Navigate replace to='/404' />
 							) : (
-								<BookEdit data={props.state.data} setHeader={setHeader} />
+								<BookEdit books={books} setHeader={setHeader} />
 							)
 						}
 					/>

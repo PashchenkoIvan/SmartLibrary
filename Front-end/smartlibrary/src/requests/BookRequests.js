@@ -9,6 +9,12 @@ export default class BookRequests {
 		return await new Http({ auth: true }).post('/library/books/', {...data});
 	};
 
+	static async EditBook(id, data) {
+		console.log(id);
+		console.log(data);
+		return await new Http({ auth: true }).put(`/library/books/${id}/`, {...data});
+	};
+
 	static async GetBooksCategories() {
 		return await new Http({ auth: false }).get('/library/categories/');
 	};
@@ -25,8 +31,8 @@ export default class BookRequests {
 		return $api.delete(`/library/categories?title=${category}/`);
 	};
 
-	static ChangeBooksCategory = (title, data) => {
-		return $api.post(`/library/categories?title=${title}/`, {...data});
+	static async ChangeBooksCategory(id, data) {
+		return await new Http({ auth: false }).put(`/library/categories/${id}/`, {...data});
 	};
 
 	static AddBooksCategory = category => {

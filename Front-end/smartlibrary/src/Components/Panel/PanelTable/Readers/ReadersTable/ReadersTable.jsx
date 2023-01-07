@@ -3,7 +3,7 @@ import Popup from 'reactjs-popup';
 // import QRCode from 'react-qr-code';
 
 import s from './ReadersTable.module.css';
-import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
+import sp from '../../../../../assets/styles/popUp.module.css';
 import qrCode from '../../../img/qricon.png';
 import { QrIcon } from '../../../img';
 

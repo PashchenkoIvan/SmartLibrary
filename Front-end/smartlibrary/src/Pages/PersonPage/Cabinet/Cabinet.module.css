@@ -85,19 +85,23 @@
     border-bottom-right-radius: 12px;
 }
 .buttonBlock > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     width: 100%;
     height: 40px;
     border: none;
     border-radius: 3px;
     font-size: 14px;
 }
-.buttonBlock button:nth-child(1) {
+.buttonBlock > *:nth-child(1) {
     background-color: #a9e2e9;  
 }
-.buttonBlock button:nth-child(2) {
+.buttonBlock > *:nth-child(2) {
     background-color: #ffbb68;  
 }
-.buttonBlock button:nth-child(3) {
+.buttonBlock > *:nth-child(3) {
     background-color: #ffa468;  
 }
 .calendarBlock {

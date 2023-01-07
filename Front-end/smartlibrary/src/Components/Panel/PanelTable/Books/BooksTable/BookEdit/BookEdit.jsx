@@ -1,43 +1,33 @@
-import { React, useState } from 'react';
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Form } from '../../../../../index';
+
+import BookForm from '../BookForm/BookForm';
 
 import s from './bookEdit.module.css';
-import mainFieldsData from '../MainFieldsData';
-import additionalFieldsData from '../additionalFieldsData';
-import { useEffect } from 'react';
+
 
 const BookEdit = props => {
 	props.setHeader(false);
 
 	const { currentBookId } = useParams();
-	const [books, setBooks] = useState(props.data.books);
 
 	useEffect(() => {
 		document.title = 'Редагувати книгу';
 	}, []);
-
-	const formMap = books.map(b =>
-		b.id === currentBookId ? (
-			<div className={s.contentBlock}>
-				<h2 className={s.caption}>Редагування книги «{b.bookName}»</h2>
-				<Form
-					main={mainFieldsData(b)}
-					additional={additionalFieldsData(b)}
-					btns={[{ title: 'Зберегти зміни', type: 'submit' }]}
-				/>
-			</div>
-		) : (
-			''
-		)
-	);
 
 	return (
 		<div className={s.container}>
 			<Link to='/admin/books' className={s.btn}>
 				До каталогу книжок
 			</Link>
-			{formMap}
+			<BookForm 
+				book={props.books.books.filter(b => {
+					if(b.id == currentBookId) {
+						return b;
+					}
+				})[0]}
+				isEditing='true'
+			/>
 		</div>
 	);
 };

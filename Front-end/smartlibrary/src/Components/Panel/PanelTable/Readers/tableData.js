@@ -7,7 +7,7 @@ const tableData = () => {
         {
             name: "ПІБ",
             width: 30,
-            property: "name",
+            property: "full_name",
             isCounter: true,
             isLink: true,
             path: "/reader/"
@@ -15,7 +15,7 @@ const tableData = () => {
         {
             name: "Телефон",
             width: 15,
-            property: "phone"
+            property: "phone_number"
         },
         {
             name: "Email",

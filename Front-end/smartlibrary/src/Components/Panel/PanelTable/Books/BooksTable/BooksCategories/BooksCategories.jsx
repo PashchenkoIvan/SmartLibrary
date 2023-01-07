@@ -2,10 +2,13 @@ import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import ContentLoader from "react-content-loader"
+
 import { RequestsContext } from '../../../../../../index';
 
 import s from './booksCategories.module.css';
-import sp from './popUps.module.css';
+import sp from '../../../../../../assets/styles/popUp.module.css';
+import f from '../../../../../../assets/styles/form.module.css';
+
 
 const BooksCategories = props => {
 	props.setHeader(false);
@@ -23,10 +26,14 @@ const BooksCategories = props => {
 		categories: ['', '', '', '', ''],
 		isLoading: true,
 	});
-  
-	const change = (event) => {
-		
-	 }
+
+	useEffect(() => {
+		Requests.BookRequests.GetBooksCategories().then(res => {
+			console.log(res.data);
+			const categories = res.data;
+			setCategories({categories: categories, isLoading: false})
+		})
+	}, [Requests]);
 
 	const categoriesMap = categories.categories.map((c, i) => {
 		const skeletonLoad =
@@ -70,44 +77,47 @@ const BooksCategories = props => {
 											e => { 
 												e.preventDefault(); 
 												console.log(categories.categories[idToEdit]);
-												// Requests.ChangeBooksCategory(c.title, categories.categories[idToEdit]).then(res => {console.log(res.data);})
+												console.log(idToEdit);
+												Requests.BookRequests.ChangeBooksCategory(idToEdit+1, categories.categories[idToEdit]).then(res => {console.log(res.data);})
 											}
 										}
 									>
-										<div>
-											<label>Назва категорії</label>
+										<ul className={`${f.fieldsList} + ${sp.fields}`}>
+											<li className={f.fieldBlock}>
+												<label>Назва категорії</label>
+												<input
+													type='text'
+													value={c.title}
+													name='title'
+													disabled
+												/>
+											</li>
+											<li className={f.fieldBlock}>
+												<label>Колір</label>
+												<input
+													type='color'
+													value={c.color}
+													name='color'
+													onChange={e => setCategories({
+														...categories,
+														categories:
+															categories.categories.map(obj =>
+																obj.title == c.title
+																	? {...obj, color: e.target.value}
+																	: obj,
+														)})
+													}
+												/>
+											</li>
+										</ul>
+										<div className={f.btns}>
 											<input
-												type='text'
-												value={categories.categories[i].title}
-												name='title'
-												disabled
+												className={f.btn}
+												type="submit"
+												value='Зберегти зміни'
+												onClick={() => setIdToEdit(i)}
 											/>
 										</div>
-										<div className={sp.colorContainer}>
-											<label>Колір</label>
-											<input
-												id='colorInput'
-												type='color'
-												value={categories.categories[i].color}
-												name='color'
-												onChange={e => setCategories({
-													...categories,
-													categories:
-														categories.categories.map((obj, index) =>
-															obj.title == c.title
-																? {...obj, color: e.target.value}
-																: obj,
-													)})
-												}
-												
-											/>
-										</div>
-										<input
-											className={sp.btn}
-											type="submit"
-											value='Зберегти зміни'
-											onClick={() => setIdToEdit(() => i)}
-										/>
 									</form>
 								</>
 							)}
@@ -117,14 +127,6 @@ const BooksCategories = props => {
 			</div>
 		)
 	});
-
-	useEffect(() => {
-		Requests.BookRequests.GetBooksCategories().then(res => {
-			console.log(res.data);
-			const categories = res.data;
-			setCategories({categories: categories, isLoading: false})
-		})
-	}, [Requests]);
 
 	return (
 		<div className={s.container}>

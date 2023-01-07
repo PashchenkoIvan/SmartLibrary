@@ -10,7 +10,7 @@ const ReadersInfo = props => {
 	useEffect(() => {
 		props.setReaders(
 			props.readers.filter(r =>
-				r.name.toLowerCase().indexOf(search.toLowerCase()) == -1 ? false : true
+				r.full_name.toLowerCase().indexOf(search.toLowerCase()) == -1 ? false : true
 			)
 		);
 	}, [search]);
