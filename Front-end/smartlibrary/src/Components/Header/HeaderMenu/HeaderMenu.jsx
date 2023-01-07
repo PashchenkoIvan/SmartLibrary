@@ -77,7 +77,7 @@ const HeaderMenu = ({ menuActive, setMenuActive, status }) => {
 				) : (
 					''
 				)}
-				{status === 'user' ? (
+				{status === 'reader' ? (
 					<NavLink
 						to='/personPage'
 						className={navData =>

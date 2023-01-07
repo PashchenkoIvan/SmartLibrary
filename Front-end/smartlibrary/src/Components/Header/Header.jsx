@@ -124,7 +124,7 @@ const Header = ({ menuActive, setMenuActive, header, status }) => {
 					) : (
 						''
 					)}
-					{status === 'user' ? (
+					{status === 'reader' ? (
 						<Link to='/personPage' className={s.blueLink}>
 							Особистий кабінет
 						</Link>

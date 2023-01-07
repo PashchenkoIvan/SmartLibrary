@@ -34,15 +34,23 @@ const Login = props => {
 						e.preventDefault();
 						console.log(state);
 						Promise.resolve(
-							Services.AuthService.makeLogin({
+							Services.AuthService.Login({
 								email: state.email,
 								password: state.password,
 							})
-						).then(res =>
-							res !== undefined
-								? props.setStatus(res ? 'librarian' : 'user')
-								: props.setStatus('anonym')
-						);
+						).then(res => {
+							if (res !== undefined)
+								props.setStatus({
+									loading: false,
+									status: res ? 'librarian' : 'reader',
+								});
+							else
+								props.setStatus({
+									loading: false,
+									status: 'anonym',
+								});
+							navigate('../', { replace: true });
+						});
 					}}
 				>
 					<ul className={f.fieldsList}>

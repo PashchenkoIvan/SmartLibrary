@@ -65,13 +65,17 @@ function App(props) {
 
 	useEffect(() => {
 		if (localStorage.getItem('refresh')) {
-			Services.AuthService.Refresh().then(res => {
-				setStatus({
-					loading: false,
-					status:
-						res == true ? 'librarian' : res == false ? 'reader' : 'anonym',
-				});
-			});
+			Services.AuthService.Refresh()
+				.then(res => {
+					// console.log(
+					// 	res == undefined ? 'anonym' : res ? 'librarian' : 'reader'
+					// );
+					setStatus({
+						loading: false,
+						status: res == undefined ? 'anonym' : res ? 'librarian' : 'reader',
+					});
+				})
+				.then(() => console.log(Status.status));
 		}
 	}, []);
 
@@ -213,7 +217,7 @@ function App(props) {
 					<Route
 						path='/personPage'
 						element={
-							Status.status !== 'user' ? (
+							Status.status !== 'reader' ? (
 								<Navigate replace to='/404' />
 							) : (
 								<PersonPage

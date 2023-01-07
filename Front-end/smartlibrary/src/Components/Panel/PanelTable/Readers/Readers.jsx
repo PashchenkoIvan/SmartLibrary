@@ -13,7 +13,7 @@ const Readers = () => {
 	const [allReaders, setAllReaders] = useState([]);
 
 	useEffect(() => {
-		Admin.AdminRequests.GetReaders().then(res => {
+		Admin.AdminService.GetReaders().then(res => {
 			setAllReaders(res.data);
 			setReaders(res.data);
 			console.log(res.data);
