@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { AuthContext } from '../../..';
+import { ServicesContext } from '../../..';
 
 import s from './HeaderMenu.module.css';
 
-const HeaderMenu = ({ menuActive, setMenuActive }) => {
-	const Auth = useContext(AuthContext);
+const HeaderMenu = ({ menuActive, setMenuActive, status }) => {
+	const Services = useContext(ServicesContext);
 	const menu = useRef(null);
 	const [rendersCount, setRendersCount] = useState(0);
 
@@ -64,13 +64,12 @@ const HeaderMenu = ({ menuActive, setMenuActive }) => {
 				>
 					Як це працює
 				</NavLink>
-				{Auth.status !== 'anonym' ? (
+				{status !== 'anonym' ? (
 					<a
 						href='/'
 						className={s.item}
 						onClick={() => {
-							Auth.AuthService.setRefreshToken('');
-							Auth.AuthService.setBearer('');
+							Services.AuthService.Logout();
 						}}
 					>
 						Вийти
@@ -78,7 +77,7 @@ const HeaderMenu = ({ menuActive, setMenuActive }) => {
 				) : (
 					''
 				)}
-				{Auth.status === 'user' ? (
+				{status === 'user' ? (
 					<NavLink
 						to='/personPage'
 						className={navData =>
@@ -87,7 +86,7 @@ const HeaderMenu = ({ menuActive, setMenuActive }) => {
 					>
 						Особистий кабінет
 					</NavLink>
-				) : Auth.status === 'librarian' ? (
+				) : status === 'librarian' ? (
 					<NavLink
 						to='/admin/readers'
 						className={navData =>

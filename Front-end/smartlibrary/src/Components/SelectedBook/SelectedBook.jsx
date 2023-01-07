@@ -49,7 +49,7 @@ const SelectedBook = props => {
 			>
 				<Btn />
 			</Link>
-			<Row book={book} books={books} />
+			<Row book={book} books={books} status={props.status} />
 		</div>
 	);
 };

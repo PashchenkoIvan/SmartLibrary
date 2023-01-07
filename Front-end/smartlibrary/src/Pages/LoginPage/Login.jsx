@@ -1,17 +1,17 @@
 import { useEffect, useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { AuthContext } from '../../index';
+import { AuthContext, ServicesContext } from '../../index';
 
 import s from './Login.module.css';
 import f from '../../assets/styles/form.module.css';
 
 const Login = props => {
 	const navigate = useNavigate();
-	const Auth = useContext(AuthContext);
+	const Services = useContext(ServicesContext);
 	const [state, setState] = useState({
 		email: '',
-		password: ''
+		password: '',
 	});
 
 	useEffect(() => {
@@ -19,9 +19,8 @@ const Login = props => {
 	}, []);
 
 	useEffect(() => {
-		console.log(Auth.status);
-		if (Auth.status === 'user') navigate('../', { replace: true });
-	}, [Auth.status]);
+		if (props.status === 'reader') navigate('../', { replace: true });
+	}, [props.status]);
 
 	props.setHeader(false);
 
@@ -35,11 +34,15 @@ const Login = props => {
 						e.preventDefault();
 						console.log(state);
 						Promise.resolve(
-							Auth.AuthService.makeLogin({
+							Services.AuthService.makeLogin({
 								email: state.email,
 								password: state.password,
 							})
-						).then(res => (res !== undefined ? (Auth.status = res ? 'librarian' : 'user') : Auth.status = 'anonym'));
+						).then(res =>
+							res !== undefined
+								? props.setStatus(res ? 'librarian' : 'user')
+								: props.setStatus('anonym')
+						);
 					}}
 				>
 					<ul className={f.fieldsList}>
@@ -77,14 +80,13 @@ const Login = props => {
 							className={f.btn}
 							type='submit'
 							value='Вхід до аккаунту'
-							onClick={
-								() =>
-									setTimeout(
-										() =>
-											Auth.status === 'anonym' ? console.log(0) : navigate('/'),
-										2000
-									)
-								}
+							// onClick={() =>
+							// 	setTimeout(
+							// 		() =>
+							// 			Auth.status === 'anonym' ? console.log(0) : navigate('/'),
+							// 		2000
+							// 	)
+							// }
 						/>
 					</div>
 				</form>

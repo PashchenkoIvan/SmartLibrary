@@ -1,27 +1,26 @@
-import $api from './config';
-import { Http } from '../services/http.init';
-export default class BookRequests {
+import $api from '../http/init';
+
+export default class BookService {
 	static async GetBooks() {
-		return await new Http({ auth: false }).get('/library/books/');
+		return await $api.get('/library/books/');
 	}
 
 	static async AddBook(data) {
-		return await new Http({ auth: true }).post('/library/books/', { ...data });
+		return await $api.post('/library/books/', { ...data });
 	}
 
 	static async ChangeBook(id, data) {
-		console.log({ ...data });
-		return await new Http({ auth: true }).patch(`/books/${id}`, { ...data });
+		return await $api.patch(`/books/${id}`, { ...data });
 	}
 
 	static async EditBook(id, data) {
-		console.log(id);
-		console.log(data);
-		return await new Http({ auth: true }).put(`/library/books/${id}/`, {...data});
-	};
+		return await $api.put(`/library/books/${id}/`, {
+			...data,
+		});
+	}
 
 	static async GetBooksCategories() {
-		return await new Http({ auth: false }).get('/library/categories/');
+		return await $api.get('/library/categories/');
 	}
 
 	static category = () => {
@@ -37,8 +36,10 @@ export default class BookRequests {
 	};
 
 	static async ChangeBooksCategory(id, data) {
-		return await new Http({ auth: false }).put(`/library/categories/${id}/`, {...data});
-	};
+		return await $api.put(`/library/categories/${id}/`, {
+			...data,
+		});
+	}
 
 	static AddBooksCategory = category => {
 		return $api.post('/library/categories/', { ...category });

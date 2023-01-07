@@ -1,7 +1,6 @@
 import { useEffect, useContext } from 'react';
 
 import s from './MainPage.module.css';
-import { AuthContext } from '../../index';
 import { PopularBooks, RecommendedBooks } from '../../Components';
 import GCalendar from '../../Components/GlobalCalendar/GCalendar';
 import MainVideoBlock from '../../Components/MainVideoBlock/MainVideoBlock';
@@ -9,8 +8,6 @@ import Medal from './images/medal.png';
 
 const MainPage = props => {
 	props.setHeader(true);
-
-	const Auth = useContext(AuthContext);
 
 	useEffect(() => {
 		document.title = 'Головна';
@@ -47,7 +44,7 @@ const MainPage = props => {
 				</div>
 			</div>
 
-			{Auth.status === 'user' ? <RecommendedBooks books={props.books} /> : ''}
+			{props.status === 'user' ? <RecommendedBooks books={props.books} /> : ''}
 			<PopularBooks books={props.books} />
 		</div>
 	);

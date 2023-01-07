@@ -2,15 +2,15 @@ import { useEffect, useRef, useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import s from './Header.module.css';
-import { AuthContext } from '../../index';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 
 import { useScroll } from 'framer-motion';
+import { ServicesContext } from '../..';
 
-const Header = ({ menuActive, setMenuActive, header }) => {
+const Header = ({ menuActive, setMenuActive, header, status }) => {
 	const { scrollY } = useScroll();
 	const navigate = useNavigate();
-	const Auth = useContext(AuthContext);
+	const Services = useContext(ServicesContext);
 
 	const background = useRef();
 	const whiteBackground = useRef();
@@ -110,12 +110,12 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 					<Link to='/faq/making-orders' className={s.link}>
 						Як це працює
 					</Link>
-					{Auth.status !== 'anonym' ? (
+					{status !== 'anonym' ? (
 						<Link
 							to='/'
 							className={s.link}
 							onClick={() => {
-								Auth.AuthService.makeLogout();
+								Services.AuthService.Logout();
 								return this.forceUpdate();
 							}}
 						>
@@ -124,11 +124,11 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 					) : (
 						''
 					)}
-					{Auth.status === 'user' ? (
+					{status === 'user' ? (
 						<Link to='/personPage' className={s.blueLink}>
 							Особистий кабінет
 						</Link>
-					) : Auth.status === 'librarian' ? (
+					) : status === 'librarian' ? (
 						<Link to='/admin/readers' className={s.blueLink}>
 							Адмін панель
 						</Link>
@@ -148,7 +148,11 @@ const Header = ({ menuActive, setMenuActive, header }) => {
 					<div ref={burger_row_2} className={s.burger_row}></div>
 					<div ref={burger_row_3} className={s.burger_row}></div>
 				</button>
-				<HeaderMenu menuActive={menuActive} setMenuActive={setMenuActive} />
+				<HeaderMenu
+					menuActive={menuActive}
+					setMenuActive={setMenuActive}
+					status={status}
+				/>
 			</div>
 		</div>
 	);

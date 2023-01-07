@@ -1,17 +1,26 @@
 import { React, useState, useEffect, useContext } from 'react';
-import { RequestsContext, AuthContext, status } from '../../index';
+import { ServicesContext } from '../../index';
 
 import s from './form.module.css';
 
 const selectOptionMap = (list = []) => {
-	const listMapper = list.map(option =>
-		<option value={option?.value || option?.title}>{option?.title || option}</option>
-	)
+	const listMapper = list.map(option => (
+		<option value={option?.value || option?.title}>
+			{option?.title || option}
+		</option>
+	));
 	return listMapper;
-}
+};
 
 const field = (data, state, setState) => {
-	const fieldBuilder = (label, type, value, name, optionsList = [], categoriesList = []) => {
+	const fieldBuilder = (
+		label,
+		type,
+		value,
+		name,
+		optionsList = [],
+		categoriesList = []
+	) => {
 		const typeChecker = () => {
 			if (type === 'textarea') {
 				return (
@@ -32,29 +41,31 @@ const field = (data, state, setState) => {
 					return (
 						<select
 							name={name}
-							onChange={e => 
+							onChange={e =>
 								setState({
 									...state,
 									[`${name}`]: e.target.value,
 								})
-							}>
+							}
+						>
 							{selectOptionMap(optionsList)}
 						</select>
-					)
+					);
 				} else {
 					return (
 						<select
 							name={name}
-							onChange={e => 
+							onChange={e =>
 								setState({
 									...state,
 									[`${name}`]: [`${e.target.value}`],
 								})
-							}>
+							}
+						>
 							<option>Оберіть категорію</option>
 							{selectOptionMap(categoriesList)}
 						</select>
-					)
+					);
 				}
 			} else {
 				return (
@@ -80,7 +91,18 @@ const field = (data, state, setState) => {
 		);
 	};
 
-	return <>{fieldBuilder(data.label, data.type, data.value, data.name, data.optionsList, data.categoriesList)}</>;
+	return (
+		<>
+			{fieldBuilder(
+				data.label,
+				data.type,
+				data.value,
+				data.name,
+				data.optionsList,
+				data.categoriesList
+			)}
+		</>
+	);
 };
 
 const fieldList = (data, state, setState, categoriesList = []) => {
@@ -93,7 +115,7 @@ const fieldList = (data, state, setState, categoriesList = []) => {
 					value: el.value,
 					name: el.name,
 					optionsList: el.optionsList,
-					categoriesList: categoriesList
+					categoriesList: categoriesList,
 				}),
 				state,
 				setState
@@ -120,8 +142,7 @@ const getState = (main = [], additional = []) => {
 };
 
 const Form = props => {
-	const Requests = useContext(RequestsContext);
-	const Auth = useContext(AuthContext);
+	const Services = useContext(ServicesContext);
 
 	const obj = getState(props.main, props.additional);
 	const [state, setState] = useState({ ...obj });
@@ -131,22 +152,26 @@ const Form = props => {
 
 	const postRequest = (data, btns) => {
 		if (btns.filter(btn => btn.post === 'add-book').length > 0) {
-			Requests.BookRequests.AddBook({ ...data }).then(res => {
+			Services.BookService.AddBook({ ...data }).then(res => {
 				const book = res.data;
 				console.log(book);
 			});
 		} else if (btns.filter(btn => btn.post === 'login').length > 0) {
-			Promise.resolve(
-				Auth.AuthService.makeLogin({
-					email: data.email,
-					password: data.password,
-				})
-			).then(res => (res !== undefined ? (Auth.status = res ? 'librarian' : 'user') : Auth.status = 'anonym'));
+			// Promise.resolve(
+			// 	Services.AuthService.Login({
+			// 		email: data.email,
+			// 		password: data.password,
+			// 	})
+			// ).then(res =>
+			// 	res !== undefined
+			// 		? (Auth.status = res ? 'librarian' : 'user')
+			// 		: (Auth.status = 'anonym')
+			// );
 		} else {
 		}
 	};
 
-	const categoriesList = Auth.categoriesList;
+	const categoriesList = Services.categoriesList;
 
 	return (
 		<form

@@ -3,14 +3,13 @@ import { useContext, useEffect, useState } from 'react';
 import s from './Books.module.css';
 import tableData from './tableData';
 import BooksInfo from './BooksInfo/BooksInfo';
-import BooksTable from './BooksTable/BooksTable';
 import Table from '../../../Table/Table';
-import { RequestsContext } from '../../../..';
+import { RequestsContext, ServicesContext } from '../../../..';
 
 const Books = () => {
-	const Requests = useContext(RequestsContext);
+	const Services = useContext(ServicesContext);
 	useEffect(() => {
-		Requests.BookRequests.GetBooks().then(res => {
+		Services.BookService.GetBooks().then(res => {
 			setBooks(res.data);
 			setAllBooks(res.data);
 			console.log(res.data);

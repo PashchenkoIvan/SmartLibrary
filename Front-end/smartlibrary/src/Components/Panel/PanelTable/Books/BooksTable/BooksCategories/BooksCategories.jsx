@@ -1,26 +1,25 @@
 import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
-import ContentLoader from "react-content-loader"
+import ContentLoader from 'react-content-loader';
 
-import { RequestsContext } from '../../../../../../index';
+import { ServicesContext } from '../../../../../../index';
 
 import s from './booksCategories.module.css';
 import sp from '../../../../../../assets/styles/popUp.module.css';
 import f from '../../../../../../assets/styles/form.module.css';
 
-
 const BooksCategories = props => {
 	props.setHeader(false);
 
 	const [newCategoryState, setNewCategoryState] = useState({
-		color: "#000",
-		title: ""
-	})
+		color: '#000',
+		title: '',
+	});
 
 	const [idToEdit, setIdToEdit] = useState(null);
 
-	const Requests = useContext(RequestsContext);
+	const Services = useContext(ServicesContext);
 	const [categories, setCategories] = useState({
 		// 5 макетных категорий
 		categories: ['', '', '', '', ''],
@@ -28,35 +27,38 @@ const BooksCategories = props => {
 	});
 
 	useEffect(() => {
-		Requests.BookRequests.GetBooksCategories().then(res => {
+		Services.BookService.GetBooksCategories().then(res => {
 			console.log(res.data);
 			const categories = res.data;
-			setCategories({categories: categories, isLoading: false})
-		})
-	}, [Requests]);
+			setCategories({ categories: categories, isLoading: false });
+		});
+	}, []);
 
 	const categoriesMap = categories.categories.map((c, i) => {
-		const skeletonLoad =
-			<ContentLoader 
+		const skeletonLoad = (
+			<ContentLoader
 				speed={2}
-				viewBox="0 0 100 10"
-				backgroundColor="#f3f3f3"
-				foregroundColor="#ecebeb"
+				viewBox='0 0 100 10'
+				backgroundColor='#f3f3f3'
+				foregroundColor='#ecebeb'
 				{...props}
 			>
-				<rect x="22" y="3.5" rx="1" ry="1" width="2.5" height="2.5" />
-				<rect x="1" y="3.5" rx="1" ry="1" width="20" height="2.5" />
+				<rect x='22' y='3.5' rx='1' ry='1' width='2.5' height='2.5' />
+				<rect x='1' y='3.5' rx='1' ry='1' width='20' height='2.5' />
 			</ContentLoader>
+		);
 
 		const categoryData = c.title;
 
 		return (
 			<div className={s.singleCategoryContainer}>
-				<span className={s.categoryName}>{categories.isLoading ? skeletonLoad : categoryData}</span>
+				<span className={s.categoryName}>
+					{categories.isLoading ? skeletonLoad : categoryData}
+				</span>
 				<div>
 					<div
 						className={s.categoryColor}
-						style={{ backgroundColor: c.color, border: "1px solid #ccc" }}
+						style={{ backgroundColor: c.color, border: '1px solid #ccc' }}
 					></div>
 					<div className={s.categoryBtns}>
 						<Popup
@@ -73,14 +75,17 @@ const BooksCategories = props => {
 									</div>
 									<form
 										className={sp.content}
-										onSubmit={
-											e => { 
-												e.preventDefault(); 
-												console.log(categories.categories[idToEdit]);
-												console.log(idToEdit);
-												Requests.BookRequests.ChangeBooksCategory(idToEdit+1, categories.categories[idToEdit]).then(res => {console.log(res.data);})
-											}
-										}
+										onSubmit={e => {
+											e.preventDefault();
+											console.log(categories.categories[idToEdit]);
+											console.log(idToEdit);
+											Services.BookService.ChangeBooksCategory(
+												idToEdit + 1,
+												categories.categories[idToEdit]
+											).then(res => {
+												console.log(res.data);
+											});
+										}}
 									>
 										<ul className={`${f.fieldsList} + ${sp.fields}`}>
 											<li className={f.fieldBlock}>
@@ -98,14 +103,15 @@ const BooksCategories = props => {
 													type='color'
 													value={c.color}
 													name='color'
-													onChange={e => setCategories({
-														...categories,
-														categories:
-															categories.categories.map(obj =>
+													onChange={e =>
+														setCategories({
+															...categories,
+															categories: categories.categories.map(obj =>
 																obj.title == c.title
-																	? {...obj, color: e.target.value}
-																	: obj,
-														)})
+																	? { ...obj, color: e.target.value }
+																	: obj
+															),
+														})
 													}
 												/>
 											</li>
@@ -113,7 +119,7 @@ const BooksCategories = props => {
 										<div className={f.btns}>
 											<input
 												className={f.btn}
-												type="submit"
+												type='submit'
 												value='Зберегти зміни'
 												onClick={() => setIdToEdit(i)}
 											/>
@@ -125,7 +131,7 @@ const BooksCategories = props => {
 					</div>
 				</div>
 			</div>
-		)
+		);
 	});
 
 	return (
