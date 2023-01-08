@@ -4,7 +4,6 @@ import NewsBlock from './NewsBlock/NewsBlock';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Calendar from 'react-calendar';
-import './CalendarStyle.css';
 
 const GCalendar = () => {
 	let News = [
@@ -33,7 +32,6 @@ const GCalendar = () => {
 		}
 		return href;
 	};
-
 	useEffect(() => {
 		News.forEach(n => {
 			if (Date.parse(value) == Date.parse(n.date)) {
