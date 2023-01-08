@@ -6,7 +6,6 @@ import { ServicesContext } from '../../../index';
 import Popups from './Popups/Popups';
 import GCalendar from '../../../Components/GlobalCalendar/GCalendar';
 
-import './CalendarStyle.css';
 import s from './Cabinet.module.css';
 
 import Qr from '../image/qrcode.png';
