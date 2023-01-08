@@ -49,6 +49,11 @@
 	cursor: pointer;
 }
 
+.btn[type="submit"],
+.btn[type="reset"] {
+	background-color: #36bbcb;
+}
+
 .fieldsList {
 	display: flex;
 	flex-direction: column;

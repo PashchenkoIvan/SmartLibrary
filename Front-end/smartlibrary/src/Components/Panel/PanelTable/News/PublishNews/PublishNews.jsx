@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Form from '../../../../Form/Form';
-import fieldsData from '../CreateNews/fieldsData';
+
+import NewsForm from '../NewsForm/NewsForm'
+
 import s from './PublishNews.module.css';
 
 const PublishNews = props => {
@@ -30,10 +31,7 @@ const PublishNews = props => {
 				<Link to='/admin/news'>Повернутись</Link>
 				<h1>Публікація новини</h1>
 			</div>
-			<Form
-				main={fieldsData(news)}
-				btns={[{ title: 'Опіблікувати', type: 'submit' }]}
-			/>
+			<NewsForm news={news} type='publishing' />
 		</div>
 	);
 };

@@ -88,8 +88,8 @@ const Table = props => {
 											</Link>
 										);
 									} else if (b.isPopup) {
-										console.log(el);
-										console.log(b.showPopUp);
+										// console.log(el);
+										// console.log(b.showPopUp);
 										return (
 											<Popup
 												trigger={
@@ -139,7 +139,8 @@ const Table = props => {
 								trigger={<img src={qrCode} alt='' />}
 								content={k.showPopUp}
 								title={el[k.propertyTitle]}
-								url={el[k.urlProperty]}
+								url={JSON.stringify(el)}
+								el={el}
 							/>
 						</div>
 					);
