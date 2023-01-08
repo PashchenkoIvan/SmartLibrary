@@ -8,7 +8,8 @@ import f from '../../../../../../assets/styles/form.module.css';
 
 import qrCode from '../../../../img/qricon.png';
 import { QrIcon } from '../../../../img';
-import QRCode from "react-qr-code";
+import QRCode from 'react-qr-code';
+import printJS from 'print-js';
 
 const CurrentReader = props => {
 	props.setHeader(false);
@@ -108,8 +109,9 @@ const CurrentReader = props => {
 							<div className={s.qrHeader}>Особистий QR-код</div>
 							<div className={s.qrMain}>
 								<QRCode
+									id='qr-code'
 									value={JSON.stringify(reader)}
-									style={{ height: "auto", maxWidth: "95%", width: "95%" }}
+									style={{ height: 'auto', maxWidth: '95%', width: '95%' }}
 									viewBox={`0 0 256 256`}
 								/>
 							</div>
@@ -263,7 +265,15 @@ const CurrentReader = props => {
 									</>
 								)}
 							</Popup>
-							<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
+							<button
+								className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}
+								onClick={() =>
+									printJS({
+										printable: 'qr-code',
+										type: 'html',
+									})
+								}
+							>
 								Роздрукувати QR-код
 							</button>
 							<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>

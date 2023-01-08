@@ -16,7 +16,7 @@ import CreateEventReport from './Components/Panel/PanelTable/EventReports/Create
 import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
 import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
 import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews';
-import RegPage from './Pages/regPage/regPage';
+import RegPage from './Pages/RegPage/RegPage';
 import Login from './Pages/LoginPage/Login';
 import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews';
 import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews';
