@@ -8,6 +8,7 @@ import f from '../../../../../../assets/styles/form.module.css';
 
 import qrCode from '../../../../img/qricon.png';
 import { QrIcon } from '../../../../img';
+import QRCode from "react-qr-code";
 
 const CurrentReader = props => {
 	props.setHeader(false);
@@ -24,7 +25,6 @@ const CurrentReader = props => {
 	useEffect(() => {
 		props.readers.readers.map(r => {
 			if (r.id == currentReaderId) {
-				console.log(r);
 				setReader(r);
 			}
 		});
@@ -107,7 +107,11 @@ const CurrentReader = props => {
 						<div className={s.qr}>
 							<div className={s.qrHeader}>Особистий QR-код</div>
 							<div className={s.qrMain}>
-								<img className={s.qrImg} src={QrIcon} alt={bookData.bookName} />
+								<QRCode
+									value={JSON.stringify(reader)}
+									style={{ height: "auto", maxWidth: "95%", width: "95%" }}
+									viewBox={`0 0 256 256`}
+								/>
 							</div>
 						</div>
 						<div className={s.links}>
@@ -259,35 +263,9 @@ const CurrentReader = props => {
 									</>
 								)}
 							</Popup>
-							<Popup
-								trigger={
-									<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
-										Роздрукувати QR-код
-									</button>
-								}
-								modal
-							>
-								{close => (
-									<>
-										<div className={sp.header}>
-											<span>Роздрукувати QR-код</span>
-											<button className={sp.closeBtn} onClick={close}>
-												×
-											</button>
-										</div>
-										<div className={sp.content}>
-											<img
-												className={s.qrImg}
-												src={QrIcon}
-												alt={bookData.bookName}
-											/>
-											<button className={sp.btn} onClick={() => {}}>
-												Роздрукувати
-											</button>
-										</div>
-									</>
-								)}
-							</Popup>
+							<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
+								Роздрукувати QR-код
+							</button>
 							<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
 								Надіслати пароль
 							</button>

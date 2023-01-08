@@ -1,6 +1,7 @@
 import s from '../../../Popup/popUps.css';
 import sp from '../../../Popup/popUps.module.css';
 import { qrCode, QrIcon } from '../../img';
+import QRCode from "react-qr-code";
 
 const tableData = () => {
     const keys = [
@@ -32,13 +33,15 @@ const tableData = () => {
             name: "QR-код",
             width: 10,
             property: "qr",
-            propertyTitle: "name",
+            urlProperty: "id",
+            propertyTitle: "full_name",
             isPopup: true,
             align: "center",
-            showPopUp() {
+            showPopUp(qr) {
                 return(
                     <>
-                        <img className={s.qrImg} src={QrIcon} alt="" />
+                        {/* <img className={s.qrImg} src={QrIcon} alt="" /> */}
+                        <QRCode value={qr} />
 						<button className={sp.btn} onClick={() => {}}>
 							Роздрукувати
 						</button>

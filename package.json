@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "eslint-plugin-react-hooks": "^5.0.0-next-4dda96a40-20221213"
+    "eslint-plugin-react-hooks": "^5.0.0-next-4dda96a40-20221213",
+    "react-qr-code": "^2.0.11"
   }
 }
