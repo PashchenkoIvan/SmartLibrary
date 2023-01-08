@@ -23,7 +23,7 @@ import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishN
 import ContactsPage from './Pages/ContactsPage/ContactsPage';
 import FaqPage from './Pages/FaqPage/FaqPage';
 import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form';
-import FormReport from './Components/Panel/PanelTable/ReportsToTheNews/Form/Form';
+import ReportsToTheNewsForm from './Components/Panel/PanelTable/ReportsToTheNews/ReportsToTheNewsForm/ReportsToTheNewsForm';
 import AlertPopPup from './Components/AlertPopPup/AlertPopPup';
 
 import { ServicesContext } from './index';
@@ -64,18 +64,15 @@ function App(props) {
 	});
 
 	useEffect(() => {
-		debugger;
 		if (localStorage.getItem('refresh')) {
 			Services.AuthService.Refresh().then(res => {
 				setStatus({
 					loading: false,
 					status: res == undefined ? 'anonym' : res ? 'librarian' : 'reader',
 				});
-				console.log(Status);
 			});
 		} else {
 			setStatus({ loading: false, status: 'anonym' });
-			console.log(Status);
 		}
 	}, []);
 
@@ -382,22 +379,22 @@ function App(props) {
 								}
 							/>
 							<Route
+								path='/admin/reports-to-the-news/form/:id'
+								element={
+									Status.status !== 'librarian' ? (
+										<Navigate replace to='/404' />
+									) : (
+										<ReportsToTheNewsForm />
+									)
+								}
+							/>
+							<Route
 								path='/admin/visitors/form'
 								element={
 									Status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<FormVisitors />
-									)
-								}
-							/>
-							<Route
-								path='/admin/reports-to-the-news/form'
-								element={
-									Status.status !== 'librarian' ? (
-										<Navigate replace to='/404' />
-									) : (
-										<FormReport />
 									)
 								}
 							/>

@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Form from '../../../../Form/Form';
+
+import NewsForm from '../NewsForm/NewsForm'
+
 import s from './CreateNews.module.css';
-import fieldsData from './fieldsData';
-import axios from 'axios';
-const url = 'https://ualib-orion.herokuapp.com/api/v1/events/';
 
 const CreateNews = props => {
+	props.setHeader(false);
 	useEffect(() => {
 		document.title = 'Бібліотекар';
 	}, []);
-	props.setHeader(false);
+
 	const [news, setNews] = useState({
 		name: '',
 		description: '',
@@ -22,10 +22,7 @@ const CreateNews = props => {
 				<Link to='/admin/news'>Повернутись</Link>
 				<h1>Додавання новини</h1>
 			</div>
-			<Form
-				main={fieldsData(news)}
-				btns={[{ title: 'Створити', type: 'submit' }]}
-			/>
+			<NewsForm news={news} type='creating' />
 		</div>
 	);
 };

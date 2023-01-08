@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Form from '../../../../Form/Form';
-import fieldsData from '../CreateNews/fieldsData';
+
+import NewsForm from '../NewsForm/NewsForm'
+
 import s from './EditNews.module.css';
 
 const EditNews = props => {
 	props.setHeader(false);
 	const { id } = useParams();
-
 	let initState = {};
+
+	useEffect(() => {
+		document.title = 'Бібліотекар';
+	}, []);
 
 	props.news.forEach(n => {
 		if (id == n.id) {
@@ -20,10 +24,6 @@ const EditNews = props => {
 		}
 	});
 
-	useEffect(() => {
-		document.title = 'Бібліотекар';
-	}, []);
-
 	const [news, setNews] = useState(initState);
 	return (
 		<div className={s.container}>
@@ -31,10 +31,7 @@ const EditNews = props => {
 				<Link to='/admin/news'>Повернутись</Link>
 				<h1>Редагування новини</h1>
 			</div>
-			<Form
-				main={fieldsData(news)}
-				btns={[{ title: 'Оновити', type: 'submit' }]}
-			/>
+			<NewsForm news={news} type='editing' />
 		</div>
 	);
 };

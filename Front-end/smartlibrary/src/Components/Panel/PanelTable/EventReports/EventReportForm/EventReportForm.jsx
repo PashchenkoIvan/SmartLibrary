@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 
 import f from '../../../../../assets/styles/form.module.css';
 
-const BookForm = props => {
+const EventReportForm = props => {
 	const [eventReport, setEventReport] = useState({ ...props.eventReport });
 	useEffect(() => {
 		setEventReport(eventReport);
 	}, [eventReport]);
+	useEffect(() => {
+		document.title = 'Бібліотекар';
+	}, []);
 
 	return (
 		<form
@@ -179,4 +182,4 @@ const BookForm = props => {
 	);
 };
 
-export default BookForm;
+export default EventReportForm;
