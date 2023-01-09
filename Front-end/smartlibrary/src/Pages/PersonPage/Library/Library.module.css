@@ -4,6 +4,7 @@
 	column-gap: 20px;
 
 	width: 100%;
+	max-width: 1340px;
 	padding: 50px 20px;
 	@apply flex-col lg:flex-row;
 }

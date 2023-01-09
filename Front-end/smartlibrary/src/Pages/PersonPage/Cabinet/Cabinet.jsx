@@ -7,8 +7,10 @@ import Popups from './Popups/Popups';
 import GCalendar from '../../../Components/GlobalCalendar/GCalendar';
 
 import s from './Cabinet.module.css';
+import sp from '../../../assets/styles/popUp.module.css';
 
 import Qr from '../image/qrcode.png';
+import Popup from 'reactjs-popup';
 
 const Cabinet = () => {
 	const Services = useContext(ServicesContext);
@@ -22,7 +24,21 @@ const Cabinet = () => {
 						<p>Особисттий QR-код</p>
 						<div className={s.qrCode}>
 							<img src={Qr} alt='Qr-code' />
-							<button>Показати QR-код</button>
+							<Popup trigger={<button>Показати QR-код</button>} modal>
+								{close => (
+									<>
+										<div className={sp.header}>
+											<span>Проскануйте QR-код</span>
+											<button className={sp.closeBtn} onClick={close}>
+												×
+											</button>
+										</div>
+										<div className={sp.content}>
+											<img src={Qr} alt='Qr-code' />
+										</div>
+									</>
+								)}
+							</Popup>
 						</div>
 					</div>
 					<div className={s.editBlock}>
