@@ -33,12 +33,10 @@ const Login = props => {
 					onSubmit={e => {
 						e.preventDefault();
 						console.log(state);
-						Promise.resolve(
-							Services.AuthService.Login({
-								email: state.email,
-								password: state.password,
-							})
-						).then(res => {
+						Services.AuthService.Login({
+							email: state.email,
+							password: state.password,
+						}).then(res => {
 							if (res !== undefined)
 								props.setStatus({
 									loading: false,

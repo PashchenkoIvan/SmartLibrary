@@ -66,12 +66,17 @@ function App(props) {
 
 	useEffect(() => {
 		if (localStorage.getItem('refresh')) {
-			Services.AuthService.Refresh().then(res => {
-				setStatus({
-					loading: false,
-					status: res == undefined ? 'anonym' : res ? 'librarian' : 'reader',
+			Services.AuthService.Refresh()
+				.then(res => {
+					setStatus({
+						loading: false,
+						status: res == undefined ? 'anonym' : res ? 'librarian' : 'reader',
+					});
+				})
+				.catch(() => {
+					Services.AuthService.Logout();
+					setStatus({ loading: false, status: 'anonym' });
 				});
-			});
 		} else {
 			setStatus({ loading: false, status: 'anonym' });
 		}
