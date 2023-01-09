@@ -10,8 +10,6 @@ import s from './Cabinet.module.css';
 
 import Qr from '../image/qrcode.png';
 
-// import 'react-calendar/dist/Calendar.css';
-
 const Cabinet = () => {
 	const Services = useContext(ServicesContext);
 
@@ -24,6 +22,7 @@ const Cabinet = () => {
 						<p>Особисттий QR-код</p>
 						<div className={s.qrCode}>
 							<img src={Qr} alt='Qr-code' />
+							<button>Показати QR-код</button>
 						</div>
 					</div>
 					<div className={s.editBlock}>

@@ -20,6 +20,7 @@ export default class AuthService {
 			})
 			.then(res => {
 				this.AccessToken = res.data.access;
+				localStorage.setItem('refresh', res.data.refresh);
 				return JSON.parse(atob(res.data.access.split('.')[1])).is_staff;
 			});
 	}

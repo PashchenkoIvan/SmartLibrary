@@ -1,3 +1,4 @@
+// prettier-ignore
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{js,jsx}'],
@@ -5,6 +6,15 @@ module.exports = {
 		extend: {
 			screens: {
 				usm: '400px',
+				// lxl: '',
+			},
+			spacing: {
+				'80px': '80px',
+				'100': '100px',
+				'200': '200px',
+				'300': '300px',
+				'400': '400px',
+				'500': '500px'
 			},
 		},
 	},

@@ -26,10 +26,14 @@ $api.interceptors.response.use(
 		) {
 			originalRequest._isRetry = true;
 			try {
-				await axios.post(`${BASE_URL}/auth/token/refresh`).then(res => {
-					AuthService.AccessToken = res.data.access;
-					localStorage.setItem('refresh', res.data.refresh);
-				});
+				await axios
+					.post(`${BASE_URL}/auth/token/refresh`, {
+						refresh: `${localStorage.getItem('refresh')}`,
+					})
+					.then(res => {
+						AuthService.AccessToken = res.data.access;
+						localStorage.setItem('refresh', res.data.refresh);
+					});
 				return $api.request(originalRequest);
 			} catch (e) {
 				alert('Sigh in please');
