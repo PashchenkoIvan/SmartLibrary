@@ -9,17 +9,17 @@ import AdminPage from './Pages/AdminPage/AdminPage';
 import CurrentReader from './Components/Panel/PanelTable/Readers/ReadersTable/CurrentReader/CurrentReader';
 import SingleBook from './Components/Panel/PanelTable/Books/BooksTable/SingleBook/SingleBook';
 import BookEdit from './Components/Panel/PanelTable/Books/BooksTable/BookEdit/BookEdit';
-import BookCreate from './Components/Panel/PanelTable/Books/BooksTable/BookCreate/BookCreate';
-import BooksCategories from './Components/Panel/PanelTable/Books/BooksTable/BooksCategories/BooksCategories';
+import BookCreate from './Components/Panel/PanelTable/Books/BooksInfo/BookCreate/BookCreate';
+import BooksCategories from './Components/Panel/PanelTable/Books/BooksInfo/BooksCategories/BooksCategories';
 import Footer from './Components/Footer/Footer';
 import CreateEventReport from './Components/Panel/PanelTable/EventReports/CreateEventReport/CreateEventReport';
 import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
 import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
-import CreateNews from './Components/Panel/PanelTable/News/CreateNews/CreateNews';
+import CreateNews from './Components/Panel/PanelTable/News/NewsInfo/CreateNews/CreateNews';
 import RegPage from './Pages/RegPage/RegPage';
 import Login from './Pages/LoginPage/Login';
-import EditNews from './Components/Panel/PanelTable/News/EditNews/EditNews';
-import PublishNews from './Components/Panel/PanelTable/News/PublishNews/PublishNews';
+import EditNews from './Components/Panel/PanelTable/News/NewsTable/EditNews/EditNews';
+import PublishNews from './Components/Panel/PanelTable/News/NewsTable/PublishNews/PublishNews';
 import ContactsPage from './Pages/ContactsPage/ContactsPage';
 import FaqPage from './Pages/FaqPage/FaqPage';
 import FormVisitors from './Components/Panel/PanelTable/Visitors/Form/Form';
@@ -29,6 +29,7 @@ import AlertPopPup from './Components/AlertPopPup/AlertPopPup';
 import { ServicesContext } from './index';
 
 import './App.css';
+import './assets/styles/popUp.css'
 
 function App(props) {
 	const Services = useContext(ServicesContext);
@@ -260,7 +261,7 @@ function App(props) {
 								}
 							/>
 							<Route
-								path='/book-single/:currentBookId'
+								path='/book-single/:currentBookTitle'
 								element={
 									Status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
@@ -297,7 +298,7 @@ function App(props) {
 								}
 							/>
 							<Route
-								path='/book-single/edit/:currentBookId'
+								path='/book-single/edit/:currentBookTitle'
 								element={
 									Status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
@@ -379,7 +380,7 @@ function App(props) {
 								}
 							/>
 							<Route
-								path='/admin/reports-to-the-news/form/:id'
+								path='/admin/reports-to-the-news/edit/:id'
 								element={
 									Status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />

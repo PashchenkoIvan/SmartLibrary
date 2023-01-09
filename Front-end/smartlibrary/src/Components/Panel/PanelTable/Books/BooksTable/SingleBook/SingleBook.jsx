@@ -1,24 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 
-import { QrIcon } from '../../../../img';
 import s from './singleBook.module.css';
-import sp from './popUps.module.css';
-import './popUps.css';
-import { useEffect } from 'react';
+import sp from '../../../../../../assets/styles/popUp.module.css';
+
+import { QrIcon } from '../../../../img';
 
 const SingleBook = props => {
 	props.setHeader(false);
-	const { currentBookId } = useParams();
+	const { currentBookTitle } = useParams();
 	const [bookData, setDataBook] = useState(props.books.books);
 
 	useEffect(() => {
 		document.title = 'Каталог книг';
+		console.log(bookData);
 	}, []);
 
 	const singleBookMap = bookData.map(b =>
-		b.id == currentBookId ? (
+		b.title == currentBookTitle ? (
 			<div className={s.contentBlock}>
 				<div className={s.sideBar}>
 					<div className={s.qr}>
@@ -51,7 +51,7 @@ const SingleBook = props => {
 					</div>
 					<div className={s.links}>
 						<Link
-							to={`/book-single/edit/${b.id}`}
+							to={`/book-single/edit/${b.title}`}
 							className={`${s.sideBarLink} + ' ' + ${s.bg_a9e2e9}`}
 						>
 							Редагувати книгу

@@ -1,9 +1,9 @@
-import s from './LibrariansTable.module.css';
+import Table from '../../../../templates/Table/Table';
 
 const LibrariansTable = ({ librarians }) => {
 	let librariansElements = librarians.map(l => {
 		return (
-			<div className={s.row}>
+			<div>
 				<div>{l.name}</div>
 				<div>
 					<a href={'mailto:' + l.email}>{l.email}</a>
@@ -17,15 +17,17 @@ const LibrariansTable = ({ librarians }) => {
 	});
 
 	return (
-		<div className={s.container}>
-			<div className={s.header}>
-				<p>ПІБ ({librarians.length})</p>
-				<p>Email</p>
-				<p>Телефон</p>
-				<p>Назва</p>
+		<Table>
+			<div name='librarians'>
+				<div name='keys-bar'>
+					<span>ПІБ ({librarians.length})</span>
+					<span>Email</span>
+					<span>Телефон</span>
+					<span>Назва</span>
+				</div>
+				<div name='table'>{librariansElements}</div>
 			</div>
-			<div className={s.main}>{librariansElements}</div>
-		</div>
+		</Table>
 	);
 };
 

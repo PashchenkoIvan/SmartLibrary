@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 
-import s from './Books.module.css';
-import tableData from './tableData';
+import { ServicesContext } from '../../../..';
 import BooksInfo from './BooksInfo/BooksInfo';
-import Table from '../../../Table/Table';
-import { RequestsContext, ServicesContext } from '../../../..';
+import BooksTable from './BooksTable/BooksTable';
+
+import s from './Books.module.css';
+
 
 const Books = () => {
 	const Services = useContext(ServicesContext);
@@ -23,7 +24,7 @@ const Books = () => {
 		<div className={s.container}>
 			<BooksInfo books={allBooks} setBooks={setBooks} />
 			<div className={s.tableContainer}>
-				<Table data={books} keys={tableData()} />
+				<BooksTable books={books} />
 			</div>
 		</div>
 	);

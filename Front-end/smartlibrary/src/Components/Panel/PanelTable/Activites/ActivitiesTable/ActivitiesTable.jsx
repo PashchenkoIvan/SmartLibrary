@@ -1,41 +1,57 @@
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 
-import ChangeEvent from '../ChangeEvent/ChangeEvent';
+import Table from '../../../../templates/Table/Table';
+import ActivitiesForm from '../ActivitiesForm/ActivitiesForm';
 
-import './changeEvent.css';
-import s from './ActivitiesTable.module.css';
+import sp from '../../../../../assets/styles/popUp.module.css';
+
 
 const ActivitiesTable = ({ activities }) => {
 	let activitiesElements = activities.map(a => {
 		return (
-			<div className={s.row}>
+			<div>
 				<div>{a.name}</div>
 				<div>{a.category}</div>
 				<div>{a.dateTime}</div>
 				<div>
-					<Popup trigger={<button>Редагувати</button>} modal>
+					<Popup trigger={<button style={{backgroundColor: `rgb(54, 187, 203)`}}>Редагувати</button>} modal>
 						{close => (
-								<ChangeEvent activity={a} close={close} />
+							<>
+								<div className={sp.header}>
+									<span>{a.name}</span>
+									<button className={sp.closeBtn} onClick={close}>
+										×
+									</button>
+								</div>
+								<div className={sp.content}>
+									<ActivitiesForm activity={a} />
+								</div>
+							</>
 						)}
 					</Popup>
+					<button style={{backgroundColor: `rgb(248, 126, 115)`}}>Видалити</button>
+					<Link to={'/admin/event-reports/create/' + a.id}>
+						<button style={{backgroundColor: `rgb(105, 195, 152)`}}>
+							Створити звіт
+						</button>
+					</Link>
 				</div>
-				<div>
-					<button>Видалити</button>
-				</div>
-				<Link to={'/admin/event-reports/create/' + a.id}>Створити звіт</Link>
 			</div>
 		);
 	});
 	return (
-		<div className={s.container}>
-			<div className={s.header}>
-				<p>Назва заходу ({activities.length})</p>
-				<p>Категорія</p>
-				<p>Дата та час проведення</p>
+		<Table>
+			<div name='activities'>
+				<div name='keys-bar'>
+					<span>Назва заходу ({activities.length})</span>
+					<span>Категорія</span>
+					<span>Дата та час проведення</span>
+					<span></span>
+				</div>
+				<div name='table'>{activitiesElements}</div>
 			</div>
-			<div className={s.main}>{activitiesElements}</div>
-		</div>
+		</Table>
 	);
 };
 

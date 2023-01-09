@@ -1,0 +1,381 @@
+.container > * {
+	display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    width: 1300px;
+    min-height: 50vh;
+
+    padding: 5px 0 30px;
+
+	font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.container button {
+	padding: 11px 14px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.container a:hover {
+	color: #36bbcb;
+    transition: all 0.2s;
+}
+
+div[name='keys-bar'] {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5px;
+
+	width: 100%;
+
+	padding: 11px;
+
+	background-color: #dae3ef;
+    border-radius: 3px;
+}
+
+div[name='table'] {
+	display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    width: 100%;
+    max-height: 600px;
+
+    overflow-y: scroll;
+}
+
+div[name='table'] > div {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5px;
+
+	width: 100%;
+	height: 52px;
+
+	padding: 11px;
+
+	background-color: #fff;
+    box-shadow: 0 1px 4px rgb(30 37 82 / 24%);
+    border-radius: 3px;
+}
+
+div[name='table'] img {
+	cursor: pointer;
+}
+
+.container > * > div[name='keys-bar'] > *,
+.container > * > div[name='table'] > div > * {
+	display: flex;
+	align-items: center;
+}
+
+/* Розмітка для таблиці читачів */
+div[name='readers'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='readers'] > div[name='table'] > div > *:nth-child(1) {
+	width: 30%;
+}
+div[name='readers'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='readers'] > div[name='table'] > div > *:nth-child(2) {
+	width: 15%;
+}
+div[name='readers'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='readers'] > div[name='table'] > div > *:nth-child(3) {
+	width: 20%;
+}
+div[name='readers'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='readers'] > div[name='table'] > div > *:nth-child(4) {
+	width: 15%;
+	justify-content: center;
+}
+div[name='readers'] > div[name='keys-bar'] > *:nth-child(5),
+div[name='readers'] > div[name='table'] > div > *:nth-child(5) {
+	width: 10%;
+	justify-content: center;
+}
+div[name='readers'] > div[name='keys-bar'] > *:nth-child(6),
+div[name='readers'] > div[name='table'] > div > *:nth-child(6) {
+	width: 10%;
+	justify-content: center;
+}
+
+/* Розмітка для таблиці історії книг читача */
+div[name='books-history'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='books-history'] > div[name='table'] > div > *:nth-child(1) {
+	width: 40%;
+}
+div[name='books-history'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='books-history'] > div[name='table'] > div > *:nth-child(2) {
+	width: 10%;
+	justify-content: center;
+}
+div[name='books-history'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='books-history'] > div[name='table'] > div > *:nth-child(3) {
+	width: 15%;
+	justify-content: center;
+}
+div[name='books-history'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='books-history'] > div[name='table'] > div > *:nth-child(4) {
+	width: 15%;
+	justify-content: center;
+}
+div[name='books-history'] > div[name='keys-bar'] > *:nth-child(5),
+div[name='books-history'] > div[name='table'] > div > *:nth-child(5) {
+	width: 10%;
+	justify-content: center;
+}
+div[name='books-history'] > div[name='keys-bar'] > *:nth-child(6),
+div[name='books-history'] > div[name='table'] > div > *:nth-child(6) {
+	width: 10%;
+	justify-content: flex-end;
+}
+
+
+/* Розмітка для таблиці книг */
+div[name='books'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='books'] > div[name='table'] > div > *:nth-child(1) {
+	width: 30%;
+}
+div[name='books'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='books'] > div[name='table'] > div > *:nth-child(2) {
+	width: 25%;
+}
+div[name='books'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='books'] > div[name='table'] > div > *:nth-child(3) {
+	width: 15%;
+}
+div[name='books'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='books'] > div[name='table'] > div > *:nth-child(4) {
+	width: 10%;
+	justify-content: center;
+}
+div[name='books'] > div[name='keys-bar'] > *:nth-child(5),
+div[name='books'] > div[name='table'] > div > *:nth-child(5) {
+	width: 12%;
+	justify-content: center;
+}
+div[name='books'] > div[name='keys-bar'] > *:nth-child(6),
+div[name='books'] > div[name='table'] > div > *:nth-child(6) {
+	width: 8%;
+	justify-content: flex-end;
+}
+
+
+/* Розмітка для таблиці заявок */
+div[name='applications'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='applications'] > div[name='table'] > div > *:nth-child(1) {
+	width: 30%;
+}
+div[name='applications'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='applications'] > div[name='table'] > div > *:nth-child(2) {
+	width: 30%;
+}
+div[name='applications'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='applications'] > div[name='table'] > div > *:nth-child(3) {
+	width: 15%;
+	justify-content: center;
+}
+div[name='applications'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='applications'] > div[name='table'] > div > *:nth-child(4) {
+	width: 15%;
+	justify-content: center;
+}
+div[name='applications'] > div[name='keys-bar'] > *:nth-child(5),
+div[name='applications'] > div[name='table'] > div > *:nth-child(5) {
+	width: 10%;
+	justify-content: center;
+}
+
+
+/* Розмітка для таблиці заходів */
+div[name='activities'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='activities'] > div[name='table'] > div > *:nth-child(1) {
+	width: 35%;
+}
+div[name='activities'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='activities'] > div[name='table'] > div > *:nth-child(2) {
+	width: 20%;
+}
+div[name='activities'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='activities'] > div[name='table'] > div > *:nth-child(3) {
+	width: 17%;
+}
+div[name='activities'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='activities'] > div[name='table'] > div > *:nth-child(4) {
+	width: 28%;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+
+/* Розмітка для таблиці звітів з заходів */
+div[name='event-reports'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='event-reports'] > div[name='table'] > div > *:nth-child(1) {
+	width: 60%;
+}
+div[name='event-reports'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='event-reports'] > div[name='table'] > div > *:nth-child(2) {
+	width: 31%;
+}
+div[name='event-reports'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='event-reports'] > div[name='table'] > div > *:nth-child(3) {
+	width: 9%;
+	justify-content: flex-end;
+}
+
+
+/* Розмітка для таблиці звітів з заходів */
+div[name='annual-reporting'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='annual-reporting'] > div[name='table'] > div > *:nth-child(1) {
+	width: 80%;
+}
+div[name='annual-reporting'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='annual-reporting'] > div[name='table'] > div > *:nth-child(2) {
+	width: 20%;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+
+/* Розмітка для таблиці інвентарізації */
+div[name='inventory'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='inventory'] > div[name='table'] > div > *:nth-child(1) {
+	width: 40%;
+}
+div[name='inventory'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='inventory'] > div[name='table'] > div > *:nth-child(2) {
+	width: 20%;
+}
+div[name='inventory'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='inventory'] > div[name='table'] > div > *:nth-child(3) {
+	width: 15%;
+}
+div[name='inventory'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='inventory'] > div[name='table'] > div > *:nth-child(4) {
+	width: 15%;
+	justify-content: center;
+}
+div[name='inventory'] > div[name='keys-bar'] > *:nth-child(5),
+div[name='inventory'] > div[name='table'] > div > *:nth-child(5) {
+	width: 10%;
+	justify-content: flex-end;
+}
+
+
+/* Розмітка для таблиці бібліотекарів */
+div[name='librarians'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='librarians'] > div[name='table'] > div > *:nth-child(1) {
+	width: 40%;
+}
+div[name='librarians'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='librarians'] > div[name='table'] > div > *:nth-child(2) {
+	width: 20%;
+}
+div[name='librarians'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='librarians'] > div[name='table'] > div > *:nth-child(3) {
+	width: 20%;
+}
+div[name='librarians'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='librarians'] > div[name='table'] > div > *:nth-child(4) {
+	width: 20%;
+}
+
+
+/* Розмітка для таблиці філій */
+div[name='affiliates'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='affiliates'] > div[name='table'] > div > *:nth-child(1) {
+	width: 40%;
+}
+div[name='affiliates'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='affiliates'] > div[name='table'] > div > *:nth-child(2) {
+	width: 30%;
+}
+div[name='affiliates'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='affiliates'] > div[name='table'] > div > *:nth-child(3) {
+	width: 30%;
+}
+
+
+/* Розмітка для таблиці новостей */
+div[name='news'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='news'] > div[name='table'] > div > *:nth-child(1) {
+	width: 40%;
+}
+div[name='news'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='news'] > div[name='table'] > div > *:nth-child(2) {
+	width: 20%;
+}
+div[name='news'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='news'] > div[name='table'] > div > *:nth-child(3) {
+	width: 20%;
+}
+div[name='news'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='news'] > div[name='table'] > div > *:nth-child(4) {
+	width: 20%;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+/* Розмітка для таблиці звітів до новостей */
+div[name='reports-to-the-news'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='reports-to-the-news'] > div[name='table'] > div > *:nth-child(1) {
+	width: 30%;
+}
+div[name='reports-to-the-news'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='reports-to-the-news'] > div[name='table'] > div > *:nth-child(2) {
+	width: 25%;
+}
+div[name='reports-to-the-news'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='reports-to-the-news'] > div[name='table'] > div > *:nth-child(3) {
+	width: 20%;
+	justify-content: center;
+}
+div[name='reports-to-the-news'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='reports-to-the-news'] > div[name='table'] > div > *:nth-child(4) {
+	width: 25%;
+	justify-content: flex-end;
+	gap: 10px;
+}
+
+
+/* Розмітка для таблиці відвідувачів */
+div[name='visitors'] > div[name='keys-bar'] > *:nth-child(1),
+div[name='visitors'] > div[name='table'] > div > *:nth-child(1) {
+	width: 15%;
+}
+div[name='visitors'] > div[name='keys-bar'] > *:nth-child(2),
+div[name='visitors'] > div[name='table'] > div > *:nth-child(2) {
+	width: 15%;
+}
+div[name='visitors'] > div[name='keys-bar'] > *:nth-child(3),
+div[name='visitors'] > div[name='table'] > div > *:nth-child(3) {
+	width: 15%;
+	justify-content: center;
+}
+div[name='visitors'] > div[name='keys-bar'] > *:nth-child(4),
+div[name='visitors'] > div[name='table'] > div > *:nth-child(4) {
+	width: 20%;
+	justify-content: center;
+}
+div[name='visitors'] > div[name='keys-bar'] > *:nth-child(5),
+div[name='visitors'] > div[name='table'] > div > *:nth-child(5) {
+	width: 15%;
+	justify-content: center;
+}
+div[name='visitors'] > div[name='keys-bar'] > *:nth-child(6),
+div[name='visitors'] > div[name='table'] > div > *:nth-child(6) {
+	width: 10%;
+	justify-content: center;
+}
+div[name='visitors'] > div[name='keys-bar'] > *:nth-child(7),
+div[name='visitors'] > div[name='table'] > div > *:nth-child(7) {
+	width: 10%;
+	justify-content: flex-end;
+}

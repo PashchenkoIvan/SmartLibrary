@@ -7,4 +7,3 @@ export { default as Error404 } from './Error404/Error404';
 // export { default as CalendarBlock } from './CalendarBlock/CalendarBlock';
 export { default as Header } from './Header/Header';
 export { default as Panel } from './Panel/Panel';
-export { default as Form } from './Form/Form';

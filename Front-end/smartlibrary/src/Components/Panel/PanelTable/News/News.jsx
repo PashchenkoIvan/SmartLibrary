@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import tableData from './tableData';
 import NewsInfo from './NewsInfo/NewsInfo';
-import Table from '../../../Table/Table';
+import NewsTable from './NewsTable/NewsTable';
 
 import s from './News.module.css';
+
 
 const News = props => {
 	const [news, setNews] = useState(props.news);
@@ -12,7 +12,7 @@ const News = props => {
 		<div>
 			<NewsInfo />
 			<div className={s.tableContainer}>
-				<Table data={news} keys={tableData()} />
+				<NewsTable news={news} />
 			</div>
 		</div>
 	);

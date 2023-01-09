@@ -1,15 +1,31 @@
-import s from './ApplicationsTable.module.css';
-import sp from '../../Books/BooksTable/SingleBook/popUps.module.css';
-import qrCode from '../../../img/qricon.png';
+import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
-import { QrIcon } from '../../../img';
+import QRCode from "react-qr-code";
+
+import Table from '../../../../templates/Table/Table';
+
+import sp from '../../../../../assets/styles/popUp.module.css';
+import qrCode from '../../../img/qricon.png';
+
 
 const ApplicationsTable = ({ applications }) => {
 	let applicationsElements = applications.map(a => {
 		return (
-			<div className={s.row}>
-				<div>{a.name}</div>
-				<div>{a.book}</div>
+			<div>
+				<div>
+					<Link
+						to={`/reader/${a.user_id}`}
+					>
+						{a.name}
+					</Link>
+				</div>
+				<div>
+					<Link
+						to={`/book-single/${a.book_title}`}
+					>
+						{a.book}
+					</Link>
+				</div>
 				<div>{a.date}</div>
 				<div>{a.number}</div>
 				<Popup
@@ -29,7 +45,7 @@ const ApplicationsTable = ({ applications }) => {
 								</button>
 							</div>
 							<div className={sp.content}>
-								<img className={s.qrImg} src={QrIcon} alt={a.bookName} />
+								<QRCode value={JSON.stringify(a)} />
 								<button className={sp.btn} onClick={() => {}}>
 									Роздрукувати
 								</button>
@@ -41,16 +57,18 @@ const ApplicationsTable = ({ applications }) => {
 		);
 	});
 	return (
-		<div className={s.container}>
-			<div className={s.header}>
-				<p>ПІБ ({applications.length})</p>
-				<p>Книга</p>
-				<p>Дата</p>
-				<p>Інвентарний номер</p>
-				<p>QR-код</p>
+		<Table>
+			<div name='applications'>
+				<div name='keys-bar'>
+					<span>ПІБ ({applications.length})</span>
+					<span>Книга</span>
+					<span>Дата</span>
+					<span>Інвентарний номер</span>
+					<span>QR-код</span>
+				</div>
+				<div name='table'>{applicationsElements}</div>
 			</div>
-			<div className={s.main}>{applicationsElements}</div>
-		</div>
+		</Table>
 	);
 };
 
