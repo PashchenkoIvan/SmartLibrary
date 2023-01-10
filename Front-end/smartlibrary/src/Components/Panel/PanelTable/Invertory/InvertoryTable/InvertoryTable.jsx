@@ -1,32 +1,40 @@
 import { Link } from 'react-router-dom';
-import s from './InvertoryTable.module.css';
+
+import Table from '../../../../templates/Table/Table';
+
 
 const InvertoryTable = props => {
 	let invertoryElements = props.invertory.map(i => {
 		return (
-			<div className={s.row}>
+			<div>
 				<Link to={'/book-single/' + i.id}>{i.bookName}</Link>
 				<div>{i.bookAuthor}</div>
 				<div>{i.ISBN}</div>
 				<div>
 					<p>{i.isPopularBook ? 'Вже сканована' : 'Не сканована'}</p>
 				</div>
-				<button>Видалити</button>
+				<div>
+					<button style={{backgroundColor: `#f5a623`}}>
+						Видалити
+					</button>
+				</div>
 			</div>
 		);
 	});
 
 	return (
-		<div className={s.container}>
-			<div className={s.header}>
-				<p>Назва сканованої книги ({props.invertory.length})</p>
-				<p>Автор</p>
-				<p>Інвертарний номер</p>
-				<p>Статус</p>
-				<p>Видалити</p>
+		<Table>
+			<div name='inventory'>
+				<div name='keys-bar'>
+					<span>Назва сканованої книги ({props.invertory.length})</span>
+					<span>Автор</span>
+					<span>Інвертарний номер</span>
+					<span>Статус</span>
+					<span></span>
+				</div>
+				<div name='table'>{invertoryElements}</div>
 			</div>
-			<div className={s.main}>{invertoryElements}</div>
-		</div>
+		</Table>
 	);
 };
 

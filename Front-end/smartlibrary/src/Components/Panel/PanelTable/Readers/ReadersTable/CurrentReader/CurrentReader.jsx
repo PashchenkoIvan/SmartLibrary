@@ -1,22 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Popup from 'reactjs-popup';
+import printJS from 'print-js';
 
 import s from './currentReader.module.css';
-import sp from '../../../Books/BooksTable/SingleBook/popUps.module.css';
+import sp from '../../../../../../assets/styles/popUp.module.css';
 import f from '../../../../../../assets/styles/form.module.css';
 
 import qrCode from '../../../../img/qricon.png';
 import { QrIcon } from '../../../../img';
 import QRCode from 'react-qr-code';
-import printJS from 'print-js';
+import BooksHistoryTable from './BooksHistoryTable/BooksHistoryTable';
 
 const CurrentReader = props => {
 	props.setHeader(false);
 	const { currentReaderId } = useParams();
 	const [search, setSearch] = useState('');
 	const [bookData, setDataBook] = useState(props.data.books);
-	const [readersData, setReadersData] = useState(props.readers.readers);
 	const [reader, setReader] = useState({});
 
 	useEffect(() => {
@@ -354,16 +354,7 @@ const CurrentReader = props => {
 						</div>
 						<button className={s.giveBook}>Видати книгу</button>
 					</div>
-					<div className={s.booksTable}>
-						<div className={s.keysBar}>
-							<span>Назва книги</span>
-							<span>QR-код</span>
-							<span>Дата видачі</span>
-							<span>Дата повернення</span>
-							<span>Статус</span>
-						</div>
-						<div className={s.valuesTable}>{booksHistoryMap}</div>
-					</div>
+					<BooksHistoryTable books={[]} />
 				</div>
 			</div>
 		</>

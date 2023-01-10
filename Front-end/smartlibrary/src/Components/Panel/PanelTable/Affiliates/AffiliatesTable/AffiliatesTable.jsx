@@ -1,9 +1,9 @@
-import s from './AffiliatesTable.module.css';
+import Table from '../../../../templates/Table/Table';
 
 const AffiliatesTable = ({ affiliates }) => {
 	let affiliatesElements = affiliates.map(a => {
 		return (
-			<div className={s.row}>
+			<div>
 				<div>{a.name}</div>
 				<div>{a.address}</div>
 				<div>
@@ -14,14 +14,16 @@ const AffiliatesTable = ({ affiliates }) => {
 	});
 
 	return (
-		<div className={s.container}>
-			<div className={s.header}>
-				<p>Назва ({affiliates.length})</p>
-				<p>Адреса</p>
-				<p>URL</p>
+		<Table>
+			<div name='affiliates'>
+				<div name='keys-bar'>
+					<span>Назва ({affiliates.length})</span>
+					<span>Адреса</span>
+					<span>URL</span>
+				</div>
+				<div name='table'>{affiliatesElements}</div>
 			</div>
-			<div className={s.main}>{affiliatesElements}</div>
-		</div>
+		</Table>
 	);
 };
 

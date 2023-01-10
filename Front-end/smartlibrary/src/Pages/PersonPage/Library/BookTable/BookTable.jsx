@@ -1,11 +1,7 @@
 import { React, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Popup from 'reactjs-popup';
 
 import s from './BookTable.module.css';
-import sp from '../../../../Components/Panel/PanelTable/Books/BooksTable/SingleBook/popUps.module.css';
-import qrCode from '../../../../Components/Panel/img/qricon.png';
-import { QrIcon } from '../../../../Components/Panel/img';
 
 export const BookTableBlock = props => {
   	const { currentReaderId } = useParams();

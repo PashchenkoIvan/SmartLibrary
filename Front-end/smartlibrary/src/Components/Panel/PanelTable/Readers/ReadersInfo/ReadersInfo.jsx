@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
-import AddReaderForm from '../AddReaderForm/AddReaderForm';
+
+import AddReaderForm from './AddReaderForm/AddReaderForm';
+
 import s from './ReadersInfo.module.css';
-import './addReader.css';
 
 const ReadersInfo = props => {
 	const [search, setSearch] = useState('');

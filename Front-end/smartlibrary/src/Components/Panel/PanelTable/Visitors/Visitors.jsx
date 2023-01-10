@@ -1,10 +1,8 @@
-import { Link } from 'react-router-dom';
-
 import s from './Visitors.module.css';
-import tableData from './tableData';
-import Table from '../../../Table/Table';
 
-export let Array = [
+import VisitorsTable from './VisitorsTable/VisitorsTable';
+
+let visitors = [
 	{
 		name: 'Ivan Pashchenko',
 		home: 'st.Darnitskaya 19',
@@ -199,34 +197,10 @@ export let Array = [
 	},
 ];
 
-const Block = props => {
-	return (
-		<div className={s.infoBlock}>
-			<p>{props.name}</p>
-			<p>{props.home}</p>
-			<p>{props.birthday}</p>
-			<p>{props.comment}</p>
-			<p>{props.book}</p>
-			<p>{props.date}</p>
-			<button>Видалити</button>
-		</div>
-	);
-};
-
-export const Visitors = () => {
-	let ArrayAdd = Array.map(e => (
-		<Block
-			name={e.name}
-			home={e.home}
-			birthday={e.birthday}
-			comment={e.comment}
-			book={e.book}
-			date={e.date}
-		/>
-	));
+const Visitors = () => {
 	return (
 		<div className={s.tableContainer}>
-			<Table data={Array} keys={tableData()} />
+			<VisitorsTable visitors={visitors} />
 		</div>
 	);
 };

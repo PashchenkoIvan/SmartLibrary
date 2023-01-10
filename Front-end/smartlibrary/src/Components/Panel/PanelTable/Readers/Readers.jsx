@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 
-import s from './Readers.module.css';
-import tableData from './tableData';
-import ReadersInfo from './ReadersInfo/ReadersInfo';
-import Table from '../../../Table/Table';
 import { AdminContext } from '../../Panel';
+import ReadersInfo from './ReadersInfo/ReadersInfo';
+import ReadersTable from './ReadersTable/ReadersTable';
+
+import s from './Readers.module.css';
+
 
 const Readers = () => {
 	const Admin = useContext(AdminContext);
@@ -16,7 +17,6 @@ const Readers = () => {
 		Admin.AdminService.GetReaders().then(res => {
 			setAllReaders(res.data);
 			setReaders(res.data);
-			console.log(res.data);
 		});
 	}, []);
 
@@ -24,7 +24,7 @@ const Readers = () => {
 		<div className={s.container}>
 			<ReadersInfo readers={allReaders} setReaders={setReaders} />
 			<div className={s.tableContainer}>
-				<Table data={readers} keys={tableData()} />
+				<ReadersTable readers={readers} />
 			</div>
 		</div>
 	);

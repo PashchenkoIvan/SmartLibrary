@@ -1,28 +1,43 @@
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
-// import QRCode from 'react-qr-code';
+import QRCode from "react-qr-code";
 
-import s from './ReadersTable.module.css';
+import Table from '../../../../templates/Table/Table'
+
 import sp from '../../../../../assets/styles/popUp.module.css';
 import qrCode from '../../../img/qricon.png';
-import { QrIcon } from '../../../img';
+
 
 const ReadersTable = props => {
 	let readersElements = props.readers.map(r => {
 		return (
-			<div className={s.row}>
-				<Link to={`/reader/${r.id}`}>{r.name}</Link>
+			<div>
+				<Link
+					to={`/reader/${r.id}`}
+				>
+					{r.full_name}
+				</Link>
 				<div>
-					<a href={'tel:' + r.phone}>{r.phone}</a>
+					<a href={'tel:' + r.phone_number}>
+						{r.phone_number}
+					</a>
 				</div>
 				<div>
-					<a href={'mailto:' + r.email}>{r.email}</a>
+					<a href={'mailto:' + r.email}>
+						{r.email}
+					</a>
 				</div>
-				<div>{r.needs === true ? 'так' : 'немає'}</div>
+				<div>
+					{
+						r.is_disabled_person === true
+						? 'так'
+						: 'немає'
+					}
+				</div>
 				<Popup
 					trigger={
 						<div>
-							<img src={qrCode} alt='' />
+							<img src={qrCode} alt='qr-code' />
 						</div>
 					}
 					modal
@@ -30,13 +45,13 @@ const ReadersTable = props => {
 					{close => (
 						<>
 							<div className={sp.header}>
-								<span>{r.name}</span>
+								<span>{r.full_name}</span>
 								<button className={sp.closeBtn} onClick={close}>
 									×
 								</button>
 							</div>
 							<div className={sp.content}>
-								<img className={s.qrImg} src={QrIcon} alt={r.name} />
+								<QRCode value={JSON.stringify(r)} />
 								<button className={sp.btn} onClick={() => {}}>
 									Роздрукувати
 								</button>
@@ -44,23 +59,28 @@ const ReadersTable = props => {
 						</>
 					)}
 				</Popup>
-				<div>{r.status}</div>
+				<div>
+					{/* Кольори для статусу ['rgb(232, 238, 246)', 'rgb(248, 126, 115)'] */}
+					{r.status}
+				</div>
 			</div>
 		);
 	});
 
 	return (
-		<div className={s.container}>
-			<div className={s.header}>
-				<p>ПІБ {`(${props.readers.length})`}</p>
-				<p>Телефон</p>
-				<p>Email</p>
-				<p>Особливі потреби</p>
-				<p>QR-код</p>
-				<p>Статус</p>
+		<Table>
+			<div name='readers'>
+				<div name='keys-bar'>
+					<span>ПІБ {`(${props.readers.length})`}</span>
+					<span>Телефон</span>
+					<span>Email</span>
+					<span>Особливі потреби</span>
+					<span>QR-код</span>
+					<span>Статус</span>
+				</div>
+				<div name='table'>{readersElements}</div>
 			</div>
-			<div className={s.main}>{readersElements}</div>
-		</div>
+		</Table>
 	);
 };
 

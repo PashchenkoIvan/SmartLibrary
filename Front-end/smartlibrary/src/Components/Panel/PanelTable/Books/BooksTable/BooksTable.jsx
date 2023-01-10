@@ -1,30 +1,48 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
+import QRCode from "react-qr-code";
+
+import Table from '../../../../templates/Table/Table';
 
 import s from './BooksTable.module.css';
-import sp from './SingleBook/popUps.module.css';
+import sp from '../../../../../assets/styles/popUp.module.css'
+
 import qrCode from '../../../img/qricon.png';
-import { QrIcon } from '../../../img';
 
 const BooksTable = props => {
-	const [filter, setFilter] = useState('all');
 	const [books, setBooks] = useState(props.books);
 	const [booksAmount, setBooksAmount] = useState(5);
 
 	const bookElementCreating = (b, counter) => {
 		if (counter < booksAmount) {
 			return (
-				<div className={s.row}>
+				<div>
 					<Link
-						to={`/book-single/${b.id}`}
+						to={`/book-single/${b.title}`}
 						onClick={() => window.scrollTo(0, 0)}
 					>
-						{b.bookName}
+						{b.title}
 					</Link>
-					<div>{b.bookAuthor}</div>
-					<div>{b.ISBN}</div>
-					<div>{b.isPopularBook ? 'У наявності' : 'Відсутня'}</div>
+					<div>
+						{b.author}
+					</div>
+					<div>
+						{b.isbn}
+					</div>
+					<div className={s.status}>
+						{
+							b.status == 'R'
+								? 'Читається'
+								: b.status == 'W'
+									? 'Очікується'
+									: b.status == 'A'
+										? 'У бібліотеці'
+										: b.status == 'B'
+											? 'Заброньована'
+											: '...'
+						}
+					</div>
 					<Popup
 						trigger={
 							<div>
@@ -42,7 +60,7 @@ const BooksTable = props => {
 									</button>
 								</div>
 								<div className={sp.content}>
-									<img className={s.qrImg} src={QrIcon} alt={b.title} />
+									<QRCode value={JSON.stringify(b.title)} />
 									<button className={sp.btn} onClick={() => {}}>
 										Роздрукувати
 									</button>
@@ -51,14 +69,15 @@ const BooksTable = props => {
 						)}
 					</Popup>
 					<Link
-						to={`/book-single/edit/${b.id}`}
+						to={`/book-single/edit/${b.title}`}
 						onClick={() => window.scrollTo(0, 0)}
 					>
-						Редагувати
+						<button style={{backgroundColor: `rgb(54, 187, 203)`}}>
+							Редагувати
+						</button>
 					</Link>
 				</div>
 			);
-		} else {
 		}
 	};
 
@@ -75,65 +94,26 @@ const BooksTable = props => {
 	}, [props.books]);
 
 	return (
-		<div className={s.container}>
-			<div className={s.filter}>
-				<p>Загальна кількість книг {`(${props.books.length})`}</p>
-				<div className={s.filters}>
-					<label className={s.filterItem} htmlFor='all'>
-						<input
-							type='radio'
-							id='all'
-							name='filter'
-							value='all'
-							checked={filter === 'all'}
-							onChange={e => setFilter(e.target.value)}
-						/>
-						<span className={s.checkmark}></span>
-						<p>Всі</p>
-					</label>
-
-					<label className={s.filterItem} htmlFor='reading'>
-						<input
-							type='radio'
-							id='reading'
-							name='filter'
-							value='reading'
-							checked={filter === 'reading'}
-							onChange={e => setFilter(e.target.value)}
-						/>
-						<span className={s.checkmark}></span>
-						<p>Читається</p>
-					</label>
-
-					<label className={s.filterItem} htmlFor='notReturned'>
-						<input
-							type='radio'
-							id='notReturned'
-							name='filter'
-							value='notReturned'
-							checked={filter === 'notReturned'}
-							onChange={e => setFilter(e.target.value)}
-						/>
-						<span className={s.checkmark}></span>
-						<p>Неповернена</p>
-					</label>
+		<Table>
+			<div name='books'>
+				<div name='keys-bar'>
+					<span>
+						Назва книги
+						{` (${booksAmount > books.length ? books.length : booksAmount})`}
+					</span>
+					<span>Автор</span>
+					<span>Інвертарний номер</span>
+					{/* ['rgb(232, 238, 246)', // Не має боргів 'rgb(248, 126, 115)', // Є борги] */}
+					<span>Статус</span>
+					<span>QR-код</span>
+					<span></span>
 				</div>
+				<div name='table'>{booksElements}</div>
+				{/* <button className={s.btn} onClick={() => setBooksAmount(c => c + 4)}>
+					Показати ще
+				</button> */}
 			</div>
-			<div className={s.header}>
-				<p>
-					Назва книги{' '}
-					{`(${booksAmount > books.length ? books.length : booksAmount})`}
-				</p>
-				<p>Автор</p>
-				<p>Інвертарний номер</p>
-				<p>Статус</p>
-				<p>QR-код</p>
-			</div>
-			<div className={s.main}>{booksElements}</div>
-			<button className={s.btn} onClick={() => setBooksAmount(c => c + 4)}>
-				Показати ще
-			</button>
-		</div>
+		</Table>
 	);
 };
 

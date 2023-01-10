@@ -1,13 +1,23 @@
 import { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
-import CreateEvent from '../CreateEvent/CreateEvent';
+
+import ActivitiesForm from '../ActivitiesForm/ActivitiesForm';
+
 import s from './ActivitiesSearch.module.css';
+import sp from '../../../../../assets/styles/popUp.module.css';
 
 const ActivitiesSearch = ({ setActivities, activities }) => {
 	const [dates, setDates] = useState({
 		from: 'Відфільтрувати з',
 		to: 'Відфільтрувати по',
 	});
+	const activity = {
+		name: '',
+		smallDescription: '',
+		bigDescription: '',
+		category: '',
+		dateTime: ''
+	}
 
 	useEffect(() => {
 		setActivities(prev =>
@@ -49,7 +59,17 @@ const ActivitiesSearch = ({ setActivities, activities }) => {
 			</div>
 			<Popup trigger={<button className={s.addActivity}>+ Додати захід</button>} modal>
 				{close => (
-					<CreateEvent close={close} />
+					<>
+						<div className={sp.header}>
+							<span>Додати захід</span>
+							<button className={sp.closeBtn} onClick={close}>
+								×
+							</button>
+						</div>
+						<div className={sp.content}>
+							<ActivitiesForm activity={activity} />
+						</div>
+					</>
 				)}
 			</Popup>
 		</div>
