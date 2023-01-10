@@ -17,6 +17,7 @@
 }
 .infoBlock {
 	width: 100%;
+	max-width: 1300px;
 	display: flex;
 	flex-direction: column;
 	padding: 0;
@@ -32,6 +33,7 @@
 }
 .bottomBlock {
 	max-width: 1300px;
+	width: 100%;
 	margin-top: 30px;
 	display: flex;
 	align-items: center;
