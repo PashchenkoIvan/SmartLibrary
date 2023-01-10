@@ -1,6 +1,7 @@
 .container {
 	height: 460px;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
@@ -52,7 +53,7 @@
 	align-items: center;
 	justify-content: center;
 }
-.searchIcon {
+/* .searchIcon {
 	height: 100%;
 	padding: 0 20px;
 	background-color: white;
@@ -67,13 +68,30 @@
 	width: 20px;
 	height: 20px;
 	stroke: #c9c9c9;
-}
+} */
 .inputBlock input {
+	caret-color: transparent;
 	width: 500px;
 	height: 100%;
 	outline: none;
-	padding: 10px;
+	padding: 20px;
+	border-radius: 5px;
+	text-align: center;
+	@apply transition-colors focus:bg-slate-200;
 }
+
+.inputBlock input::-webkit-input-placeholder {
+	@apply text-slate-800;
+}
+
+.inputBlock input::-webkit-input-placeholder {
+	@apply text-slate-800;
+}
+
+.inputBlock input:-moz-placeholder {
+	text-align: center;
+}
+
 .inputBlock button {
 	width: 102px;
 	height: 100%;
@@ -82,6 +100,24 @@
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;
 }
+.searchResult {
+	z-index: 40;
+	position: absolute;
+	border-radius: 5px;
+	left: 50%;
+	overflow: hidden;
+	transform: translateX(-50%);
+	@apply bg-slate-100;
+}
+.searchResultLink {
+	min-height: 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	@apply transition-colors bg-transparent hover:bg-blue-300;
+}
+
 @media screen and (min-width: 0px) {
 	.headerSearch {
 		width: 350px;
@@ -102,6 +138,11 @@
 	.headerSearch h1 {
 		font-size: 38px;
 	}
+
+	.searchResult {
+		width: 280px;
+		top: 470px;
+	}
 }
 @media screen and (min-width: 768px) {
 	.headerSearch {
@@ -118,6 +159,10 @@
 
 	.headerSearch h1 {
 		font-size: 40px;
+	}
+	.searchResult {
+		width: 350px;
+		top: 430px;
 	}
 }
 @media screen and (min-width: 1025px) {

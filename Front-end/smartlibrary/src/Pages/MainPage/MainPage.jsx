@@ -15,7 +15,7 @@ const MainPage = props => {
 
 	return (
 		<div className={s.container}>
-			<MainVideoBlock />
+			<MainVideoBlock books={props.books.books} />
 			<div className={s.zahodi}>
 				<div className={s.infoBlock}>
 					<p>З нами цікавіше</p>

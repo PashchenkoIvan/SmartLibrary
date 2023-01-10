@@ -17,6 +17,7 @@
 }
 .infoBlock {
 	width: 100%;
+	/* max-width: 1300px; */
 	display: flex;
 	flex-direction: column;
 	padding: 0;
@@ -31,42 +32,22 @@
 	color: #36bbcb;
 }
 .bottomBlock {
-	max-width: 1500px;
-	/* width: 100%; */
-	margin-top: 33px;
-	/* margin-left: 150px; */
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-}
-.calendarBlock {
-	max-width: 825px;
-	height: 100%;
-	background-color: #ecf3fc;
-	border-radius: 12px;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: end;
-	box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
-}
-.newsBlock {
-	width: 60%;
-	height: 100%;
-	background-color: white;
-	border-top-right-radius: 12px;
-	border-bottom-right-radius: 12px;
-}
-.calendar {
-	width: 40%;
-	height: 100%;
+	max-width: 1300px;
+	width: 100%;
+	margin-top: 30px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	@apply flex-col sm:flex-row gap-5;
 }
+
+.chartBlock {
+	@apply w-full flex flex-col 
+	usm:flex-row sm:flex-col sm:w-1/2
+	lg:flex-row gap-5;
+}
+
 .editBlock {
-	width: 300px;
 	height: 300px;
 	display: flex;
 	flex-direction: column;
@@ -75,6 +56,8 @@
 	box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
 	padding-top: 25px;
 	border-radius: 12px;
+	@apply w-full usm:w-1/2 sm:w-full lg:w-1/2
+	text-sm text-center;
 }
 .titleText {
 	font-size: 16px;
@@ -104,10 +87,10 @@
 	margin-bottom: 20px;
 }
 .buttonBlock img {
-	width: 120px;
-	height: 120px;
+	@apply w-100 h-100;
 }
-@media screen and (min-width: 0px) {
+
+@media screen and (min-width: 1024px) {
 	.chartBlock {
 		display: flex;
 		flex-direction: row;
@@ -135,12 +118,6 @@
 		padding: 0;
 		align-items: center;
 		justify-content: center;
-	}
-}
-@media screen and (min-width: 640px) {
-	.zahodi {
-		width: 100%;
-		padding: 0;
 	}
 }
 @media screen and (min-width: 1440px) {

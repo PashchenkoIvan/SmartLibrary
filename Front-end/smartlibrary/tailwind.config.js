@@ -6,7 +6,6 @@ module.exports = {
 		extend: {
 			screens: {
 				usm: '400px',
-				// lxl: '',
 			},
 			spacing: {
 				'80px': '80px',
@@ -15,8 +14,10 @@ module.exports = {
 				'300': '300px',
 				'400': '400px',
 				'500': '500px',
-				'600': '600px'
-
+				'600': '600px',
+				'620': '620px',
+				'700': '700px',
+				'800': '800px'
 			},
 		},
 	},

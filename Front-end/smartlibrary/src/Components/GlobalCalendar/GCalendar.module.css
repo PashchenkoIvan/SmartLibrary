@@ -1,11 +1,10 @@
 .container {
-	width: 800px;
-	height: 300px;
+	/* width: 800px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 12px;
-	@apply w-full h-600 sm:w-full h-400;
+	border-radius: 12px; */
+	@apply w-full h-620 flex items-center justify-center rounded-xl lg:w-full lg:h-300 lg:rounded-r-xl;
 }
 .calendarBlock {
 	box-shadow: 0 2px 4px rgb(30 37 82 / 24%);
@@ -15,7 +14,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	@apply flex-col items-center sm:flex-row;
+	@apply flex-col items-center lg:flex-row;
 }
 .calendar {
 	width: 50%;
@@ -26,7 +25,7 @@
 	border-top-left-radius: 12px;
 	border-bottom-left-radius: 12px;
 	background-color: #ecf3fc;
-	@apply w-full rounded-bl-none sm:w-2/6;
+	@apply w-full rounded-bl-none lg:w-3/6;
 }
 .newsBlock {
 	width: 50%;
@@ -34,10 +33,10 @@
 	background-color: white;
 	border-top-right-radius: 12px;
 	border-bottom-right-radius: 12px;
-	@apply w-full rounded-tr-none rounded-bl-xl sm:w-4/6 rounded-r-xl rounded-bl-xl;
+	@apply w-full h-4/6 rounded-tr-none rounded-bl-xl lg:w-4/6 lg:h-full lg:rounded-r-xl lg:rounded-bl-none;
 }
 
-@media screen and (min-width: 1025px) {
+/* @media screen and (min-width: 1025px) {
 	.container {
 		width: 700px;
 		height: 300px;
@@ -59,4 +58,4 @@
 		width: 800px;
 		margin-left: 0;
 	}
-}
+} */
