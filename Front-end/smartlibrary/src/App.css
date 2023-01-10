@@ -14,11 +14,11 @@ button {
 	outline: none;
 	border: 0;
 	background: transparent;
-	transition: .2s;
+	@apply transition-colors;
 }
 
 button:hover {
-	opacity: .8;
+	opacity: 0.8;
 }
 
 a {
