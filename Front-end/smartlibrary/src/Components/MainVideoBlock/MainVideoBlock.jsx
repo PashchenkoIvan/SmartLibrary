@@ -1,7 +1,34 @@
 import sample from './video/videoplayback.mp4';
 import s from './MainVideoBlock.module.css';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const MainVideoBlock = () => {
+const MainVideoBlock = props => {
+	const [search, setSearch] = useState('');
+	const [searchResult, setSearchResult] = useState([]);
+	const searchResultElement = useRef();
+
+	useEffect(() => {
+		if (search !== '') {
+			searchResultElement.current.style.display = 'block';
+			setSearchResult(
+				props.books
+					.filter(b => b.title.includes(search) || b.author.includes(search))
+					.map(b => (
+						<Link to={'/selected-book/' + b.title}>
+							<div className={s.searchResultLink}>
+								<span>{b.title}</span>
+								<span>{b.author}</span>
+							</div>
+						</Link>
+					))
+			);
+		} else if (search === '') {
+			searchResultElement.current.style.display = 'hidden';
+			setSearchResult([]);
+		}
+	}, [search]);
+
 	return (
 		<div className={s.container}>
 			<video className={s.videoTag} autoPlay loop muted>
@@ -12,7 +39,7 @@ const MainVideoBlock = () => {
 				<h1>Вітаємо, раді вас бачити</h1>
 				<p>Бібліотека Новоолександрівської сільської ради Філія №1</p>
 				<div className={s.inputBlock}>
-					<div className={s.searchIcon}>
+					{/* <div className={s.searchIcon}>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
 							fill='none'
@@ -25,10 +52,17 @@ const MainVideoBlock = () => {
 								d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z'
 							/>
 						</svg>
-					</div>
-					<input type='text' placeholder='Введіть назву книги або автора' />
-					<button>Шукати</button>
+					</div> */}
+					<input
+						type='text'
+						placeholder='Введіть назву книги або автора'
+						value={search}
+						onChange={e => setSearch(e.target.value)}
+					/>
 				</div>
+			</div>
+			<div className={s.searchResult} ref={searchResultElement}>
+				{searchResult}
 			</div>
 		</div>
 	);
