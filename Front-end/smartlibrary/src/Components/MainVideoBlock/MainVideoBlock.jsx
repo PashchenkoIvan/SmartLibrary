@@ -24,7 +24,11 @@ const MainVideoBlock = props => {
 			setSearchResult(
 				result.length > 0
 					? result
-					: [<p style={{ 'text-align': 'center' }}>Таких результатів немає</p>]
+					: [
+							<p style={{ 'text-align': 'center', padding: '10px' }}>
+								Таких результатів немає
+							</p>,
+					  ]
 			);
 		} else if (search === '') {
 			searchResultElement.current.style.display = 'none';
