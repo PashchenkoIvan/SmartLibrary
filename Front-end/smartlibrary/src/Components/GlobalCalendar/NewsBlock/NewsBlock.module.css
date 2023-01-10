@@ -10,7 +10,7 @@
     color: white;
     background-color: #244973;
     font-weight: 600;
-    width: 35%;
+    width: 150px;
     border-radius: 3px;
     /* padding: 0 0 0 10px; */
     white-space: nowrap;
@@ -44,30 +44,13 @@
     .container {
         min-height: 100px;
     }
-    .actualNewsText {
-        width: 60%;
-
-    }
 }
 @media screen and (min-width: 1025px) {
     .container {
         min-height: 300px;
     }
-    .actualNewsText {
-        width: 80%;
-    }
 }
 @media screen and (min-width: 1440px) {
-    .actualNewsText {
-        color: white;
-        background-color: #244973;
-        font-weight: 600;
-        width: 35%;
-        border-radius: 3px;
-        /* padding: 0 0 0 10px; */
-        white-space: nowrap;
-        text-align: center;
-    }
     .new {
         width: 90%;
         margin-top: 20px;
