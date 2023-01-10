@@ -9,7 +9,8 @@ const MainVideoBlock = props => {
 	const searchResultElement = useRef();
 
 	useEffect(() => {
-		if (search !== '') {
+		if (search !== '' && props.books[0] !== '') {
+			console.log(props.books);
 			searchResultElement.current.style.display = 'block';
 			let result = props.books
 				.filter(b => b.title.includes(search) || b.author.includes(search))

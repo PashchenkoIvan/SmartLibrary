@@ -8,6 +8,7 @@ import App from './App';
 import AuthService from './services/AuthService';
 import BookService from './services/BookService';
 import UserService from './services/UserService';
+import AdminService from './services/AdminService';
 
 import './index.css';
 
@@ -18,7 +19,13 @@ export const ServicesContext = createContext();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<ServicesContext.Provider
-		value={{ AuthService, BookService, UserService, categoriesList }}
+		value={{
+			AuthService,
+			BookService,
+			UserService,
+			AdminService,
+			categoriesList,
+		}}
 	>
 		<BrowserRouter>
 			<App state={state} />

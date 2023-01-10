@@ -17,7 +17,7 @@ $api.interceptors.request.use(config => {
 $api.interceptors.response.use(
 	config => config,
 	async error => {
-		console.log(error);
+		alert(error);
 		const originalRequest = error.config;
 		if (
 			error.response.status == 401 &&
@@ -35,9 +35,7 @@ $api.interceptors.response.use(
 						localStorage.setItem('refresh', res.data.refresh);
 					});
 				return $api.request(originalRequest);
-			} catch (e) {
-				alert(e);
-			}
+			} catch (e) {}
 		}
 		throw error;
 	}
