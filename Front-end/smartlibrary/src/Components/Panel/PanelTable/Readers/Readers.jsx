@@ -1,20 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { AdminContext } from '../../Panel';
 import ReadersInfo from './ReadersInfo/ReadersInfo';
 import ReadersTable from './ReadersTable/ReadersTable';
 
 import s from './Readers.module.css';
-
+import { ServicesContext } from '../../../..';
 
 const Readers = () => {
-	const Admin = useContext(AdminContext);
+	const Services = useContext(ServicesContext);
 
 	const [readers, setReaders] = useState([]);
 	const [allReaders, setAllReaders] = useState([]);
 
 	useEffect(() => {
-		Admin.AdminService.GetReaders().then(res => {
+		Services.AdminService.GetReaders().then(res => {
 			setAllReaders(res.data);
 			setReaders(res.data);
 		});

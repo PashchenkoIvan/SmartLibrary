@@ -6,10 +6,10 @@ import { AdminContext } from '../../../../Panel';
 import s from './AddReaderForm.module.css';
 import sp from '../../../../../../assets/styles/popUp.module.css';
 import f from '../../../../../../assets/styles/form.module.css';
-
+import { ServicesContext } from '../../../../../..';
 
 const AddReaderForm = props => {
-	const Admin = useContext(AdminContext);
+	const Services = useContext(ServicesContext);
 	const [reader, setReader] = useState({
 		full_name: '',
 		email: '',
@@ -148,13 +148,11 @@ const AddReaderForm = props => {
 							className={f.btn}
 							type='submit'
 							value='Додати читача'
-							onClick={
-								e => {
-									e.preventDefault();
-									console.log(reader);
-									Admin.AdminRequests.AddReader(reader);
-								}
-							}
+							onClick={e => {
+								e.preventDefault();
+								console.log(reader);
+								Services.AdminService.AddReader(reader);
+							}}
 						/>
 					</div>
 				</form>
