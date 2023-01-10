@@ -11,20 +11,23 @@ const MainVideoBlock = props => {
 	useEffect(() => {
 		if (search !== '') {
 			searchResultElement.current.style.display = 'block';
+			let result = props.books
+				.filter(b => b.title.includes(search) || b.author.includes(search))
+				.map(b => (
+					<Link to={'/selected-book/' + b.title}>
+						<div className={s.searchResultLink}>
+							<span>{b.title}</span>
+							<span>{b.author}</span>
+						</div>
+					</Link>
+				));
 			setSearchResult(
-				props.books
-					.filter(b => b.title.includes(search) || b.author.includes(search))
-					.map(b => (
-						<Link to={'/selected-book/' + b.title}>
-							<div className={s.searchResultLink}>
-								<span>{b.title}</span>
-								<span>{b.author}</span>
-							</div>
-						</Link>
-					))
+				result.length > 0
+					? result
+					: [<p style={{ 'text-align': 'center' }}>Таких результатів немає</p>]
 			);
 		} else if (search === '') {
-			searchResultElement.current.style.display = 'hidden';
+			searchResultElement.current.style.display = 'none';
 			setSearchResult([]);
 		}
 	}, [search]);

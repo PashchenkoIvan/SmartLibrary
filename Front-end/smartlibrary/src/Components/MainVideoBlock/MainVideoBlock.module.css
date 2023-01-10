@@ -107,7 +107,7 @@
 	border-radius: 5px;
 	left: 50%;
 	transform: translateX(-50%);
-	@apply bg-slate-50;
+	@apply bg-slate-100;
 }
 .searchResultLink {
 	min-height: 30px;
