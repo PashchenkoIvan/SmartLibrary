@@ -17,7 +17,7 @@
 }
 .infoBlock {
 	width: 100%;
-	/* max-width: 1300px; */
+	max-width: 1300px;
 	display: flex;
 	flex-direction: column;
 	padding: 0;
@@ -92,62 +92,6 @@
 
 @media screen and (min-width: 1024px) {
 	.chartBlock {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-		/* margin: 10px 20px; */
-	}
-	.bottomBlock {
-		flex-direction: column;
-	}
-	.editBlock {
-		width: 150px;
-		height: 350px;
-		margin: 10px 5px;
-		text-align: center;
-	}
-	.editBlock p {
-		width: 70%;
-	}
-	.buttonBlock img {
-		width: 100px;
-		height: 100px;
-	}
-	.infoBlock {
-		padding: 0;
-		align-items: center;
-		justify-content: center;
-	}
-}
-@media screen and (min-width: 1440px) {
-	.editBlock {
-		width: 250px;
-		height: 300px;
-		/* margin-right: 5px; */
-		white-space: nowrap;
-	}
-	.editBlock:last-child {
-		margin-left: 20px;
-	}
-	.bottomBlock {
-		flex-direction: row;
-		justify-content: center;
-		/* align-items: center; */
-	}
-	.buttonBlock img {
-		width: 110px;
-		height: 110px;
-	}
-	.bottomBlock {
-		width: 100%;
-	}
-	.chartBlock {
-		flex-direction: row;
-	}
-	.infoBlock {
-		align-items: flex-start;
-		justify-content: flex-start;
-		padding-left: 16%;
+		width: calc(100% - 400px);
 	}
 }

@@ -1,13 +1,14 @@
 .containerItem {
-	display: flex;
-	align-items: center;
+	@apply text-center sm:text-left
+	flex flex-col-reverse 
+	gap-2 items-center justify-center sm:flex-row;
 }
 .itemImg {
-	width: 45px;
-	height: 45px;
-	padding: 12px;
+	width: 40px;
+	height: 40px;
+	padding: 10px 10px;
 	background-color: #545868;
-	margin-right: 11px;
+	@apply hidden sm:inline;
 }
 .containerTexts {
 	display: flex;
@@ -15,14 +16,14 @@
 }
 .itemImgLogo {
 	width: 130px;
-	margin-right: 11px;
+	@apply mt-3 sm:mt-0;
 }
 .itemImgPoint {
-	width: 45px;
-	height: 45px;
-	padding: 12px 14px;
+	width: 40px;
+	height: 40px;
+	padding: 10px 12px;
 	background-color: #545868;
-	margin-right: 11px;
+	@apply hidden sm:inline;
 }
 .itemText {
 	font-size: 14px;
@@ -32,49 +33,4 @@
 .itemText span {
 	color: #36bbcb;
 	text-decoration: underline;
-}
-@media (max-width: 1024px) {
-	.itemImg {
-		width: 35px;
-		height: 35px;
-		padding: 8px;
-		margin-right: 7px;
-	}
-	.itemImgPoint {
-		width: 35px;
-		height: 35px;
-		padding: 8px 14px;
-	}
-	.itemImgLogo {
-		width: 120px;
-	}
-	.itemText {
-		font-size: 13px;
-	}
-}
-@media (max-width: 768px) {
-	.containerItem {
-		flex-direction: column;
-	}
-	.containerItem + .containerItem {
-		margin-top: 20px;
-	}
-	.itemImg {
-		display: none;
-	}
-	.itemImgPoint {
-		display: none;
-	}
-	.itemImgLogo {
-		margin-bottom: 10px;
-	}
-	.containerTexts {
-		align-items: center;
-	}
-	.itemText {
-		text-align: center;
-	}
-	.itemText + .itemText {
-		margin-top: 5px;
-	}
 }
