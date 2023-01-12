@@ -9,11 +9,14 @@ const MainVideoBlock = props => {
 	const searchResultElement = useRef();
 
 	useEffect(() => {
-		if (search !== '' && props.books[0] !== '') {
+		if (search !== '' && search !== ' ' && props.books[0] !== '') {
 			console.log(props.books);
 			searchResultElement.current.style.display = 'block';
 			let result = props.books
-				.filter(b => b.title.includes(search) || b.author.includes(search))
+				.filter(b => {
+					console.log(b);
+					return b?.title?.includes(search) || b?.author?.includes(search);
+				})
 				.map(b => (
 					<Link to={'/selected-book/' + b.title}>
 						<div className={s.searchResultLink}>

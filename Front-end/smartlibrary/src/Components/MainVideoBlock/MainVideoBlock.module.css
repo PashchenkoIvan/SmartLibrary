@@ -102,10 +102,12 @@
 }
 .searchResult {
 	z-index: 40;
+	max-height: 400px;
+	overflow-y: scroll;
 	position: absolute;
 	border-radius: 5px;
 	left: 50%;
-	overflow: hidden;
+	overflow-x: hidden;
 	transform: translateX(-50%);
 	@apply bg-slate-100;
 }
@@ -116,6 +118,14 @@
 	align-items: center;
 	padding: 10px;
 	@apply transition-colors bg-transparent hover:bg-blue-300;
+}
+
+.searchResultLink span:nth-child(1) {
+	@apply w-1/2 text-left;
+}
+
+.searchResultLink span:nth-child(2) {
+	@apply w-1/2 text-right;
 }
 
 @media screen and (min-width: 0px) {
