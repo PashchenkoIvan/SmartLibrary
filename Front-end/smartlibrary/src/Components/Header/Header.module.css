@@ -26,6 +26,7 @@
 .whiteBackground {
 	position: absolute;
 	background-color: rgba(80, 81, 151, 0.5);
+	display: none;
 	top: 0;
 	left: 0;
 	z-index: 102;
