@@ -46,7 +46,7 @@ const MainVideoBlock = props => {
 
 	return (
 		<div className={s.container}>
-			<video className={s.videoTag} autoPlay loop muted>
+			<video className={s.videoTag} autoPlay={true} loop muted>
 				<source src={sample} type='video/mp4' />
 			</video>
 			<div className={s.blueFilter} />
