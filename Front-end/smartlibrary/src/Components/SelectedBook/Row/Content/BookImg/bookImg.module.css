@@ -1,7 +1,7 @@
 .container {
 	position: relative;
 	display: inline-block;
-	z-index: -1;
+	/* z-index: 0; */
 
 	max-width: 360px;
 	height: fit-content;
@@ -16,7 +16,7 @@
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 
-	transform: perspective(1000px) rotateY(-15deg);
+	/* transform: perspective(1000px) rotateY(-15deg); */
 	-webkit-transform: perspective(1000px) rotateY(-15deg);
 	transform-style: flat;
 	-webkit-transform-style: flat;
@@ -27,6 +27,7 @@
 
 .container:hover {
 	transform: rotateZ(-5deg);
+	-webkit-transform: rotateZ(-5deg);
 }
 
 .insetShadow {

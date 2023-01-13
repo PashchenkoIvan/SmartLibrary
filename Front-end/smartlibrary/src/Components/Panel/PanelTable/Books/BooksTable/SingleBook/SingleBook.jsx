@@ -6,6 +6,7 @@ import s from './singleBook.module.css';
 import sp from '../../../../../../assets/styles/popUp.module.css';
 
 import { QrIcon } from '../../../../img';
+import printJS from 'print-js';
 
 const SingleBook = props => {
 	props.setHeader(false);
@@ -41,7 +42,15 @@ const SingleBook = props => {
 									</div>
 									<div className={sp.content}>
 										<img className={s.qrImg} src={QrIcon} alt={b.title} />
-										<button className={sp.btn} onClick={() => {}}>
+										<button
+											className={sp.btn}
+											onClick={() => {
+												printJS({
+													printable: '../../../../img/qr.png',
+													type: 'image',
+												});
+											}}
+										>
 											Роздрукувати
 										</button>
 									</div>
@@ -125,7 +134,9 @@ const SingleBook = props => {
 							</li>
 							<li className={s.singleBookParameter}>
 								<div className={s.value}>Тип</div>
-								<div className={s.key}>{b.book_type == 'P' ? 'Паперова' : 'Електрона'}</div>
+								<div className={s.key}>
+									{b.book_type == 'P' ? 'Паперова' : 'Електрона'}
+								</div>
 							</li>
 							<li className={s.singleBookParameter}>
 								<div className={s.value}>ISBN</div>

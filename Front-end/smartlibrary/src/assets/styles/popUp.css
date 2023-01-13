@@ -3,10 +3,9 @@
 	top: 40% !important;
 	left: 50% !important;
 
-	width: fit-content !important;
 	height: fit-content !important;
-	max-width: 700px !important;
-	min-width: 500px !important;
+	max-width: 500px !important;
+	min-width: 200px !important;
 	max-height: 70vh !important;
 
 	background-color: #fff;
@@ -17,6 +16,7 @@
 	-webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
 	box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
 	outline: 0;
+	@apply w-[calc(100%_-_20px)] !important;
 }
 
 .popup-arrow {
@@ -31,6 +31,7 @@
 
 .popup-overlay {
 	background: rgba(0, 0, 0, 0.5);
+	padding: 20px;
 }
 
 [data-popup='modal'].popup-overlay {
