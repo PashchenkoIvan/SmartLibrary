@@ -19,7 +19,10 @@ const MainVideoBlock = props => {
 						b?.author?.toLowerCase().includes(search.toLowerCase())
 				)
 				.map(b => (
-					<Link to={'/selected-book/' + b.title}>
+					<Link
+						to={'/selected-book/' + b.title}
+						onClick={() => window.scrollTo(0, 0)}
+					>
 						<div className={s.searchResultLink}>
 							<span>{b.title}</span>
 							<span>{b.author}</span>
