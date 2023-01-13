@@ -1,5 +1,5 @@
 .container {
-	@apply w-full sm:w-3/4;
+	@apply w-full sm:w-3/5 lg:w-3/4;
 }
 
 .searchInputContainer {

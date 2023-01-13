@@ -9,6 +9,7 @@ const BooksCatalog = props => {
 	props.setHeader(false);
 	const { booksCategoryId } = useParams();
 	const [filteredBooks, setFilteredBooks] = useState(props.books);
+	const [search, setSearch] = useState('');
 
 	useEffect(() => {
 		document.title = 'Каталог книг';
@@ -29,6 +30,17 @@ const BooksCatalog = props => {
 		}
 	}, [booksCategoryId, props.books]);
 
+	useEffect(() => {
+		setFilteredBooks({
+			...filteredBooks,
+			books: props.books.books.filter(
+				b =>
+					b?.title?.toLowerCase().includes(search.toLowerCase()) ||
+					b?.author?.toLowerCase().includes(search.toLowerCase())
+			),
+		});
+	}, [search]);
+
 	return (
 		<div className={s.container}>
 			<div className={s.row}>
@@ -36,7 +48,11 @@ const BooksCatalog = props => {
 					categories={props.categories}
 					isLoading={props.categories.isLoading}
 				/>
-				<ContentBlock books={filteredBooks} />
+				<ContentBlock
+					books={filteredBooks}
+					search={search}
+					setSearch={setSearch}
+				/>
 			</div>
 		</div>
 	);

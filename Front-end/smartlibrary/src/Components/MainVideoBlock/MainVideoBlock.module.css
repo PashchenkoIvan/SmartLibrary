@@ -109,7 +109,7 @@
 	left: 50%;
 	overflow-x: hidden;
 	transform: translateX(-50%);
-	@apply bg-slate-100;
+	@apply bg-slate-200;
 }
 .searchResultLink {
 	min-height: 30px;

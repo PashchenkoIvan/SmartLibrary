@@ -13,10 +13,11 @@ const MainVideoBlock = props => {
 			console.log(props.books);
 			searchResultElement.current.style.display = 'block';
 			let result = props.books
-				.filter(b => {
-					console.log(b);
-					return b?.title?.includes(search) || b?.author?.includes(search);
-				})
+				.filter(
+					b =>
+						b?.title?.toLowerCase().includes(search.toLowerCase()) ||
+						b?.author?.toLowerCase().includes(search.toLowerCase())
+				)
 				.map(b => (
 					<Link to={'/selected-book/' + b.title}>
 						<div className={s.searchResultLink}>
