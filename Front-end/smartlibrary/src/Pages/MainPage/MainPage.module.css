@@ -13,7 +13,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 50px 20px 15px;
+	padding: 40px 20px 20px;
 }
 .infoBlock {
 	width: 100%;
@@ -57,19 +57,17 @@
 	padding-top: 25px;
 	border-radius: 12px;
 	@apply w-full usm:w-1/2 sm:w-full lg:w-1/2
-	text-sm text-center;
+	text-center;
 }
 .titleText {
-	font-size: 16px;
-	font-weight: 600;
 	color: black;
 	margin-bottom: 5px;
+	@apply text-base font-semibold usm:text-sm md:text-base;
 }
 .underTitleText {
-	font-size: 16px;
-	font-weight: 200;
 	color: black;
 	margin-bottom: 20px;
+	@apply text-base usm:text-sm md:text-base lg:text-sm xl:text-base;
 }
 .buttonBlock {
 	width: 100%;
@@ -85,6 +83,7 @@
 }
 .buttonBlock p {
 	margin-bottom: 20px;
+	@apply text-base usm:text-sm md:text-base lg:text-sm xl:text-base;
 }
 .buttonBlock img {
 	@apply w-100 h-100;
