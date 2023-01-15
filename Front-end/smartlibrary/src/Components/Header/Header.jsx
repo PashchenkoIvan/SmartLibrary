@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import s from './Header.module.css';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 
 import { useScroll } from 'framer-motion';
 import { ServicesContext } from '../..';
+import { useSelector } from 'react-redux';
 
-const Header = ({ menuActive, setMenuActive, header, status }) => {
+const Header = ({ menuActive, setMenuActive, header }) => {
 	const { scrollY } = useScroll();
-	const navigate = useNavigate();
 	const Services = useContext(ServicesContext);
+
+	const { status } = useSelector(state => state.status);
 
 	const background = useRef();
 	const whiteBackground = useRef();

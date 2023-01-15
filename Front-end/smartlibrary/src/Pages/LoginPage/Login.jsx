@@ -5,6 +5,8 @@ import { AuthContext, ServicesContext } from '../../index';
 
 import s from './Login.module.css';
 import f from '../../assets/styles/form.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { SetStatus } from '../../redux/statusActions';
 
 const Login = props => {
 	const navigate = useNavigate();
@@ -14,13 +16,12 @@ const Login = props => {
 		password: '',
 	});
 
+	const { status } = useSelector(state => state.status);
+	const dispatch = useDispatch();
+
 	useEffect(() => {
 		document.title = 'Вхід';
 	}, []);
-
-	useEffect(() => {
-		if (props.status === 'reader') navigate('../', { replace: true });
-	}, [props.status]);
 
 	props.setHeader(false);
 
@@ -37,17 +38,11 @@ const Login = props => {
 							email: state.email,
 							password: state.password,
 						}).then(res => {
-							if (res !== undefined)
-								props.setStatus({
-									loading: false,
-									status: res ? 'librarian' : 'reader',
-								});
-							else
-								props.setStatus({
-									loading: false,
-									status: 'anonym',
-								});
-							navigate('../', { replace: true });
+							if (res !== undefined) {
+								dispatch(SetStatus(res ? 'librarian' : 'reader'));
+							} else {
+								dispatch(SetStatus('anonym'));
+							}
 						});
 					}}
 				>

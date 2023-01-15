@@ -10,6 +10,9 @@ import BookService from './services/BookService';
 import UserService from './services/UserService';
 import AdminService from './services/AdminService';
 
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
+
 import './index.css';
 
 let categoriesList = [];
@@ -18,19 +21,21 @@ export const ServicesContext = createContext();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-	<ServicesContext.Provider
-		value={{
-			AuthService,
-			BookService,
-			UserService,
-			AdminService,
-			categoriesList,
-		}}
-	>
-		<BrowserRouter>
-			<App state={state} />
-		</BrowserRouter>
-	</ServicesContext.Provider>
+	<Provider store={store}>
+		<ServicesContext.Provider
+			value={{
+				AuthService,
+				BookService,
+				UserService,
+				AdminService,
+				categoriesList,
+			}}
+		>
+			<BrowserRouter>
+				<App state={state} />
+			</BrowserRouter>
+		</ServicesContext.Provider>
+	</Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

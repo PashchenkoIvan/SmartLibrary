@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { useRef, useState, useEffect, useContext } from 'react';
 import { BooksCatalog, Header, SelectedBook, Error404 } from './Components/';
 
@@ -29,10 +29,17 @@ import AlertPopPup from './Components/AlertPopPup/AlertPopPup';
 import { ServicesContext } from './index';
 
 import './App.css';
-import './assets/styles/popUp.css'
+import './assets/styles/popUp.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { SetStatus } from './redux/statusActions';
 
 function App(props) {
 	const Services = useContext(ServicesContext);
+
+	const dispatch = useDispatch();
+	const status = useSelector(state => state.status);
+
+	const navigate = useNavigate();
 
 	const [messageConfig, setMessageConfig] = useState({
 		text: '',
@@ -59,26 +66,24 @@ function App(props) {
 		isLoading: true,
 	});
 
-	const [Status, setStatus] = useState({
-		status: 'anonym',
-		loading: true,
-	});
+	useEffect(() => navigate('/', { replace: true }), [status.status]);
 
 	useEffect(() => {
 		if (localStorage.getItem('refresh')) {
 			Services.AuthService.Refresh()
 				.then(res => {
-					setStatus({
-						loading: false,
-						status: res == undefined ? 'anonym' : res ? 'librarian' : 'reader',
-					});
+					dispatch(
+						SetStatus(
+							res == undefined ? 'anonym' : res ? 'librarian' : 'reader'
+						)
+					);
 				})
 				.catch(() => {
 					Services.AuthService.Logout();
-					setStatus({ loading: false, status: 'anonym' });
+					dispatch(SetStatus('anonym'));
 				});
 		} else {
-			setStatus({ loading: false, status: 'anonym' });
+			dispatch(SetStatus('anonym'));
 		}
 	}, []);
 
@@ -115,7 +120,7 @@ function App(props) {
 
 	return (
 		<div ref={wrapper} className='wrapper'>
-			{Status.loading ? (
+			{status.loading ? (
 				<div />
 			) : (
 				<>
@@ -124,7 +129,7 @@ function App(props) {
 						menuActive={menuActive}
 						setMenuActive={setMenuActive}
 						header={header}
-						status={Status.status}
+						status={status.status}
 					/>
 					<div className={'router'} ref={router}>
 						<Routes>
@@ -137,7 +142,7 @@ function App(props) {
 									<MainPage
 										books={books}
 										setHeader={setHeader}
-										status={Status.status}
+										status={status.status}
 									/>
 								}
 							/>
@@ -150,7 +155,7 @@ function App(props) {
 									<SelectedBook
 										data={props.state.data}
 										setHeader={setHeader}
-										status={Status.status}
+										status={status.status}
 									/>
 								}
 							/>
@@ -193,14 +198,10 @@ function App(props) {
 								exact
 								path='/login'
 								element={
-									Status.status !== 'anonym' ? (
+									status.status !== 'anonym' ? (
 										<Navigate replace to='/404' />
 									) : (
-										<Login
-											setHeader={setHeader}
-											setStatus={setStatus}
-											status={Status.status}
-										/>
+										<Login setHeader={setHeader} />
 									)
 								}
 							/>
@@ -208,7 +209,7 @@ function App(props) {
 								exact
 								path='/registration'
 								element={
-									Status.status !== 'anonym' ? (
+									status.status !== 'anonym' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<RegPage setHeader={setHeader} />
@@ -227,7 +228,7 @@ function App(props) {
 							<Route
 								path='/personPage'
 								element={
-									Status.status !== 'reader' ? (
+									status.status !== 'reader' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<PersonPage
@@ -243,7 +244,7 @@ function App(props) {
 							<Route
 								path='/admin/*'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<AdminPage state={props.state} setHeader={setHeader} />
@@ -253,7 +254,7 @@ function App(props) {
 							<Route
 								path='/reader/:currentReaderId'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<CurrentReader
@@ -268,7 +269,7 @@ function App(props) {
 							<Route
 								path='/book-single/:currentBookTitle'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<SingleBook
@@ -282,7 +283,7 @@ function App(props) {
 							<Route
 								path='/book-single/create'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<BookCreate setHeader={setHeader} />
@@ -292,7 +293,7 @@ function App(props) {
 							<Route
 								path='/books/categories'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<BooksCategories
@@ -305,7 +306,7 @@ function App(props) {
 							<Route
 								path='/book-single/edit/:currentBookTitle'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<BookEdit books={books} setHeader={setHeader} />
@@ -315,7 +316,7 @@ function App(props) {
 							<Route
 								path='/admin/event-reports/create/:id'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<CreateEventReport setHeader={setHeader} />
@@ -325,7 +326,7 @@ function App(props) {
 							<Route
 								path='/admin/event-reports/edit/:id'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<EditEventReport
@@ -338,7 +339,7 @@ function App(props) {
 							<Route
 								path='/admin/news/edit/:id'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<EditNews
@@ -351,7 +352,7 @@ function App(props) {
 							<Route
 								path='/admin/news/create'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<CreateNews setHeader={setHeader} />
@@ -361,7 +362,7 @@ function App(props) {
 							<Route
 								path='/admin/news/publish/:id'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<PublishNews
@@ -374,7 +375,7 @@ function App(props) {
 							<Route
 								path='/admin/annual-reports/create/:id'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<CreateAnnualReport
@@ -387,7 +388,7 @@ function App(props) {
 							<Route
 								path='/admin/reports-to-the-news/edit/:id'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<ReportsToTheNewsForm />
@@ -397,7 +398,7 @@ function App(props) {
 							<Route
 								path='/admin/visitors/form'
 								element={
-									Status.status !== 'librarian' ? (
+									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
 										<FormVisitors />
