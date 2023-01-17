@@ -6,14 +6,15 @@ import { Btn, Row } from '.';
 import BookCatalog from '../PopularBooks/PopularBooks';
 
 import s from './selectedBook.module.css';
+import { useSelector } from 'react-redux';
 
 const SelectedBook = props => {
 	props.setHeader(false);
+	const books = useSelector(state => state.books.books);
 	const [book, setBook] = useState({
 		book: [''],
 		isLoading: true,
 	});
-	const [books, setBooks] = useState([]);
 	const { bookName } = useParams();
 
 	useEffect(() => {
@@ -30,13 +31,7 @@ const SelectedBook = props => {
 				const book = res.data;
 				setBook({ book: book, isLoading: false });
 			});
-		axios
-			.get(`https://ualib-orion.herokuapp.com/api/v1/library/books`)
-			.then(res => {
-				const books = res.data;
-				setBooks(books);
-			});
-	}, [bookName, setBook]);
+	}, [bookName]);
 
 	return (
 		<div className={s.container}>

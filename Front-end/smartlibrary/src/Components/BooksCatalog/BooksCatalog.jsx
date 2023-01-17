@@ -4,11 +4,14 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { SideBar, ContentBlock } from '.';
 import s from './booksCatalog.module.css';
+import { useSelector } from 'react-redux';
 
 const BooksCatalog = props => {
 	props.setHeader(false);
+	const books = useSelector(state => state.books);
+	const categories = useSelector(state => state.categories);
 	const { booksCategoryId } = useParams();
-	const [filteredBooks, setFilteredBooks] = useState(props.books);
+	const [filteredBooks, setFilteredBooks] = useState(books);
 	const [search, setSearch] = useState('');
 
 	useEffect(() => {
@@ -23,17 +26,17 @@ const BooksCatalog = props => {
 				)
 				.then(res => {
 					const filteredBooks = res.data;
-					setFilteredBooks({ books: filteredBooks, isLoading: false });
+					setFilteredBooks({ books: filteredBooks, loading: false });
 				});
 		} else {
-			setFilteredBooks(props.books);
+			setFilteredBooks(books);
 		}
-	}, [booksCategoryId, props.books]);
+	}, [booksCategoryId, books]);
 
 	useEffect(() => {
 		setFilteredBooks({
 			...filteredBooks,
-			books: props.books.books.filter(
+			books: books.books.filter(
 				b =>
 					b?.title?.toLowerCase().includes(search.toLowerCase()) ||
 					b?.author?.toLowerCase().includes(search.toLowerCase())
@@ -44,10 +47,7 @@ const BooksCatalog = props => {
 	return (
 		<div className={s.container}>
 			<div className={s.row}>
-				<SideBar
-					categories={props.categories}
-					isLoading={props.categories.isLoading}
-				/>
+				<SideBar categories={categories} isLoading={categories.loading} />
 				<ContentBlock
 					books={filteredBooks}
 					search={search}

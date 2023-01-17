@@ -8,14 +8,14 @@ const BooksInfo = props => {
 
 	useEffect(() => {
 		props.setBooks(
-			props.books.filter(b =>
-				b.title.toLowerCase().indexOf(search.toLowerCase()) == -1 &&
-				b.author.toLowerCase().indexOf(search.toLowerCase()) == -1
-					? false
-					: true && filter == 'all'
+			props.books.filter(b => {
+				const authorAndTitle =
+					b?.title?.toLowerCase().includes(search.toLowerCase()) ||
+					b?.author?.toLowerCase().includes(search.toLowerCase());
+				return authorAndTitle && filter == 'all'
 					? true
-					: filter == b.status
-			)
+					: authorAndTitle && filter === b.status;
+			})
 		);
 	}, [search, filter]);
 

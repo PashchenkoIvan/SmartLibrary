@@ -1,10 +1,12 @@
 import { React, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Book from './Book/Book';
 import s from './bookList.module.css';
 
 const BookList = props => {
-	const [books, setBooks] = useState(props.books);
+	const globalBooks = useSelector(state => state.books);
+	const [books, setBooks] = useState(globalBooks);
 	const [booksAmount, setBooksAmount] = useState(12);
 
 	const bookCreating = (b, counter, isLoading) => {
@@ -30,7 +32,7 @@ const BookList = props => {
 	};
 
 	let booksCounter = 0;
-	const bookMapAdd = props.books.books
+	const bookMapAdd = globalBooks.books
 		.map(el => {
 			booksCounter = 0;
 			return el;

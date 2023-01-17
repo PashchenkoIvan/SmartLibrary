@@ -11,9 +11,13 @@ import qrCode from '../../../../img/qricon.png';
 import { QrIcon } from '../../../../img';
 import QRCode from 'react-qr-code';
 import BooksHistoryTable from './BooksHistoryTable/BooksHistoryTable';
+import { useSelector } from 'react-redux';
 
 const CurrentReader = props => {
 	props.setHeader(false);
+
+	const state = useSelector(state => state);
+
 	const { currentReaderId } = useParams();
 	const [search, setSearch] = useState('');
 	const [bookData, setDataBook] = useState(props.data.books);
@@ -24,12 +28,12 @@ const CurrentReader = props => {
 	});
 
 	useEffect(() => {
-		props.readers.readers.map(r => {
+		state.readers.readers.map(r => {
 			if (r.id == currentReaderId) {
 				setReader(r);
 			}
 		});
-	}, [currentReaderId, props.readers.readers]);
+	}, [currentReaderId, state.readers]);
 
 	useEffect(() => {
 		setDataBook(

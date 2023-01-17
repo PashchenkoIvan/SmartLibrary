@@ -5,25 +5,20 @@ import ReadersTable from './ReadersTable/ReadersTable';
 
 import s from './Readers.module.css';
 import { ServicesContext } from '../../../..';
+import { useSelector } from 'react-redux';
 
 const Readers = () => {
 	const Services = useContext(ServicesContext);
 
-	const [readers, setReaders] = useState([]);
-	const [allReaders, setAllReaders] = useState([]);
+	const globalReaders = useSelector(state => state.readers);
 
-	useEffect(() => {
-		Services.AdminService.GetReaders().then(res => {
-			setAllReaders(res.data);
-			setReaders(res.data);
-		});
-	}, []);
+	const [readers, setReaders] = useState([]);
 
 	return (
 		<div className={s.container}>
-			<ReadersInfo readers={allReaders} setReaders={setReaders} />
+			<ReadersInfo readers={globalReaders.readers} setReaders={setReaders} />
 			<div className={s.tableContainer}>
-				<ReadersTable readers={readers} />
+				{globalReaders.loading ? <div /> : <ReadersTable readers={readers} />}
 			</div>
 		</div>
 	);

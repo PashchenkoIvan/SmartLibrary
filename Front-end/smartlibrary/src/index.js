@@ -15,8 +15,6 @@ import { Provider } from 'react-redux';
 
 import './index.css';
 
-let categoriesList = [];
-
 export const ServicesContext = createContext();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -28,7 +26,6 @@ root.render(
 				BookService,
 				UserService,
 				AdminService,
-				categoriesList,
 			}}
 		>
 			<BrowserRouter>

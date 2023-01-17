@@ -1,22 +1,20 @@
 import { useEffect, useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import { AuthContext, ServicesContext } from '../../index';
+import { ServicesContext } from '../../index';
 
 import s from './Login.module.css';
 import f from '../../assets/styles/form.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { SetStatus } from '../../redux/statusActions';
+import { useDispatch } from 'react-redux';
+import { SetStatus } from '../../redux/actions/statusActions';
 
 const Login = props => {
-	const navigate = useNavigate();
 	const Services = useContext(ServicesContext);
 	const [state, setState] = useState({
 		email: '',
 		password: '',
 	});
 
-	const { status } = useSelector(state => state.status);
 	const dispatch = useDispatch();
 
 	useEffect(() => {

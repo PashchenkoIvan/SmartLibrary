@@ -31,7 +31,16 @@ import { ServicesContext } from './index';
 import './App.css';
 import './assets/styles/popUp.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { SetStatus } from './redux/statusActions';
+import { SetStatus } from './redux/actions/statusActions';
+import { FetchBooks, FetchBooksSuccess } from './redux/actions/bookActions';
+import {
+	FetchCategories,
+	FetchCategoriesSuccess,
+} from './redux/actions/categoriesActions';
+import {
+	FetchReaders,
+	FetchReadersSuccess,
+} from './redux/actions/readersActions';
 
 function App(props) {
 	const Services = useContext(ServicesContext);
@@ -41,32 +50,17 @@ function App(props) {
 
 	const navigate = useNavigate();
 
-	const [messageConfig, setMessageConfig] = useState({
-		text: '',
-		color: 'green',
-	});
-
+	const [firstRender, setFirstRender] = useState(true);
 	const [header, setHeader] = useState(true);
 	const [menuActive, setMenuActive] = useState(false);
-	const [categories, setCategories] = useState({
-		// 15 макетных категорий
-		categories: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-		isLoading: true,
-	});
 
-	const [books, setBooks] = useState({
-		// 12 макетных книг
-		books: ['', '', '', '', '', '', '', '', '', '', '', ''],
-		isLoading: true,
-	});
-
-	const [readers, setReaders] = useState({
-		// 12 макетных книг
-		readers: ['', '', '', '', '', '', '', '', '', '', '', ''],
-		isLoading: true,
-	});
-
-	useEffect(() => navigate('/', { replace: true }), [status.status]);
+	useEffect(() => {
+		if (!status.loading && firstRender) {
+			setFirstRender(false);
+		} else if (!status.loading) {
+			navigate('/', { replace: true });
+		}
+	}, [status]);
 
 	useEffect(() => {
 		if (localStorage.getItem('refresh')) {
@@ -88,29 +82,27 @@ function App(props) {
 	}, []);
 
 	useEffect(() => {
+		dispatch(FetchBooks());
 		Services.BookService.GetBooks().then(res => {
 			const books = res.data;
 			console.log(books);
 			if (res.data.length > 0) {
-				setBooks({ books: books, isLoading: false });
+				dispatch(FetchBooksSuccess(books));
 			}
 		});
 
-		Services.BookService.GetBooksCategories()
-			.then(res => {
-				const categories = res.data;
-				Services.categoriesList = res.data;
-				if (res.data.length > 0) {
-					setCategories({ categories: categories, isLoading: false });
-				}
-			})
-			.finally(function (result) {
-				console.log(Services.categoriesList);
-			});
+		dispatch(FetchCategories());
+		Services.BookService.GetBooksCategories().then(res => {
+			const categories = res.data;
+			if (res.data.length > 0) {
+				dispatch(FetchCategoriesSuccess(categories));
+			}
+		});
 
-		axios.get('https://ualib-orion.herokuapp.com/api/v1/auth/').then(res => {
+		dispatch(FetchReaders());
+		Services.AdminService.GetReaders().then(res => {
 			const readers = res.data;
-			setReaders({ readers: readers, isLoading: false });
+			dispatch(FetchReadersSuccess(readers));
 			console.log(res.data);
 		});
 	}, []);
@@ -124,12 +116,11 @@ function App(props) {
 				<div />
 			) : (
 				<>
-					<AlertPopPup text={messageConfig.text} color={messageConfig.color} />
+					<AlertPopPup />
 					<Header
 						menuActive={menuActive}
 						setMenuActive={setMenuActive}
 						header={header}
-						status={status.status}
 					/>
 					<div className={'router'} ref={router}>
 						<Routes>
@@ -139,11 +130,7 @@ function App(props) {
 								exact
 								path='/'
 								element={
-									<MainPage
-										books={books}
-										setHeader={setHeader}
-										status={status.status}
-									/>
+									<MainPage setHeader={setHeader} status={status.status} />
 								}
 							/>
 
@@ -164,23 +151,11 @@ function App(props) {
 							<Route
 								exact
 								path='/catalog'
-								element={
-									<BooksCatalog
-										books={books}
-										categories={categories}
-										setHeader={setHeader}
-									/>
-								}
+								element={<BooksCatalog setHeader={setHeader} />}
 							/>
 							<Route
 								path='/catalog/:booksCategoryId'
-								element={
-									<BooksCatalog
-										books={books}
-										categories={categories}
-										setHeader={setHeader}
-									/>
-								}
+								element={<BooksCatalog setHeader={setHeader} />}
 							/>
 
 							{/* Контакты и ЧЗВ */}
@@ -258,9 +233,7 @@ function App(props) {
 										<Navigate replace to='/404' />
 									) : (
 										<CurrentReader
-											admin={props.state.admin}
 											data={props.state.data}
-											readers={readers}
 											setHeader={setHeader}
 										/>
 									)
@@ -272,11 +245,7 @@ function App(props) {
 									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
-										<SingleBook
-											admin={props.state.admin}
-											books={books}
-											setHeader={setHeader}
-										/>
+										<SingleBook setHeader={setHeader} />
 									)
 								}
 							/>
@@ -309,7 +278,7 @@ function App(props) {
 									status.status !== 'librarian' ? (
 										<Navigate replace to='/404' />
 									) : (
-										<BookEdit books={books} setHeader={setHeader} />
+										<BookEdit setHeader={setHeader} />
 									)
 								}
 							/>

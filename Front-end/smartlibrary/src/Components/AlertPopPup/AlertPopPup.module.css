@@ -1,8 +1,9 @@
 .container {
 	position: fixed;
 	top: 150px;
+	right: 0px;
 	display: flex;
-	width: 200px;
+	min-width: 200px;
 	justify-content: center;
 	padding: 5px 10px;
 	border-radius: 4px 0 0 4px;
@@ -10,17 +11,18 @@
 }
 
 .hidden {
-	right: -200px;
+	transform: translateX(100%);
 	animation: hide 0.2s ease;
 }
 
 .showed {
-	right: 0;
+	transform: translateX(0%);
 	animation: show 0.2s ease;
 }
 
 .container p {
 	width: calc(100% - 30px);
+	padding: 0 5px;
 	text-align: center;
 	@apply text-base text-white;
 }
@@ -39,18 +41,18 @@
 
 @keyframes show {
 	from {
-		right: -200px;
+		transform: translateX(100%);
 	}
 	to {
-		right: 0;
+		transform: translateX(0%);
 	}
 }
 
 @keyframes hide {
 	from {
-		right: 0;
+		transform: translateX(0%);
 	}
 	to {
-		right: -200px;
+		transform: translateX(100%);
 	}
 }

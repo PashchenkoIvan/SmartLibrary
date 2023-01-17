@@ -1,13 +1,21 @@
 import { useRef } from 'react';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import s from './AlertPopPup.module.css';
 
-const AlertPopPup = ({ text, color }) => {
+const AlertPopPup = () => {
 	const window = useRef();
+	const text = useRef();
+	const icon = useRef();
+
+	const message = useSelector(state => state.message);
+
 	useEffect(() => {
-		if (text != '') {
+		if (message.text != '') {
 			window.current.classList.add(s.showed);
-			window.current.style.background = color;
+			window.current.style.background = message.color;
+			text.current.style.color = message.textColor;
+			icon.current.style.stroke = message.textColor;
 			setTimeout(() => {
 				window.current.classList.remove(s.showed);
 				window.current.classList.add(s.hidden);
@@ -15,12 +23,14 @@ const AlertPopPup = ({ text, color }) => {
 		} else {
 			window.current.classList.add(s.hidden);
 		}
-	}, [text]);
+	}, [message]);
+
 	return (
 		<div ref={window} className={s.container}>
-			<p>{text}</p>
+			<p ref={text}>{message.text}</p>
 			<div className={s.icon}>
 				<svg
+					ref={icon}
 					xmlns='http://www.w3.org/2000/svg'
 					fill='none'
 					viewBox='0 0 24 24'

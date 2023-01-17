@@ -7,11 +7,14 @@ import sp from '../../../../../../assets/styles/popUp.module.css';
 
 import { QrIcon } from '../../../../img';
 import printJS from 'print-js';
+import { useSelector } from 'react-redux';
 
 const SingleBook = props => {
 	props.setHeader(false);
 	const { currentBookTitle } = useParams();
-	const [bookData, setDataBook] = useState(props.books.books);
+	const [bookData, setDataBook] = useState(
+		useSelector(state => state.books.books)
+	);
 
 	useEffect(() => {
 		document.title = 'Каталог книг';

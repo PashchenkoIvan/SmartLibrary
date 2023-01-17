@@ -5,9 +5,12 @@ import { PopularBooks, RecommendedBooks } from '../../Components';
 import GCalendar from '../../Components/GlobalCalendar/GCalendar';
 import MainVideoBlock from '../../Components/MainVideoBlock/MainVideoBlock';
 import Medal from './images/medal.png';
+import { useSelector } from 'react-redux';
 
 const MainPage = props => {
 	props.setHeader(true);
+
+	const books = useSelector(state => state.books.books);
 
 	useEffect(() => {
 		document.title = 'Головна';
@@ -15,7 +18,7 @@ const MainPage = props => {
 
 	return (
 		<div className={s.container}>
-			<MainVideoBlock books={props.books.books} />
+			<MainVideoBlock books={books} />
 			<div className={s.zahodi}>
 				<div className={s.infoBlock}>
 					<p>З нами цікавіше</p>
@@ -44,8 +47,8 @@ const MainPage = props => {
 				</div>
 			</div>
 
-			{props.status === 'user' ? <RecommendedBooks books={props.books} /> : ''}
-			<PopularBooks books={props.books} />
+			{props.status === 'user' ? <RecommendedBooks books={books} /> : ''}
+			<PopularBooks books={books} />
 		</div>
 	);
 };
