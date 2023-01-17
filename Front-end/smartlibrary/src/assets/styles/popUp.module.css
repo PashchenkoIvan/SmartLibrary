@@ -83,7 +83,7 @@
     letter-spacing: -0.2px;
     line-height: 18px;
 
-    background-color: #36bbcb;
+    background-color: #36bbcb !important; 
     border-radius: 3px;
     border: none;
 
