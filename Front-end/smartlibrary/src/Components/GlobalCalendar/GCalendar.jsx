@@ -28,7 +28,7 @@ const GCalendar = () => {
 	let href = false;
 
 	const func = () => {
-		if (window.location.href == 'http://localhost:3000/admin/readers') {
+		if (window.location.href.match(/\/admin\/./)) {
 			href = true;
 		}
 		return href;
