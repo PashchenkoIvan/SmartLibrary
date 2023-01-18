@@ -34,3 +34,20 @@
 	height: 320px;
 	max-height: 320px;
 }
+
+.btn {
+	height: 50px;
+	padding: 0 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 3px;
+	background-color: #36bbcb;
+
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 18px;
+	@apply w-full sm:w-fit;
+}

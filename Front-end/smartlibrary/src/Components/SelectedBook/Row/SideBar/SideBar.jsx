@@ -3,8 +3,10 @@ import { useContext } from 'react';
 import s from './sideBar.module.css';
 import { AddToPrefer, SideSignIn, RecBook } from '.';
 import { ServicesContext } from '../../../../index';
+import { Link } from 'react-router-dom';
 
 const SideBar = props => {
+	console.log(props);
 	// const recBooksAdd = props.books.map(
 	//   b =>
 	//     b.category[0] === props.category[0] ?
@@ -21,7 +23,15 @@ const SideBar = props => {
 
 	return (
 		<div className={s.sideBar}>
-			{props.status !== 'anonym' ? <AddToPrefer /> : <SideSignIn />}
+			{props.status === 'anonym' ? (
+				<SideSignIn />
+			) : props.status === 'reader' ? (
+				<AddToPrefer />
+			) : (
+				<Link className={s.btn} to={`/book-single/${props.title}`}>
+					Редагувати
+				</Link>
+			)}
 			{/* {recBooksAdd} */}
 		</div>
 	);
