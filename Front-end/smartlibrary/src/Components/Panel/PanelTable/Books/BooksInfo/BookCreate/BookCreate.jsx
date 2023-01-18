@@ -133,13 +133,7 @@ const BookCreate = props => {
 			<div className={s.contentBlock}>
 				<h2 className={s.caption}>Додавання нової книги</h2>
 				<div className={s.topBar}>
-					<div className={s.topBarButtons}>
-						<button className={s.addBook}>Додати по URL</button>
-						<div className={s.topBarButtonsSearchAndCode}>
-							<button className={s.addBook}>Пошук в Google</button>
-							<button className={s.addBook}>Пошук по штриху</button>
-						</div>
-					</div>
+					<button className={s.addBook}>Додати по ISBN</button>
 					<input
 						className={s.inputCodeField}
 						type='text'
