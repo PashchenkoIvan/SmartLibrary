@@ -114,7 +114,7 @@ const CurrentReader = props => {
 							<div className={s.qrMain}>
 								<QRCode
 									id='qr-code'
-									value={JSON.stringify(reader)}
+									value={JSON.stringify(window.location.href)}
 									style={{ height: 'auto', maxWidth: '95%', width: '95%' }}
 									viewBox={`0 0 256 256`}
 								/>
