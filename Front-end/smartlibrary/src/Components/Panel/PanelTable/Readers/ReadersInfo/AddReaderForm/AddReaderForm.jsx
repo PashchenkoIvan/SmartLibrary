@@ -7,9 +7,12 @@ import s from './AddReaderForm.module.css';
 import sp from '../../../../../../assets/styles/popUp.module.css';
 import f from '../../../../../../assets/styles/form.module.css';
 import { ServicesContext } from '../../../../../..';
+import { useDispatch } from 'react-redux';
+import { SetMessage } from '../../../../../../redux/actions/messageActions';
 
 const AddReaderForm = props => {
 	const Services = useContext(ServicesContext);
+	const dispatch = useDispatch();
 	const [reader, setReader] = useState({
 		full_name: '',
 		email: '',
@@ -151,7 +154,16 @@ const AddReaderForm = props => {
 							onClick={e => {
 								e.preventDefault();
 								console.log(reader);
-								Services.AdminService.AddReader(reader);
+								Services.AdminService.AddReader(reader)
+									.then(() => {
+										dispatch(SetMessage('Читача додано', '#69C398', '#fff'));
+										props.close();
+									})
+									.catch(error => {
+										dispatch(
+											SetMessage('Помилка: ', 'rgb(248, 126, 115)', '#fff')
+										);
+									});
 							}}
 						/>
 					</div>
