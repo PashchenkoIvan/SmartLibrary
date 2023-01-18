@@ -12,11 +12,10 @@
 	display: flex;
 	width: 100%;
 	max-width: 1300px;
-	@apply flex-col justify-between gap-5 lg:flex-row lg:gap-10;
+	@apply flex-col justify-between gap-5 lg:flex-row lg:gap-6;
 }
 .footerBlocks {
-	@apply w-full lg:w-530
+	@apply w-full lg:w-[550px] lg:justify-between lg:gap-4
 	gap-4 flex flex-col items-center justify-between 
-	sm:flex-row sm:justify-center sm:gap-10
-	lg:justify-between lg:gap-4;
+	sm:flex-row sm:justify-center sm:gap-10;
 }
