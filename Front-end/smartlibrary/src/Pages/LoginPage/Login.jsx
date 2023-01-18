@@ -89,9 +89,6 @@ const Login = props => {
 						/>
 					</div>
 				</form>
-				<Link className={s.link} to='/registration'>
-					Зареєструватися
-				</Link>
 			</div>
 		</div>
 	);

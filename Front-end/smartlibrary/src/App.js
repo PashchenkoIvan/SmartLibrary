@@ -16,7 +16,6 @@ import CreateEventReport from './Components/Panel/PanelTable/EventReports/Create
 import EditEventReport from './Components/Panel/PanelTable/EventReports/EditEventReport/EditEventReport';
 import CreateAnnualReport from './Components/Panel/PanelTable/AnnualReporting/CreateAnnualReport/CreateAnnualReport';
 import CreateNews from './Components/Panel/PanelTable/News/NewsInfo/CreateNews/CreateNews';
-import RegPage from './Pages/RegPage/RegPage';
 import Login from './Pages/LoginPage/Login';
 import EditNews from './Components/Panel/PanelTable/News/NewsTable/EditNews/EditNews';
 import PublishNews from './Components/Panel/PanelTable/News/NewsTable/PublishNews/PublishNews';
@@ -177,17 +176,6 @@ function App(props) {
 										<Navigate replace to='/404' />
 									) : (
 										<Login setHeader={setHeader} />
-									)
-								}
-							/>
-							<Route
-								exact
-								path='/registration'
-								element={
-									status.status !== 'anonym' ? (
-										<Navigate replace to='/404' />
-									) : (
-										<RegPage setHeader={setHeader} />
 									)
 								}
 							/>
