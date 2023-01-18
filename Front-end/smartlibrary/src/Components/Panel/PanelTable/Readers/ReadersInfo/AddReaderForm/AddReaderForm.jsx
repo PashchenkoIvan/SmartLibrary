@@ -156,13 +156,11 @@ const AddReaderForm = props => {
 								console.log(reader);
 								Services.AdminService.AddReader(reader)
 									.then(() => {
-										dispatch(SetMessage('Читача додано', '#69C398', '#fff'));
+										dispatch(SetMessage('Читача додано', 'success'));
 										props.close();
 									})
 									.catch(error => {
-										dispatch(
-											SetMessage('Помилка: ', 'rgb(248, 126, 115)', '#fff')
-										);
+										dispatch(SetMessage('Помилка', 'error'));
 									});
 							}}
 						/>

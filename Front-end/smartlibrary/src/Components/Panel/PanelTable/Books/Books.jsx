@@ -22,8 +22,7 @@ const Books = () => {
 					globalBooks.books.length - booksLimiter !== 0
 						? `Зображено ${booksLimiter} книжок`
 						: `Ви досягли кінця (${booksLimiter})`,
-					globalBooks.books.length - booksLimiter !== 0 ? '#69C398' : '#FFFB76',
-					globalBooks.books.length - booksLimiter !== 0 ? '#fff' : '#656565'
+					globalBooks.books.length - booksLimiter !== 0 ? 'success' : 'warning'
 				)
 			);
 		}
@@ -36,6 +35,7 @@ const Books = () => {
 				{globalBooks.loading ? <div /> : <BooksTable books={books} />}
 			</div>
 			<button
+				className={s.btn}
 				onClick={() => {
 					setBooksLimiter(
 						globalBooks.books.length - booksLimiter > 50

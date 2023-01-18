@@ -37,9 +37,7 @@ $api.interceptors.response.use(
 					});
 				return $api.request(originalRequest);
 			} catch (e) {
-				store.dispatch(
-					SetMessage('Помилка запиту на сервер', 'rgb(248, 126, 115)', '#000')
-				);
+				store.dispatch(SetMessage('Помилка запиту на сервер', 'error'));
 			}
 		}
 		throw error;

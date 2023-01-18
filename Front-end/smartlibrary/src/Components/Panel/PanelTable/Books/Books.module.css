@@ -1,8 +1,22 @@
 .container {
 	width: 100%;
+	@apply flex flex-col items-center justify-center;
 }
 
 .tableContainer {
 	width: 100%;
 	overflow-x: scroll;
+}
+
+.btn {
+	height: 40px;
+	margin: 0 0 30px;
+	border-radius: 3px;
+	padding: 0 20px;
+	background-color: #36bbcb;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+	border: none;
+	@apply w-full usm:w-auto;
 }
