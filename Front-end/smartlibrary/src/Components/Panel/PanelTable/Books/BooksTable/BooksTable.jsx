@@ -9,6 +9,7 @@ import s from './BooksTable.module.css';
 import sp from '../../../../../assets/styles/popUp.module.css';
 
 import qrCode from '../../../img/qricon.png';
+import printJS from 'print-js';
 
 const BooksTable = props => {
 	const [books, setBooks] = useState(props.books);
@@ -56,8 +57,18 @@ const BooksTable = props => {
 								</button>
 							</div>
 							<div className={sp.content}>
-								<QRCode value={JSON.stringify(b.title)} />
-								<button className={sp.btn} onClick={() => {}}>
+								<QRCode
+									id='qr-code'
+									value={JSON.stringify(
+										`localhost:3000/book-single/${b.title}`
+									)}
+								/>
+								<button
+									className={sp.btn}
+									onClick={() => {
+										printJS('qr-code', 'html');
+									}}
+								>
 									Роздрукувати
 								</button>
 							</div>
