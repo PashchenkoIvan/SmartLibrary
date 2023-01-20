@@ -57,6 +57,14 @@
 	font-weight: 500;
 }
 
+.contacts .phone {
+	text-align: left;
+}
+
+.contacts .address {
+	text-align: right;
+}
+
 .showedMenu {
 	top: calc(0vh + 100px);
 }

@@ -26,7 +26,7 @@ const BooksCatalog = props => {
 				)
 				.then(res => {
 					const filteredBooks = res.data;
-					setFilteredBooks({ books: filteredBooks, loading: false });
+					setFilteredBooks({ books: filteredBooks });
 				});
 		} else {
 			setFilteredBooks(books);
@@ -35,13 +35,13 @@ const BooksCatalog = props => {
 
 	useEffect(() => {
 		setFilteredBooks({
-			...filteredBooks,
 			books: books.books.filter(
 				b =>
 					b?.title?.toLowerCase().includes(search.toLowerCase()) ||
 					b?.author?.toLowerCase().includes(search.toLowerCase())
 			),
 		});
+		console.log(filteredBooks);
 	}, [search]);
 
 	return (

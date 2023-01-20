@@ -16,7 +16,7 @@ const ContentBlock = props => {
 				<i className='searchIcon'></i>
 			</div>
 			<div className={s.bookListContainer}>
-				<BookList books={props.books} />
+				<BookList books={props.books.books} />
 			</div>
 		</div>
 	);
