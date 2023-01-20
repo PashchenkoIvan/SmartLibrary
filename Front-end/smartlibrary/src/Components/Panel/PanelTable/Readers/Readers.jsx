@@ -1,15 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import ReadersInfo from './ReadersInfo/ReadersInfo';
 import ReadersTable from './ReadersTable/ReadersTable';
 
 import s from './Readers.module.css';
-import { ServicesContext } from '../../../..';
-import { useSelector } from 'react-redux';
 
 const Readers = () => {
-	const Services = useContext(ServicesContext);
-
 	const globalReaders = useSelector(state => state.readers);
 
 	const [readers, setReaders] = useState([]);
