@@ -9,6 +9,8 @@ import f from '../../../../../../assets/styles/form.module.css';
 import { ServicesContext } from '../../../../../..';
 import { useDispatch } from 'react-redux';
 import { SetMessage } from '../../../../../../redux/actions/messageActions';
+import {FetchReaders, FetchReadersSuccess} from "../../../../../../redux/actions/readersActions";
+import AdminService from "../../../../../../services/AdminService";
 
 const AddReaderForm = props => {
 	const Services = useContext(ServicesContext);
@@ -157,6 +159,11 @@ const AddReaderForm = props => {
 								Services.AdminService.AddReader(reader)
 									.then(() => {
 										dispatch(SetMessage('Читача додано', 'success'));
+										dispatch(FetchReaders());
+										return AdminService.GetReaders();
+									})
+									.then((res) => {
+										dispatch(FetchReadersSuccess(res.data));
 										props.close();
 									})
 									.catch(error => {

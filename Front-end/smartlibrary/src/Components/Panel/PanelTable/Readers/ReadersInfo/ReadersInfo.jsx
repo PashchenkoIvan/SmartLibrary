@@ -16,7 +16,7 @@ const ReadersInfo = props => {
 					: true
 			)
 		);
-	}, [search]);
+	}, [search, props.readers]);
 
 	return (
 		<div className={s.container}>
