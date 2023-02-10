@@ -1,39 +1,26 @@
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
-import QRCode from "react-qr-code";
+import QRCode from 'react-qr-code';
 
-import Table from '../../../../templates/Table/Table'
+import Table from '../../../../templates/Table/Table';
 
 import sp from '../../../../../assets/styles/popUp.module.css';
 import qrCode from '../../../img/qricon.png';
-
 
 const ReadersTable = props => {
 	let readersElements = props.readers.map(r => {
 		return (
 			<div>
-				<Link
-					to={`/reader/${r.id}`}
-				>
+				<Link onClick={() => window.scrollTo(0, 0)} to={`/reader/${r.id}`}>
 					{r.full_name}
 				</Link>
 				<div>
-					<a href={'tel:' + r.phone_number}>
-						{r.phone_number}
-					</a>
+					<a href={'tel:' + r.phone_number}>{r.phone_number}</a>
 				</div>
 				<div>
-					<a href={'mailto:' + r.email}>
-						{r.email}
-					</a>
+					<a href={'mailto:' + r.email}>{r.email}</a>
 				</div>
-				<div>
-					{
-						r.is_disabled_person === true
-						? 'так'
-						: 'немає'
-					}
-				</div>
+				<div>{r.is_disabled_person === true ? 'так' : 'немає'}</div>
 				<Popup
 					trigger={
 						<div>

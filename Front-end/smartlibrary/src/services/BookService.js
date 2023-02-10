@@ -9,12 +9,8 @@ export default class BookService {
 		return await $api.post('/library/books/', { ...data });
 	}
 
-	static async ChangeBook(id, data) {
-		return await $api.patch(`/books/${id}`, { ...data });
-	}
-
 	static async EditBook(id, data) {
-		return await $api.put(`/library/books/${id}/`, {
+		return await $api.patch(`/library/books/${id}/`, {
 			...data,
 		});
 	}

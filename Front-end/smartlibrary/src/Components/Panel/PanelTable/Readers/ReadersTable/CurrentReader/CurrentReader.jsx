@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import printJS from 'print-js';
 
@@ -11,12 +11,20 @@ import qrCode from '../../../../img/qricon.png';
 import { QrIcon } from '../../../../img';
 import QRCode from 'react-qr-code';
 import BooksHistoryTable from './BooksHistoryTable/BooksHistoryTable';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import AdminService from '../../../../../../services/AdminService';
+import {
+	FetchReaders,
+	FetchReadersSuccess,
+} from '../../../../../../redux/actions/readersActions';
 
 const CurrentReader = props => {
 	props.setHeader(false);
 
 	const state = useSelector(state => state);
+
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const { currentReaderId } = useParams();
 	const [search, setSearch] = useState('');
@@ -283,7 +291,24 @@ const CurrentReader = props => {
 							<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
 								Надіслати пароль
 							</button>
-							<button className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}>
+							<button
+								className={`${s.sideBarLink} + ' ' + ${s.bg_ffbb68}`}
+								onClick={() =>
+									AdminService.DeleteReader(currentReaderId)
+										.then(() => {
+											dispatch(FetchReaders());
+											return AdminService.GetReaders();
+										})
+										.then(res => {
+											const readers = res.data;
+											dispatch(FetchReadersSuccess(readers));
+											navigate('/admin/readers', {
+												replace: true,
+											});
+											console.log(res.data);
+										})
+								}
+							>
 								Видалити користувача
 							</button>
 						</div>
