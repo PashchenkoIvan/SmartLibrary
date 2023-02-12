@@ -14,6 +14,11 @@ export default class AdminService {
 			`https://ualib-orion.herokuapp.com/api/v1/auth/${reader}`
 		);
 	}
+
+	static async GetOrders() {
+		return await $api.get('/orders/');
+	}
+
 	static async SetNews(NewsObj) {
 		return await $api.post('https://ualib-orion.herokuapp.com/api/v1/events/', {
 			...NewsObj,

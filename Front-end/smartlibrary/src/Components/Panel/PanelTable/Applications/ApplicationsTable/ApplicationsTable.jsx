@@ -6,28 +6,43 @@ import Table from '../../../../templates/Table/Table';
 
 import sp from '../../../../../assets/styles/popUp.module.css';
 import qrCode from '../../../img/qricon.png';
+import AdminService from "../../../../../services/AdminService";
+import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
 
 
-const ApplicationsTable = ({ applications }) => {
-	let applicationsElements = applications.map(a => {
+const ApplicationsTable = (props) => {
+
+	const [orders, setOrders] = useState([]);
+
+	const readers = useSelector(state => state.readers.readers);
+	const books = useSelector(state => state.books.books);
+
+	useEffect(() => {
+		AdminService.GetOrders().then(res => {
+			setOrders(res.data);
+		})
+	})
+
+	let applicationsElements = orders.map(a => {
 		return (
 			<div>
 				<div>
 					<Link
-						to={`/reader/${a.user_id}`}
+						to={`/reader/${a.user}`}
 					>
-						{a.name}
+						{readers.filter(r => r.id === a.user)[0].full_name}
 					</Link>
 				</div>
 				<div>
 					<Link
-						to={`/book-single/${a.book_title}`}
+						to={`/book-single/${a.book}`}
 					>
-						{a.book}
+						{books.filter(b => b.id === a.book)[0].title}
 					</Link>
 				</div>
-				<div>{a.date}</div>
-				<div>{a.number}</div>
+				<div>{new Date(Date.parse(a.order_date)).toLocaleString().slice(0, -3)}</div>
+				<div>{books.filter(b => b.id === a.book)[0].inventory_num}</div>
 				<Popup
 					trigger={
 						<div>
@@ -39,13 +54,13 @@ const ApplicationsTable = ({ applications }) => {
 					{close => (
 						<>
 							<div className={sp.header}>
-								<span>{a.book}</span>
+								<span>{readers.filter(r => r.id === a.user)[0].full_name}</span>
 								<button className={sp.closeBtn} onClick={close}>
 									×
 								</button>
 							</div>
 							<div className={sp.content}>
-								<QRCode value={JSON.stringify(a)} />
+								<QRCode value={`/reader/${a.user}`} />
 								<button className={sp.btn} onClick={() => {}}>
 									Роздрукувати
 								</button>
@@ -60,7 +75,7 @@ const ApplicationsTable = ({ applications }) => {
 		<Table>
 			<div name='applications'>
 				<div name='keys-bar'>
-					<span>ПІБ ({applications.length})</span>
+					<span>ПІБ ({orders.length})</span>
 					<span>Книга</span>
 					<span>Дата</span>
 					<span>Інвентарний номер</span>

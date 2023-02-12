@@ -9,6 +9,7 @@ export default class AuthService {
 		return await $api.post('/auth/token', { email, password }).then(res => {
 			this.AccessToken = res.data.access;
 			localStorage.setItem('refresh', res.data.refresh);
+			localStorage.setItem('email', email)
 			return JSON.parse(atob(res.data.access.split('.')[1])).is_staff;
 		});
 	}
@@ -21,6 +22,7 @@ export default class AuthService {
 			.then(res => {
 				this.AccessToken = res.data.access;
 				console.log(res.data);
+				// TODO
 				// Когда рефрешики кидать будешь?
 				// localStorage.setItem('refresh', res.data.refresh);
 				return JSON.parse(atob(res.data.access.split('.')[1])).is_staff;
@@ -29,6 +31,7 @@ export default class AuthService {
 
 	static Logout() {
 		this.AccessToken = '';
+		localStorage.setItem('email', '')
 		localStorage.setItem('refresh', '');
 	}
 }

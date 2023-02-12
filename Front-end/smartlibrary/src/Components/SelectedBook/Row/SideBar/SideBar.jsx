@@ -19,14 +19,13 @@ const SideBar = props => {
 	//       </div>
 	//       : ''
 	//   )
-	const Services = useContext(ServicesContext);
 
 	return (
 		<div className={s.sideBar}>
 			{props.status === 'anonym' ? (
 				<SideSignIn />
 			) : props.status === 'reader' ? (
-				<AddToPrefer />
+				<AddToPrefer book={props.title} />
 			) : (
 				<Link className={s.btn} to={`/book-single/${props.title}`}>
 					Редагувати
