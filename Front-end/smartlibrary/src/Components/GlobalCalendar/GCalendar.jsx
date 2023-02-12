@@ -5,25 +5,19 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import Calendar from 'react-calendar';
 import './CalendarStyle.css';
+import axios from "axios";
 
 const GCalendar = () => {
-	let News = [
-		{
-			date: 'Thu Dec 15 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)',
-			news: 'Сьогодні четверг',
-		},
-		{
-			date: 'Tue Dec 13 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)',
-			news: 'Сьогодні вівторок',
-		},
-		{
-			date: 'Wed Dec 14 2022 00:00:00 GMT+0200 (Восточная Европа, стандартное время)',
-			news: 'Сьгодні середа',
-		},
-	];
 
-	const [value, setValue] = useState('');
+	const [data, setData] = useState([]);
 	const [news, setNews] = useState('');
+
+	useEffect(() => {
+		axios.get("https://ualib-orion.herokuapp.com/api/v1/events/")
+			.then(function (responce) {
+				setData(responce.data)
+			})
+	},[])
 
 	let href = false;
 
@@ -33,27 +27,22 @@ const GCalendar = () => {
 		}
 		return href;
 	};
-	useEffect(() => {
-		News.forEach(n => {
-			if (Date.parse(value) == Date.parse(n.date)) {
-				setNews(n.news);
-			}
-			// else {
-			// 	setNews('За цей день немає новин')
-			// }
-		});
-		{
-			func();
-		}
-	});
 	return (
 		<div className={s.container}>
 			<div className={s.calendarBlock}>
 				<div className={s.calendar}>
 					<Calendar
 						onClickDay={value => {
-							setValue(value);
-							alert(value);
+							const date = new Date(value);
+							let valueData = `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;
+							data.forEach(res => {
+								if (valueData == res.date) {
+									setNews(res.description)
+								}
+								else {
+									setNews('Not today')
+								}
+							})
 						}}
 					/>
 				</div>
