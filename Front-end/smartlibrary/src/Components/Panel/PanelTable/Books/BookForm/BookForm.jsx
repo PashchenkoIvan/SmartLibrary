@@ -5,15 +5,25 @@ import { requiredFields } from './requiredFields';
 import { additionalFields } from './additionalFields';
 
 import f from '../../../../../assets/styles/form.module.css';
+import {useDispatch, useSelector} from "react-redux";
+import {SetMessage} from "../../../../../redux/actions/messageActions";
+import {FetchBooksSuccess} from "../../../../../redux/actions/bookActions";
+import {useNavigate} from "react-router-dom";
 
 const BookForm = props => {
 	const Services = useContext(ServicesContext);
+	const categories = useSelector(state => state.categories.categories)
 
 	const [book, setBook] = useState({ ...props.book });
 	const [isHidden, setIsHidden] = useState(true);
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	useEffect(() => {}, [isHidden]);
 	useEffect(() => {
 		setBook(book);
+		console.log(categories)
 	}, [book]);
 
 	return (
@@ -24,11 +34,13 @@ const BookForm = props => {
 				console.log(book);
 				props.isEditing == 'true'
 					? Promise.resolve(
-							Services.BookService.EditBook(book.id, { ...book }).then(res => {
-								const book = res.data;
-								console.log(book);
-							})
-					  ).then(res => console.log(res))
+							Services.BookService.EditBook(book.id, { ...book }).then(() =>
+								Services.BookService.GetBooks())
+								.then(res => {
+									dispatch(SetMessage('Інформацію успішно змінено', 'success'))
+									dispatch(FetchBooksSuccess(res.data));
+									navigate('/admin/books', { replace: true })
+								}))
 					: Promise.resolve(
 							Services.BookService.AddBook({ ...book }).then(res => {
 								const book = res.data;
@@ -38,7 +50,7 @@ const BookForm = props => {
 			}}
 		>
 			{/* Обовїязкові поля книги */}
-			{requiredFields(book, setBook, Services.categoriesList)}
+			{requiredFields(book, setBook, categories)}
 
 			{/* Додаткові поля книги */}
 			<div className={f.additionalBtn} onClick={() => setIsHidden(!isHidden)}>

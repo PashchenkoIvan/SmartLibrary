@@ -47,12 +47,10 @@ const BookList = props => {
 		<>
 			<div className={s.bookList}>{bookMapAdd}</div>
 			<div className={s.btnContainer}>
-				{window.location.href.match(/catalog/) && booksCounter > 12 ? (
+				{window.location.href.match(/catalog/) && booksCounter > 12 && (
 					<button className={s.btn} onClick={() => setBooksAmount(c => c + 12)}>
 						Показати ще
 					</button>
-				) : (
-					''
 				)}
 			</div>
 		</>
