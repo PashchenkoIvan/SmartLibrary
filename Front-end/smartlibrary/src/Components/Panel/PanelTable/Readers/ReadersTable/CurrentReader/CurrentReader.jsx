@@ -383,7 +383,9 @@ const CurrentReader = props => {
 						</div>
 						<button className={s.giveBook}>Видати книгу</button>
 					</div>
-					<BooksHistoryTable books={[]} />
+					<div className={s.booksHistoryTable}>
+						<BooksHistoryTable books={[]} />
+					</div>
 				</div>
 			</div>
 		</>
