@@ -1,5 +1,4 @@
 import s from './GCalendar.module.css';
-import React from 'react';
 import NewsBlock from './NewsBlock/NewsBlock';
 import { useState } from 'react';
 import { useEffect } from 'react';
