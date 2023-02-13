@@ -35,17 +35,13 @@ const GCalendar = () => {
 						onClickDay={value => {
 							const date = new Date(value);
 							let valueData = `${date.getDate()} ${date.getMonth() + 1} ${date.getFullYear()}`;
+
 							console.log(valueData);
-							// data.forEach(res => {
-							// 	if (valueData == res.date) {
-							// 		setNews(res.description)
-							// 	}
-							// 	else {
-							// 		setNews('Not today')
-							// 	}
-							// })
+							console.log(value)
+
 							const dataMap = data.map((res) => res.description);
 							const index = data.findIndex(event => event.date === valueData);
+
 							if (index != -1){
 								console.log(data[index])
 								setNews(dataMap[index])
