@@ -25,12 +25,11 @@ const NewsTable = props => {
 							Редагувати
 						</button>
 					</Link>
-					<Link 
-						to={`/admin/news/publish/${n.id}`}
+					<Link
 						onClick={() => {window.scrollTo(0, 0)}}
 					>
-						<button style={{backgroundColor: `rgb(54, 187, 203)`}}>
-							Публікувати
+						<button style={{backgroundColor: `rgb(248, 126, 115)`}}>
+							Видалити
 						</button>
 					</Link>
 				</div>
