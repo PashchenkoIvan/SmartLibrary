@@ -1,10 +1,12 @@
 import s from './addToPrefer.module.css';
-import {useContext} from "react";
-import {ServicesContext} from "../../../../../index";
+import UserService from "../../../../../services/UserService";
+import {useDispatch, useSelector} from "react-redux";
+import {SetMessage} from "../../../../../redux/actions/messageActions";
 
-const AddToPrefer = ({ book }) => {
+const AddToPrefer = (props) => {
 
-    const Services = useContext(ServicesContext);
+    const readers = useSelector(state => state.readers);
+    const dispatch = useDispatch();
 
      return (
        <div className={s.container}>
@@ -12,8 +14,16 @@ const AddToPrefer = ({ book }) => {
              className={s.btn}
              style={{backgroundColor: '#36BBCB'}}
              onClick={() => {
-                 const date = new Date().toISOString()
-                 Services.UserService.CreateOrder(book, localStorage.getItem('email'), date)
+                 if (!readers.loading) {
+                     const date = new Date().toISOString();
+                     const email = localStorage.getItem('email');
+                     const id = readers.readers.filter(r => r.email === email)[0].id;
+                     UserService.CreateOrder(props.book.book.id, id, date).then(() => {
+                         dispatch(SetMessage('Успішно замовлено', 'success'))
+                     });
+                 } else {
+                     dispatch(SetMessage('Зачекайте', 'warning'))
+                 }
                 }
              }
          >

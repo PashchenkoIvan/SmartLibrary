@@ -3,8 +3,6 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { Btn, Row } from '.';
 
-import BookCatalog from '../PopularBooks/PopularBooks';
-
 import s from './selectedBook.module.css';
 import { useSelector } from 'react-redux';
 
@@ -23,10 +21,7 @@ const SelectedBook = props => {
 
 	useEffect(() => {
 		console.log(bookName);
-		axios
-			.get(
-				`https://ualib-orion.herokuapp.com/api/v1/library/books?title=${bookName}`
-			)
+		axios.get(`https://ualib-orion.herokuapp.com/api/v1/library/books?title=${bookName}`)
 			.then(res => {
 				const book = res.data;
 				setBook({ book: book, isLoading: false });

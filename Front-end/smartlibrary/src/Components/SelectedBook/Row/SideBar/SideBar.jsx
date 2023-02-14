@@ -25,7 +25,7 @@ const SideBar = props => {
 			{props.status === 'anonym' ? (
 				<SideSignIn />
 			) : props.status === 'reader' ? (
-				<AddToPrefer book={props.title} />
+				<AddToPrefer book={props.book} />
 			) : (
 				<Link className={s.btn} to={`/book-single/${props.title}`}>
 					Редагувати

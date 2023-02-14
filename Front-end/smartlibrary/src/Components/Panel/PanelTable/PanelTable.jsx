@@ -13,9 +13,22 @@ import Affiliates from './Affiliates/Affiliates';
 import News from './News/News';
 import ReportsToTheNews from './ReportsToTheNews/ReportsToTheNews';
 import Visitors from './Visitors/Visitors';
-import CreateEventReport from './EventReports/CreateEventReport/CreateEventReport';
+import {useEffect} from "react";
+import AdminService from "../../../services/AdminService";
+import {useDispatch} from "react-redux";
+import {FetchOrders, FetchOrdersSuccess} from "../../../redux/actions/orderActions";
 
 const PanelTable = props => {
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(FetchOrders())
+		AdminService.GetOrders().then((res) => {
+			dispatch(FetchOrdersSuccess(res.data))
+		});
+	});
+
 	return (
 		<div className={s.container}>
 			<div className={s.table}>

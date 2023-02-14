@@ -6,7 +6,7 @@ export default class UserService {
 	}
 
 	static async CreateOrder(book, user, delivery_date) {
-		return await  $api.post('/orders/', {
+		return await $api.post('/orders/', {
 			"book": book,
 			"user": user,
 			"delivery_date": delivery_date

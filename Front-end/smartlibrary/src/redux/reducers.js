@@ -106,3 +106,20 @@ export const ReadersReducer = (
 		}
 	}
 };
+
+export const OrdersReducer = (
+	state = { orders: [], loading: false },
+	action
+) => {
+	switch (action.type) {
+		case 'FETCH_ORDERS': {
+			return { ...state, loading: true }
+		}
+		case 'FETCH_ORDERS_SUCCESS': {
+			return { orders: action.payload, loading: false }
+		}
+		default: {
+			return state;
+		}
+	}
+}

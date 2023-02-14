@@ -2,7 +2,7 @@ import { combineReducers, legacy_createStore as createStore } from 'redux';
 import {
 	BooksReducer,
 	CategoriesReducer,
-	MessageReducer,
+	MessageReducer, OrdersReducer,
 	ReadersReducer,
 	StatusReducer,
 } from './reducers';
@@ -13,6 +13,7 @@ const rootReducer = combineReducers({
 	categories: CategoriesReducer,
 	books: BooksReducer,
 	readers: ReadersReducer,
+	orders: OrdersReducer,
 });
 
 export const store = createStore(rootReducer);

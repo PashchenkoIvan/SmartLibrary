@@ -2,9 +2,12 @@ import { useEffect, useState } from 'react';
 
 import f from '../../../../../assets/styles/form.module.css';
 import axios from "axios";
+import {useDispatch} from "react-redux";
+import {SetMessage} from "../../../../../redux/actions/messageActions";
 
 const NewsForm = props => {
 	const [news, setNews] = useState(props.news);
+	const dispatch = useDispatch();
 	useEffect(() => {
 		setNews(news);
 	}, [news]);
@@ -16,7 +19,7 @@ const NewsForm = props => {
 				e.preventDefault();
 				console.log(news);
 				axios.post("https://ualib-orion.herokuapp.com/api/v1/events/?format=api", news)
-					.then(res => console.log(res))
+					.then(res => dispatch(SetMessage('Успішно додано', 'success')))
 				// Promise.resolve(
 				// 	() => {
 				// 		switch (props.type) {

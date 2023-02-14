@@ -13,34 +13,41 @@ import {useSelector} from "react-redux";
 
 const ApplicationsTable = (props) => {
 
-	const readers = useSelector(state => state.readers.readers);
-	const books = useSelector(state => state.books.books);
-	const [orderElements, setOrderElements] = useState([])
+	const readers = useSelector(state => state.readers);
+	const books = useSelector(state => state.books);
+	const orders = useSelector(state => state.orders);
 
-	useEffect(() => {
-		if (readers.length > 0 && books.length > 0) {
-			console.log(readers, books);
-			AdminService.GetOrders().then((orders) => {
-				setOrderElements(
-						orders.data.map(a => {
+	return (
+		<Table>
+			<div name='applications'>
+				<div name='keys-bar'>
+					<span>ПІБ ({orders.orders.length})</span>
+					<span>Книга</span>
+					<span>Дата</span>
+					<span>Інвентарний номер</span>
+					<span>QR-код</span>
+				</div>
+				<div name='table'>{
+					!books.loading && !readers.loading && !orders.loading && (
+						orders.orders.map(a => {
 							return (
 								<div>
 									<div>
-										<Link
-											to={`/reader/${a.user}`}
-										>
-											{readers.filter(r => r.id == a.user)[0].full_name}
+										<Link to={`/reader/${a.user}`}>
+											{readers.readers.filter(r => r.id === a.user)[0]?.full_name}
 										</Link>
 									</div>
 									<div>
 										<Link
 											to={`/book-single/${a.book}`}
 										>
-											{books.filter(b => b.id === a.book)[0].title}
+											{books.books.filter(b => b.id === a.book)[0]?.title}
 										</Link>
 									</div>
 									<div>{new Date(Date.parse(a.order_date)).toLocaleString().slice(0, -3)}</div>
-									<div>{books.filter(b => b.id === a.book)[0].inventory_num}</div>
+									<div>
+										{books.books.filter(b => b.id === a.book)[0]?.inventory_num}
+									</div>
 									<Popup
 										trigger={
 											<div>
@@ -52,7 +59,9 @@ const ApplicationsTable = (props) => {
 										{close => (
 											<>
 												<div className={sp.header}>
-													<span>{readers.filter(r => r.id === a.user)[0].full_name}</span>
+													<span>
+														{readers.readers.filter(r => r.id === a.user)[0]?.full_name}
+													</span>
 													<button className={sp.closeBtn} onClick={close}>
 														×
 													</button>
@@ -69,22 +78,8 @@ const ApplicationsTable = (props) => {
 								</div>
 							)
 						})
-				);
-			})
-		}
-	}, [readers, books])
-
-	return (
-		<Table>
-			<div name='applications'>
-				<div name='keys-bar'>
-					<span>ПІБ ({orderElements.length})</span>
-					<span>Книга</span>
-					<span>Дата</span>
-					<span>Інвентарний номер</span>
-					<span>QR-код</span>
-				</div>
-				<div name='table'>{orderElements}</div>
+					)
+				}</div>
 			</div>
 		</Table>
 	);

@@ -11,6 +11,7 @@ const Row = props => {
 				category={props.book.book.category}
 				books={props.books}
 				status={props.status}
+				book={props.book}
 			/>
 		</div>
 	);
