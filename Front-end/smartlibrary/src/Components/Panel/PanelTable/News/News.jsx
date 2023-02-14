@@ -8,7 +8,6 @@ import axios from "axios";
 
 
 const News = props => {
-	// const [news, setNews] = useState(props.news);
 	const [news, setNews] = useState([]);
 	useEffect(() => {
 		axios.get("https://ualib-orion.herokuapp.com/api/v1/events/")
